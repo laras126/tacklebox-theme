@@ -1,0 +1,25 @@
+{% extends 'pages/page.twig' %}
+
+{% block before_content %}
+	{% set start = post.class_start_date %}
+	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
+		<div class="alert alert--cta">
+			<h4>Upcoming class:</h4>
+			<p>{{post.class_day_and_time}}: {{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+			<a class="btn btn--cta">Register Now!</a>
+		
+			{% if class_location == in_person %}
+				<p>This class is <strong>in person</strong> in the Flatiron District of Manhattan. Precise location details will be provided upon registration.</p>
+			{% else %}
+				<p>This class is <strong>remote</strong> and will be held via Google Hangouts. Details will be provided upon registration.</p>
+			{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block after_content %}
+	<h3>Lessons</h3>
+	{% for post in lessons %}
+		{% include 'teases/_tease-lesson.twig' %}
+	{% endfor %}
+{% endblock %}

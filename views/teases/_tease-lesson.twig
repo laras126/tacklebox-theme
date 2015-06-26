@@ -1,0 +1,12 @@
+{% extends "teases/tease.twig" %}
+
+{% block content %}
+	<h3><a href="{{post.link}}">{{post.title}}</a></h3>
+	<p>{{post.header_tagline}}</p>
+	<a href="{{post.link}}" class="btn btn--readmore">Read more...</a>
+
+	{% if post.thumbnail.src %}
+		<img src="{{post.thumbnail.src}}" />
+	{% endif %}
+
+{% endblock %}

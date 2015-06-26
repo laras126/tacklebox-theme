@@ -1,3 +1,22 @@
-<h5><p><a href="{{item.source_url}}" target="blank">{{item.post_title}}</a>{{item.source_author ? ' <span class="meta">by ' ~ item.source_author ~ '</span>'}}</h5>
-{{item.source_publication ? '<p>' ~ item.source_publication ~ '</p>'}}
+<h5><a href="{{item.source_url}}" target="blank">{{item.post_title}}</a></h5>
+
+{% if item.source_author %}
+	<p>
+	{{item.source_author_link ? 'By <a href="' ~ item.source_author_link ~ '" target="blank">'}}
+		{{item.source_author}}
+	{{item.source_author_link ? '</a>'}}
+	{{item.source_publication ? '' : '<p>'}}
+{% endif %}
+
+{% if item.source_publication %}
+	{{item.source_author ? '' : '<p>'}}
+	{{item.source_publication ? 'on '}}{{item.source_publication_link ? '<a href="' ~ item.source_publication_link ~ '" target="blank">'}}
+		{{item.source_publication}}
+	{{item.source_publication_link ? '</a>'}}
+	</p>
+{% endif %}
+
 {{item.source_blurb ? '<p>' ~ item.source_blurb ~ '</p>'}}
+
+{# TODO: Make this work #}
+{# {% include 'utility/edit-link.twig' with { post : item } %} #}
