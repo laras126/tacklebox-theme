@@ -1,8 +1,10 @@
 {% extends 'pages/page.twig' %}
 
 {% block before_content %}
+
 	{% set start = post.class_start_date %}
 	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
+
 		<div class="alert alert--cta">
 			<h4>Upcoming class:</h4>
 			<p>{{post.class_day_and_time}}: {{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
@@ -14,7 +16,9 @@
 				<p>This class is <strong>remote</strong> and will be held via Google Hangouts. Details will be provided upon registration.</p>
 			{% endif %}
 		</div>
+
 	{% endif %}
+
 {% endblock %}
 
 {% block after_content %}

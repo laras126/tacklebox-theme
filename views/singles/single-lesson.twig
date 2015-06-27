@@ -1,1 +1,6 @@
 {% extends 'singles/single.twig' %}
+
+{% block after_content %}
+	<p>&larr;{{post.prev.title}}</p>
+	<p>{{post.next.title}}&rarr;</p>	
+{% endblock %}
