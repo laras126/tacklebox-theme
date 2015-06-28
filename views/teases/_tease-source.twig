@@ -1,7 +1,7 @@
-<h5><a href="{{item.source_url}}" target="blank">{{item.post_title}}</a></h5>
+<h5 class="tease__title--source"><a href="{{item.source_url}}" target="blank">{{item.post_title}}</a></h5>
 
 {% if item.source_author %}
-	<p>
+	<p class="tease__meta tease__meta--source">
 	{{item.source_author_link ? 'By <a href="' ~ item.source_author_link ~ '" target="blank">'}}
 		{{item.source_author}}
 	{{item.source_author_link ? '</a>'}}
@@ -16,7 +16,12 @@
 	</p>
 {% endif %}
 
-{{item.source_blurb ? '<p>' ~ item.source_blurb ~ '</p>'}}
+{{item.source_blurb ? '<p class="tease__blurb--source">' ~ item.source_blurb ~ '</p>'}}
+
+{% for type in item.terms('category') %}
+	<p>{{type.name}}</p>
+	asdasd
+{% endfor %}
 
 {# TODO: Make this work #}
 {# {% include 'utility/edit-link.twig' with { post : item } %} #}

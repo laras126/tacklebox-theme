@@ -1,6 +1,11 @@
 {% extends 'singles/single.twig' %}
 
 {% block after_content %}
-	<p>&larr;{{post.prev.title}}</p>
-	<p>{{post.next.title}}&rarr;</p>	
+	{% if post.next %}
+		<a href="{{post.next.link}}">&larr;{{post.next.title}}</a>	
+	{% endif %}
+	{% if post.prev %}
+		<a href="{{post.prev.link}}">{{post.prev.title}}&rarr;</a>
+	{% endif %}
+	{% include 'footers/_footer-lesson.twig' %}
 {% endblock %}

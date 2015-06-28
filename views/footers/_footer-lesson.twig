@@ -1,0 +1,10 @@
+{% extends 'footers/footer.twig' %}
+
+{% block footer_content %}
+	<h5>Other lessons in this class:</h5>	
+	<ul>
+		{% for l in related_lessons %}
+			<li><a href="{{l.link}}">{{l.title}}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

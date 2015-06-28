@@ -3,19 +3,12 @@
 {% block header_content %}
 	
 	{% set display = post.header_display %}
-	{% for l in lessons %}
+	{% for l in related_lessons %}
 		{% if l.title == post.title %}<p class="title--support">Lesson {{loop.index}}</p>{% endif %}
+			
 	{% endfor %}
-	<h1 class="header-title">{{post.post_title}}</h1>
-
-	{% if display == 'image' %}
-
-		{{post.header_image_desktop}}
-		{{post.header_image_tablet}}
-		{{post.header_image_mobile}}
-
-	{% endif %}
-
+	{# <pre>{{ dump(related_lessons) }}</pre> #}
+	<h1 class="title title--header">{{post.post_title}}</h1>
 	<p class="lead lead--header">{{post.header_tagline}}</p>
 	<p class="summary summary--header">{{post.header_summary}}</p>
 

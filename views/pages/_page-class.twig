@@ -1,6 +1,6 @@
 {% extends 'pages/page.twig' %}
 
-{% block before_content %}
+{% block before_content %}	
 
 	{% set start = post.class_start_date %}
 	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
