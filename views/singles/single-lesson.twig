@@ -1,53 +1,95 @@
 {% extends 'singles/single.twig' %}
 
 {% block before_content %}
-	{% include 'headers/_header-lesson.twig' with { class : 'header-lesson header-single' } %}
+	<header class="header header-lesson header-single">
+		<div class="contain contain-lg text-center">
+
+			{% if post.header_display == 'image' %}
+				{{post.header_image_desktop}}
+				{{post.header_image_tablet}}
+				{{post.header_image_mobile}}
+			{% elseif post.header_display == 'svg' %}
+				{% include 'utility/svg.twig' with { file : post.header_svg, prefix : 'shape' } %}
+			{% endif %}	
+			
+			{% for l in related_lessons %}
+				{% if l.title == post.title %}<p class="title-support">Lesson {{loop.index}}</p>{% endif %}			
+			{% endfor %}
+			{% for t in post.terms('class') %}{{t.name}}{% endfor %}
+
+			<h1 class="title title-lesson">{{post.post_title}}</h1>
+		</div>
+	</header>
 {% endblock %}
 
 {% block content %}
 
 	{% if access %}
 		
-		{# {{post.video}}
+		<div class="contain contain-lg">
+			<p class="lead lead-header text-center">{{post.header_tagline}}</p>
+		</div>	
 
-		<h3>Learning Outcomes</h3>
-		{{post.learning_goals|wpautop}}
+		<div class="contain contain-lg lesson-video">
+			{# {{post.video}} #}
+		</div>
 
-		<h3>Tutoring Agenda</h3>
-		{{post.tutoring_agenda|wpautop}}
-		<a href="" class="btn btn--cta">Purchase Hours</a>
-		or <a href="" class="btn btn--cta">Use Hours</a>
+		<section class="contain contain-md" id="lesson-content">
 
-		<h3>Readings</h3>
-		
-		{% for post in post.get_field('readings') %}
-			{% include 'teases/_tease-source.twig' %}
-		{% endfor %}
+			<p class="summary summary-header">{{post.header_summary}}</p>
 
-		<h3>Tutorials</h3>
-		
-		{% for post in post.get_field('tutorials') %}
-			{% include 'teases/_tease-source.twig' %}
-		{% endfor %}		
-		
-		<h3>Assignment</h3>
-		{{assigment}}
+			{# Blocks for additional Lesson content #}
+			{% for block in post.get_field('blocks') %} 
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
+			
+			<h3>Learning Goals</h3>
+			{{post.learning_goals|wpautop}}
 
-	
-	<pre>
-		<h2>holding blocks</h2>
-	</pre> #}
-		{% for block in post.get_field('blocks') %} 
-			{% include 'blocks/block-logic.twig' %}
-		{% endfor %}
+			<h3>Tutoring Agenda</h3>
+			{{post.tutoring_agenda|wpautop}}
+			<a href="" class="btn btn-cta">Schedule Tutoring</a>
+
+		</section> <!-- /#lesson-content -->
+
+		<section class="contain contain-md" id="to-do">
+
+			{% if post.assignments %}
+				<h3>Assignments</h3>
+				{{post.assignments_summary|wpautop}}
+				<ul class="block_list-list">
+				{% for item in post.get_field('assignments') %}
+					<li>
+						<h4>{{item.item_title}}</h4>
+						{{item.item_description|wpautop}}
+					</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			<h3>Tutorials</h3>
+			{{post.tutorials_summary|wpautop}}
+			{% for post in post.get_field('tutorials') %}
+				{% include 'teases/_tease-source.twig' %}
+			{% endfor %}		
+
+			<h3>Readings</h3>
+			{{post.readings_summary|wpautop}}
+			{% for post in post.get_field('readings') %}
+				{% include 'teases/_tease-source.twig' %}
+			{% endfor %}
+
+		</section> <!-- /#to-do -->
 
 	{% else %}
-		<div class="alert alert-cta">
-			<div class="contain contain-md">
-				<p>Does this sound like a class you'd like? Register for a monthly subscription to have access to class content and to schedule private office hours.</p>
+
+		<div class="contain contain-md">
+			<div class="alert alert-cta">
+				<p>Does this sound like a class you'd like? Register for the course to see the content and to get a starter hour of tutoring with me, Lara!</p>
 				<a href="{{registration_page.guid}}" class="btn btn--cta">Register for the Tacklebox</a>
 			</div>
 		</div>
+	
 	{% endif %}
 
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends 'base.twig' %}
 
 {% block before_content %}
-	{% include 'headers/_header-archive.twig' with { class : 'header--archive' } %}
+	{% include 'headers/_header-archive.twig' with { class : 'header-archive' } %}
 
-	<div class="filter-panel">
+	{# <div class="filter-panel">
 		
 	<h5>Type:</h5>
 	<ul>
@@ -26,12 +26,14 @@
 	{% endfor %}
 	</ul>
 
-	</div>
+	</div> #}
 
 {% endblock %}
 
 {% block content %}
-	{% for post in posts %}
-		{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
-	{% endfor %}
+	<div class="contain contain-lg contain-flex">
+		{% for post in posts %}
+			{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+		{% endfor %}
+	</div>
 {% endblock %}

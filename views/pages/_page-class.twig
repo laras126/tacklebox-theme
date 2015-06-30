@@ -3,32 +3,51 @@
 {% block before_content %}	
 
 	{# TODO: This is redundant to what's already on the page.twig #}
-	{% include 'headers/_header-page.twig' with { class: 'header header--page' } %}
+	{% include 'headers/_header-page.twig' with { class: 'header header-page' } %}
 
 	{% set start = post.class_start_date %}
 	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
+		
 		<div class="contain contain-md">
+		
 			<div class="alert alert-cta">
-				<h4>Upcoming class:</h4>
-				<p>{{post.class_day_and_time}}: {{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
-				<a class="btn btn-cta">Register Now!</a>
-			
-				{% if class_location == in_person %}
-					<p>This class is <strong>in person</strong> in the Flatiron District of Manhattan. Precise location details will be provided upon registration.</p>
-				{% else %}
-					<p>This class is <strong>remote</strong> and will be held via Google Hangouts. Details will be provided upon registration.</p>
-				{% endif %}
+				<div class="alert-img">
+					{# Set the SVG icon  #}
+					{% if class_location == in_person %}
+						{% set svg_file = 'hook' %}
+					{% else %}
+						{% set svg_file = 'skype' %}
+					{% endif %}
+
+					{% include 'utility/svg.twig' with { file : svg_file, prefix : 'icon' } %}
+				</div>
+				<div class="alert-content">
+					<h4 class="alert-title">Upcoming class!</h4>
+					
+					<p>{{post.class_day_and_time}}: {{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+
+					<a class="btn btn-cta">Grab a spot!</a>
+					
+					{% if class_location == in_person %}
+						<p class="meta-light">This class is <strong>in person</strong> in the Flatiron District of Manhattan. Precise location details will be provided upon registration.</p>
+					{% else %}
+						<p class="meta-light">This class is <strong>remote</strong> and will be held via Google Hangouts. Details will be provided upon registration.</p>
+					{% endif %}
+				</div>
 			</div>
+
 		</div>
 	{% endif %}
 
 {% endblock %}
 
 {% block after_content %}
-	<div class="contain contain-md">
-		<h3>Lessons</h3>
-		{% for post in lessons %}
-			{% include 'teases/_tease-lesson.twig' %}
-		{% endfor %}
-	</div>
+	{% if lessons %}
+		<div class="contain contain-md">
+			<h3>Lessons</h3>
+			{% for post in lessons %}
+				{% include 'teases/_tease-lesson.twig' %}
+			{% endfor %}
+		</div>
+	{% endif %}
 {% endblock %}

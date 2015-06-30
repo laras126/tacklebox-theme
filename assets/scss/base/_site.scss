@@ -1,0 +1,20 @@
+
+// ----
+// Base styles
+// ----
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	word-wrap: break-word;
+	
+	@include bp(small) {
+		word-wrap: normal;
+	}
+}
+
+img {
+	max-width: 100%;
+}
