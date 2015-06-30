@@ -3,12 +3,10 @@
 
 // Routes for Courses
 
-Timber::add_route(':class/lessons/:name', function($params){
-    $query = 'title='.$params['name'].'&class='.$params['class'];
-    Timber::load_template('single.php', $query);
-});
-
-
+// Timber::add_route(':class/lessons/:name', function($params){
+//     $query = 'title='.$params['name'].'&class='.$params['class'];
+//     Timber::load_template('single.php', $query);
+// });
 
 
 
@@ -26,29 +24,29 @@ function tbx_custom_types() {
 	// ----
 
 	$labels = array(
-		'name'                => _x( 'Sources', 'Post Type General Name', 'tbx' ),
-		'singular_name'       => _x( 'Source', 'Post Type Singular Name', 'tbx' ),
-		'menu_name'           => __( 'Sources', 'tbx' ),
-		'parent_item_colon'   => __( 'Parent Source:', 'tbx' ),
-		'all_items'           => __( 'All Sources', 'tbx' ),
-		'view_item'           => __( 'View Source', 'tbx' ),
-		'add_new_item'        => __( 'Add New Source', 'tbx' ),
+		'name'                => _x( 'Resources', 'Post Type General Name', 'tbx' ),
+		'singular_name'       => _x( 'Resource', 'Post Type Singular Name', 'tbx' ),
+		'menu_name'           => __( 'Resources', 'tbx' ),
+		'parent_item_colon'   => __( 'Parent Resource:', 'tbx' ),
+		'all_items'           => __( 'All Resources', 'tbx' ),
+		'view_item'           => __( 'View Resource', 'tbx' ),
+		'add_new_item'        => __( 'Add New Resource', 'tbx' ),
 		'add_new'             => __( 'Add New', 'tbx' ),
-		'edit_item'           => __( 'Edit Source', 'tbx' ),
-		'update_item'         => __( 'Update Source', 'tbx' ),
-		'search_items'        => __( 'Search Source', 'tbx' ),
+		'edit_item'           => __( 'Edit Resource', 'tbx' ),
+		'update_item'         => __( 'Update Resource', 'tbx' ),
+		'search_items'        => __( 'Search Resource', 'tbx' ),
 		'not_found'           => __( 'Not found', 'tbx' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'tbx' ),
 	);
 	$rewrite = array(
-		'slug'                => 'sources',
+		'slug'                => 'resources',
 		'with_front'          => true,
 		'pages'               => true,
 		'feeds'               => true,
 	);
 	$args = array(
 		'label'               => __( 'source', 'tbx' ),
-		'description'         => __( 'Sources attached to posts.', 'tbx' ),
+		'description'         => __( 'Resources attached to posts.', 'tbx' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title' ),
 		'taxonomies'          => array( 'source_type', 'category' ),
@@ -63,7 +61,7 @@ function tbx_custom_types() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
 	);
@@ -97,7 +95,7 @@ function tbx_custom_types() {
 	);
 	
 	$rewrite = array(
-		'slug'                => 'sources',
+		'slug'                => 'source-type',
 		'with_front'          => true,
 		'pages'               => true,
 		'feeds'               => true,
@@ -241,5 +239,16 @@ function tbx_custom_types() {
 
 }
 add_action( 'init', 'tbx_custom_types', 0 );
+
+
+function tbx_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'lesson', 'source'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'tbx_add_custom_types' );
 
 ?>

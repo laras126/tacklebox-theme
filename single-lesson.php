@@ -26,7 +26,6 @@ $lesson_args = array(
 
 $context = Timber::get_context();
 $post = Timber::query_post();
-$context['source_types'] = Timber::get_terms('source_type');
 $context['post'] = $post;
 $context['comment_form'] = TimberHelper::get_comment_form();
 $context['related_lessons'] = Timber::get_posts($lesson_args);

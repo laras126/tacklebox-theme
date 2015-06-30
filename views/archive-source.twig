@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% block before_content %}
+	{% include 'headers/_header-archive.twig' with { class : 'header--archive' } %}
+
+	<div class="filter-panel">
+		
+	<h5>Type:</h5>
+	<ul>
+	{% for type in types %}
+		<li><a href="{{type.link}}">{{type.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	<h5>Level:</h5>
+	<ul>
+	{% for level in levels %}
+		<li><a href="{{level.link}}">{{level.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	<h5>Category:</h5>
+	<ul>
+	{% for cat in categories %}
+		<li><a href="{{cat.link}}">{{cat.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	</div>
+
+{% endblock %}
+
+{% block content %}
+	{% for post in posts %}
+		{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+	{% endfor %}
+{% endblock %}

@@ -1,11 +1,60 @@
 {% extends 'singles/single.twig' %}
 
+{% block before_content %}
+	{% include 'headers/_header-lesson.twig' with { class : 'header-lesson header-single' } %}
+{% endblock %}
+
+{% block content %}
+
+	{% if access %}
+		
+		{# {{post.video}}
+
+		<h3>Learning Outcomes</h3>
+		{{post.learning_goals|wpautop}}
+
+		<h3>Tutoring Agenda</h3>
+		{{post.tutoring_agenda|wpautop}}
+		<a href="" class="btn btn--cta">Purchase Hours</a>
+		or <a href="" class="btn btn--cta">Use Hours</a>
+
+		<h3>Readings</h3>
+		
+		{% for post in post.get_field('readings') %}
+			{% include 'teases/_tease-source.twig' %}
+		{% endfor %}
+
+		<h3>Tutorials</h3>
+		
+		{% for post in post.get_field('tutorials') %}
+			{% include 'teases/_tease-source.twig' %}
+		{% endfor %}		
+		
+		<h3>Assignment</h3>
+		{{assigment}}
+
+	
+	<pre>
+		<h2>holding blocks</h2>
+	</pre> #}
+		{% for block in post.get_field('blocks') %} 
+			{% include 'blocks/block-logic.twig' %}
+		{% endfor %}
+
+	{% else %}
+		<div class="alert alert-cta">
+			<div class="contain contain-md">
+				<p>Does this sound like a class you'd like? Register for a monthly subscription to have access to class content and to schedule private office hours.</p>
+				<a href="{{registration_page.guid}}" class="btn btn--cta">Register for the Tacklebox</a>
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}
+
 {% block after_content %}
-	{% if post.next %}
-		<a href="{{post.next.link}}">&larr;{{post.next.title}}</a>	
-	{% endif %}
-	{% if post.prev %}
-		<a href="{{post.prev.link}}">{{post.prev.title}}&rarr;</a>
-	{% endif %}
-	{% include 'footers/_footer-lesson.twig' %}
+	
+	{% include 'navs/_nav-prevnext.twig' with { class : 'nav-prevnext', contain : 'contain-lg' } %}
+
+	{% include 'footers/_footer-lesson.twig' with { class : 'footer-lesson' } %}
 {% endblock %}

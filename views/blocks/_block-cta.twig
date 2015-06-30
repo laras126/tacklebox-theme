@@ -4,11 +4,12 @@
 
 	<div class="alert alert--cta">
 		<p class="lead lead--cta">{{block.cta_text}}</p>
-		{% if block.cta_btn_url %}
-			<a href="{{block.cta_btn_url}}" class="btn btn--cta">{{block.cta_btn_text}}</a>
+		{% if post.post_type == 'lesson' %}
+			<a href="" class="btn btn--cta">Purchase Hours</a> or <a href="" class="btn btn--cta">Use Hours</a>
 		{% else %}
-			{# TODO: Switch this link! #}
-			<a href="http://notlaura.com" class="btn btn--cta">Schedule Office Hours</a>
+			{% if block.cta_btn_url %}
+				<a href="{{block.cta_btn_url}}" class="btn btn--cta">{{block.cta_btn_text}}</a>
+			{% endif %}
 		{% endif %}
 	</div>
 

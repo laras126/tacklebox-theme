@@ -1,0 +1,11 @@
+{% extends 'pages/page.twig' %}
+
+{% block content %}
+	{% for item in sources %}
+		{% include 'teases/_tease-source.twig' %}
+	{% endfor %}
+{% endblock %}
+
+{% block after_content %}
+
+{% endblock %}
