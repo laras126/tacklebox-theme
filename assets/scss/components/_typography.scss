@@ -2,19 +2,19 @@
 /// @group Typography
 
 html {
-	font-size: $size-base;
+	font-size: $size-contain;
 	line-height: $line-height-base;
 	font-weight: $font-weight-base;
 
-	@include bp(small) {
+	@include bp(sm) {
 		font-size: $size-contain-sm;
 	}
 
-	@include bp(small) {
+	@include bp(md) {
 		font-size: $size-contain-md;
 	}
 
-	@include bp(small) {
+	@include bp(lg) {
 		font-size: $size-contain-lg;
 	}
 }
@@ -23,6 +23,16 @@ body {
 	font-family: $font-body;
 	font-size: $size-base; 
 	color: $color-text-dark;
+
+	.wf-loading & {
+		font-family: $font-body-fallback;
+		
+		h1, h2, h3, h4, h5, h6 {
+			font-family: $font-heading-fallback;
+			font-weight: 500;
+			letter-spacing: 1px;
+		}
+	}
 }
 
 a {
@@ -52,22 +62,18 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: $size-h1;
-	margin-top: $size-h3;
 }
 
 h2 {
 	font-size: $size-h2;
-	// margin-top: $size-h3;
 }
 
 h3 {
 	font-size: $size-h3;
-	// margin-top: $size-h3;
 }
 
 h4 { 
 	font-size: $size-h4;
-	// margin-top: $size-h4;
 }
 
 h5 {
@@ -118,6 +124,9 @@ p {
 	margin-bottom: $size-xsml;
 }
 
+ul, ol {
+	padding-left: $size-base;
+}
 
 /// @group typography-helpers
 /// @content [Semantic classes for typography. These may be extended in their associated partial.]

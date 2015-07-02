@@ -1,0 +1,16 @@
+
+
+/// @group [lists]
+/// @content [Major and Minor list styles]
+
+// Should just be li, .tease is slightly too specific
+.list--major {
+	li, .tease {
+	@include card;
+	}
+}
+
+
+.list--minor li {
+	
+}

@@ -2,11 +2,11 @@
 
 {% block content %}
 	
-	<p class="title--support">Lesson {{loop.index}}</p>
-	<h3 class="title--tease"><a href="{{post.link}}">{{post.title}}</a></h3>
+	<p class="helper-support">Lesson {{loop.index}}</p>
+	<h4 class="title-tease--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
 	<p>{{post.header_tagline}}</p>
 
-	<a href="{{post.link}}" class="btn btn--readmore">Read more...</a>
+	<a href="{{post.link}}" class="btn btn-readmore">Read more...</a>
 	
 	{% if post.thumbnail.src %}
 		<img src="{{post.thumbnail.src}}" />

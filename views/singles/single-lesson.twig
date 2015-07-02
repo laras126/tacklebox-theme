@@ -2,7 +2,7 @@
 
 {% block before_content %}
 	<header class="header header-lesson header-single">
-		<div class="contain contain-lg text-center">
+		<div class="contain contain-md">
 
 			{% if post.header_display == 'image' %}
 				{{post.header_image_desktop}}
@@ -13,11 +13,11 @@
 			{% endif %}	
 			
 			{% for l in related_lessons %}
-				{% if l.title == post.title %}<p class="title-support">Lesson {{loop.index}}</p>{% endif %}			
+				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}			
 			{% endfor %}
 			{% for t in post.terms('class') %}{{t.name}}{% endfor %}
+			<h1 class="title-single--lesson">{{post.post_title}}</h1>
 
-			<h1 class="title title-lesson">{{post.post_title}}</h1>
 		</div>
 	</header>
 {% endblock %}
@@ -26,59 +26,66 @@
 
 	{% if access %}
 		
-		<div class="contain contain-lg">
-			<p class="lead lead-header text-center">{{post.header_tagline}}</p>
+		<div class="contain contain-md">
+			<p class="lead lead-header">{{post.header_tagline}}</p>
+			<p class="summary summary-header">{{post.header_summary}}</p>
 		</div>	
 
-		<div class="contain contain-lg lesson-video">
-			{# {{post.video}} #}
+		<div class="contain contain-lg media-enhanced">
+			{{post.video}}
 		</div>
 
 		<section class="contain contain-md" id="lesson-content">
-
-			<p class="summary summary-header">{{post.header_summary}}</p>
-
 			{# Blocks for additional Lesson content #}
 			{% for block in post.get_field('blocks') %} 
 				{% include 'blocks/block-logic.twig' %}
 			{% endfor %}
 			
-			<h3>Learning Goals</h3>
+			<h3 class="title-section">Learning Goals</h3>
 			{{post.learning_goals|wpautop}}
 
-			<h3>Tutoring Agenda</h3>
-			{{post.tutoring_agenda|wpautop}}
-			<a href="" class="btn btn-cta">Schedule Tutoring</a>
-
+			{% if post.tutoring_agenda %}
+			<h3 class="title-section">Tutoring Agenda</h3>
+				{{post.tutoring_agenda|wpautop}}
+				<a href="" class="btn btn-cta">Schedule Tutoring</a>
+			{% endif %}
 		</section> <!-- /#lesson-content -->
 
-		<section class="contain contain-md" id="to-do">
-
-			{% if post.assignments %}
-				<h3>Assignments</h3>
-				{{post.assignments_summary|wpautop}}
-				<ul class="block_list-list">
-				{% for item in post.get_field('assignments') %}
+		<section id="to-do">
+			{% if post.get_field('assignment_blocks') %}
+				<div class="contain contain-md">
+					<h3 class="title-section">Assignments</h3>
+					{{post.assignments_summary|wpautop}}
+				</div>
+				{% for block in post.get_field('assignment_blocks') %}
+					{% include 'blocks/block-logic.twig' %}
+				{% endfor %}
+				{# <ul class="block_list-list"> #}
+				{# {% for item in post.get_field('assignments') %}
 					<li>
 						<h4>{{item.item_title}}</h4>
 						{{item.item_description|wpautop}}
 					</li>
-				{% endfor %}
-				</ul>
+				{% endfor %} #}
+				{# </ul> #}
 			{% endif %}
+			<div class="contain contain-md">
+				<h3 class="title-section">Tutorials</h3>
+				{{post.tutorials_summary|wpautop}}
+				<div class="contain-flex bleed list--major">
+					{% for post in post.get_field('tutorials') %}
+						{% include 'teases/_tease-source.twig' %}
+					{% endfor %}		
+				</div>
 
-			<h3>Tutorials</h3>
-			{{post.tutorials_summary|wpautop}}
-			{% for post in post.get_field('tutorials') %}
-				{% include 'teases/_tease-source.twig' %}
-			{% endfor %}		
-
-			<h3>Readings</h3>
-			{{post.readings_summary|wpautop}}
-			{% for post in post.get_field('readings') %}
-				{% include 'teases/_tease-source.twig' %}
-			{% endfor %}
-
+				<h3 class="title-section">Readings</h3>
+				{{post.readings_summary|wpautop}}
+				<div class="contain-flex bleed list--major">
+					{% for post in post.get_field('readings') %}
+						{% include 'teases/_tease-source.twig' %}
+					{% endfor %}
+				</div>
+			</div>
 		</section> <!-- /#to-do -->
 
 	{% else %}
@@ -86,7 +93,7 @@
 		<div class="contain contain-md">
 			<div class="alert alert-cta">
 				<p>Does this sound like a class you'd like? Register for the course to see the content and to get a starter hour of tutoring with me, Lara!</p>
-				<a href="{{registration_page.guid}}" class="btn btn--cta">Register for the Tacklebox</a>
+				<a href="{{registration_page.guid}}" class="btn btn-cta">Register for the Tacklebox</a>
 			</div>
 		</div>
 	

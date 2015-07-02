@@ -9,7 +9,8 @@
 
 body {
 	word-wrap: break-word;
-	
+	background-color: $color-body-bkgd;
+
 	@include bp(small) {
 		word-wrap: normal;
 	}

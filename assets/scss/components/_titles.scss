@@ -2,23 +2,47 @@
 
 }
 
+.title-tease--source {
+	margin-top: $size-h4;
+
+	.icon {
+		fill: $color-accent-med;
+		display: inline-block;
+	}
+}
+
+.title-tease--lesson {
+	margin-top: 0;
+}
+
 .title-header {
 
 }
 
-.title-single {
+.title-section {
+	margin-bottom: $size-h4;
+	font-size: $size-h2;
+	border-top: $border-accent;
+	padding-top: $size-base;
+}
 
+.title-single,
+.title-page {
+	// text-align: center;
+}
+
+.title-single--lesson {
+	margin-top: 0;
 }
 
 .title-page {
 
 }
 
-.title-site {
-	font-size: $size-h3;
+.title-cta {
+	margin-top: $size-base;
 }
 
-.title-support {
-	@include upperspace();
-	font-size: $size-sml;
+.title-site {
+	font-size: $size-h3;
 }

@@ -28,7 +28,14 @@
 }
 
 
-
+@mixin card($bkgd: $color-cta-bkgd) {
+    background-color: $bkgd;
+    border: 3px solid $color-accent-vlight;
+    box-shadow: 0 0 2px $color-accent-med;
+    padding-left: $size-base; 
+    padding-right: $size-base; 
+    padding-bottom: $size-base; 
+}
 
 // ----
 // Layout

@@ -31,7 +31,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="contain contain-lg contain-flex">
+	<div class="contain contain-lg contain-flex list--major">
 		{% for post in posts %}
 			{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
 		{% endfor %}

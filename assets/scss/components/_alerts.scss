@@ -15,7 +15,7 @@ $alert-colors: (
 .alert {
     padding: $size-base;
     @include bleed;
-    display: flex;
+    border: $border-accent;
 
     @each $name, $colors in $alert-colors {
         $bgcolor: nth($colors, 1);
@@ -23,7 +23,7 @@ $alert-colors: (
 
         &-#{$name} {
             // TODO: Need to deal with hover styles.
-            background-color: lighten($bgcolor, 30%);
+            background-color: $bgcolor;
             color: $fontcolor;
         }
     }
@@ -31,14 +31,18 @@ $alert-colors: (
 
 .alert-img {
     flex: 1 0;
+    
+    .shape {
+        align-self: center;
+    }
 }
 
-.alert-cta .icon {
-    fill: $color-text-light;
+.alert-cta {
+    background-color: $color-cta-bkgd;
 }
 
 .alert-content {
-    flex: 2 0;
+    flex: 3 0;
 }
 
 .alert-title {
