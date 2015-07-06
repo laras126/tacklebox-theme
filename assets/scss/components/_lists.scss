@@ -5,8 +5,9 @@
 
 // Should just be li, .tease is slightly too specific
 .list--major {
-	li, .tease {
-	@include card;
+	& > li, .tease {
+		@include card;
+		margin-bottom: $size-sml;
 	}
 }
 

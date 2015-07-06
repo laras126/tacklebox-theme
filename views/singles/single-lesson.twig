@@ -60,14 +60,14 @@
 				{% for block in post.get_field('assignment_blocks') %}
 					{% include 'blocks/block-logic.twig' %}
 				{% endfor %}
-				{# <ul class="block_list-list"> #}
-				{# {% for item in post.get_field('assignments') %}
+				<ul class="block_list-list">
+				{% for item in post.get_field('assignments') %}
 					<li>
 						<h4>{{item.item_title}}</h4>
 						{{item.item_description|wpautop}}
 					</li>
-				{% endfor %} #}
-				{# </ul> #}
+				{% endfor %}
+				</ul>
 			{% endif %}
 			<div class="contain contain-md">
 				<h3 class="title-section">Tutorials</h3>
