@@ -5,7 +5,8 @@
 $screens: (
     sm:    	$screen-sm,
     md:    	$screen-md,
-    lg: 	$screen-lg
+    lg: 	$screen-lg,
+    xl:		$screen-xl
 );
  
 .contain {
@@ -27,6 +28,39 @@ $screens: (
 }
 
 
+/// @group cells
+/// @content [The cells of the grid containers. Should be removed for produciton, maybe?]
+
+$screens: (
+    75:    	$screen-sm,
+    66:    	$screen-sm,
+    50:    	$screen-md,
+    33: 	$screen-lg,
+    25:		$screen-xl
+);
+
+
+.cell {
+	flex: 1;
+}
+
+.flex-50 {
+	width: 100%;
+}
+
+@include bp(lg) {
+	.flex-50 {
+		flex: 1 50%;
+	}
+
+	.flex-33 {
+
+	}
+
+	.flex-25 {
+
+	}
+}
 
 
 /// @group bleeds

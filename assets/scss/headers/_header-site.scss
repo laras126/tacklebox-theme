@@ -1,4 +1,6 @@
 
 .header-site {
-
+	@extend .theme--light;
+	padding-top: $size-base;
+	padding-bottom: $size-base;
 }

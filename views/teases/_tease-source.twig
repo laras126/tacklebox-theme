@@ -4,14 +4,6 @@
 
 	<div class="tease-content">
 		<h5 class="title-tease title-tease--source">
-{# 
-			{% for t in post.terms('source_type')|slice(0,1) %}
-				{% set name = t.name|lower|replace({' ': '-'}) %}
-				{% for type in post.terms('source_type') %}
-					{% include 'utility/svg.twig' with { file: name, prefix: 'icon' } %}
-				{% endfor %}
-			{% endfor %} #}
-
 			{% include 'utility/svg.twig' with { file: 'link', prefix: 'icon' } %}
 			<a href="{{post.source_url}}" target="blank">{{post.post_title}}</a>
 			{% for type in post.terms('source_type') %}
@@ -19,7 +11,7 @@
 			{% endfor %}
 		</h5>
 
-		{# TODO: this needs cleaning up. #}
+		{# TODO: Can this be cleaned up? #}
 		{% if post.source_author or post.source_publication %}
 			<p class="tease-meta--source">
 			{% if post.source_author %}
@@ -51,16 +43,15 @@
 		{{function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID)}}
 	</div>
 
-	{# TODO: Make this work #}
-	{# {% include 'utility/edit-link.twig' with { post : post } %} #}
+
 	{% for t in post.terms('category')|slice(0,1) %}
 		{% set name = t.name|lower|replace({' ': '-'}) %}
 		{% for type in post.terms('source_type') %}
-			{% if type == "Person" %}
-				{% include 'utility/svg.twig' with { file: 'twitter', prefix: 'shape' } %}
-			{% else %}
-				{% include 'utility/svg.twig' with { file: name, prefix: 'shape' } %}
-			{% endif %}
+			{% include 'utility/svg.twig' with { file: name, prefix: 'shape' } %}
 		{% endfor %}
 	{% endfor %}
+
+
 </article>
+
+

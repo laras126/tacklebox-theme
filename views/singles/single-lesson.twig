@@ -4,10 +4,14 @@
 	<header class="header header-lesson header-single">
 		<div class="contain contain-md">
 
+			<ul class="nav">
+				{% for t in post.terms('class') %}
+					<li>{{t.name}}</li>
+				{% endfor %}
+			</ul>
+
 			{% if post.header_display == 'image' %}
-				{{post.header_image_desktop}}
-				{{post.header_image_tablet}}
-				{{post.header_image_mobile}}
+				{# TODO: Image will be included here. #}
 			{% elseif post.header_display == 'svg' %}
 				{% include 'utility/svg.twig' with { file : post.header_svg, prefix : 'shape' } %}
 			{% endif %}	
@@ -15,7 +19,7 @@
 			{% for l in related_lessons %}
 				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}			
 			{% endfor %}
-			{% for t in post.terms('class') %}{{t.name}}{% endfor %}
+
 			<h1 class="title-single--lesson">{{post.post_title}}</h1>
 
 		</div>
@@ -24,52 +28,55 @@
 
 {% block content %}
 
-	{% if access %}
-		
-		<div class="contain contain-md">
-			<p class="lead lead-header">{{post.header_tagline}}</p>
-			<p class="summary summary-header">{{post.header_summary}}</p>
-		</div>	
+	<div class="contain contain-md">
+		<p class="lead lead-header">{{post.header_tagline}}</p>
+		<p class="summary summary-header">{{post.header_summary}}</p>
+	</div>
 
-		<div class="contain contain-lg media-enhanced">
-			{{post.video}}
+	<div class="contain contain-lg media-enhanced">
+		{{post.video}}	
+	</div>
+
+	<section class="contain contain-md" id="lesson-content">
+		{# Blocks for additional Lesson content #}
+		{% for block in post.get_field('blocks') %} 
+			{% include 'blocks/block-logic.twig' %}
+		{% endfor %}
+		
+		<h3 class="title-section">Learning Goals</h3>
+		{{post.learning_goals|wpautop}}
+
+		{% if post.tutoring_agenda %}
+		<h3 class="title-section">Tutoring Agenda</h3>
+			{{post.tutoring_agenda|wpautop}}
+			<a href="" class="btn btn-cta">Schedule Tutoring</a>
+		{% endif %}
+	</section> <!-- /#lesson-content -->
+
+	<section id="to-do">
+
+		<div class="contain contain-md">
+			<h3 class="title-section">Assignments</h3>
+			{{post.assignments_summary|wpautop}}
 		</div>
 
-		<section class="contain contain-md" id="lesson-content">
-			{# Blocks for additional Lesson content #}
-			{% for block in post.get_field('blocks') %} 
-				{% include 'blocks/block-logic.twig' %}
+		{% for block in post.get_field('assignment_blocks') %}
+			{% include 'blocks/block-logic.twig' %}
+		{% endfor %}
+		
+		<div class="contain contain-md">
+			<ul class="block_list-list">
+			{% for item in post.get_field('assignments') %}
+				<li>
+					<h4>{{item.item_title}}</h4>
+					{{item.item_description|wpautop}}
+				</li>
 			{% endfor %}
-			
-			<h3 class="title-section">Learning Goals</h3>
-			{{post.learning_goals|wpautop}}
-
-			{% if post.tutoring_agenda %}
-			<h3 class="title-section">Tutoring Agenda</h3>
-				{{post.tutoring_agenda|wpautop}}
-				<a href="" class="btn btn-cta">Schedule Tutoring</a>
-			{% endif %}
-		</section> <!-- /#lesson-content -->
-
-		<section id="to-do">
-			{% if post.get_field('assignment_blocks') %}
-				<div class="contain contain-md">
-					<h3 class="title-section">Assignments</h3>
-					{{post.assignments_summary|wpautop}}
-				</div>
-				{% for block in post.get_field('assignment_blocks') %}
-					{% include 'blocks/block-logic.twig' %}
-				{% endfor %}
-				<ul class="block_list-list">
-				{% for item in post.get_field('assignments') %}
-					<li>
-						<h4>{{item.item_title}}</h4>
-						{{item.item_description|wpautop}}
-					</li>
-				{% endfor %}
-				</ul>
-			{% endif %}
-			<div class="contain contain-md">
+			</ul>
+		</div>
+		
+		<div class="contain contain-md">
+			{% if post.get_field('tutorials') %}
 				<h3 class="title-section">Tutorials</h3>
 				{{post.tutorials_summary|wpautop}}
 				<div class="contain-flex bleed list--major">
@@ -77,7 +84,9 @@
 						{% include 'teases/_tease-source.twig' %}
 					{% endfor %}		
 				</div>
+			{% endif %}
 
+			{% if post.get_field('readings') %}
 				<h3 class="title-section">Readings</h3>
 				{{post.readings_summary|wpautop}}
 				<div class="contain-flex bleed list--major">
@@ -85,19 +94,9 @@
 						{% include 'teases/_tease-source.twig' %}
 					{% endfor %}
 				</div>
-			</div>
-		</section> <!-- /#to-do -->
-
-	{% else %}
-
-		<div class="contain contain-md">
-			<div class="alert alert-cta">
-				<p>Does this sound like a class you'd like? Register for the course to see the content and to get a starter hour of tutoring with me, Lara!</p>
-				<a href="{{registration_page.guid}}" class="btn btn-cta">Register for the Tacklebox</a>
-			</div>
+			{% endif %}
 		</div>
-	
-	{% endif %}
+	</section> <!-- /#to-do -->
 
 {% endblock %}
 

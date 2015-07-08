@@ -2,7 +2,6 @@
 
 {% block before_content %}	
 
-	{# TODO: This is redundant to what's already on the page.twig #}
 	{% include 'headers/_header-page.twig' with { class: 'header header-page' } %}
 
 	{% set start = post.class_start_date %}
@@ -12,6 +11,7 @@
 		
 			<div class="alert alert-cta contain-flex">
 				<div class="alert-img">
+
 					{# Set the SVG icon  #}
 					{% if class_location == in_person %}
 						{% set svg_file = 'office' %}
@@ -41,10 +41,16 @@
 
 {% endblock %}
 
+
+
+
+
+
 {% block after_content %}
 	{% if lessons %}
 		<div class="contain contain-md">
 			<h3 class="title-section">Lessons</h3>
+			
 			<div class="bleed list--major">
 				{% for post in lessons %}
 					{% include 'teases/_tease-lesson.twig' %}
@@ -53,3 +59,19 @@
 		</div>
 	{% endif %}
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

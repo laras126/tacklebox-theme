@@ -7,7 +7,6 @@
 .list--major {
 	& > li, .tease {
 		@include card;
-		margin-bottom: $size-sml;
 	}
 }
 

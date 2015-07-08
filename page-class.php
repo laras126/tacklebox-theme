@@ -18,9 +18,9 @@ $lesson_args = array(
 	    )
 	);
 
-
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['lessons'] = Timber::get_posts($lesson_args);
 Timber::render('pages/_page-class.twig', $context);
+
