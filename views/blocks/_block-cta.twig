@@ -5,12 +5,10 @@
 	<div class="alert alert-cta">
 		<h4 class="title-cta">{{block.cta_heading}}</h4>
 		<p>{{block.cta_text}}</p>
-		{% if post.post_type == 'lesson' %}
+		{% if not block.cta_btn_url %}
 			<a href="" class="btn btn-cta">Purchase Hours</a>&nbsp;<a href="" class="btn btn-cta">Use Hours</a>
 		{% else %}
-			{% if block.cta_btn_url %}
-				<a href="{{block.cta_btn_url}}" class="btn btn-cta">{{block.cta_btn_text}}</a>
-			{% endif %}
+			<a href="{{block.cta_btn_url}}" class="btn btn-cta">{{block.cta_btn_text}}</a>
 		{% endif %}
 	</div>
 

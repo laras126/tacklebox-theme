@@ -1,14 +1,23 @@
 
+<article class="tease tease--{{post.post_type}}{{class ? ' ' ~ class }}" id="tease-{{post.ID}}">
 
-<article class="tease tease--{{post.post_type}}" id="tease-{{post.ID}}">
+	<div class="tease-meta meta">
+		{% for type in post.terms('source_type') %}
+			{{type.name}}{{ loop.last ? '' : ', ' }}
+		{% endfor %}
+		|
+		{% if post.terms('category') %}
+			{% for type in post.terms('category') %}
+				{{type.name}}{{ loop.last ? '' : ', ' }}
+			{% endfor %}
+		{% endif %}
+	</div>
 
 	<div class="tease-content">
+
 		<h5 class="title-tease title-tease--source">
 			{% include 'utility/svg.twig' with { file: 'link', prefix: 'icon' } %}
 			<a href="{{post.source_url}}" target="blank">{{post.post_title}}</a>
-			{% for type in post.terms('source_type') %}
-				<span class="meta title-tease-meta">{{type.name}}{{ loop.last ? '' : ', ' }}</span>
-			{% endfor %}
 		</h5>
 
 		{# TODO: Can this be cleaned up? #}
@@ -29,20 +38,11 @@
 			</p>
 		{% endif %}
 
-
-		{{post.source_blurb ? '<p class="blurb-tease--source meta-dark">' ~ post.source_blurb ~ '</p>'}}
+		{{post.source_blurb ? '<p class="blurb-tease--source meta--dark">' ~ post.source_blurb ~ '</p>'}}
 		
-		{% if post.terms('category') %}
-			<p class="meta">
-			{% for type in post.terms('category') %}
-				{{type.name}}{{ loop.last ? '' : ', ' }}
-			{% endfor %}
-			</p>
-		{% endif %}
 
 		{{function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID)}}
 	</div>
-
 
 	{% for t in post.terms('category')|slice(0,1) %}
 		{% set name = t.name|lower|replace({' ': '-'}) %}
@@ -50,7 +50,6 @@
 			{% include 'utility/svg.twig' with { file: name, prefix: 'shape' } %}
 		{% endfor %}
 	{% endfor %}
-
 
 </article>
 

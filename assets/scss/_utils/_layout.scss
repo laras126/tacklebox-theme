@@ -1,66 +1,159 @@
+$size-base:    1.2rem;
 
-/// @group containers
-/// @content [Containers for screen sized]
+/// @group breakpoints
 
-$screens: (
-    sm:    	$screen-sm,
-    md:    	$screen-md,
-    lg: 	$screen-lg,
-    xl:		$screen-xl
-);
- 
-.contain {
-	margin: 0 auto;
-	padding: 0 $size-base;
+$screen-sm:     40em;
+$screen-md:     50em;
+$screen-lg:   	50em;
+$screen-xl:     53em;
+
+
+/// @group base styles
+
+* {
+    box-sizing: border-box;
 }
 
-@each $name, $size in $screens {  
-	@include bp($name) {
-	    .contain-#{$name} {
-	   		max-width: $size;
-	    }
+img {
+    max-width: 100%;
+}
+
+.site-main {
+	margin: $size-base auto;
+	max-width: $screen-xl;
+}
+
+
+/// @group grid main
+/// @link http://philipwalton.github.io/solved-by-flexbox/demos/grids/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+@include bp(sm) {
+    .grid-sm {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
+.grid--guttered {
+	margin: -$size-base/2;
+
+	> .cell {
+		padding: $size-base/2;
 	}
 }
-
-.contain-flex {
-	display: flex;
-	flex-flow: row wrap;
-}
-
-
-/// @group cells
-/// @content [The cells of the grid containers. Should be removed for produciton, maybe?]
-
-$screens: (
-    75:    	$screen-sm,
-    66:    	$screen-sm,
-    50:    	$screen-md,
-    33: 	$screen-lg,
-    25:		$screen-xl
-);
-
-
+	
 .cell {
-	flex: 1;
+  	flex: 1;
+    position: relative;
 }
 
-.flex-50 {
-	width: 100%;
+
+/// @group alignment
+
+$directions: (
+    top: flex-start,
+    bottom: flex-end,
+    center: center
+);
+
+@each $name, $dir in $directions {  
+    .grid--#{$name} {
+        align-items: $dir;
+    }
+  
+    .cell--#{$name} {
+        align-self: $dir;
+    }
 }
 
-@include bp(lg) {
-	.flex-50 {
-		flex: 1 50%;
+
+
+
+/// @group sizes
+
+$sizes: (
+    full:   100%,
+    half: 	50%,
+    third:	33.333333%,
+    fourth:	25%,
+    sixth:	16.66666667%
+);
+
+@each $name, $size in $sizes {  
+    .cell--#{$name} {
+   		flex: 0 0 $size;
+    }
+
+    .grid--#{$name} > .cell {
+   		flex: 0 0 $size;
+    }
+
+    @include bp(sm) {
+        .cell-sm--#{$name} {
+            flex: 0 0 $size;
+        }
+        .grid-sm--#{$name} > .cell {
+            flex: 0 0 $size;
+        }
+    }
+
+    @include bp(md) {
+        .cell-md--#{$name} {
+            flex: 0 0 $size;
+        }
+        .grid-md--#{$name} > .cell {
+            flex: 0 0 $size;
+        }
+    }
+
+}
+
+
+
+
+
+
+/// @group squish
+/// Squish allows for hanging elements on the right or left
+
+.squish {
+	padding-left: $size-base;
+	padding-right: $size-base;
+}
+
+.squish-l {
+	padding-left: $size-base;
+}
+
+.squish-r {
+	padding-right: $size-base;
+}
+
+@include bp(sm) {
+	.squish {
+        padding: 0;
+		margin-left: 16.66666667%;
+		margin-right: 16.66666667%;
 	}
 
-	.flex-33 {
-
+	.squish-l {
+        padding: 0;
+		margin-left: 16.66666667%;
 	}
 
-	.flex-25 {
-
+	.squish-r {
+        padding: 0;
+		margin-left: 16.66666667%;
 	}
 }
+
 
 
 /// @group bleeds
@@ -77,42 +170,6 @@ $screens: (
 	@include bleed;
 }
 
-
-/// @group grid
-/// @content [Gridded styles.]
-
-
-
-// @for $i from 1 to $grid-columns {
-//     .col-xs-#{$i} { @include make-xs-column($i); }
-//     .col-xs-push-#{$i} { @include make-xs-column-push($i); }
-//     .col-xs-pull-#{$i} { @include make-xs-column-pull($i); }
-//     // .col-xs-#{$i}-offset { @include make-xs-column-offset($i); }
-//     .col-xs-#{$i}-np { @include make-xs-column($i, 0); }
-
-// }
-// @for $i from 1 to $grid-columns {
-//     .col-sm-#{$i} { @include make-sm-column($i); }
-//     .col-sm-push-#{$i} { @include make-sm-column-push($i); }
-//     .col-sm-pull-#{$i} { @include make-sm-column-pull($i); }
-//     .col-sm-offset-#{$i} { @include make-sm-column-offset($i); }
-//     .col-sm-#{$i}-np { @include make-sm-column($i, 0); }
-// }
-// @for $i from 1 to $grid-columns {
-//     .col-md-#{$i} { @include make-md-column($i); }
-//     .col-md-push-#{$i} { @include make-md-column-push($i); }
-//     .col-md-#{$i}-pull { @include make-md-column-pull($i); }
-//     .col-md-#{$i}-np { @include make-md-column($i, 0); }
-//     // .col-md-#{$i}-offset { @include make-md-column-offset($i); }
-// }
-// @for $i from 1 to $grid-columns {
-//     .col-lg-#{$i} { @include make-lg-column($i); }
-//     .col-lg-push-#{$i} { @include make-lg-column-push($i); }
-//     .col-lg-pull-#{$i} { @include make-lg-column-pull($i); }
-//     .col-lg-#{$i}-np { @include make-lg-column($i, 0); }
-
-//     .col-lg-offset-#{$i} { @include make-lg-column-offset($i); }
-// }
 
 
 

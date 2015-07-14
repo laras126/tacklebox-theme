@@ -1,0 +1,16 @@
+
+{# Base footer template #}
+
+{% set f_class = ' class="' ~ class ~ '"' %}
+{% set f_role = ' role="' ~ role ~ '"' %}
+
+<footer{{ class ? f_class }}{{role ? f_role }}>
+	<div class="contain contain-md">
+		{% block footer_content %}{% endblock %}
+	</div>
+	<nav class="nav--backtop">
+		<a href="#pageTop">
+			{% include 'utility/svg.twig' with { file : 'arrow-up', prefix : 'icon' }%}
+		</a>
+	</nav>
+</footer>

@@ -13,12 +13,12 @@
 	line-height: $line-height-sm;
 }
 
-	.meta-light {
+	.meta--light {
 		line-height: $line-height-sm;
 		@include meta($color-text-light);
 	}
 
-	.meta-dark {
+	.meta--dark {
 		line-height: $line-height-sm;
 		@include meta($color-body-text);
 	}
@@ -34,8 +34,6 @@
 .text-right {
 	text-align: right;
 }
-
-
 
 
 
@@ -65,5 +63,10 @@
     left: -999999px;
 }
 
-
-
+.corner-decor {
+	width: 80%;
+	bottom: -10%;
+	right: -20%;
+	position: absolute;
+	z-index: $z-base;
+}

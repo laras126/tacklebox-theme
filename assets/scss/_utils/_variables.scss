@@ -1,15 +1,5 @@
 
 
-// ----
-// ---- Screen sizes
-// ----
-
-$screen-sm:     30em;
-$screen-md:     40em;
-$screen-lg:   	50em;
-$screen-xl:     60em;
-
-
 
 // ----
 // ---- Colors
@@ -66,7 +56,7 @@ $color-link-hover: 		darken($color-link, 20%);
 $color-link-active: 	darken($color-link, 40%);
 
 // Body
-$color-body-bkgd: 		$white;
+$color-body-bkgd: 		$white-alt;
 $color-body-text: 		$color-text-dark;
 
 // Calls to action - TODO: too much?

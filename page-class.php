@@ -5,6 +5,7 @@
  * Description: A Page Template for classes that shows associated lessons.
  */
 
+
 $term_id = get_field('class_taxonomy');
 $lesson_args = array(
 		'post_type' => 'lesson',

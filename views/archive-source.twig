@@ -31,9 +31,9 @@
 {% endblock %}
 
 {% block content %}
-	<div class="contain contain-lg contain-flex list--major">
+	<div class="grid grid--guttered grid--third grid--fit list--major">
 		{% for post in posts %}
-			{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+			{% include 'teases/_tease-' ~ post.post_type ~ '.twig' with { class : 'cell' } %}
 		{% endfor %}
 	</div>
 {% endblock %}

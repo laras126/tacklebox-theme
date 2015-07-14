@@ -1,0 +1,43 @@
+{% block html_head_container %}
+{% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+
+    <body class="{{body_class}} wf-loading" data-template="base.twig" id="pageTop">
+        
+        <div class="visually-hidden">{% include 'views/utility/svg-defs.svg' %}</div>
+        {% block header %}
+            {% include 'headers/_header-site.twig' with { class: 'header-site', role: 'banner', contain: 'contain' } %}
+        {% endblock %}  
+        
+        <main class="site-main contain" role="main">
+
+            <div class="site-content">
+
+                {% block before_content %}{% endblock %}
+
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+
+                {% block after_content %}{% endblock %}
+
+            </div>
+
+            {% if sidebar %}
+                <aside class="site-sidebar">
+                    {{sidebar}}
+                </aside>
+            {% endif %}
+
+        </main>
+
+        {% block footer %}
+            {% include 'footers/_footer-site.twig' with { class : 'footer-site', role : 'contentinfo' } %}   
+            {{ function('wp_footer') }}
+        {% endblock %}
+
+    </body>
+</html>

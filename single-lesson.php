@@ -23,9 +23,11 @@ $lesson_args = array(
 	    )
 	);
 
+$user_id = get_current_user_id();
 
 $context = Timber::get_context();
 $post = Timber::query_post();
+$context['user'] = new TimberUser($user_id);
 $context['post'] = $post;
 $context['comment_form'] = TimberHelper::get_comment_form();
 $context['related_lessons'] = Timber::get_posts($lesson_args);

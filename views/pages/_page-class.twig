@@ -1,16 +1,33 @@
 {% extends 'pages/page.twig' %}
 
 {% block before_content %}	
+	<div class="squish">
 
-	{% include 'headers/_header-page.twig' with { class: 'header header-page' } %}
+		{# {{ function('tsk_postmeta_test') }} #}
+		
+		<h2>{{post.post_title}}</h2>
+		<form method="post" action="">
+			<!-- TODO -->
+			<input type="checkbox" name="complete">
+			<input type="submit" name="submit" value="Send Email" />
+			{# <input type="hidden" name="complete" value="1" /> #}
+		</form>
+
+		{{button}}
+		<pre>{{dump(post)}}</pre>
+
+	</div>
+
+	{% include 'headers/_header-page.twig' with { class: 'header squish header-page' } %}
 
 	{% set start = post.class_start_date %}
 	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
 		
-		<div class="contain contain-md">
-		
-			<div class="alert alert-cta contain-flex">
-				<div class="alert-img">
+
+		<div class="squish">
+
+			<div class="alert alert-cta grid">
+				<div class="alert-img cell-fourth">
 
 					{# Set the SVG icon  #}
 					{% if class_location == in_person %}
@@ -20,8 +37,9 @@
 					{% endif %}
 
 					{% include 'utility/svg.twig' with { file : svg_file, prefix : 'shape' } %}
+
 				</div>
-				<div class="alert-content">
+				<div class="alert-content cell">
 					<h4 class="alert-title">Upcoming class!</h4>
 					
 					<p>{{post.class_day_and_time}}<br>{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
@@ -41,22 +59,40 @@
 
 {% endblock %}
 
-
-
-
-
-
 {% block after_content %}
 	{% if lessons %}
-		<div class="contain contain-md">
-			<h3 class="title-section">Lessons</h3>
+		<ul class="list list--major">
+		{% for post in lessons %}
+			<li class="grid-sm grid--guttered tease tease--lesson">
+		
+				<div class="cell cell--sixth">
+					<div class="indicator--lesson text-center">{{loop.index}}</div>
+				</div>
+		
+				<div class="cell cell--center">
+					<h4 class="title-tease--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
+					<p>{{post.header_tagline}}</p>
+				</div>
+
+				<div class="cell grid grid--guttered cell-sm--sixth cell--bottom">
+					<div class="grid cell cell-sm--full">
+						<a href="{{post.link}}" class="cell--full btn btn-readmore">Complete</a>
+					</div>
+					<div class="grid cell cell-sm--full">
+						<a href="{{post.link}}" class="btn btn-readmore cell--full">
+							<span class="grid">
+								<span class="cell cell--center">More</span>
+								<span class="cell cell--sixth cell--center">
+									{% include 'utility/svg.twig' with { file : 'arrow-right', prefix : 'icon' } %}
+								</span>
+							</span>
+						</a>
+					</div>
+				</div>
 			
-			<div class="bleed list--major">
-				{% for post in lessons %}
-					{% include 'teases/_tease-lesson.twig' %}
-				{% endfor %}
-			</div>
-		</div>
+			</li>
+		{% endfor %}
+		</ul>
 	{% endif %}
 {% endblock %}
 

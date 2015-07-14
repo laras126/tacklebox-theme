@@ -6,13 +6,7 @@
 	@include meta($margin: true);
 	overflow: hidden;
 	position: relative;
-	margin-top: 0;
-
-	.contain-flex & {		
-		@include bp(md) {
-			width: 50%;
-		}
-	}
+	// margin-top: 0;
 
 	.tease-content {
 		position: relative;
@@ -29,6 +23,7 @@
 	}
 	
 }
+
 
 /// @group category-indicators
 /// @content [SVG background images for source category indications]

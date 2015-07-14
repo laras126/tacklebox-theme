@@ -3,8 +3,10 @@
 /// @group [lists]
 /// @content [Major and Minor list styles]
 
-// Should just be li, .tease is slightly too specific
 .list--major {
+	list-style-type: none;
+	padding-left: 0;
+
 	& > li, .tease {
 		@include card;
 	}

@@ -1,0 +1,26 @@
+
+/// @group tease-lesson
+
+.indicator--lesson {
+	
+	font-size: 3rem;
+	font-weight: 700;
+
+	@include bp(sm) {
+		font-size: 10rem;
+		line-height: 1;
+	}
+	// top: -10%;
+	// left: 0;
+	// position: absolute;
+	// z-index: $z-base;
+}
+
+.title-tease--lesson {
+	font-size: $size-h3;
+	text-align: center;
+}
+
+// .tease--lesson {
+// 	padding-top: $size-base;
+// }

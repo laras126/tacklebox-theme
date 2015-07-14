@@ -2,8 +2,10 @@
 
 {% block before_content %}
 	<header class="header header-lesson header-single">
-		<div class="contain contain-md">
-
+		<div class="squish-l">
+			
+			<pre>{{dump(user._lesson_455_complete)}}</pre>
+			
 			<ul class="nav">
 				{% for t in post.terms('class') %}
 					<li>{{t.name}}</li>
@@ -17,92 +19,104 @@
 			{% endif %}	
 			
 			{% for l in related_lessons %}
-				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}			
+				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}
 			{% endfor %}
 
 			<h1 class="title-single--lesson">{{post.post_title}}</h1>
-
+			
 		</div>
+		<div class="squish">
+			<p class="lead lead-header">{{post.header_tagline}}</p>
+			{{post.header_summary|wpautop}}
+		</div>
+
 	</header>
 {% endblock %}
 
 {% block content %}
 
-	<div class="contain contain-md">
-		<p class="lead lead-header">{{post.header_tagline}}</p>
-		<p class="summary summary-header">{{post.header_summary}}</p>
+	<div class="grid">
+		<aside class="cell cell--sixth" role="complementary">
+			<h4>Lesson Links</h4>
+			<ul class="list list--minor">
+			{# {% for link in post.lesson_links %} #}
+				<li><a href="{{post.download_link}}">Download video</a></li>
+				<li><a href="{{post.download_link}}">View transcript</a></li>
+			{# {% endfor %} #}
+			</ul>
+		</aside>
+		<div class="cell">
+			<div class="media-enhanced">
+				{{post.video}}
+			</div>
+		</div>
 	</div>
 
-	<div class="contain contain-lg media-enhanced">
-		{{post.video}}	
+{# 	<div class="media-enhanced">
+		{{post.video}}
+	</div>
+ #}
+	<div class="squish">
+		<div class="btn btn-cta">Download Worksheet</div>
+		<div class="btn btn-cta">View Transcription</div>
 	</div>
 
-	<section class="contain contain-md" id="lesson-content">
-		{# Blocks for additional Lesson content #}
-		{% for block in post.get_field('blocks') %} 
-			{% include 'blocks/block-logic.twig' %}
-		{% endfor %}
-		
+	{# Blocks for additional Lesson content #}
+	{% for block in post.get_field('blocks') %} 
+		{% include 'blocks/block-logic.twig' %}
+	{% endfor %}
+	
+	<section class="squish" id="learning-goals">
 		<h3 class="title-section">Learning Goals</h3>
 		{{post.learning_goals|wpautop}}
+	</section> <!-- /#learning-goals -->
 
-		{% if post.tutoring_agenda %}
-		<h3 class="title-section">Tutoring Agenda</h3>
-			{{post.tutoring_agenda|wpautop}}
-			<a href="" class="btn btn-cta">Schedule Tutoring</a>
-		{% endif %}
-	</section> <!-- /#lesson-content -->
+	<section class="squish" id="assignments">
 
-	<section id="to-do">
-
-		<div class="contain contain-md">
-			<h3 class="title-section">Assignments</h3>
-			{{post.assignments_summary|wpautop}}
-		</div>
-
+		<h3 class="title-section">Assignments</h3>
+		{{post.assignments_summary|wpautop}}
+		
 		{% for block in post.get_field('assignment_blocks') %}
 			{% include 'blocks/block-logic.twig' %}
 		{% endfor %}
 		
-		<div class="contain contain-md">
-			<ul class="block_list-list">
-			{% for item in post.get_field('assignments') %}
-				<li>
-					<h4>{{item.item_title}}</h4>
-					{{item.item_description|wpautop}}
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-		
-		<div class="contain contain-md">
-			{% if post.get_field('tutorials') %}
-				<h3 class="title-section">Tutorials</h3>
-				{{post.tutorials_summary|wpautop}}
-				<div class="contain-flex bleed list--major">
-					{% for post in post.get_field('tutorials') %}
-						{% include 'teases/_tease-source.twig' %}
-					{% endfor %}		
-				</div>
-			{% endif %}
+		<ul class="block_list-list">
+		{% for item in post.get_field('assignments') %}
+			<li>
+				<h4>{{item.item_title}}</h4>
+				{{item.item_description|wpautop}}
+			</li>
+		{% endfor %}
+		</ul>
+	
+		{% if post.get_field('tutorials') %}
+			<h4>Tutorials</h3>
+			{{post.tutorials_summary|wpautop}}
+			<div class="list--major bleed">
+				{% for post in post.get_field('tutorials') %}
+					{% include 'teases/_tease-source.twig' %}
+				{% endfor %}		
+			</div>
+		{% endif %}
 
-			{% if post.get_field('readings') %}
-				<h3 class="title-section">Readings</h3>
-				{{post.readings_summary|wpautop}}
-				<div class="contain-flex bleed list--major">
-					{% for post in post.get_field('readings') %}
-						{% include 'teases/_tease-source.twig' %}
-					{% endfor %}
-				</div>
-			{% endif %}
-		</div>
-	</section> <!-- /#to-do -->
+		{% if post.get_field('readings') %}
+			<h4>Resources</h4>
+			{{post.readings_summary|wpautop}}
+			<div class="list--minor">
+				{% for post in post.get_field('readings') %}
+					{% include 'teases/_tease-source.twig' %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+	</section> <!-- /#assignments -->
 
 {% endblock %}
 
 {% block after_content %}
 	
-	{% include 'navs/_nav-prevnext.twig' with { class : 'nav-prevnext', contain : 'contain-lg' } %}
+	{% include 'navs/_nav-prevnext.twig' with { class : 'nav-prevnext' } %}
 
 	{% include 'footers/_footer-lesson.twig' with { class : 'footer-lesson' } %}
+
 {% endblock %}
