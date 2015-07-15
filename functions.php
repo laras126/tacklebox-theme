@@ -82,19 +82,26 @@ new StarterSite();
 // https://tommcfarlin.com/sending-data-post/
 
 function tsk_mark_complete() {
+	$lesson_args = array(
+		'post_type' => 'lesson',
+		'posts_per_page' => '-1'
+	);
 
-	if ( isset( $_POST['_lesson_246_complete'] ) ) {
-		$new_state = $_POST['_lesson_246_complete'];
-		$user_id = get_current_user_id();
-		// $value = get_user_meta( '_lesson_246_complete', $user_id );
-		echo "<h1>".$user_id. ': '.$new_state."</h1>";
+	$lesson_arr = get_posts($lesson_args);
+	
+	// Is there a better way to do this?
+	foreach ($lesson_arr as $lesson) { 
+		if ( isset( $_POST['_lesson_'.$lesson->ID.'_complete'] ) ) {
+			$new_state = $_POST['_lesson_'.$lesson->ID.'_complete'];
+			$user_id = get_current_user_id();
 
-		update_user_meta( $user_id, '_lesson_246_complete', $new_state ); 
+			update_user_meta( $user_id, '_lesson_'.$lesson->ID.'_complete', $new_state ); 
 
-		if ( is_wp_error( $user_id ) ) {
-			// There was an error, probably that user doesn't exist.
-		} else {
-			// Success!
+			if ( is_wp_error( $user_id ) ) {
+				// There was an error, probably that user doesn't exist.
+			} else {
+				// Success!
+			}
 		}
 	}
 
