@@ -5,15 +5,14 @@
 
 		<div class="squish-l">
 			<form action="" method="post">
-				{# <input type="checkbox" name="_lesson_455_complete" id="_lesson_455_complete"> #}
 				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
 				
-				<h4>Lesson State</h4>
-				
 				{% if lesson_completed == 'false' %}
+					<h4>Have you completed this lesson?</h4>
 					<label for="1{{field}}">Mark Complete</label>
 					<input id="1{{field}}" type="radio" value="true" name="{{field}}">
 				{% else %}
+					<h4>You completed this lesson!</h4>
 					<label for="2{{field}}">Mark Incomplete</label>
 					<input id="2{{field}}" type="radio" value="false" name="{{field}}">				
 				{% endif %}
