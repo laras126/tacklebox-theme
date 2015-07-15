@@ -2,9 +2,28 @@
 
 {% block before_content %}
 	<header class="header header-lesson header-single">
+		{{post.id}}
 		<div class="squish-l">
+			<form action="" method="post">
+				{# <input type="checkbox" name="_lesson_455_complete" id="_lesson_455_complete"> #}
+				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
+				
+				<h4>Lesson State</h4>
+				
+				<br>
+				{{lesson_completed}}
+				{% if lesson_completed == 'false' %}
+					<label for="1{{field}}">Mark Complete</label>
+					<input id="1{{field}}" type="radio" value="true" name="{{field}}">
+				{% else %}
+					<label for="2{{field}}">Mark Incomplete</label>
+					<input id="2{{field}}" type="radio" value="false" name="{{field}}">				
+				{% endif %}
+				<input type="submit" name="submit" value="Go">
+			</form>
 			
-			<pre>{{dump(user._lesson_455_complete)}}</pre>
+			{% if expression %}{% endif %}
+			<pre>{{user}}: {{dump(lesson_completed)}}</pre>
 			
 			<ul class="nav">
 				{% for t in post.terms('class') %}

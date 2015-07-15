@@ -54,7 +54,7 @@ class StarterSite extends TimberSite {
 		$context['site_callout_text'] = get_field('site_callout_text', 'options');
 		$context['site_footer_copyright'] = get_field('site_footer_copyright', 'options');
 		$context['site_footer_credits'] = get_field('site_footer_credits', 'options');
-
+		
 		return $context;
 	}
 
@@ -70,20 +70,47 @@ class StarterSite extends TimberSite {
 new StarterSite();
 
 
-/*
+/* 
  **************************
  * Custom Theme Functions *
  **************************
  */ 
 
 
+
+// Mark lessons completed button
+// https://tommcfarlin.com/sending-data-post/
+
+function tsk_mark_complete() {
+
+	if ( isset( $_POST['_lesson_246_complete'] ) ) {
+		$new_state = $_POST['_lesson_246_complete'];
+		$user_id = get_current_user_id();
+		// $value = get_user_meta( '_lesson_246_complete', $user_id );
+		echo "<h1>".$user_id. ': '.$new_state."</h1>";
+
+		update_user_meta( $user_id, '_lesson_246_complete', $new_state ); 
+
+		if ( is_wp_error( $user_id ) ) {
+			// There was an error, probably that user doesn't exist.
+		} else {
+			// Success!
+		}
+	}
+
+}
+add_action( 'wp', 'tsk_mark_complete' );
+
+
+
+
 // Custom user fields to indicate completed lessons
 // justintadlock.com/archives/2009/09/10/adding-and-using-custom-user-profile-fields
 
-add_action( 'show_user_profile', 'tsk_add_lesson_complete_fields' );
-add_action( 'edit_user_profile', 'tsk_add_lesson_complete_fields' );
+add_action( 'show_user_profile', 'tsk_add_lesson_state_fields_to_admin' );
+add_action( 'edit_user_profile', 'tsk_add_lesson_state_fields_to_admin' );
 
-function tsk_add_lesson_complete_fields( $user ) { 
+function tsk_add_lesson_state_fields_to_admin( $user ) { 
 
 	$lesson_args = array(
 		'post_type' => 'lesson',
@@ -118,10 +145,10 @@ function tsk_add_lesson_complete_fields( $user ) {
 
 
 // Update completed lesson options in database
-add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
-add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+add_action( 'personal_options_update', 'tsk_save_lesson_state_in_admin' );
+add_action( 'edit_user_profile_update', 'tsk_save_lesson_state_in_admin' );
 
-function my_save_extra_profile_fields( $user_id ) {
+function tsk_save_lesson_state_in_admin( $user_id ) {
 
 	$lesson_args = array(
 		'post_type' => 'lesson',
