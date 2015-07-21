@@ -4,20 +4,7 @@
 	<header class="header header-lesson header-single">
 
 		<div class="squish-l">
-			<form action="" method="post">
-				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
-				
-				{% if lesson_completed == 'false' %}
-					<h4>Have you completed this lesson?</h4>
-					<label for="1{{field}}">Mark Complete</label>
-					<input id="1{{field}}" type="radio" value="true" name="{{field}}">
-				{% else %}
-					<h4>You completed this lesson!</h4>
-					<label for="2{{field}}">Mark Incomplete</label>
-					<input id="2{{field}}" type="radio" value="false" name="{{field}}">				
-				{% endif %}
-				<input type="submit" name="submit" value="Go">
-			</form>
+			{% include 'utility/lesson-form.twig' %}
 			
 			<ul class="nav">
 				{% for t in post.terms('class') %}
@@ -102,21 +89,23 @@
 		{% endfor %}
 		</ul>
 	
-		{% if post.get_field('tutorials') %}
+		{% if post.tutorials %}
 			<h4>Tutorials</h3>
 			{{post.tutorials_summary|wpautop}}
 			<div class="list--major bleed">
 				{% for post in post.get_field('tutorials') %}
+					{% set post = TimberPost(post) %}
 					{% include 'teases/_tease-source.twig' %}
 				{% endfor %}		
 			</div>
 		{% endif %}
 
-		{% if post.get_field('readings') %}
+		{% if post.readings %}
 			<h4>Resources</h4>
 			{{post.readings_summary|wpautop}}
 			<div class="list--minor">
-				{% for post in post.get_field('readings') %}
+				{% for post in post.readings %}
+					{% set post = TimberPost(post) %}
 					{% include 'teases/_tease-source.twig' %}
 				{% endfor %}
 			</div>

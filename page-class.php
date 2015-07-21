@@ -26,7 +26,12 @@ $post = new TimberPost();
 $lessons = Timber::get_posts($lesson_args);
 
 $context['post'] = $post;
-// $context['lesson_completed'] = get_the_author_meta( '_lesson_455_complete', $user_id );
+
+// foreach ($lessons as $lesson) {
+$context['lesson_completed'] = get_user_meta( $user_id, '_lesson_'.$lesson->ID.'_complete' )[0];
+// }
+
+$context['c_user'] = new TimberUser();
+
 $context['lessons'] = $lessons;
 Timber::render('pages/_page-class.twig', $context);
-

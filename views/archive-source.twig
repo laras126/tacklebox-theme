@@ -31,9 +31,11 @@
 {% endblock %}
 
 {% block content %}
-	<div class="grid grid--guttered grid--third grid--fit list--major">
+	<ul class="grid grid--guttered grid--third grid--fit list--major">
 		{% for post in posts %}
-			{% include 'teases/_tease-' ~ post.post_type ~ '.twig' with { class : 'cell' } %}
+			<li class="list-item--major cell">
+				{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+			</li>
 		{% endfor %}
-	</div>
+	</ul>
 {% endblock %}

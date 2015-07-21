@@ -10,6 +10,7 @@
 body {
 	word-wrap: break-word;
 	background-color: $color-body-bkgd;
+	border-top: 5px solid $color-accent-dark;
 
 	@include bp(small) {
 		word-wrap: normal;

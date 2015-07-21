@@ -1,6 +1,16 @@
 
 .header-site {
-	@extend .theme--light;
-	padding-top: $size-base;
 	padding-bottom: $size-base;
+}
+
+.site-logo {
+	border-bottom: $border-accent;
+	@include bp(md) {
+		// justify-content: right;
+	}
+
+	img {
+		width: 50%;
+		@include center-block;
+	}
 }

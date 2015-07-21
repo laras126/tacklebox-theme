@@ -7,8 +7,12 @@
 	list-style-type: none;
 	padding-left: 0;
 
-	& > li, .tease {
+	& > li {
 		@include card;
+
+	}
+
+	.list-item--free_form { 
 	}
 }
 

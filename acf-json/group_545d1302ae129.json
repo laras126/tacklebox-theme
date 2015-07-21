@@ -17,12 +17,42 @@
             },
             "choices": {
                 "text": "Text Only",
-                "image": "Image"
+                "image": "Image",
+                "svg": "SVG"
             },
             "other_choice": 0,
             "save_other_choice": 0,
             "default_value": "",
             "layout": "horizontal"
+        },
+        {
+            "key": "field_5592e87cf7861",
+            "label": "SVG",
+            "name": "header_svg",
+            "type": "text",
+            "instructions": "The name of the SVG.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_545a83096d4b5",
+                        "operator": "==",
+                        "value": "svg"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
         },
         {
             "key": "field_545a8498b0f4c",
@@ -174,6 +204,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "lesson"
+            }
         ]
     ],
     "menu_order": 0,
@@ -193,5 +230,5 @@
         "featured_image",
         "send-trackbacks"
     ],
-    "modified": 1435291626
+    "modified": 1437498915
 }

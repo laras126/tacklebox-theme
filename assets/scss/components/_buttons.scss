@@ -15,6 +15,7 @@ $buttons: (
     padding: $size-xsml;
     margin-top: $size-sml;
     margin-bottom: $size-sml;
+    border: 0;
 
     @each $name, $colors in $buttons {
         $bgcolor: nth($colors, 1);

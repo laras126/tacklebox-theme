@@ -421,8 +421,8 @@
                                                         "id": ""
                                                     },
                                                     "default_value": "",
-                                                    "tabs": "visual",
-                                                    "toolbar": "links_only",
+                                                    "tabs": "all",
+                                                    "toolbar": "text_based",
                                                     "media_upload": 0
                                                 }
                                             ]
@@ -662,6 +662,5 @@
         "featured_image",
         "send-trackbacks"
     ],
-    "modified": 1435289878,
-    "local": "json"
+    "modified": 1437081706
 }
