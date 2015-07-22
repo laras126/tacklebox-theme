@@ -55,34 +55,38 @@
 				</div>
 		
 				<div class="cell cell--center">
-						{# <pre>{{dump(post._lesson_524_complete)}}</pre> #}
-						{% set status = '_lesson_' ~ post.id ~ '_complete' %}
-						{% set result = function('get_user_meta', c_user.id, status)|first %}
-						{{result}}
-						{# <pre>{{dump(status)}}</pre> #}
 					<h4 class="title-tease--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
 					<p>{{post.header_tagline}}</p>
 				</div>
 
-				<div class="cell grid grid--guttered cell-sm--sixth cell--bottom">
+				<div class="cell grid grid--guttered cell-sm--third cell--bottom">
+					
 					<div class="grid cell cell-sm--full">
-						<form action="" method="post">
-						{% set field = '_lesson_' ~ post.id ~ '_complete' %}
-						{% if result == 'false' %}
-							<h4>Have you completed this lesson?</h4>
-							<label for="1{{field}}">Mark Complete</label>
-							<input id="1{{field}}" type="radio" value="true" name="{{field}}">
-						{% else %}
-							<h4>You completed this lesson!</h4>
-							<label for="2{{field}}">Mark Incomplete</label>
-							<input id="2{{field}}" type="radio" value="false" name="{{field}}">
-						{% endif %}
 
-						<input type="submit" name="submit" value="Go">
-					</form>
+						{# Get the lesson completed value from the current user #}
+						{% set status = '_lesson_' ~ post.id ~ '_complete' %}
+						{% set lesson_completed = function('get_user_meta', c_user.id, status)|first %}
+						{% set field = '_lesson_' ~ post.id ~ '_complete' %}
+
+						<form class="mark-status-form" action="" method="post">
+							{% if lesson_completed == 'false' %}
+								<div class="status-incomplete">
+									<label for="1{{field}}">Mark Complete!</label>
+									<input id="1{{field}}" type="radio" checked value="true" name="{{field}}">
+								</div>
+							{% else %}
+								<div class="status-complete">
+									<h4>Completed!</h4>
+									<label for="2{{field}}">Mark Incomplete</label>
+									<input id="2{{field}}" type="radio" value="false" name="{{field}}">
+								</div>
+							{% endif %}
+							<input type="submit" name="submit" value="Go">
+						</form>
 					</div>
+
 					<div class="grid cell cell-sm--full">
-						<a href="{{post.link}}" class="btn btn-readmore cell--full">
+						<a href="{{post.link}}" class="no-margin btn btn-readmore cell--full">
 							<span class="grid">
 								<span class="cell cell--center">More</span>
 								<span class="cell cell--sixth cell--center">
@@ -91,7 +95,8 @@
 							</span>
 						</a>
 					</div>
-				</div>
+
+				</div> <!--/ .grid -->
 			
 			</li>
 		{% endfor %}

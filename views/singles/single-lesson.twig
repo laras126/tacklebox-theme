@@ -4,7 +4,22 @@
 	<header class="header header-lesson header-single">
 
 		<div class="squish-l">
-			{% include 'utility/lesson-form.twig' %}
+			
+			<form action="" method="post">
+				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
+				
+				{% if lesson_completed == 'false' %}
+					<h4>Have you completed this lesson?</h4>
+					<label for="1{{field}}">Mark Complete</label>
+					<input id="1{{field}}" type="radio" value="true" name="{{field}}">
+				{% else %}
+					<h4>You completed this lesson!</h4>
+					<label for="2{{field}}">Mark Incomplete</label>
+					<input id="2{{field}}" type="radio" value="false" name="{{field}}">
+				{% endif %}
+
+				<input type="submit" name="submit" value="Go">
+			</form>
 			
 			<ul class="nav">
 				{% for t in post.terms('class') %}
