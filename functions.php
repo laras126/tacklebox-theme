@@ -49,6 +49,9 @@ class StarterSite extends TimberSite {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 
+		// Restrict Content Plugin
+		$context['access'] = rcp_is_active();
+
 		// Site-wide Settings
 		$context['site_callout_bool'] = get_field('site_callout_bool', 'options');
 		$context['site_callout_text'] = get_field('site_callout_text', 'options');
