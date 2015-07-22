@@ -1,5 +1,5 @@
 {
-    "key": "group_54623e9c9e0fb",
+    "key": "group_55afbd5a9169d",
     "title": "Blocks",
     "fields": [
         {
@@ -753,18 +753,6 @@
     "location": [
         [
             {
-                "param": "page_template",
-                "operator": "!=",
-                "value": "page-long_form.php"
-            },
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
                 "param": "post_type",
                 "operator": "==",
                 "value": "post"
@@ -773,19 +761,9 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "seamless",
+    "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "excerpt",
-        "custom_fields",
-        "discussion",
-        "comments",
-        "author",
-        "format",
-        "featured_image",
-        "send-trackbacks"
-    ],
-    "modified": 1437580523
+    "hide_on_screen": "",
+    "modified": 1437580655
 }
