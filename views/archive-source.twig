@@ -31,6 +31,7 @@
 {% endblock %}
 
 {% block content %}
+	{% if access %}
 	<ul class="grid grid--guttered grid--third grid--fit list--major">
 		{% for post in posts %}
 			<li class="list-item--major cell">
@@ -38,4 +39,13 @@
 			</li>
 		{% endfor %}
 	</ul>
+	{% else %}
+		
+	<div class="squish">
+		<h2>Doh!</h2>
+		<p>Looks like you need to have access to the Tackle Box to view this page. But hey, lucky you! While TBX content is still in development, a mere $5 will get you three months of access. Crazy, huh? You can also package that access with monthly 1-on-1 tutoring hours for a bit more than $5.</p>
+		{{function('do_shortcode', '[register_form]')}}
+	</div>
+
+	{% endif %}
 {% endblock %}
