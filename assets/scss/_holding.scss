@@ -12,3 +12,21 @@
 		padding: $size-h4/2 $size-h4;
 	}
 }
+
+
+.tbx-eventjoy-wrap {
+	background-color: $white;
+	padding: $size-base;
+
+	h3 {
+		color: $color-body-text;
+	}
+}
+
+.cell {
+
+	h3 {
+		margin-top: $size-base;
+		padding-left: 10px;
+	}
+}

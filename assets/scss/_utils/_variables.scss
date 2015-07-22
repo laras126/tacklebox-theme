@@ -39,7 +39,7 @@ $color-accent-med:		$light-blue;
 $color-accent-dark:		$dark-blue;
 
 // Alerts
-$color-alert-danger: 	lighten($l-green, 40%);
+$color-alert-danger: 	darken($pink, 20%);
 $color-alert-warning: 	$color-accent-light;
 $color-alert-info: 		$blue;
 $color-alert-success: 	$green;

@@ -8,7 +8,8 @@ $alert-colors: (
     danger:     ($color-alert-danger, $color-text-light),
     warning:    ($color-alert-warning, $color-text-light),
     success:    ($color-alert-success, $color-text-light),
-    cta:        ($color-cta-bkgd, $color-cta-text)
+    cta:        ($color-cta-bkgd, $color-cta-text),
+    info:       ($color-accent-med, $color-text-light)
 );
 
 

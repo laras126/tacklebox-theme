@@ -63,10 +63,18 @@
     left: -999999px;
 }
 
+.radio-hide {
+	visibility: hidden;
+}
+
 .corner-decor {
 	width: 80%;
 	bottom: -10%;
 	right: -20%;
 	position: absolute;
 	z-index: $z-base;
+}
+
+.no-margin {
+	margin: 0;
 }

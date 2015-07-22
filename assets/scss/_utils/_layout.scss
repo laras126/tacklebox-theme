@@ -2,10 +2,10 @@ $size-base:    1.2rem;
 
 /// @group breakpoints
 
-$screen-sm:     40em;
-$screen-md:     50em;
+$screen-sm:     30em;
+$screen-md:     40em;
 $screen-lg:   	50em;
-$screen-xl:     53em;
+$screen-xl:     50em;
 
 
 /// @group base styles
@@ -22,7 +22,8 @@ img {
 .contain-xl {
     margin-left: auto;
 	margin-right: auto;
-	max-width: $screen-xl;
+    width: 90%;
+	max-width: $screen-lg;
 }
 
 
@@ -44,10 +45,10 @@ img {
 }
 
 .grid--guttered {
-	margin: -$size-base/2;
+	margin: -$size-h3/2;
 
 	> .cell {
-		padding: $size-base/2;
+		padding: $size-h3/2;
 	}
 }
 	
