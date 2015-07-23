@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block before_content %}
+	{% include '_page_header.twig' %}
+{% endblock %}
+
+{% block content %}
+	{% for post in posts %}
+		{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+	{% endfor %}
+{% endblock %}

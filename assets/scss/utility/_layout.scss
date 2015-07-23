@@ -1,0 +1,223 @@
+$size-base:    1.2rem;
+
+/// @group breakpoints
+
+$screen-sm:     30em;
+$screen-md:     40em;
+$screen-lg:   	50em;
+$screen-xl:     50em;
+
+
+/// @group base styles
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-main,
+.contain-xl {
+    margin-left: auto;
+	margin-right: auto;
+    width: 90%;
+	max-width: $screen-lg;
+}
+
+
+/// @group grid main
+/// @link http://philipwalton.github.io/solved-by-flexbox/demos/grids/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.cell {
+  	flex: 1;
+    position: relative;
+}
+
+.grid--guttered {
+    margin: -$size-h3/2;
+
+    > .cell {
+        padding: $size-h3/2;
+    }
+}
+
+
+
+/// @group grid responsive
+
+$screens: (
+    sm: $screen-sm,
+    md: $screen-md,
+    lg: $screen-lg
+);
+
+@each $name, $screen in $screens {  
+    
+    @include bp($screen) {
+        .grid--#{$name} {
+            @extend .grid;
+        }
+
+        .cell--#{$name} {
+            @extend .cell;
+        }
+    }
+}
+
+
+
+
+/// @group alignment
+
+$directions: (
+    top: flex-start,
+    bottom: flex-end,
+    center: center
+);
+
+@mixin grid($bp, $size, $direction, $guttered: true) {
+
+}
+
+@each $name, $dir in $directions {  
+    .grid--#{$name} {
+        align-items: $dir;
+    }
+  
+    .cell--#{$name} {
+        align-self: $dir;
+    }
+}
+
+
+
+
+/// @group sizes
+
+$sizes: (
+    full:   100%,
+    half: 	50%,
+    third:	33.333333%,
+    fourth:	25%,
+    sixth:	16.66666667%
+);
+
+@each $name, $size in $sizes {  
+    .cell--#{$name} {
+   		flex: 0 0 $size;
+    }
+
+    .grid--#{$name} > .cell {
+   		flex: 0 0 $size;
+    }
+
+    @include bp(sm) {
+        .cell-sm--#{$name} {
+            flex: 0 0 $size;
+        }
+        .grid-sm--#{$name} > .cell {
+            flex: 0 0 $size;
+        }
+    }
+
+    @include bp(md) {
+        .cell-md--#{$name} {
+            flex: 0 0 $size;
+        }
+        .grid-md--#{$name} > .cell {
+            flex: 0 0 $size;
+        }
+    }
+
+}
+
+
+/// @group cell mixin
+
+
+@mixin cell($bp, $size, $direction) {
+    position: relative;
+    
+    $sizes: (
+        full:   100%,
+        half:   50%,
+        third:  33.333333%,
+        fourth: 25%,
+        sixth:  16.66666667%
+    );
+
+    @if $bp {
+
+        @include bp($bp) {
+
+            @each $name, $sz in $sizes {
+                @if $size == $sz {
+                    flex: 0 0 $sz;
+                } 
+            }
+
+        } @else {
+            flex: 1;
+        }
+    }
+}
+
+
+/// @group squish
+/// Squish allows for hanging elements on the right or left
+
+.squish {
+	padding-left: $size-base;
+	padding-right: $size-base;
+}
+
+.squish-l {
+	padding-left: $size-base;
+}
+
+.squish-r {
+	padding-right: $size-base;
+}
+
+@include bp(md) {
+	.squish {
+        padding: 0;
+		margin-left: 16.66666667%;
+		margin-right: 16.66666667%;
+	}
+
+	.squish-l {
+        padding: 0;
+		margin-left: 16.66666667%;
+	}
+
+	.squish-r {
+        padding: 0;
+		margin-left: 16.66666667%;
+	}
+}
+
+
+
+/// @group bleeds
+/// @content [Bleed an element slightly out of its container.]
+
+@mixin bleed($size: $size-base) {
+	@include bp(md) {
+		margin-right: -$size-base;
+	    margin-left: -$size-base;
+	}
+}
+
+.bleed {
+	@include bleed;
+}
+

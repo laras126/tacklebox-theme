@@ -30,7 +30,7 @@
 			{% if post.header_display == 'image' %}
 				{# TODO: Image will be included here. #}
 			{% elseif post.header_display == 'svg' %}
-				{% include 'utility/svg.twig' with { file : post.header_svg, prefix : 'shape' } %}
+				{% include 'partials/svg.twig' with { file : post.header_svg, prefix : 'shape' } %}
 			{% endif %}	
 			
 			{% for l in related_lessons %}
@@ -132,8 +132,13 @@
 
 {% block after_content %}
 	
-	{% include 'navs/_nav-prevnext.twig' with { class : 'nav-prevnext' } %}
+	{% include 'partials/prevnext.twig' %}
 
-	{% include 'footers/_footer-lesson.twig' with { class : 'footer-lesson' } %}
+	<h5>Lessons in this Class:</h5>	
+	<ol>
+		{% for l in related_lessons %}
+			<li><a href="{{l.link}}">{{l.title}}</a></li>
+		{% endfor %}
+	</ol>
 
 {% endblock %}

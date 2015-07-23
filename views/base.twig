@@ -7,16 +7,19 @@
 
     <body class="{{body_class}} wf-loading" data-template="base.twig" id="pageTop">
         
-        <div class="visually-hidden">{% include 'views/utility/svg-defs.svg' %}</div>
+        <div class="visually-hidden">{% include 'views/partials/svg-defs.svg' %}</div>
+
         {% block header %}
-            {% include 'headers/_header-site.twig' with { class: 'header-site', role: 'banner', contain: 'contain' } %}
+            {% include 'site/site-header.twig' %}
         {% endblock %}  
         
-        <main class="site-main contain" role="main">
+        <main class="site__main" role="main">
 
-            <div class="site-content">
+            <div class="content">
 
-                {% block before_content %}{% endblock %}
+                {% block before_content %}
+                    {% include 'pages/_page_header.twig' %}
+                {% endblock %}
 
                 {% block content %}
                     Sorry, no content
@@ -27,7 +30,7 @@
             </div>
 
             {% if sidebar %}
-                <aside class="site-sidebar">
+                <aside class="sidebar">
                     {{sidebar}}
                 </aside>
             {% endif %}
@@ -35,7 +38,7 @@
         </main>
 
         {% block footer %}
-            {% include 'footers/_footer-site.twig' with { class : 'footer-site', role : 'contentinfo' } %}   
+            {% include 'site/site-footer.twig' %}   
             {{ function('wp_footer') }}
         {% endblock %}
 

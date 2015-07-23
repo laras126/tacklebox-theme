@@ -1,0 +1,11 @@
+
+<footer class="site__footer">
+	<div class="squish">
+		{% block footer_content %}{% endblock %}
+	</div>
+	<nav class="nav--backtop">
+		<a href="#pageTop">
+			{% include 'partials/svg.twig' with { file : 'arrow-up', prefix : 'icon' }%}
+		</a>
+	</nav>
+</footer>

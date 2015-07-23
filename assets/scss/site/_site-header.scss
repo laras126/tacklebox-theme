@@ -1,0 +1,5 @@
+/// @group [nav--site]
+
+.site__logo {
+	@include cell(full, center);
+}

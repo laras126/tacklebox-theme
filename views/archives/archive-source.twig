@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+
+{% block before_content %}
+	{% include 'archives/_archive_header.twig' %}
+
+	{# <div class="filter-panel">
+		
+	<h5>Type:</h5>
+	<ul>
+	{% for type in types %}
+		<li><a href="{{type.link}}">{{type.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	<h5>Level:</h5>
+	<ul>
+	{% for level in levels %}
+		<li><a href="{{level.link}}">{{level.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	<h5>Category:</h5>
+	<ul>
+	{% for cat in categories %}
+		<li><a href="{{cat.link}}">{{cat.name}}</a></li>
+	{% endfor %}
+	</ul>
+
+	</div> #}
+
+{% endblock %}
+
+{% block content %}
+	{% if access %}
+	<ul class="grid grid--guttered grid--third grid--fit list--major">
+		{% for post in posts %}
+			<li class="list-item--major cell">
+				{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		
+	<div class="squish">
+		<h2>Doh!</h2>
+		<p>Looks like you need to have access to the Tackle Box to view this page. But hey, lucky you! While TBX content is still in development, a mere $5 will get you three months of access. Crazy, huh? You can also package that access with monthly 1-on-1 tutoring hours for a bit more than $5.</p>
+		{{function('do_shortcode', '[register_form]')}}
+	</div>
+
+	{% endif %}
+{% endblock %}
