@@ -60,6 +60,8 @@
 }
 
 
+
+
 // ----
 // Typography
 // ----
@@ -79,7 +81,15 @@
 }
 
 
-
+@mixin unstyle-list($margin:true, $pad:true) {
+    @if $margin != false {
+        margin: 0;
+    }
+    @if $pad != false {
+        padding: 0;
+    }
+    list-style-type: none;
+}
 
 
 

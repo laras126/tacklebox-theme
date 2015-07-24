@@ -2,7 +2,9 @@
 
 	{% set display = post.header_display %}
 
-	<h1 class="header__title">{{post.post_title}}</h1>
+	<div class="contain--sm">
+		<h1 class="header__title">{{post.post_title}}</h1>
+	</div>
 
 	{% if display == 'image' %}
 
@@ -11,8 +13,15 @@
 		{{post.header_image_mobile}}
 
 	{% endif %}
-
-	<p class="header__lead">{{post.header_tagline}}</p>
-	<p class="header__summary">{{post.header_summary|wpautop}}</p>
+	
+	<div class="contain--sm">
+		{% if post.header_tagline %}
+			<p class="header__lead">{{post.header_tagline}}</p>
+		{% endif %}
+		{% if post.header_summary %}
+			<p class="header__summary">{{post.header_summary|
+		wpautop}}</p>
+		{% endif %}
+	</div>
 
 </header>	

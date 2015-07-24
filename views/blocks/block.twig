@@ -1,7 +1,7 @@
-<div class="block--{{block_class}}{{blck.cta_rotate ? ' rotate-' ~ blck.cta_rotate }}">
-	{{ block.contain ? '<div class="' ~ block.contain ~ '"</div>' }}
+<section class="block--{{block_class}}{{blck.cta_rotate ? ' rotate-' ~ blck.cta_rotate }}">
+	{{ block.contain ? '<div class="' ~ block.contain ~ '">' }}
 		{% block content %}
 			<p>Nothing in this Block</p>
 		{% endblock %}
 	{{ block.contain ? '</div>' }}
-</div> <!-- /.block--{{block_class}} -->
+</section> <!-- /.block--{{block_class}} -->

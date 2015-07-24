@@ -98,11 +98,12 @@ strong {
 }
 
 blockquote {
-	font-size: $size-h4;
+	font-size: $size-base;
 	font-style: italic;
+	font-family: $font-quote;
 
 	&:before {
-		// background-image: url(../img/svgs/quotes-left.svg);
+		// background-image: url(../img/svg-min/quotes-left.svg);
 		// background-repeat: no-repeat;
 
 		// content: " ";

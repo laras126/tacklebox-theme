@@ -1,30 +1,33 @@
 
-.helper-support {
-	@include upperspace();
-	font-size: $size-sml;
-}
 
-.helper-label {
-	padding: $size-xsml/2 $size-xsml;
-	font-weight: 300;
-}
+// .helper-label {
+// 	padding: $size-xsml/2 $size-xsml;
+// 	font-weight: 300;
+// }
 
-.helper-label-active {
-	@include meta($color-text-light);
-	background-color: $color-alert-success;
-}
+// .helper-label-active {
+// 	@include meta($color-text-light);
+// 	background-color: $color-alert-success;
+// }
+
 
 .meta {
-	@include meta();
+    font-size: $size-sml;
 	line-height: $line-height-sm;
+	// margin: $size-;
 }
 
-	.meta--light {
-		line-height: $line-height-sm;
-		@include meta($color-text-light);
+	.meta--upper {
+		@extend .meta;
+		@include upperspace();
 	}
 
-	.meta--dark {
-		line-height: $line-height-sm;
-		@include meta($color-body-text);
-	} 
+	.meta--light {
+		@extend .meta;
+		color: $color-text-light;
+	}
+
+	.meta--med {
+		@extend .meta;
+		color: $color-text-med;
+	}

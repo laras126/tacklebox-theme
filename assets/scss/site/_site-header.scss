@@ -1,5 +1,39 @@
-/// @group [nav--site]
+
+
+.site__header {
+	@include grid(false, center);
+	justify-content: center;
+}
 
 .site__logo {
-	@include cell(full, center);
+	@include cell(half);
+	justify-content: center;
+
+	@include bp(md) {
+		@include cell(fourth, $is_first: false);
+	}
 }
+
+	.site__logo--welcome {
+
+	}
+
+.site__nav {
+	@include cell(full);
+
+	> div {
+		border-top: $border-accent;
+		border-bottom: $border-accent;
+	}
+}
+
+	.site__nav__items {
+		@include unstyle-list(false, true);
+		text-align: center;
+	}
+
+	.site__nav__item {
+		display: inline-block;
+		padding-left: $size-base;
+		padding-right: $size-base;
+	}

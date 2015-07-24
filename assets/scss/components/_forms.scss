@@ -17,6 +17,8 @@ label {
 	margin-top: $size-h4;
 	margin-bottom: $size-xsml;
 	font-family: $font-form;
+	font-size: $size-sml;
+	@include upperspace;
 }
 
 input[type="search"] {
@@ -103,6 +105,21 @@ fieldset {
 	border: 0;
 }
 
+
+// Mailchimp layout
+
+
+.form--signup {
+	@include grid;
+}
+
+.form__half {
+	@include cell(half);
+}
+
+.form__full {
+	@include cell(full);
+}
 
 
 // Lesson specific

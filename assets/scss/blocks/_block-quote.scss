@@ -1,40 +1,19 @@
 
-// .block_related_page {
-// 	background-color: $accent-vlight;
-// 	padding-bottom: $size-base;
-// }
 
-// .related-title {
-// 	margin-top: $size-base;
-// }
+.block--block_quote {
+	margin-bottom: $size-h2;
+}
 
-// .prompt-wrap {}
+.block_quote__icon {
+	position: absolute;
+	left: 0;
+}
 
-// 	.prompt {
-// 		@include upperspace;
-// 		position: relative;
-// 		top: 0;
-		
-// 		@include bp(large) {
-// 			// transform: rotate(-90deg);
-// 			// IMPORTANT: Can't leave this like this
-// 			// transform-origin: left bottom;
-// 			// position: absolute;
-// 			// left: -$size-base;
-// 			// top: 82px;
-// 		}
-		
-// 		span {
-// 			position: relative;
-// 			padding: $sml/2 $sml;
-// 			@include rotate($text-light, $alert-success);
-// 			position: relative;
-// 			z-index: $zmid;
+.block_quote__quote {
+	margin-right: 0;
+	margin-left: $size-h3;
+}
 
-// 			@include bp(large) {
-// 				// left: -$sml;
-// 			}
-
-// 			@include upperspace;
-// 		}
-// 	}
+.block_quote__icon svg {
+	fill: #000;
+}

@@ -110,6 +110,7 @@ $font-body: 		$sans-serif;
 $font-nav: 			$sans-serif;
 $font-form: 		$sans-serif;
 $font-lead: 		$sans-serif;
+$font-quote: 		$serif;
 
 $font-heading-fallback: $sans-serif-fallback;
 $font-body-fallback: 	$sans-serif-fallback;
@@ -126,8 +127,8 @@ $font-weight-strong: 	500;
 // ----
 
 $border-accent: 	1px dotted $color-accent-med;
-$border-form:	 	3px solid $color-accent-med;
-$border-alert: 		3px solid $color-accent-light;
+$border-form:	 	1px solid $color-accent-med;
+$border-alert: 		3px solid $color-alert-success;
 
 // Z-Index Scale
 $z-base: 			1;

@@ -1,10 +1,13 @@
 {% extends 'blocks/block.twig' %}
 
 {% block content %}
-
-	<blockquote>
-		<p>{{block.quote_text}}</p>
-		<footer>
+	
+	<div class="block_quote__icon">
+		{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon' } %}
+	</div>
+	<blockquote class="block_quote__quote">
+		<p class="quote__text">{{block.quote_text}}</p>
+		<footer class="quote__cite">
 			&dash; <cite><a href="{{block.quote_source_url}}" target="blank">{{block.quote_source}}</cite></a>
 		</footer>
 	</blockquote>

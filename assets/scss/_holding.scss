@@ -1,32 +1,8 @@
-
-// Shameful styles here.
-
-.home {
-	.block_list-list {
-		@extend .grid;
-		@extend .grid--guttered;
-	}
-
-	.list-item--free_form {
-		@extend .cell--half;
-		padding: $size-h4/2 $size-h4;
-	}
+.widget-box {
+	// border-top: $border-accent;
+	margin-top: $size-h3 !important;
 }
 
 
-.tbx-eventjoy-wrap {
-	background-color: $white;
-	padding: $size-base;
 
-	h3 {
-		color: $color-body-text;
-	}
-}
 
-.cell {
-
-	h3 {
-		margin-top: $size-base;
-		padding-left: 10px;
-	}
-}

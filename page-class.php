@@ -25,4 +25,4 @@ $context['post'] = $post;
 $context['c_user'] = new TimberUser();
 $context['lessons'] = Timber::get_posts($lesson_args);
 
-Timber::render('pages/_page-class.twig', $context);
+Timber::render('pages/page-class.twig', $context);
