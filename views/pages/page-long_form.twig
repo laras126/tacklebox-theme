@@ -3,7 +3,7 @@
 {% block content %}
 
 	{% for section in post.get_field('sections') %}
-		<section class="page__section" id="{{section.menu_item_title|replace({ (' '): '_' })}}">
+		<section class="page__section" id="{{section.section_menu_item_title|lower|replace({ (' '): '_' })}}">
 			
 			<header class="section__header">
 				<div class="contain--sm">

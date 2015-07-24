@@ -6,12 +6,12 @@
 
 .block_quote__icon {
 	position: absolute;
-	left: 0;
+	left: -$size-h3;
 }
 
 .block_quote__quote {
 	margin-right: 0;
-	margin-left: $size-h3;
+	margin-left: 0;
 }
 
 .block_quote__icon svg {

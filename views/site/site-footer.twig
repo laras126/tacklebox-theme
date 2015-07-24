@@ -1,11 +1,58 @@
-
 <footer class="site__footer">
-	<div class="squish">
-		{% block footer_content %}{% endblock %}
-	</div>
+
+	<section class="page__section" id="updates">
+		<div class="contain--sm">
+			<header class="section__header">
+				<h2>Stay in the loop.</h2>
+				<p class="header__lead">Sign up for emails announcing new classes, workshops, and Tackle Box developments.</p>
+			</header>
+			<div id="mc_embed_signup">
+				<form action="//notlaura.us2.list-manage.com/subscribe/post?u=e2b9ece9d65b984fa3652e930&amp;id=453ea4a7b0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+					<div id="mc_embed_signup_scroll" class="form--signup">
+						<div class="mc-field-group form__half">
+							<label for="mce-FNAME">First Name </label><br>
+							<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+						</div>
+						<div class="mc-field-group form__half">
+							<label for="mce-LNAME">Last Name </label><br>
+							<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+						</div>
+						<div class="mc-field-group form__full">
+							<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label><br>
+							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+						</div>
+						<div class="mc-field-group input-group" style="display:none">
+							<strong>Are you interested in the TackleBox? </strong><p></p>
+							<ul>
+								<li><input type="checkbox" checked="" value="2" name="group[18521][2]" id="mce-group[18521]-18521-0"><label for="mce-group[18521]-18521-0">Yeah!</label></li>
+							</ul>
+						</div>
+						<div class="mc-field-group input-group" style="display:none">
+							<strong>Email Format </strong><p></p>
+							<ul>
+								<li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label for="mce-EMAILTYPE-0">html</label></li>
+								<li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label for="mce-EMAILTYPE-1">text</label></li>
+							</ul>
+						</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>
+						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;"><input type="text" name="b_e2b9ece9d65b984fa3652e930_453ea4a7b0" tabindex="-1" value=""></div>
+						<div class="form__full">
+							<input class="form__submit" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
 	<nav class="nav--backtop">
 		<a href="#pageTop">
 			{% include 'partials/svg.twig' with { file : 'arrow-up', prefix : 'icon' }%}
 		</a>
 	</nav>
+	
 </footer>

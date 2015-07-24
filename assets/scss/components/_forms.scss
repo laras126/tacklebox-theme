@@ -106,19 +106,45 @@ fieldset {
 }
 
 
-// Mailchimp layout
+// Mailchimp/Gravity forms layout
 
+.gform_body {
+	// margin-left: -$gutter/2;
+	// margin-right: -$gutter/2;
+}
 
-.form--signup {
+.form--signup, 
+.gform_fields {
+	@include unstyle-list;
 	@include grid;
 }
 
+.gfield_description {
+	@include meta($color-text-med);
+}
+
 .form__half {
-	@include cell(half);
+	@include cell(full);
+	@include bp(md) {
+		@include cell(half, $is_first: falses);
+	}
 }
 
 .form__full {
+	margin-top: $size-base;
 	@include cell(full);
+}
+
+.form__submit {
+	
+	@extend .btn--success;
+	@include cell(full);
+	
+	@include bp(md) {
+		@include cell(fourth, $is_first: false);
+		float: right;
+	}
+
 }
 
 

@@ -1,5 +1,4 @@
 
-
 .site__header {
 	@include grid(false, center);
 	justify-content: center;
@@ -9,8 +8,8 @@
 	@include cell(half);
 	justify-content: center;
 
-	@include bp(md) {
-		@include cell(fourth, $is_first: false);
+	@include bp(lg) {
+		@include cell(third, $is_first: false);
 	}
 }
 

@@ -3,16 +3,16 @@
 /// @content [Buttons for stuff]
 
 $buttons: (
-    danger:     ($color-alert-danger, $color-text-light),
-    warning:    ($color-alert-warning, $color-text-light),
-    success:    ($color-alert-success, $color-text-light),
-    cta:        ($color-accent-dark, $color-text-light),
-    readmore:   ($color-accent-med, $color-text-light)
+    danger:     ($color-alert-danger, $color-text-vlight),
+    warning:    ($color-alert-warning, $color-text-vlight),
+    success:    ($color-alert-success, $color-text-vlight),
+    cta:        ($color-accent-dark, $color-text-vlight),
+    readmore:   ($color-accent-med, $color-text-vlight)
 );
  
 .btn {
-    display: inline-block;
-    padding: $size-xsml;
+    padding: $size-xsml $size-h3;
+    border-radius: 3px;
     margin-top: $size-sml;
     margin-bottom: $size-sml;
     border: 0;
@@ -21,7 +21,8 @@ $buttons: (
         $bgcolor: nth($colors, 1);
         $fontcolor: nth($colors, 2);
 
-        &-#{$name} {
+        &--#{$name} {
+            @extend .btn;
             // TODO: Need to deal with hover styles.
             background-color: $bgcolor;
             color: $fontcolor;
@@ -31,8 +32,7 @@ $buttons: (
                 color: $fontcolor;
             }
             &:active {
-                background-color: darken($bgcolor, 50%);
-                color: darken($fontcolor, 20%);
+                background-color: darken($bgcolor, 35%);
             }
         }
     }
