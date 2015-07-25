@@ -56,10 +56,11 @@ input[type="tel"] {
 	padding: $size-sml $size-base;
 	width: 100%;
 	border: $border-form;
+	background-color: $color-accent-vlight;
 
 	&:focus {
 		border-color: $color-alert-info;
-		background-color: $color-accent-vlight;
+		background-color: $color-body-bkgd;		
 	}
 }
 
@@ -108,9 +109,20 @@ fieldset {
 
 // Mailchimp/Gravity forms layout
 
-.gform_body {
-	// margin-left: -$gutter/2;
-	// margin-right: -$gutter/2;
+.gform_footer {
+	@include clearfix;
+}
+
+.gfield_checkbox {
+	@include unstyle-list;
+	margin-left: $gutter/2;
+	margin-top: $gutter;
+	
+	label {
+		text-transform: none;
+		font-size: $size-base;
+		letter-spacing: 0;
+	}
 }
 
 .form--signup, 
@@ -135,14 +147,16 @@ fieldset {
 	@include cell(full);
 }
 
-.form__submit {
-	
+input[type="submit"] {
 	@extend .btn--success;
+	float: right;
+}
+
+.form__submit {
 	@include cell(full);
 	
 	@include bp(md) {
 		@include cell(fourth, $is_first: false);
-		float: right;
 	}
 
 }
