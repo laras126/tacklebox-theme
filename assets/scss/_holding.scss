@@ -1,5 +1,19 @@
+
+// Eventjoy widget hack
+
 .widget-box {
 	// border-top: $border-accent;
 	margin-top: $size-h3 !important;
 }
 
+
+// Footer nav
+
+.nav--backtop {
+	padding-top: $size-h1;
+}
+
+.nav--backtop .icon {
+	width: $size-h2;
+	height: $size-h2;
+}

@@ -137,7 +137,7 @@ fieldset {
 
 .form__half {
 	@include cell(full);
-	@include bp(md) {
+	@include bp(sm) {
 		@include cell(half, $is_first: falses);
 	}
 }
@@ -150,12 +150,16 @@ fieldset {
 input[type="submit"] {
 	@extend .btn--success;
 	float: right;
+	width: 100%;
+	@include bp(sm) {
+		width: auto;
+	}
 }
 
 .form__submit {
 	@include cell(full);
 	
-	@include bp(md) {
+	@include bp(sm) {
 		@include cell(fourth, $is_first: false);
 	}
 

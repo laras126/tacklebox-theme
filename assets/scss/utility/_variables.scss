@@ -48,7 +48,7 @@ $color-alert-success: 	$green;
 $color-text-dark: 		lighten(#3e3739, 5%);
 $color-text-med: 		darken($grey, 20%);
 $color-text-light: 		lighten($color-text-med, 20%);
-$color-text-vlight: 	$white;
+$color-text-vlight: 	$color-accent-vlight;
 
 // Links
 $color-link:			$blue;

@@ -1,0 +1,29 @@
+.site__footer {
+	background-color: $color-accent-dark;
+	padding-top: $size-h2;
+}
+
+.site__footer__content {
+	border-top: $border-accent;
+	text-align: center;
+	@extend .meta--light;
+	// @include grid(false);
+	padding-bottom: $size-base;
+}
+
+.site__footer__credits {
+	// @include cell(full);
+	// @include bp(md) {
+	// 	@include cell(half, $is_first: false);
+	// }
+}
+
+.site__footer__art {
+	position: relative;
+	bottom: -$size-h2;
+	z-index: $z-back;
+}
+
+	.shape-water {
+		fill: $color-accent-dark;
+	}

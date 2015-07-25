@@ -14,7 +14,6 @@
 .meta {
     font-size: $size-sml;
 	line-height: $line-height-sm;
-	// margin: $size-;
 }
 
 	.meta--upper {
@@ -25,6 +24,14 @@
 	.meta--light {
 		@extend .meta;
 		color: $color-text-light;
+
+		a {
+			color: $color-text-vlight;
+
+			&:hover {
+				color: $color-text-light;				
+			}
+		}
 	}
 
 	.meta--med {
