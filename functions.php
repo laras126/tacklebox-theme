@@ -307,8 +307,8 @@ if ( is_admin() ) { // check to make sure we aren't on the front end
 // Google Analytics snippet from HTML5 Boilerplate
 // Cookie domain is 'auto' configured. See: http://goo.gl/VUCHKM
 
-define('GOOGLE_ANALYTICS_ID', 'UA-XXXXXX-X');
-function mtn_google_analytics() { ?>
+define('GOOGLE_ANALYTICS_ID', 'UA-12198561-5');
+function tbx_google_analytics() { ?>
 <script>
   <?php if (WP_ENV === 'production') : ?>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -327,7 +327,7 @@ function mtn_google_analytics() { ?>
 <?php }
 
 if (GOOGLE_ANALYTICS_ID && (WP_ENV !== 'production' || !current_user_can('manage_options'))) {
-  add_action('wp_footer', 'mtn_google_analytics', 20);
+  add_action('wp_footer', 'tbx_google_analytics', 20);
 }
 
 
