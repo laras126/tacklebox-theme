@@ -5,10 +5,16 @@
 }
 
 .site__logo {
-	@include cell(half);
+	@include cell(full);
 	justify-content: center;
+	padding-left: $size-h3;
+	max-width: 80%;
+	
+	@include bp(sm) {
+		@include cell(half, $is_first: false);
+	}
 
-	@include bp(lg) {
+	@include bp(xl) {
 		@include cell(third, $is_first: false);
 	}
 }
@@ -27,12 +33,14 @@
 }
 
 	.site__nav__items {
-		@include unstyle-list(false, true);
+		@include unstyle-list();
 		text-align: center;
+		padding-bottom: $size-base;
 	}
 
 	.site__nav__item {
 		display: inline-block;
+		padding-top: $size-base;
 		padding-left: $size-base;
 		padding-right: $size-base;
 	}

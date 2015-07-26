@@ -6,12 +6,21 @@
 
 .block_quote__icon {
 	position: absolute;
-	left: -$size-h3;
+	left: -$size-base;
+
+	@include bp(sm) {
+		left: -$size-h3;
+	}
 }
 
 .block_quote__quote {
 	margin-right: 0;
 	margin-left: 0;
+	padding-left: $size-sml;
+
+	@include bp(sm) {
+		padding-left: 0;
+	}
 }
 
 .block_quote__icon svg {

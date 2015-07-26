@@ -101,23 +101,6 @@ blockquote {
 	font-size: $size-base;
 	font-style: italic;
 	font-family: $font-quote;
-
-	&:before {
-		// background-image: url(../img/svg-min/quotes-left.svg);
-		// background-repeat: no-repeat;
-
-		// content: " ";
-		
-		// width: $size-h3;
-		// height: $size-h3;
-		
-		// position: absolute;
-		// left: -$size-h4;
-
-		// @include bp(med) {
-		// 	left: -$size-h3;
-		// }	
-	}
 }
 
 p {
