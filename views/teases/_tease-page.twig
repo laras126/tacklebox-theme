@@ -1,14 +1,30 @@
 {% extends 'teases/tease.twig' %}
 
 {% block content %}
-	{# TODO: it's a hack to use guid here. It needs to be getting the link of the current ID or something. #}
-	<h4><a href="{{post.guid}}">{{post.post_title}}</a> {{post.class_is_live ? ' <span class="helper-label helper-label-active">Now Registering!</span>' }}</h4>
-				
+	
+	{% set post = TimberPost(post) %}
+	{% set live = post.class_is_live %}
+	{% set location = post.class_location %}
+	{% set start = post.class_start_date %}
+	
+	<h4><a href="{{post.link}}">{{post.post_title}}</a> <span class="meta--upper meta--success">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</span></h4>
+	
+	{# {% if live %} #}
+		{# <p>{{post.class_start_date|date('F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('F j')}}, {{post.class_day_and_time}}</p> #}
+		{% if live and start|date("U") > "now"|date("U") %}
+			<p><strong>{{post.class_start_date|date('l, F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('l, F j')}}, {{post.class_day_and_time}}<br>{{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</strong></p>
+		{% endif %}
+	{# {% endif %} #}
+	
 	<p>{{post.header_summary}}</p>
-	<a href="{{post.guid}}" class="btn btn-readmore">Read more...</a>
+	<div class="clearfix">
+		<a href="{{post.link}}" class="btn btn--readmore">Read more...</a>
+	</div>
 
 	{% if post.thumbnail.src %}
 		<img src="{{post.thumbnail.src}}" />
 	{% endif %}
+
+	{# {% include 'partials/edit-link.twig' %} #}
 	
 {% endblock %}
