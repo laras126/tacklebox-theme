@@ -191,7 +191,7 @@ function tbx_scripts() {
 	// Enqueue stylesheet and scripts. Use minified for production.
 	// NOTE: will need to change this to get_stylesheet_directory_uri() to allow for child themes later.
 	if( WP_ENV == 'production' ) {
-		wp_enqueue_style( 'tbx-styles', get_stylesheet_directory_uri() . '/assets/css/build/main.min.css', 1.0);
+		wp_enqueue_style( 'tbx-styles', get_stylesheet_directory_uri() . '/assets/css/main.min.css', 1.0);
 		wp_enqueue_script( 'tbx-js', get_stylesheet_directory_uri() . '/assets/js/build/scripts.min.js', array('jquery'), '1.0.0', true );
 	} else {
 		wp_enqueue_style( 'tbx-styles', get_stylesheet_directory_uri() . '/assets/css/main.css', 1.0);
