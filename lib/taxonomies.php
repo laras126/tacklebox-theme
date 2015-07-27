@@ -85,7 +85,7 @@ $args = array(
 	'show_in_nav_menus'          => true,
 	'show_tagcloud'              => true,
 );
-register_taxonomy( 'level', array( 'source', 'post' ), $args );
+register_taxonomy( 'level', array( 'source', 'post', 'page' ), $args );
 
 
 // ----
