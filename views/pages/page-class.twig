@@ -2,44 +2,43 @@
 
 {% block before_content %}	
 
-	{% include 'pages/_page_header.twig' %}
+	<header class="header--page">
 
-	{% set start = post.class_start_date %}
-	{% if post.class_is_live and start|date("U") > "now"|date("U") %}
+		{% set display = post.header_display %}
+		{% set live =  post.class_is_live %}
+		{% set start = post.class_start_date %}
 		
-		<div class="squish">
+		<div class="contain--sm">
+			
+			
+			<h1 class="header__title">{{post.post_title}} <span class="meta--upper meta--success">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</span></h1>
+			
+			{% if live and start|date("U") > "now"|date("U") %}
+				<p class="header__lead">{{post.class_start_date|date('l, F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('l, F j')}}, {{post.class_day_and_time}}<br>{{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</p>
+			{% endif %}
 
-			<div class="alert--cta grid">
-				<div class="alert__img cell-fourth">
+			{% if post.header_tagline %}
+				<p>{{post.header_tagline}}</p>
+			{% endif %}
 
-					{# Set the SVG icon  #}
-					{% if class_location == in_person %}
-						{% set svg_file = 'office' %}
-					{% else %}
-						{% set svg_file = 'hangouts' %}
-					{% endif %}
-
-					{% include 'partials/svg.twig' with { file : svg_file, prefix : 'shape' } %}
-
-				</div>
-				<div class="alert__content cell">
-					<h4 class="alert-title">Upcoming class!</h4>
-					
-					<p>{{post.class_day_and_time}}<br>{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
-
-					{% if class_location == in_person %}
-						<p>This class is <strong>in person</strong> in the Flatiron District of Manhattan. Precise location details will be provided upon registration.</p>
-					{% else %}
-						<p>This class is <strong>remote</strong> and will be held via Google Hangouts. Details will be provided upon registration.</p>
-					{% endif %}
-
-					<a class="btn--cta">Grab a spot!</a>
-				</div>
-			</div>
+			{% if post.header_summary %}
+				<p class="header__summary">{{post.header_summary|
+			wpautop}}</p>
+			{% endif %}
 
 		</div>
-	{% endif %}
 
+	</header>
+
+	<div class="contain--md">
+		{% if live %}
+			{{ post.class_event ? post.class_event }}
+		{% else %}
+			<h3>Whoops, looks like this class has ended. Sign up for the Tackle Box email list to know when it comes back on!</h3>
+			{% include 'partials/mailchimp.twig' %}
+		{% endif %}
+	</div>
+		
 {% endblock %}
 
 {% block after_content %}
