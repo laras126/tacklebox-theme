@@ -15,19 +15,15 @@
         
         <main class="site__main" role="main">
 
-            <div class="content">
+            {% block before_content %}
+                {% include 'pages/_page_header.twig' %}
+            {% endblock %}
 
-                {% block before_content %}
-                    {% include 'pages/_page_header.twig' %}
-                {% endblock %}
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
 
-                {% block content %}
-                    Sorry, no content
-                {% endblock %}
-
-                {% block after_content %}{% endblock %}
-
-            </div>
+            {% block after_content %}{% endblock %}
 
             {% if sidebar %}
                 <aside class="sidebar">
