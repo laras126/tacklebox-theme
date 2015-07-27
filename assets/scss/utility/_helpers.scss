@@ -46,9 +46,9 @@
     left: -999999px;
 }
 
-.radio-hide {
-	visibility: hidden;
-}
+// .radio-hide {
+// 	visibility: hidden;
+// }
 
 .corner-decor {
 	width: 80%;
@@ -60,4 +60,8 @@
 
 .no-margin {
 	margin: 0;
+}
+
+.clearfix {
+	@include clearfix;
 }

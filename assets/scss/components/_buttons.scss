@@ -11,7 +11,7 @@ $buttons: (
 );
  
 .btn {
-    padding: $size-xsml $size-h3;
+    padding: $size-xsml $size-base;
     border-radius: 3px;
     margin-top: $size-sml;
     margin-bottom: $size-sml;
@@ -26,6 +26,7 @@ $buttons: (
             // TODO: Need to deal with hover styles.
             background-color: $bgcolor;
             color: $fontcolor;
+            float: right;
 
             &:hover {
                 background-color: darken($bgcolor, 20%);

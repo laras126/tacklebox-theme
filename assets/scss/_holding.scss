@@ -3,9 +3,13 @@
 
 .widget-box {
 	// border-top: $border-accent;
+	min-height: 250px !important; 
 	margin-top: $size-h3 !important;
 }
 
+.eventjoy-widget {
+	min-height: 250px !important; 
+}
 
 // Footer nav
 

@@ -8,8 +8,9 @@
 	padding-left: 0;
 
 	& > li {
-		@include card;
-
+		margin-top: $size-h3;
+		border-top: $border-accent;
+		border-bottom: $border-accent;
 	}
 
 	.list-item--free_form { 

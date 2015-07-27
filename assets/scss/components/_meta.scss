@@ -38,3 +38,8 @@
 		@extend .meta;
 		color: $color-text-med;
 	}
+
+	.meta--success {
+		@extend .meta;
+		color: $color-alert-success;
+	}

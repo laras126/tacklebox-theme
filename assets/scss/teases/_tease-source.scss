@@ -2,16 +2,16 @@
 /// @group tease-source
 /// @content [Styles for source teases, including corner category indicators]
 
+.sources__list {
+	@include grid;
+}
+
 .tease--source {
 	@include meta($margin: true);
 	overflow: hidden;
 	position: relative;
+	@include cell(half);
 	// margin-top: 0;
-
-	.tease-content {
-		position: relative;
-		z-index: $z-top;
-	}
 
 	.shape {
 		width: 80%;
@@ -25,6 +25,12 @@
 }
 
 
-/// @group category-indicators
+.tease__content--source {
+	position: relative;
+	z-index: $z-top;
+}
+
+	/// @group category-indicators
 /// @content [SVG background images for source category indications]
+
 
