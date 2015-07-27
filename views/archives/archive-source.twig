@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block before_content %}
-	{% include 'archives/_archive_header.twig' %}
+	{# {% include 'archives/_archive_header.twig' %} #}
 
 	{# <div class="filter-panel">
 		
@@ -32,7 +32,7 @@
 
 {% block content %}
 	{% if access %}
-	<ul class="grid grid--guttered grid--third grid--fit list--major">
+	<ul class="sources__list">
 		{% for post in posts %}
 			<li class="list-item--major cell">
 				{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
