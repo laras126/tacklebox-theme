@@ -19,6 +19,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_55ccf2a822a2a",
+            "label": "Date and time",
+            "name": "date",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_date": "true",
+            "date_format": "m\/d\/y",
+            "time_format": "h:mm tt",
+            "show_week_number": "false",
+            "picker": "slider",
+            "save_as_timestamp": "true",
+            "get_as_timestamp": "false"
+        },
+        {
             "key": "field_5591ae879bd86",
             "label": "Video",
             "name": "video",
@@ -788,10 +809,10 @@
         },
         {
             "key": "field_55a409a5ccdc7",
-            "label": "Video Links",
-            "name": "video_links",
+            "label": "Lesson Segment",
+            "name": "lesson_segments",
             "type": "repeater",
-            "instructions": "Links from the video.",
+            "instructions": "An outline of lesson segments.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -805,9 +826,25 @@
             "button_label": "Add Link",
             "sub_fields": [
                 {
+                    "key": "field_55a409a6ccdc9",
+                    "label": "Slides URL",
+                    "name": "slides_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_55a409a6ccdc8",
-                    "label": "Link Name",
-                    "name": "link_name",
+                    "label": "Title",
+                    "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -826,20 +863,22 @@
                     "disabled": 0
                 },
                 {
-                    "key": "field_55a409a6ccdc9",
-                    "label": "Link URL",
-                    "name": "link_url",
-                    "type": "url",
+                    "key": "field_55cd05cead98d",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 33,
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "tabs": "all",
+                    "toolbar": "text_based",
+                    "media_upload": 1
                 },
                 {
                     "key": "field_55a409ddccdca",
@@ -1829,5 +1868,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1439218865
+    "modified": 1439499899
 }

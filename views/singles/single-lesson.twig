@@ -20,12 +20,12 @@
 
 				<input type="submit" name="submit" value="Go">
 			</form> #}
-			
-			<ul class="nav">
+			{# 
+			<ul class="nav"> #}
 				{% for t in post.terms('class') %}
-					<li>{{t.name}}</li>
+					<p class="meta">{{t.name}}</p>
 				{% endfor %}
-			</ul>
+			{# </ul> #}
 
 			{% if post.header_display == 'image' %}
 				{# TODO: Image will be included here. #}
@@ -68,15 +68,22 @@
 	</div> #}
 
 	<div class="contain--md">
-	<div class="media-enhanced">
-		{{post.video}}
+		<div class="media-enhanced">
+			{{post.video}}
+		</div>
 	</div>
+ 
+ 	<div class="contain--sm">
+ 		<h3>Video Breakdown</h3>
+		<ol class="list--minor">
+			{% for item in post.video_segments %}
+				<li>
+					<h4>{{item.title}}</h4>
+				</li>
+			{% endfor %}
+		</ol>
 	</div>
- 	{# <div class="contain--sm">
-		<div class="btn btn-cta">Download Worksheet</div>
-		<div class="btn btn-cta">View Transcription</div>
-	</div>
-  #}
+ 
 	{# Blocks for additional Lesson content #}
 	
 	{% for block in post.get_field('blocks') %} 
@@ -137,7 +144,7 @@
 		{% include 'partials/prevnext.twig' %}
 	</div>	
 	<div class="contain--sm">
-	<h5>Other lessons in this class:</h5>	
+	<h5>Other lessons in this series:</h5>	
 		<ol>
 			{% for l in related_lessons %}
 				<li><a href="{{l.link}}">{{l.title}}</a></li>
