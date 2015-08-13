@@ -3,9 +3,9 @@
 {% block before_content %}
 	<header class="header header-lesson header-single">
 
-		<div class="squish-l">
+		<div class="contain--sm">
 			
-			<form action="" method="post">
+			{# <form action="" method="post">
 				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
 				
 				{% if lesson_completed == 'false' %}
@@ -19,7 +19,7 @@
 				{% endif %}
 
 				<input type="submit" name="submit" value="Go">
-			</form>
+			</form> #}
 			
 			<ul class="nav">
 				{% for t in post.terms('class') %}
@@ -40,7 +40,7 @@
 			<h1 class="title-single--lesson">{{post.post_title}}</h1>
 			
 		</div>
-		<div class="squish">
+		<div class="contain--sm">
 			<p class="lead lead-header">{{post.header_tagline}}</p>
 			{{post.header_summary|wpautop}}
 		</div>
@@ -49,46 +49,48 @@
 {% endblock %}
 
 {% block content %}
-
-	<div class="grid">
+{# 
+	<div class="contain--sm">
 		<aside class="cell cell--sixth" role="complementary">
 			<h4>Lesson Links</h4>
-			<ul class="list list--minor">
-			{# {% for link in post.lesson_links %} #}
+			<ul class="list list--minor"> #}
+			{# {% for link in post.lesson_links %} 
 				<li><a href="{{post.download_link}}">Download video</a></li>
 				<li><a href="{{post.download_link}}">View transcript</a></li>
-			{# {% endfor %} #}
-			</ul>
+			 {% endfor %} #}
+		{# 	</ul>
 		</aside>
 		<div class="cell">
 			<div class="media-enhanced">
 				{{post.video}}
 			</div>
 		</div>
-	</div>
+	</div> #}
 
-{# 	<div class="media-enhanced">
+	<div class="contain--md">
+	<div class="media-enhanced">
 		{{post.video}}
 	</div>
- #}
-	<div class="squish">
+	</div>
+ 	{# <div class="contain--sm">
 		<div class="btn btn-cta">Download Worksheet</div>
 		<div class="btn btn-cta">View Transcription</div>
 	</div>
-
+  #}
 	{# Blocks for additional Lesson content #}
+	
 	{% for block in post.get_field('blocks') %} 
 		{% include 'blocks/block-logic.twig' %}
 	{% endfor %}
 	
-	<section class="squish" id="learning-goals">
-		<h3 class="title-section">Learning Goals</h3>
+	<section class="contain--sm" id="learning-goals">
+		<h4 class="title-section">Learning Goals</h4>
 		{{post.learning_goals|wpautop}}
 	</section> <!-- /#learning-goals -->
 
-	<section class="squish" id="assignments">
+	<section class="contain--sm" id="assignments">
 
-		<h3 class="title-section">Assignments</h3>
+		<h4 class="title-section">Assignments</h4>
 		{{post.assignments_summary|wpautop}}
 		
 		{% for block in post.get_field('assignment_blocks') %}
@@ -131,14 +133,15 @@
 {% endblock %}
 
 {% block after_content %}
-	
-	{% include 'partials/prevnext.twig' %}
-
-	<h5>Lessons in this Class:</h5>	
-	<ol>
-		{% for l in related_lessons %}
-			<li><a href="{{l.link}}">{{l.title}}</a></li>
-		{% endfor %}
-	</ol>
-
+	<div class="contain--md">
+		{% include 'partials/prevnext.twig' %}
+	</div>	
+	<div class="contain--sm">
+	<h5>Other lessons in this class:</h5>	
+		<ol>
+			{% for l in related_lessons %}
+				<li><a href="{{l.link}}">{{l.title}}</a></li>
+			{% endfor %}
+		</ol>
+	</div>
 {% endblock %}
