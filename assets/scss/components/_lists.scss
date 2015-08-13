@@ -10,7 +10,6 @@
 	& > li {
 		margin-top: $size-h3;
 		border-top: $border-accent;
-		border-bottom: $border-accent;
 	}
 
 	.list-item--free_form { 
@@ -21,3 +20,17 @@
 .list--minor li {
 	
 }
+
+.list--lessons {
+	list-style-type: none;
+	padding-left: 0;
+
+	& > li {
+		
+	}
+}
+
+	.list__item__title--lesson {
+		margin-top: 0;
+	}
+
