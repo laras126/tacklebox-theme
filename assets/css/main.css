@@ -861,34 +861,35 @@ input[type="submit"] {
 .alert, .alert--danger, .alert--warning, .alert--success, .alert--cta, .alert--info {
   padding: 1.1rem;
   margin-top: 1.1rem;
-  margin-bottom: 1.1rem; }
+  margin-bottom: 1.1rem;
+  border-radius: 5px; }
   @media (min-width: 42em) {
     .alert, .alert--danger, .alert--warning, .alert--success, .alert--cta, .alert--info {
       margin-right: -1.1rem;
       margin-left: -1.1rem; } }
 
 .alert--danger {
-  border: 3px solid #73264c;
+  border: 3px solid #4d1a33;
   background-color: #993365;
   color: #cccccc; }
 
 .alert--warning {
-  border: 3px solid #f8eda9;
+  border: 3px solid #f5e479;
   background-color: #FCF7D8;
   color: #4c4345; }
 
 .alert--success {
-  border: 3px solid #4dbc6b;
+  border: 3px solid #3a9c55;
   background-color: #72CA8A;
   color: #4c4345; }
 
 .alert--cta {
-  border: 3px solid #155e7a;
+  border: 3px solid #0d3c4f;
   background-color: #1C7FA6;
   color: #f4f7f9; }
 
 .alert--info {
-  border: 3px solid #639cb6;
+  border: 3px solid #4a839c;
   background-color: #86b2c6;
   color: #cccccc; }
 
@@ -1152,7 +1153,8 @@ th {
   padding-bottom: 1.1rem;
   border-top: 1px dotted #86b2c6;
   border-bottom: 1px dotted #86b2c6;
-  margin-top: 1.1rem; }
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem; }
 
 .header__meta--class {
   font-weight: 700;
