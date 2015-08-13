@@ -1,13 +1,14 @@
 %icon-base {
-	width: $size-base;
-	height: $size-base;
 	display: block;
 	margin: 0 auto;
 }
 
-@mixin icon($fill, $hover: $color-accent-med) {
+@mixin icon($fill: $color-accent-dark, $hover: $color-accent-med, $size: $size-base) {
 	@extend %icon-base;
 	fill: $fill;
+	width: $size;
+	height: $size;
+	
 	a &:hover {
 		fill: $hover;
 	}
