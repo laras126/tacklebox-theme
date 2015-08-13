@@ -149,7 +149,6 @@ fieldset {
 
 input[type="submit"] {
 	@extend .btn--success;
-	float: right;
 	width: 100%;
 	@include bp(sm) {
 		width: auto;
@@ -157,6 +156,7 @@ input[type="submit"] {
 }
 
 .form__submit {
+	float: right;
 	@include cell(full);
 	
 	@include bp(sm) {
