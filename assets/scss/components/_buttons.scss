@@ -26,7 +26,9 @@ $buttons: (
             // TODO: Need to deal with hover styles.
             background-color: $bgcolor;
             color: $fontcolor;
-            float: right;
+            margin-top: $size-sml;
+            margin-bottom: $size-base;
+            display: inline-block;
 
             &:hover {
                 background-color: darken($bgcolor, 20%);
