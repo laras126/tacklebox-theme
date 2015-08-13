@@ -17,6 +17,7 @@ $alert-colors: (
     padding: $size-base;
     margin-top: $size-base;
     margin-bottom: $size-base;
+    border-radius: 5px;
     @include bleed;
 }
 
@@ -34,7 +35,7 @@ $alert-colors: (
             @if $lighten == true {
                 border: 3px solid $bgcolor;
             } @else {
-                border: 3px solid darken($bgcolor, 10%);
+                border: 3px solid darken($bgcolor, 20%);
                 background-color: $bgcolor;
             }
             color: $fontcolor;
