@@ -160,7 +160,7 @@ $(document).ready(function() {
 	// Plugins
 	// ----
 
-	$('.site-main').fitVids();
+	$('.site__main').fitVids();
 
 
 	// ----
