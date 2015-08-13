@@ -49,7 +49,7 @@ a {
 
 	// mobile tap color 
 	&:link {
-		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+		-webkit-tap-highlight-color : rgba(0, 0, 0, 0.3);
 	}
 }
 
@@ -85,7 +85,6 @@ h6 {
 	font-family: $font-body;
 	font-size: $size-h6;
 	@include upperspace();
-	// margin-top: $size-base;
 }
 
 small {
@@ -93,7 +92,6 @@ small {
 }
 
 strong {
-	// TODO: Add real font here instead of faux bold
 	font-weight: $font-weight-strong;
 }
 
