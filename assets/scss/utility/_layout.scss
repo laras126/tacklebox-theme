@@ -45,7 +45,6 @@ $sizes: (
 }
 
 @mixin grid($guttered: true, $align: false) {
-  
     display: flex;
     flex-flow: row wrap;
     position: relative;
@@ -59,7 +58,6 @@ $sizes: (
       margin-right: -$gutter/2;
     }
 }
-
 
 
 
@@ -105,25 +103,6 @@ $sizes: (
 .contain--xl {
     @extend %contain;
     max-width: $screen-xl;
-}
-
-
-@include bp(md) {
-	.squish {
-        padding: 0;
-		margin-left: 16.66666667%;
-		margin-right: 16.66666667%;
-	}
-
-	.squish-l {
-        padding: 0;
-		margin-left: 16.66666667%;
-	}
-
-	.squish-r {
-        padding: 0;
-		margin-left: 16.66666667%;
-	}
 }
 
 
