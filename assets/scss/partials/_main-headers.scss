@@ -5,3 +5,29 @@
 .header__lead {
 	font-size: $size-h4;
 }
+
+.header__title--class {
+	margin-top: 0;
+	font-size: $size-h2;
+}
+
+.header__alert--class {
+	@include grid;
+	padding-top: $size-base;
+	padding-bottom: $size-base;
+	border-top: $border-accent;
+	border-bottom: $border-accent;
+	margin-top: $size-base;
+	
+	time {
+		// font-weight: $font-weight-strong;
+	}
+
+}
+
+.header__meta--class {
+	font-weight: $font-weight-strong;
+	@extend .meta--upper;
+	@extend .meta--success;
+	margin-top: $size-h3;
+}
