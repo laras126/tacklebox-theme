@@ -5,15 +5,15 @@
 	<header class="header--page contain--sm">
 
 		{% set display = post.header_display %}
-		{% set live =  start|date("U") > "now"|date("U") %}
 		{% set start = post.class_start_date %}
+		{% set now = "now"|date("U") %}
 	
 		{# <p class="header__meta--class">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</p> #}
 		
-		<p class="header__meta--class">{% if live %}Now Registering{% else %}<span class="meta--med">Ended</span>{% endif %}</p>
+		<p class="header__meta--class">{% if start > now %}Now Registering{% else %}<span class="meta--med">Ended</span>{% endif %}</p>
 		<h1 class="header__title--class">{{post.post_title}}</h1>
 		
-		{% if live %}
+		{% if start > now %}
 			<div class="header__alert--class">
 				<div class="alert__icon">
 					{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
@@ -39,17 +39,19 @@
 
 	</header>
 
-	<div class="contain--sm">
-		{% if live %}
+	{% if start > now %}
+		<div class="contain--md">
 			{{ post.class_event ? post.class_event }}
-		{% else %}
+		</div>
+	{% else %}
+		<div class="contain--sm">
 			<div class="alert--warning">
 				<h4 class="alert__title">This class has ended.</h4>
 				<p>Would you like to see it again? We can definitely do that. Head to the contact page and let me know.</p>
 				<a href="" class="btn btn--cta">Request Class</a>
 			</div>
-		{% endif %}
-	</div>
+		</div>
+	{% endif %}
 		
 {% endblock %}
 
