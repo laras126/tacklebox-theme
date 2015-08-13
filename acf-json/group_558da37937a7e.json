@@ -44,7 +44,7 @@
             "key": "field_558db2fdb2acf",
             "label": "Start date",
             "name": "class_start_date",
-            "type": "date_picker",
+            "type": "date_time_picker",
             "instructions": "Start date for the class.",
             "required": 0,
             "conditional_logic": [
@@ -61,15 +61,19 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "F j, Y",
-            "first_day": 1
+            "show_date": "true",
+            "date_format": "m\/d\/y",
+            "time_format": "h:mm tt",
+            "show_week_number": "false",
+            "picker": "slider",
+            "save_as_timestamp": "true",
+            "get_as_timestamp": "false"
         },
         {
             "key": "field_558db394b2ad1",
             "label": "End Date",
             "name": "class_end_date",
-            "type": "date_picker",
+            "type": "date_time_picker",
             "instructions": "Usually 5 weeks from start.",
             "required": 0,
             "conditional_logic": [
@@ -86,16 +90,20 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j",
-            "return_format": "F j",
-            "first_day": 1
+            "show_date": "true",
+            "date_format": "m\/d\/y",
+            "time_format": "h:mm tt",
+            "show_week_number": "false",
+            "picker": "slider",
+            "save_as_timestamp": "true",
+            "get_as_timestamp": "false"
         },
         {
             "key": "field_558db3d0b2ad2",
-            "label": "Time and Day of Week",
-            "name": "class_day_and_time",
+            "label": "Class Time",
+            "name": "class_time",
             "type": "text",
-            "instructions": "e.g. Thursdays, 5-7pm EST",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -123,7 +131,7 @@
             "key": "field_558db4474f081",
             "label": "Location",
             "name": "class_location",
-            "type": "radio",
+            "type": "checkbox",
             "instructions": "Class location.",
             "required": 0,
             "conditional_logic": [
@@ -144,10 +152,9 @@
                 "in_person": "In Person (NYC)",
                 "remote": "Remote"
             },
-            "other_choice": 0,
-            "save_other_choice": 0,
-            "default_value": "",
-            "layout": "vertical"
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0
         },
         {
             "key": "field_55b2437f5e99c",
@@ -194,5 +201,5 @@
         "featured_image",
         "send-trackbacks"
     ],
-    "modified": 1438021830
+    "modified": 1439483747
 }
