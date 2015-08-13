@@ -6,10 +6,9 @@
 @import 'base/all';
 @import 'components/all';
 @import 'site/all';
-@import 'blocks/all';
+@import 'site/all';
+@import 'teases/all';
 @import 'partials/all';
-// @import 'footers/all';
-// @import 'site/all';
 
 // @import 'utility'; // For prototyping and should not be used in production
 @import 'holding'; // Styles that need to be removed and handled differently
