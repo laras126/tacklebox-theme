@@ -2,40 +2,52 @@
 
 {% block before_content %}	
 
-	<header class="header--page">
+	<header class="header--page contain--sm">
 
 		{% set display = post.header_display %}
-		{% set live =  post.class_is_live %}
+		{% set live =  start|date("U") > "now"|date("U") %}
 		{% set start = post.class_start_date %}
+	
+		{# <p class="header__meta--class">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</p> #}
 		
-		<div class="contain--sm">
-			
-			
-			<h1 class="header__title">{{post.post_title}} <span class="meta--upper meta--success">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</span></h1>
-			
-			{% if live and start|date("U") > "now"|date("U") %}
-				<p class="header__lead">{{post.class_start_date|date('l, F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('l, F j')}}, {{post.class_day_and_time}}<br>{{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</p>
-			{% endif %}
+		<p class="header__meta--class">{% if live %}Now Registering{% else %}<span class="meta--med">Ended</span>{% endif %}</p>
+		<h1 class="header__title--class">{{post.post_title}}</h1>
+		
+		{% if live %}
+			<div class="header__alert--class">
+				<div class="alert__icon">
+					{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+				</div>
+				<time class="alert__main">
+					{% set time_start = post.class_start_date|date('g:ia') %}
+					{% set time_end = post.class_end_date|date('g:ia') %}
+					{% set day_of_week = post.class_end_date|date('l') %}
+					{{day_of_week}}s, {{time_start}} - {{time_end}} EST<br>
+					{{post.class_start_date|date('F j')}} - {{post.class_start_date|date_modify('+7 weeks')|date('F j')}}
+				</time>
+			</div>
+		{% endif %}
 
-			{% if post.header_tagline %}
-				<p>{{post.header_tagline}}</p>
-			{% endif %}
+		{% if post.header_tagline %}
+			{# <p class="header__lead">{{post.header_tagline}}</p> #}
+		{% endif %}
 
-			{% if post.header_summary %}
-				<p class="header__summary">{{post.header_summary|
-			wpautop}}</p>
-			{% endif %}
-
-		</div>
+		{% if post.header_summary %}
+			<p class="header__summary">{{post.header_summary|
+		wpautop}}</p>
+		{% endif %}
 
 	</header>
 
-	<div class="contain--md">
+	<div class="contain--sm">
 		{% if live %}
 			{{ post.class_event ? post.class_event }}
 		{% else %}
-			<h3>Whoops, looks like this class has ended. Sign up for the Tackle Box email list to know when it comes back on!</h3>
-			{% include 'partials/mailchimp.twig' %}
+			<div class="alert--warning">
+				<h4 class="alert__title">This class has ended.</h4>
+				<p>Would you like to see it again? We can definitely do that. Head to the contact page and let me know.</p>
+				<a href="" class="btn btn--cta">Request Class</a>
+			</div>
 		{% endif %}
 	</div>
 		
@@ -43,63 +55,20 @@
 
 {% block after_content %}
 	{% if lessons %}
-		<ul class="list--major">
-		{% for post in lessons %}
-			{% set post = TimberPost(post) %}
-			<li class="grid-sm grid--guttered tease--lesson">
-		
-				<div class="cell cell--sixth">
-					<div class="indicator--lesson text-center">{{loop.index}}</div>
-				</div>
-		
-				<div class="cell cell--center">
-					<h4 class="tease__title--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
+		<section class="contain--sm">
+			<h3>Lessons</h3>
+			<ol class="list--lessons"> 
+			{% for post in lessons %}
+				{% set post = TimberPost(post) %}
+				<li class="list__item--lesson">
+					<h5 class="list__item__title--lesson">{{loop.index}} <a href="{{post.link}}">{{post.title}}</a></h5>
 					<p>{{post.header_tagline}}</p>
-				</div>
+					{% include 'partials/edit-link.twig' %}
+				</li>
+			{% endfor %}
+			</ol>
 
-				<div class="cell grid grid--guttered cell-sm--third cell--bottom">
-					
-					<div class="grid cell cell-sm--full">
-
-						{# Get the lesson completed value from the current user #}
-						{% set status = '_lesson_' ~ post.id ~ '_complete' %}
-						{% set lesson_completed = function('get_user_meta', c_user.id, status)|first %}
-						{% set field = '_lesson_' ~ post.id ~ '_complete' %}
-
-						<form class="mark-status-form" action="" method="post">
-							{% if lesson_completed == 'false' %}
-								<div class="status-incomplete">
-									<label for="1{{field}}">Mark Complete!</label>
-									<input id="1{{field}}" type="radio" checked value="true" name="{{field}}">
-								</div>
-							{% else %}
-								<div class="status-complete">
-									<h4>Completed!</h4>
-									<label for="2{{field}}">Mark Incomplete</label>
-									<input id="2{{field}}" type="radio" value="false" name="{{field}}">
-								</div>
-							{% endif %}
-							<input type="submit" name="submit" value="Go">
-						</form>
-					</div>
-
-					<div class="grid cell cell-sm--full">
-						<a href="{{post.link}}" class="no-margin btn btn-readmore cell--full">
-							<span class="grid">
-								<span class="cell cell--center">More</span>
-								<span class="cell cell--sixth cell--center">
-									{% include 'partials/svg.twig' with { file : 'arrow-right', prefix : 'icon' } %}
-								</span>
-							</span>
-						</a>
-					</div>
-
-				</div> <!--/ .grid -->
-			
-			</li>
-		{% endfor %}
-	
-		</ul>
+		</section>
 	{% endif %}
 
 {% endblock %}
