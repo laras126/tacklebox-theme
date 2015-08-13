@@ -40,7 +40,7 @@ $color-accent-dark:		$dark-blue;
 
 // Alerts
 $color-alert-danger: 	darken($pink, 20%);
-$color-alert-warning: 	$color-accent-light;
+$color-alert-warning: 	$yellow;
 $color-alert-info: 		$blue;
 $color-alert-success: 	$green;
 
@@ -60,8 +60,8 @@ $color-body-bkgd: 		$white;
 $color-body-text: 		$color-text-dark;
 
 // Calls to action - TODO: too much?
-$color-cta-bkgd: 	$white;
-$color-cta-text: 	$color-text-dark;
+$color-cta-bkgd: 	$color-alert-info;
+$color-cta-text: 	$color-text-vlight;
 $color-cta-link: 	$color-link;
 
 
@@ -117,7 +117,7 @@ $font-body-fallback: 	$sans-serif-fallback;
 
 $font-weight-heading: 	700;
 $font-weight-base: 		300;
-$font-weight-strong: 	500;
+$font-weight-strong: 	700;
 
 
 
