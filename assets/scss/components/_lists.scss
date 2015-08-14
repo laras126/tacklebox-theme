@@ -17,20 +17,21 @@
 }
 
 
-.list--minor li {
-	
+.list--minor {
+	list-style-type: none;
+	padding-left: 0;
 }
 
 .list--lessons {
 	list-style-type: none;
 	padding-left: 0;
-
+	@include grid;
 	& > li {
-		
+		@include cell($size: half);
 	}
 }
 
 	.list__item__title--lesson {
-		margin-top: 0;
+		// margin-top: 0;
 	}
 
