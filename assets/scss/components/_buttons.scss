@@ -1,4 +1,20 @@
 
+@mixin button($bgcolor, $fontcolor) {
+    background-color: $bgcolor;
+    color: $fontcolor;
+    margin-top: $size-sml;
+    margin-bottom: $size-base;
+    display: inline-block;
+
+    &:hover {
+        background-color: darken($bgcolor, 20%);
+        color: $fontcolor;
+    }
+    &:active {
+        background-color: darken($bgcolor, 35%);
+    }
+}
+
 /// @group buttons
 /// @content [Buttons for stuff]
 
@@ -7,7 +23,7 @@ $buttons: (
     warning:    ($color-alert-warning, $color-text-vlight),
     success:    ($color-alert-success, $color-text-vlight),
     cta:        ($color-accent-dark, $color-text-vlight),
-    readmore:   ($color-accent-med, $color-text-vlight)
+    readmore:   ($color-accent-med, $color-text-vlight),
 );
  
 .btn {
@@ -24,19 +40,17 @@ $buttons: (
         &--#{$name} {
             @extend .btn;
             // TODO: Need to deal with hover styles.
-            background-color: $bgcolor;
-            color: $fontcolor;
-            margin-top: $size-sml;
-            margin-bottom: $size-base;
-            display: inline-block;
-
-            &:hover {
-                background-color: darken($bgcolor, 20%);
-                color: $fontcolor;
-            }
-            &:active {
-                background-color: darken($bgcolor, 35%);
-            }
+            @include button($bgcolor, $fontcolor);
         }
+    }
+}
+
+.btn--hangout {
+    @extend .btn;
+    @include button($color-hangouts, $color-text-vlight);
+    .icon {
+        fill: $white !important;
+        display: inline-block;
+        margin-right: $size-xsml;
     }
 }
