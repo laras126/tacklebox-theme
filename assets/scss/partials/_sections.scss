@@ -2,3 +2,10 @@
 .section__header {
 	// text-align: center;
 }
+
+.section__title {
+	margin-bottom: $size-h4;
+	font-size: $size-h2;
+	border-top: $border-accent;
+	padding-top: $size-base;
+}
