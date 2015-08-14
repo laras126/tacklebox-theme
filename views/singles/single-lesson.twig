@@ -37,6 +37,10 @@
 				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}
 			{% endfor %}
 
+			{% if post.lesson_date_time %}
+				<time>{{post.lesson_date_time|date('F j, g:ia')}}</time>
+			{% endif %}
+
 			<h1 class="title-single--lesson">{{post.post_title}}</h1>
 			
 		</div>
@@ -67,22 +71,32 @@
 		</div>
 	</div> #}
 
+ 	<div class="contain--sm">
+		{% if post.event_page %}<a class="btn btn--cta" target="blank" href="{{post.event_page}}">Hangout Page</a>{% endif %}
+		{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Video</a>{% endif %}
+		{% if post.slides_link %}<a class="btn btn--cta" target="blank" href="{{post.slides_link}}">Slides</a>{% endif %}
+	</div>
+  
 	<div class="contain--md">
 		<div class="media-enhanced">
 			{{post.video}}
 		</div>
 	</div>
- 
- 	<div class="contain--sm">
- 		<h3>Video Breakdown</h3>
-		<ol class="list--minor">
-			{% for item in post.video_segments %}
-				<li>
-					<h4>{{item.title}}</h4>
-				</li>
-			{% endfor %}
-		</ol>
-	</div>
+ 	
+
+ 	{% if post.lesson_segments %}
+	 	<section class="contain--sm" id="lesson-breakdown">
+	 		<h3 class="section__title">Lesson Breakdown</h3>
+			<ol class="list--minor">
+				{% for item in post.get_field('lesson_segments') %}
+					<li>
+						<h4>{{item.title}} <span class="meta--med">{{item.time_in_video}}</span></h4>
+						{{item.description}}
+					</li>
+				{% endfor %}
+			</ol>
+		</section>
+	{% endif %}
  
 	{# Blocks for additional Lesson content #}
 	
@@ -90,28 +104,32 @@
 		{% include 'blocks/block-logic.twig' %}
 	{% endfor %}
 	
-	<section class="contain--sm" id="learning-goals">
-		<h4 class="title-section">Learning Goals</h4>
-		{{post.learning_goals|wpautop}}
-	</section> <!-- /#learning-goals -->
+	{% if post.learning_goals %}
+		<section class="contain--sm" id="learning-goals">
+			<h3 class="section__title">Learning Goals</h3>
+			{{post.learning_goals|wpautop}}
+		</section> <!-- /#learning-goals -->
+	{% endif %}
 
 	<section class="contain--sm" id="assignments">
 
-		<h4 class="title-section">Assignments</h4>
-		{{post.assignments_summary|wpautop}}
-		
-		{% for block in post.get_field('assignment_blocks') %}
-			{% include 'blocks/block-logic.twig' %}
-		{% endfor %}
-		
-		<ul class="block_list-list">
-		{% for item in post.get_field('assignments') %}
-			<li>
-				<h4>{{item.item_title}}</h4>
-				{{item.item_description|wpautop}}
-			</li>
-		{% endfor %}
-		</ul>
+		{% if post.assigments %}
+			<h3 class="section__title">Assignments</h3>
+			{{post.assignments_summary|wpautop}}
+			
+			{% for block in post.get_field('assignment_blocks') %}
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
+			
+			<ul class="block_list-list">
+			{% for item in post.get_field('assignments') %}
+				<li>
+					<h4>{{item.item_title}}</h4>
+					{{item.item_description|wpautop}}
+				</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
 	
 		{% if post.tutorials %}
 			<h4>Tutorials</h3>
@@ -127,12 +145,12 @@
 		{% if post.readings %}
 			<h4>Resources</h4>
 			{{post.readings_summary|wpautop}}
-			<div class="list--minor">
+			<ul class="list--minor">
 				{% for post in post.readings %}
 					{% set post = TimberPost(post) %}
 					{% include 'teases/_tease-source.twig' %}
 				{% endfor %}
-			</div>
+			</ul>
 		{% endif %}
 
 	</section> <!-- /#assignments -->
