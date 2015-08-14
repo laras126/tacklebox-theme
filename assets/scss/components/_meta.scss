@@ -43,3 +43,8 @@
 		@extend .meta;
 		color: $color-alert-success;
 	}
+
+.special--med {
+	color: $color-text-med;
+	font-weight: $font-weight-base;
+}
