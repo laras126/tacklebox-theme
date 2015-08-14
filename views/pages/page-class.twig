@@ -5,13 +5,14 @@
 	<header class="header--page contain--sm">
 
 		{% set display = post.header_display %}
-		{% set start = post.class_start_date %}
+		{% set start = post.class_start_date|date("U") %}
 		{% set now = "now"|date("U") %}
-	
+		
 		{# <p class="header__meta--class">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</p> #}
 		
 		<p class="header__meta--class">{% if start > now %}Now Registering{% else %}<span class="meta--med">Ended</span>{% endif %}</p>
 		<h1 class="header__title--class">{{post.post_title}}</h1>
+		<p class="header__lead">{{post.header_tagline}}</p>
 		
 		{% if start > now %}
 			<div class="header__alert--class">
@@ -19,17 +20,10 @@
 					{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 				</div>
 				<time class="alert__main">
-					{% set time_start = post.class_start_date|date('g:ia') %}
-					{% set time_end = post.class_end_date|date('g:ia') %}
-					{% set day_of_week = post.class_end_date|date('l') %}
-					{{day_of_week}}s, {{time_start}} - {{time_end}} EST<br>
-					{{post.class_start_date|date('F j')}} - {{post.class_start_date|date_modify('+7 weeks')|date('F j')}}
+					{{post.class_time}}<br>
+					{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}
 				</time>
 			</div>
-		{% endif %}
-
-		{% if post.header_tagline %}
-			{# <p class="header__lead">{{post.header_tagline}}</p> #}
 		{% endif %}
 
 		{% if post.header_summary %}
@@ -57,19 +51,31 @@
 
 {% block after_content %}
 	{% if lessons %}
-		<section class="contain--sm">
-			<h3>Lessons</h3>
-			<ol class="list--lessons"> 
-			{% for post in lessons %}
-				{% set post = TimberPost(post) %}
-				<li class="list__item--lesson">
-					<h5 class="list__item__title--lesson">{{loop.index}} <a href="{{post.link}}">{{post.title}}</a></h5>
-					<p>{{post.header_tagline}}</p>
-					{% include 'partials/edit-link.twig' %}
-				</li>
-			{% endfor %}
-			</ol>
+		<section id="lessons">
+			<div class="contain--sm">
+				<h3>Lessons</h3>
+			</div>
+			<div class="contain--lg">
+				<ol class="list--lessons"> 
+				{% for item in lessons %}
+					{% set item = TimberPost(item) %}
+					<li class="list__item--lesson">
+						<h4 class="list__item__title--lesson"><span class="special--med">{{loop.index}}</span> <a href="{{post.link}}">{{item.title}}</a></h4>
 
+						{% if item.lesson_date %}
+							<time class="meta--med">{{item.lesson_date|date('F j')}}{{item.lesson_time ? ', ' ~ item.lesson_time}}</time>
+						{% endif %}
+
+						<p>{{item.header_tagline}}</p>
+						{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}}
+						<div class="">
+							<a href="{{item.link}}" class="btn--readmore">Lesson Details</a>
+							<a href="{{item.event_page}}" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
+						</div>
+					</li>
+				{% endfor %}
+				</ol>
+			</div>
 		</section>
 	{% endif %}
 
