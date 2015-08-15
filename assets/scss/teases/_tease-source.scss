@@ -8,8 +8,6 @@
 
 .tease--source {
 	@include meta($margin: true);
-	overflow: hidden;
-	position: relative;
 	@include cell(half);
 
 	.shape {
@@ -34,5 +32,4 @@
 
 /// @group category-indicators
 /// @content [SVG background images for source category indications]
-
 
