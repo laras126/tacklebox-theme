@@ -1,34 +1,42 @@
 .header--page {
-	// margin-bottom: $size-h1;
+	// @include card($bkgd: $color-body-contain);
 }
 
 .header__lead {
 	font-size: $size-h4;
+	margin-bottom: $size-base;
+	margin-top: $size-base;
+}
+
+.header__title--class,
+.header__title--lesson {
+	// margin-top: 0;
+	// font-size: $size-h2;
 }
 
 .header__title--class {
-	margin-top: 0;
-	font-size: $size-h2;
 }
 
-.header__alert--class {
-	@include grid;
-	padding-top: $size-base;
-	padding-bottom: $size-base;
-	border-top: $border-accent;
-	border-bottom: $border-accent;
-	margin-top: $size-base;
-	margin-bottom: $size-base;
+.header__alert--multi {
 	
-	time {
-		// font-weight: $font-weight-strong;
-	}
+	// @extend .alert--success;
+	
+	// padding-top: $size-base;
+	padding-bottom: $size-base;
 
+	border: $border-accent;
+	
+	margin-top: $size-base;
+	margin-bottom: $size-base;	
 }
+
 
 .header__meta--class {
 	font-weight: $font-weight-strong;
 	@extend .meta--upper;
-	@extend .meta--success;
-	margin-top: $size-h3;
+	padding: $size-sml;
+	background-color: $color-alert-success;
+	margin-top: 0;
+	color: $color-text-vlight;
 }
+
