@@ -15,21 +15,30 @@
         
         <main class="site__main" role="main">
 
-            {% block before_content %}
-                {% include 'pages/_page_header.twig' %}
-            {% endblock %}
+            {{sidebar ? '<div class="contain--lg clearfix">'}}
+            
+                {% block before_content %}
+                    {% include 'pages/_page_header.twig' %}
+                {% endblock %}
+                
+                {{sidebar ? '<div class="main__content">'}}
 
-            {% block content %}
-                Sorry, no content
-            {% endblock %}
+                    {% block content %}
+                        Sorry, no content
+                    {% endblock %}
 
-            {% block after_content %}{% endblock %}
+                    {% block after_content %}{% endblock %}
+                {{sidebar ? '</div>'}}
 
-            {% if sidebar %}
-                <aside class="sidebar">
-                    {{sidebar}}
-                </aside>
-            {% endif %}
+                {% if sidebar %}
+                    <aside class="main__sidebar">
+                        <ul class="list--widgets">
+                            {{sidebar}}
+                        </ul>
+                    </aside>
+                {% endif %}
+
+            {{sidebar ? '</div>'}}
 
         </main>
 
