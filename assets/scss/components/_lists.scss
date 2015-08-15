@@ -6,16 +6,17 @@
 .list--major {
 	list-style-type: none;
 	padding-left: 0;
-
-	& > li {
-		margin-top: $size-h3;
-		border-top: $border-accent;
-	}
-
-	.list-item--free_form { 
-	}
 }
 
+.list__item--major {
+	margin-top: $size-h3;
+	border-top: $border-accent;
+}
+
+.list__item__desc {
+	position: relative;
+	z-index: $z-mid;
+}
 
 .list--minor {
 	list-style-type: none;
@@ -25,13 +26,132 @@
 .list--lessons {
 	list-style-type: none;
 	padding-left: 0;
-	@include grid;
-	& > li {
-		@include cell($size: half);
+}
+
+.list__item__title--lesson {
+	margin-top: 0;
+}
+
+.pricing {
+	
+	> ul {
+		@include bp(md) {
+			align-items: center;
+			@include grid;
+		}
+	}
+	
+	.list__item--free_form {
+		@include bp(md) {
+			@include cell($size: third);
+
+		}
+		margin-bottom: $size-base;
+	}
+
+	.list__item__content {
+		// @include bleed;
+	}
+
+	.list__item__title {
+		margin-top: 0;
+		padding: $size-base;
+		font-size: $size-h5;
+		@include upperspace;
+	}
+
+	.list__item__desc {
+		padding: $size-base;
+		margin-bottom: $size-base;
+		font-size: $size-sml;
+	}
+
+}
+
+.price {
+	color: $color-alert-warning;
+	font-weight: normal;
+}
+
+
+// Pricing items
+
+.list__item--tuna {
+	
+	@include bp(md) {
+		order: 1;
+	}
+	
+	.list__item__title {
+		@include rotate($color-tuna, $color-text-vlight);
+		// border-top: 10px solid $color-tuna;
+	}
+
+	.list__item__content {
+		border: 3px solid rgba($color-tuna, 0.1);
+	}
+
+	.list__item__desc {
+	}
+
+	.shape {
+		fill: rgba($color-tuna, 0.1);
 	}
 }
 
-	.list__item__title--lesson {
-		// margin-top: 0;
+.list__item--salmon {
+	@include bp(md) {
+		order: 0;
+	}
+	.list__item__content {
+		border: 3px solid rgba($color-salmon, 0.1);
 	}
 
+	.list__item__title {
+		// border-top: 10px solid $color-salmon;
+		@include rotate($color-salmon, $color-text-vlight);
+	}
+	
+	.list__item__desc {
+		// @include rotate($color-accent-vlight, $color-body-text);
+
+	}
+
+	.shape {
+		fill: rgba($color-salmon, 0.2);
+	}
+}
+
+.list__item--scallop {
+	@include bp(md) {
+		order: 2;
+	}
+	.list__item__title {
+		// border-top: 10px solid $color-scallop;
+		@include rotate($color-scallop, $color-text-vlight);
+	}
+
+	.list__item__content {
+		border: 3px solid rgba($color-scallop, 0.2);
+	}
+	
+	.list__item__desc {
+		// @include rotate($color-accent-vlight, $color-body-text);
+	}
+
+	.shape {
+		fill: rgba($color-scallop, 0.3);
+	}
+}
+
+
+// Widgets
+
+.list--widgets {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.list__item--widget {
+	// @include card;
+}
