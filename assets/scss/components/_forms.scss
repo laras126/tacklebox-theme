@@ -14,11 +14,11 @@ label, select {
 }
 
 label {
-	margin-top: $size-h4;
-	margin-bottom: $size-xsml;
 	font-family: $font-form;
-	font-size: $size-sml;
-	@include upperspace;
+	font-weight: $font-weight-strong;
+	// font-size: $size-sml;
+	// @include upperspace;
+
 }
 
 input[type="search"] {
@@ -60,7 +60,7 @@ input[type="tel"] {
 
 	&:focus {
 		border-color: $color-alert-info;
-		background-color: $color-body-bkgd;		
+		background-color: $color-body-contain;		
 	}
 }
 
@@ -113,7 +113,14 @@ fieldset {
 	@include clearfix;
 }
 
-.gfield_checkbox {
+.gfield_label {
+	margin-top: $size-h4;
+	// margin-bottom: $size-xsml;
+	display: inline-block;
+}
+
+.gfield_checkbox,
+.gfield_radio {
 	@include unstyle-list;
 	margin-left: $gutter/2;
 	margin-top: $gutter;
@@ -133,6 +140,7 @@ fieldset {
 
 .gfield_description {
 	@include meta($color-text-med);
+	margin-bottom: $size-xsml;
 }
 
 .form__half {
@@ -156,6 +164,7 @@ input[type="submit"] {
 }
 
 .form__submit {
+	
 	float: right;
 	@include cell(full);
 	
