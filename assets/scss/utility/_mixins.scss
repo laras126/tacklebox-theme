@@ -28,13 +28,20 @@
 }
 
 
-@mixin card($bkgd: $color-cta-bkgd) {
+@mixin card($bkgd: $color-accent-light, $border: $border-accent) {
     background-color: $bkgd;
-    border: 5px solid $color-accent-vlight;
-    padding-left: $size-base; 
-    padding-right: $size-base; 
-    padding-bottom: $size-base;
+    border: $border;
+    padding: $size-h4;
+    border: $border-accent;
+    margin-bottom: $size-h4;
 }
+
+
+@mixin rotate($bkgd: $color-rotate-bkgd, $text: $color-rotate-text) {
+    background-color: $bkgd;
+    color: $text;
+}
+
 
 
 
