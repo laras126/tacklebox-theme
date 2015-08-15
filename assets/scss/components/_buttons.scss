@@ -2,16 +2,20 @@
 @mixin button($bgcolor, $fontcolor) {
     background-color: $bgcolor;
     color: $fontcolor;
-    margin-top: $size-sml;
-    margin-bottom: $size-base;
     display: inline-block;
 
     &:hover {
-        background-color: darken($bgcolor, 20%);
-        color: $fontcolor;
+        background-color: darken($bgcolor, 10%);
     }
+
     &:active {
         background-color: darken($bgcolor, 35%);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $fontcolor;
     }
 }
 
@@ -28,10 +32,10 @@ $buttons: (
  
 .btn {
     padding: $size-xsml $size-base;
-    border-radius: 3px;
     margin-top: $size-sml;
     margin-bottom: $size-sml;
     border: 0;
+    border-radius: 2px;
 
     @each $name, $colors in $buttons {
         $bgcolor: nth($colors, 1);
@@ -49,8 +53,14 @@ $buttons: (
     @extend .btn;
     @include button($color-hangouts, $color-text-vlight);
     .icon {
-        fill: $white !important;
+        @include icon($size: $size-sml, $fill: $color-text-vlight, $hover: $color-text-vlight);
         display: inline-block;
         margin-right: $size-xsml;
     }
 }
+
+.btnset--lesson {
+    > a {
+    }
+}
+
