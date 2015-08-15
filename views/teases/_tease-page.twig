@@ -12,7 +12,8 @@
 	{# {% if live %} #}
 		{# <p>{{post.class_start_date|date('F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('F j')}}, {{post.class_day_and_time}}</p> #}
 		{% if live and start|date("U") > "now"|date("U") %}
-			<p><strong>{{post.class_start_date|date('l, F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('l, F j')}}, {{post.class_day_and_time}}<br>{{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</strong></p>
+			<p class="header__lead">{{post.class_time}}, {{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</p>
+			<p class="header__lead">{{post.class_start_date|date('F j')}}{{ post.class_end_date ? ' - ' ~ post.class_end_date|date('F j')}}</p>
 		{% endif %}
 	{# {% endif %} #}
 	
