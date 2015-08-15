@@ -8,7 +8,7 @@ $alert-colors: (
     danger:     ($color-alert-danger, $color-text-light, true),
     warning:    ($color-alert-warning, $color-text-dark, false),
     success:    ($color-alert-success, $color-text-dark, true),
-    cta:        ($color-cta-bkgd, $color-cta-text, true),
+    cta:        ($color-rotate-bkgd, $color-rotate-text, true),
     info:       ($color-accent-med, $color-text-light, true)
 );
 
@@ -50,7 +50,9 @@ $alert-colors: (
 // Alert formatting
 
 .alert__icon {
-    @include cell($size: sixth, $guttered: false);
+    @include bp(sm) {
+        @include cell($size: sixth);
+    }
     
     .icon {
         @include icon($size: $size-h2*1.2);;
@@ -58,5 +60,26 @@ $alert-colors: (
 }
 
 .alert__main {
-    @include cell;
+    padding-left: $gutter;
+    // font-size: $size-sml;
+    font-weight: $font-weight-strong;
+
+    @include bp(sm) {
+        padding-left: 0;
+        @include cell;
+    }
+}
+
+.alert__row {
+    align-items: center;
+    @include bp(sm) {
+        @include grid;
+    }
+
+    padding-top: $size-base;
+    padding-bottom: $size-base;
+
+    &.last {
+        border-top: $border-accent;
+    }
 }
