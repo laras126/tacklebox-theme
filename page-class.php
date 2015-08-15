@@ -24,5 +24,6 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['c_user'] = new TimberUser();
 $context['lessons'] = Timber::get_posts($lesson_args);
+// $context['sidebar'] = Timber::get_widgets('main_sidebar');
 
 Timber::render('pages/page-class.twig', $context);
