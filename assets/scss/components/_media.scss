@@ -1,7 +1,7 @@
-.media-enhanced {
+.media--enhanced {
 	margin-top: $size-h4;
 	margin-bottom: $size-h4;
 	iframe, figure, img {
-		border: $border-alert;
+		border: 3px solid $color-accent-med;
 	}
 }
