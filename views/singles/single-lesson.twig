@@ -1,9 +1,9 @@
 {% extends 'singles/single.twig' %}
 
 {% block before_content %}
-	<header class="header header-lesson header-single">
+	<header class="header">
 
-		<div class="contain--sm">
+		{# <div class="contain--sm"> #}
 			
 			{# <form action="" method="post">
 				{% set field = '_lesson_' ~ post.id ~ '_complete' %}
@@ -20,31 +20,27 @@
 
 				<input type="submit" name="submit" value="Go">
 			</form> #}
+		<div class="text-center">
 			{# 
 			<ul class="nav"> #}
 				{% for t in post.terms('class') %}
 					<p class="meta">{{t.name}}</p>
 				{% endfor %}
 			{# </ul> #}
-
-			{% if post.header_display == 'image' %}
-				{# TODO: Image will be included here. #}
-			{% elseif post.header_display == 'svg' %}
-				{% include 'partials/svg.twig' with { file : post.header_svg, prefix : 'shape' } %}
-			{% endif %}	
 			
 			{% for l in related_lessons %}
 				{% if l.title == post.title %}<p class="helper-support">Lesson {{loop.index}}</p>{% endif %}
 			{% endfor %}
 
-			{% if post.lesson_date_time %}
-				<time>{{post.lesson_date_time|date('F j, g:ia')}}</time>
+			<h1 class="header__title--lesson">{{post.post_title}}</h1>
+			{% if post.lesson_date %}
+				<time class="meta--med">{{post.lesson_date|date('F j')}}{{post.lesson_time ? ', ' ~ post.lesson_time}}</time>
 			{% endif %}
 
-			<h1 class="title-single--lesson">{{post.post_title}}</h1>
-			
-		</div>
+			</div>
+		{# </div> #}
 		<div class="contain--sm">
+			<hr class="bleed">
 			<p class="lead lead-header">{{post.header_tagline}}</p>
 			{{post.header_summary|wpautop}}
 		</div>
@@ -71,8 +67,8 @@
 		</div>
 	</div> #}
 
- 	<div class="contain--sm">
-		{% if post.event_page %}<a class="btn btn--cta" target="blank" href="{{post.event_page}}">Hangout Page</a>{% endif %}
+ 	<div class="contain--sm btnset--lesson">
+		{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
 		{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Video</a>{% endif %}
 		{% if post.slides_link %}<a class="btn btn--cta" target="blank" href="{{post.slides_link}}">Slides</a>{% endif %}
 	</div>
