@@ -8,31 +8,56 @@
 		{% set start = post.class_start_date|date("U") %}
 		{% set now = "now"|date("U") %}
 		
-		{# <p class="header__meta--class">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</p> #}
-		
-		<p class="header__meta--class">{% if start > now %}Now Registering{% else %}<span class="meta--med">Ended</span>{% endif %}</p>
+
 		<h1 class="header__title--class">{{post.post_title}}</h1>
+	
 		<p class="header__lead">{{post.header_tagline}}</p>
 		
+		{% if post.header_summary %}
+			<p class="header__summary">{{post.header_summary|wpautop}}</p>
+		{% endif %}
+	
+	
 		{% if start > now %}
-			<div class="header__alert--class">
-				<div class="alert__icon">
-					{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+			<div class="bleed">
+			
+				{# TODO: This logic is a little crazy, and could probably be put into the PHP template. #}
+
+			{# 	<p class="header__meta--class{% if start > now %} class_open{% elseif end < now and start > now %} class_live{% else %} class_off{% endif %}">{% if start > now %}Now Registering{% elseif end < now and start > now %}It's live!{% else %}Not Live{% endif %}</p> #}
+
+				<div class="alert__row">
+					<div class="alert__icon">
+						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+					</div>
+					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="alert__main">
+						{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}<br>
+						{{post.class_time}}
+					</time>
 				</div>
-				<time class="alert__main">
-					{{post.class_time}}<br>
-					{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}
-				</time>
+				
+				{# <div class="alert__row">
+					<div class="alert__icon">
+						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+					</div>
+					<div class="alert__main">
+						{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}
+					</div>
+				</div> #}
+
+				<div class="alert__row last">
+					<div class="alert__icon">
+						{% include 'partials/svg.twig' with { file: 'hangouts', prefix: 'icon'} %}
+					</div>
+					<div class="alert__main">
+						Google Hangouts On Air
+					</div>
+				</div>
+
 			</div>
 		{% endif %}
 
-		{% if post.header_summary %}
-			<p class="header__summary">{{post.header_summary|
-		wpautop}}</p>
-		{% endif %}
-
 	</header>
-
+	
 	{% if start > now %}
 		<div class="contain--md">
 			{{ post.class_event ? post.class_event }}
@@ -49,35 +74,37 @@
 		
 {% endblock %}
 
+{% block content %}
+	
+	{% for block in post.get_field('blocks') %} 
+		{% include 'blocks/block-logic.twig' %}
+	{% endfor %}
+	{# <div class="contain--sm">
+	<h3>Lessons</h3>
+	<ol class="list--lessons"> 
+	{% for item in lessons %}
+		{% set item = TimberPost(item) %}
+		<li class="list__item--lesson">
+
+			<h4 class="list__item__title--lesson">{{loop.index}} <a href="{{post.link}}">{{item.title}}</a></h4>
+			{% if item.lesson_date %}
+				<time datetime="{{item.lesson_date|date(
+				"Y-m-d")}}" class="meta--med">{{item.lesson_date|date('F j')}}{{item.lesson_time ? ', ' ~ item.lesson_time}}</time>
+			{% endif %}
+			
+			<p>{{item.header_tagline}}</p>
+			{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}} #}
+			{# <div class="btnset--lesson">
+				<a href="{{item.link}}" class="btn--readmore">Lesson Details</a>
+				<a href="{{item.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
+			</div> #}
+		{# </li>
+	{% endfor %}
+	</ol>
+</div> #}
+{% endblock %}
+
 {% block after_content %}
-	{% if lessons %}
-		<section id="lessons">
-			<div class="contain--sm">
-				<h3>Lessons</h3>
-			</div>
-			<div class="contain--lg">
-				<ol class="list--lessons"> 
-				{% for item in lessons %}
-					{% set item = TimberPost(item) %}
-					<li class="list__item--lesson">
-						<h4 class="list__item__title--lesson"><span class="special--med">{{loop.index}}</span> <a href="{{post.link}}">{{item.title}}</a></h4>
-
-						{% if item.lesson_date %}
-							<time class="meta--med">{{item.lesson_date|date('F j')}}{{item.lesson_time ? ', ' ~ item.lesson_time}}</time>
-						{% endif %}
-
-						<p>{{item.header_tagline}}</p>
-						{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}}
-						<div class="">
-							<a href="{{item.link}}" class="btn--readmore">Lesson Details</a>
-							<a href="{{item.event_page}}" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
-						</div>
-					</li>
-				{% endfor %}
-				</ol>
-			</div>
-		</section>
-	{% endif %}
 
 {% endblock %}
 
