@@ -1,9 +1,5 @@
 {% extends "base.twig" %}
 
-{% block before_content %}
-	{% include 'pages/_page_header.twig' %}
-{% endblock %}
-
 {% block content %}
 	{% for block in post.get_field('blocks') %} 
 		{% include 'blocks/block-logic.twig' %}
