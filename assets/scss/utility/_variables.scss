@@ -1,6 +1,4 @@
 
-
-
 // ----
 // ---- Colors
 // ----
@@ -12,29 +10,28 @@ $green: 			#72CA8A;
 $l-green: 			#D9F2A2;
 
 $grey: 				#9E9E9E;
-
+$dark-grey: 		#3e3739;
 
 $dark-blue: 		#237fa9;
 $light-blue: 		#86b2c6;
-
-$grey: 				#cccccc;
-$dark-grey: 		#3e3739;
 
 $white: 			#ffffff;
 $white-alt:  		#f4f7f9;
 
 $l-teal: 			desaturate(#BDF2E3, 10%);
-$yellow: 			#FCF7D8;
-$l-yellow: 			lighten($yellow, 5%);
+$l-yellow: 			#F8EDA9;
+$yellow: 			darken($l-yellow, 10%);
 
-$pink: 				#CC6698;
+$pink: 				#D68F8A;
 
 
 // Semantic variable names
 
+
+
 // Color Scheme
-$color-accent-vlight:	$white;
-$color-accent-light:	$grey;
+$color-accent-vlight:	$white-alt;
+$color-accent-light:	lighten($light-blue, 25%);
 $color-accent-med:		$light-blue;
 $color-accent-dark:		$dark-blue;
 
@@ -46,9 +43,9 @@ $color-alert-success: 	$green;
 
 // Text colors
 $color-text-dark: 		lighten(#3e3739, 5%);
-$color-text-med: 		darken($grey, 20%);
+$color-text-med: 		darken($grey, 10%);
 $color-text-light: 		lighten($color-text-med, 20%);
-$color-text-vlight: 	$color-accent-vlight;
+$color-text-vlight: 	$white;
 
 // Links
 $color-link:			$blue;
@@ -58,15 +55,22 @@ $color-link-active: 	darken($color-link, 40%);
 // Body
 $color-body-bkgd: 		$white;
 $color-body-text: 		$color-text-dark;
+$color-body-contain: 	$white;
 
 // Calls to action - TODO: too much?
-$color-cta-bkgd: 	$color-alert-info;
-$color-cta-text: 	$color-text-vlight;
-$color-cta-link: 	$color-link;
+$color-rotate-bkgd: 		$color-alert-info;
+$color-rotate-text: 		$color-text-vlight;
+$color-rotate-link: 		$color-link;
 
 
 // Social
 $color-hangouts: 	#F4B400;
+
+
+
+$color-tuna: 		$color-accent-dark;
+$color-salmon: 		#ED9062;
+$color-scallop: 		darken(#D7C3B3, 10%);
 
 // ----
 // ---- Size Scale 
@@ -82,7 +86,7 @@ $size-contain: 		85%;
 $size-base:  		1.1rem;
 
 $size-xsml: 		$size-base*0.6;
-$size-sml:  		$size-base*0.75;
+$size-sml:  		$size-base*0.8;
 
 $size-h1:  			$size-base*3;
 $size-h2:  			$size-base*2.3;
