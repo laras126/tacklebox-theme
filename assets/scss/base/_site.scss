@@ -20,3 +20,34 @@ body {
 img {
 	max-width: 100%;
 }
+
+hr {
+	margin-top: $size-base;
+	margin-bottom: $size-base;
+	border-top: 0;
+	border-bottom: $border-accent;
+}
+
+.site__main--sidebar {
+}
+
+.main__content {
+	// background-color: $color-body-contain;
+	// padding: $size-h4;
+	// border: $border-accent;
+
+	@include bp(md) {
+		float: left;
+		width: 66.6666%;
+		margin-right: 3.33333%;
+	}
+}
+
+.main__sidebar {
+	@include bp(md) {
+		border-left: $border-accent;
+		padding-left: $size-h4;
+		float: left;
+		width: 30%;
+	}
+}
