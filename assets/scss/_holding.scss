@@ -21,3 +21,18 @@
 	width: $size-h2;
 	height: $size-h2;
 }
+
+
+.has_shape_bkgd {
+	overflow: hidden;
+	position: relative;
+
+	.shape {
+		width: 80%;
+		bottom: 0;
+		right: -20%;
+		position: absolute;
+		z-index: $z-base;
+	}
+	
+}
