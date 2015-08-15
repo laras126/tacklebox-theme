@@ -1,7 +1,8 @@
+
 $screen-sm:     35em;
-$screen-md:     42em;
-$screen-lg:     50em;
-$screen-xl:     60em;
+$screen-md:     52em;
+$screen-lg:     56em;
+$screen-xl:     70em;
 
 $gutter:        $size-base;
 
@@ -19,10 +20,10 @@ $sizes: (
   sixth:  16.66666667%
 );
 
-// Spaghetti for dinner:
+// Spaghetti for dinner?
 
 @mixin cell($size: false, $direction: false, $guttered: true, $is_first: true) {
-    
+
     @if $is_first == true {
         position: relative;
 
@@ -37,14 +38,15 @@ $sizes: (
     }
 
     @if $size != false {
-        flex: 0 0 map-get($sizes, $size);  
+        flex: 0 0 map-get($sizes, $size);
     } @else {
         flex: 1;    
     }
-   
+
 }
 
-@mixin grid($guttered: true, $align: false) {
+@mixin grid($guttered: true, $align: false, $bp: md) {
+
     display: flex;
     flex-flow: row wrap;
     position: relative;
@@ -60,60 +62,44 @@ $sizes: (
 }
 
 
-
-/// @group squish
-/// Squish allows for hanging elements on the right or left
-
-.squish {
-	padding-left: $size-base;
-	padding-right: $size-base;
-}
-
-.squish-l {
-	padding-left: $size-base;
-}
-
-.squish-r {
-	padding-right: $size-base;
-}
-
+/// @group containers
 // TODO: this could be a map
 
-%contain {
+.contain {
     margin: 0 auto;
     width: 90%;
     position: relative;
 }
 
 .contain--lg {
-    @extend %contain;
+    @extend .contain;
     max-width: $screen-lg;
 }
 
 .contain--md {
-    @extend %contain;
+    @extend .contain;
     max-width: $screen-md;
 }
 
 .contain--sm {
-    @extend %contain;
+    @extend .contain;
     max-width: $screen-sm;
 }
 
 .contain--xl {
-    @extend %contain;
+    @extend .contain;
     max-width: $screen-xl;
 }
 
 
 
 /// @group bleeds
-/// @content [Bleed an element slightly out of its container.]
+/// @description [Bleed an element slightly out of its container.]
 
 @mixin bleed($size: $size-base) {
 	@include bp(md) {
-		margin-right: -$size-base;
-	    margin-left: -$size-base;
+		margin-right: -3%;
+	    margin-left: -3%;
 	}
 }
 
@@ -121,3 +107,17 @@ $sizes: (
 	@include bleed;
 }
 
+
+// Prototyping classes
+
+.grid {
+    @include grid;
+}
+
+.cell {
+    @include cell;
+}
+
+.cell__half {
+    @include cell($size: half);
+}
