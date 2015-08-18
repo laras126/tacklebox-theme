@@ -1,27 +1,27 @@
 <header class="header--page">
-
-	{% set display = post.header_display %}
-
-	<div class="contain--sm">
-		<h1 class="header__title">{{post.post_title}}</h1>
-	</div>
-
-	{% if display == 'image' %}
+	<div class="header__banner">
+		{% set display = post.header_display %}
+		<h1 class="header__title">{{post.post_title}}</h1>	
+	{# {% if display == 'image' %}
 
 		{{post.header_image_desktop}}
 		{{post.header_image_tablet}}
 		{{post.header_image_mobile}}
 
 	{% endif %}
-	
-	<div class="contain--sm">
-		{% if post.header_tagline %}
-			<p class="header__lead">{{post.header_tagline}}</p>
-		{% endif %}
-		{% if post.header_summary %}
-			<p class="header__summary">{{post.header_summary|
-		wpautop}}</p>
+	 #}
+	 	{% if post.header_tagline %}
+	 		<div class="contain--sm">
+				<p class="header__lead">{{post.header_tagline}}</p>
+			</div>
 		{% endif %}
 	</div>
 
-</header>	
+	{% if post.header_summary %}
+		<div class="contain--sm">
+			<p class="header__summary">{{post.header_summary|
+	wpautop}}</p>
+		</div>
+	{% endif %}
+
+</header>

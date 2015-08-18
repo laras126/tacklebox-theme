@@ -18,10 +18,12 @@
 		{% if type == 'free_form' %}
 			{% for item in block.list_type_freeform %}
 				<li class="list__item--{{type}}{{ item.item_class ? ' ' ~ item.item_class}}">
-					<div class="list__item__content has_shape_bkgd">
-						<h4 class="list__item__title">{{item.item_title}}</h4>
+					<div class="list__item__content">
 						<div class="list__item__desc">
-							{{item.item_description}}
+							<h4 class="list__item__title">{{item.item_title}}</h4>
+							<div class="list__item__desc__text">
+								{{item.item_description}}
+							</div>
 						</div>
 						{% if display == 'major' %}
 							<div class="list__item__img">
