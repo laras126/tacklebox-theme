@@ -1,11 +1,28 @@
 
 .section__header {
-	// text-align: center;
+	margin-top: $size-h3;
 }
 
 .section__title {
-	margin-bottom: $size-h4;
-	font-size: $size-h2;
+	// text-align: center;
+	@include bleed;
+	padding-left: $size-base;
 	border-top: $border-accent;
+	margin-bottom: $size-h4;
+	// font-size: $size-h2;
 	padding-top: $size-base;
+	margin-top: $size-base;
+}
+
+.section__nav {
+
+}
+
+.section__nav__items {
+	@include unstyle-list;
+	@include grid;	
+}
+
+.section__nav__item {
+	@include cell;
 }
