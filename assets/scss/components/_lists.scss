@@ -26,14 +26,34 @@
 .list--lessons {
 	list-style-type: none;
 	padding-left: 0;
+	@include bp(md) {
+		@include grid;
+	}
+}
+
+.list__item--lesson {
+	@include bp(md) {
+		@include cell(half);
+		padding: $size-h3;
+	}
+	margin-bottom: $size-base;
 }
 
 .list__item__title--lesson {
 	margin-top: 0;
+	border-bottom: $border-accent;
 }
 
-.pricing {
-	
+
+// ----
+// Content Specific Lists
+// ----
+
+// Pricing
+// TODO: could be part of a map or theme for each pricing package
+
+.list--features {
+	margin-top: $size-h3;
 	> ul {
 		@include bp(md) {
 			align-items: center;
@@ -60,21 +80,17 @@
 		@include upperspace;
 	}
 
-	.list__item__desc {
-		padding: $size-base;
+	.list__item__desc__text {
+		padding: $size-sml;
 		margin-bottom: $size-base;
 		font-size: $size-sml;
 	}
-
 }
 
 .price {
 	color: $color-alert-warning;
 	font-weight: normal;
 }
-
-
-// Pricing items
 
 .list__item--tuna {
 	
@@ -108,15 +124,9 @@
 	}
 
 	.list__item__title {
-		// border-top: 10px solid $color-salmon;
 		@include rotate($color-salmon, $color-text-vlight);
 	}
 	
-	.list__item__desc {
-		// @include rotate($color-accent-vlight, $color-body-text);
-
-	}
-
 	.shape {
 		fill: rgba($color-salmon, 0.2);
 	}
@@ -127,16 +137,11 @@
 		order: 2;
 	}
 	.list__item__title {
-		// border-top: 10px solid $color-scallop;
 		@include rotate($color-scallop, $color-text-vlight);
 	}
 
 	.list__item__content {
 		border: 3px solid rgba($color-scallop, 0.2);
-	}
-	
-	.list__item__desc {
-		// @include rotate($color-accent-vlight, $color-body-text);
 	}
 
 	.shape {
@@ -144,6 +149,27 @@
 	}
 }
 
+// Class Format
+
+// .list--row {
+
+// 	.list__item__content {
+// 		@include bp(md) {
+// 			@include grid;
+// 		}	
+// 	}
+	
+// 	.list__item__desc {
+// 		@include cell;
+// 		order: 1;
+// 	}
+
+// 	.list__item__img {
+// 		@include bp(md) {
+// 			@include cell(fourth);
+// 		}
+// 	}
+// }
 
 // Widgets
 

@@ -43,19 +43,19 @@ $(document).ready(function() {
 	// Submenu
 	// ----
 
-	 // var scroll_class = 'stuck',
-		// $nav = $('.content-nav'),
-		// nav_ht = $nav.outerHeight(),
-		// header_ht = $('.page-header').outerHeight() + $('.site-header').outerHeight(),
-		// total_ht = header_ht;
+	 var scroll_class = 'stuck',
+		$nav = $('.section__nav'),
+		nav_ht = $nav.outerHeight(),
+		header_ht = $('.header--page').outerHeight() + $('.site__header').outerHeight(),
+		total_ht = header_ht;
   	
 
 	// 1. Highlight current item
 	// 2. Slide to current section on click
-	$('.content-nav a').on('click', function() {
+	$('.section__nav__item__link').on('click', function() {
 
 		var hash = $(this).attr('href');
-		var $target = $(hash + ' .section-title');
+		var $target = $(hash + ' .page__section');
 
 		// Slide to section corresponding to clicked hash
 		$('html,body').animate({
