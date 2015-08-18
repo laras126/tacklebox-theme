@@ -52,6 +52,7 @@ $alert-colors: (
 .alert__icon {
     @include bp(sm) {
         @include cell($size: sixth);
+        margin-right: $gutter;
     }
     
     .icon {
@@ -62,7 +63,7 @@ $alert-colors: (
 .alert__main {
     padding-left: $gutter;
     // font-size: $size-sml;
-    font-weight: $font-weight-strong;
+    // font-weight: $font-weight-strong;
 
     @include bp(sm) {
         padding-left: 0;
@@ -72,14 +73,22 @@ $alert-colors: (
 
 .alert__row {
     align-items: center;
+    text-align: center;
+    
     @include bp(sm) {
+        text-align: left;
         @include grid;
     }
 
-    padding-top: $size-base;
-    padding-bottom: $size-base;
+    padding-top: $size-sml;
+    padding-bottom: $size-sml;
+    border-bottom: $border-accent;
 
     &.last {
-        border-top: $border-accent;
+        border-bottom: 0;
     }
+}
+
+.alert__row__title {
+    @extend .meta--upper;
 }
