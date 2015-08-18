@@ -75,14 +75,18 @@ h2 {
 
 h3 {
 	font-size: $size-h3;
+	margin-top: $size-h4;
 }
 
 h4 { 
 	font-size: $size-h4;
+	margin-top: $size-base;
+	color: $color-text-med;
 }
 
 h5 {
 	font-size: $size-h5;
+	margin-top: $size-sml;
 	font-family: $font-body;
 }
 
