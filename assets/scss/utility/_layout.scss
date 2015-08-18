@@ -1,7 +1,7 @@
 
-$screen-sm:     35em;
-$screen-md:     52em;
-$screen-lg:     56em;
+$screen-sm:     33em;
+$screen-md:     45em;
+$screen-lg:     53em;
 $screen-xl:     70em;
 
 $gutter:        $size-base;
@@ -111,7 +111,9 @@ $sizes: (
 // Prototyping classes
 
 .grid {
+  @include bp(sm) {
     @include grid;
+  }
 }
 
 .cell {
