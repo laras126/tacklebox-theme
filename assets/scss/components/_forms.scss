@@ -111,6 +111,7 @@ fieldset {
 
 .gform_footer {
 	@include clearfix;
+	margin-top: $size-h3;
 }
 
 .gfield_label {
