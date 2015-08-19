@@ -15,22 +15,22 @@ $(document).ready(function() {
 	// TODO: better fallback for non-JS - adding a .js class but it causes the nav to blink
 	// Look into Modernizr for that
 
-	var $menu = $('#menu'),
-	    $menulink = $('.menu-link'),
-	    $menuTrigger = $('.has-subnav > a');
+	// var $menu = $('#menu'),
+	//     $menulink = $('.menu-link'),
+	//     $menuTrigger = $('.has-subnav > a');
 
-	$menulink.on('click', function(e) {
-		e.preventDefault();
-		$menulink.toggleClass('open');
-		$menu.toggleClass('open');
-		return false;
-	});
+	// $menulink.on('click', function(e) {
+	// 	e.preventDefault();
+	// 	$menulink.toggleClass('open');
+	// 	$menu.toggleClass('open');
+	// 	return false;
+	// });
 
-	$menuTrigger.click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('open').next('ul').toggleClass('open');
-	});
+	// $menuTrigger.click(function(e) {
+	// 	e.preventDefault();
+	// 	var $this = $(this);
+	// 	$this.toggleClass('open').next('ul').toggleClass('open');
+	// });
 		
 
 	// $.get("/taxonomies", function(data){
@@ -43,60 +43,60 @@ $(document).ready(function() {
 	// Submenu
 	// ----
 
-	 var scroll_class = 'stuck',
-		$nav = $('.section__nav'),
-		nav_ht = $nav.outerHeight(),
-		header_ht = $('.header--page').outerHeight() + $('.site__header').outerHeight(),
-		total_ht = header_ht;
+	//  var scroll_class = 'stuck',
+	// 	$nav = $('.section__nav'),
+	// 	nav_ht = $nav.outerHeight(),
+	// 	header_ht = $('.header--page').outerHeight() + $('.site__header').outerHeight(),
+	// 	total_ht = header_ht;
   	
 
-	// 1. Highlight current item
-	// 2. Slide to current section on click
-	$('.section__nav__item__link').on('click', function() {
+	// // 1. Highlight current item
+	// // 2. Slide to current section on click
+	// $('.section__nav__item__link').on('click', function() {
 
-		var hash = $(this).attr('href');
-		var $target = $(hash + ' .page__section');
+	// 	var hash = $(this).attr('href');
+	// 	var $target = $(hash + ' .page__section');
 
-		// Slide to section corresponding to clicked hash
-		$('html,body').animate({
-			scrollTop: $target.offset().top - nav_ht*1.5
-        }, 700);
+	// 	// Slide to section corresponding to clicked hash
+	// 	$('html,body').animate({
+	// 		scrollTop: $target.offset().top - nav_ht*1.5
+ //        }, 700);
 
-		return false;
-	}); // END click
+	// 	return false;
+	// }); // END click
 
-	$('.nav--backtop').on( 'click', function() {
-		var hash = $('#pageTop');
-		var $target = $(hash);
+	// $('.nav--backtop').on( 'click', function() {
+	// 	var hash = $('#pageTop');
+	// 	var $target = $(hash);
 
-		// Slide to section corresponding to clicked hash
-		$('html,body').animate({
-			scrollTop: $target.offset().top
-        }, 700);
+	// 	// Slide to section corresponding to clicked hash
+	// 	$('html,body').animate({
+	// 		scrollTop: $target.offset().top
+ //        }, 700);
 
-        return false;
+ //        return false;
 
-	});
-
-
+	// });
 
 
-	// Highlight the current item according to position on the screen
-	// http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll
-	// (continued below)
+
+
+	// // Highlight the current item according to position on the screen
+	// // http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll
+	// // (continued below)
 	
-	// Cache selectors
-	var topMenu = $(".content-nav"),
-    topMenuHeight = topMenu.outerHeight()+40,
+	// // Cache selectors
+	// var topMenu = $(".content-nav"),
+ //    topMenuHeight = topMenu.outerHeight()+40,
     
-    // All list items
-    menuItems = topMenu.find("a"),
+ //    // All list items
+ //    menuItems = topMenu.find("a"),
     
-    // Anchors corresponding to menu items
-    scrollItems = menuItems.map(function(){
-		var item = $($(this).attr("href"));
-      	if (item.length) { return item; }
-    });
+ //    // Anchors corresponding to menu items
+ //    scrollItems = menuItems.map(function(){
+	// 	var item = $($(this).attr("href"));
+ //      	if (item.length) { return item; }
+ //    });
 
 
 
