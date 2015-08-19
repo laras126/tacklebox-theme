@@ -781,11 +781,6 @@
         ],
         [
             {
-                "param": "post_type",
-                "operator": "!=",
-                "value": "page"
-            },
-            {
                 "param": "page_template",
                 "operator": "==",
                 "value": "default"
@@ -798,5 +793,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1439919043
+    "active": 1,
+    "description": "",
+    "modified": 1439943926
 }
