@@ -1,5 +1,11 @@
 .header--page {
 	// @include card($bkgd: $color-body-contain);
+	
+
+}
+
+.header__banner {
+	text-align: center;
 }
 
 .header__lead {
@@ -8,10 +14,12 @@
 	margin-top: $size-base;
 }
 
-.header__title--class,
-.header__title--lesson {
-	// margin-top: 0;
-	// font-size: $size-h2;
+.header__title {
+	margin-top: 0;
+	margin-bottom: $size-h4;
+	@include bp(xl) {
+		font-size: $size-h1*1.5;
+	}
 }
 
 .header__title--class {
@@ -32,11 +40,31 @@
 
 
 .header__meta--class {
-	font-weight: $font-weight-strong;
 	@extend .meta--upper;
-	padding: $size-sml;
-	background-color: $color-alert-success;
-	margin-top: 0;
-	color: $color-text-vlight;
+	font-weight: $font-weight-strong;
+	color: $color-alert-success;
 }
 
+.header__main {
+	text-align: left;
+	@include bp(md) {
+		@include cell;
+		// align-self: center;
+	}
+}
+.header__compliment {
+	// @extend .alert--success;
+	@include bp(md) {
+		@include cell(half);
+		margin-left: $size-base;
+	}	
+}
+
+.header__nav__items {
+	@include unstyle-list;
+
+}
+
+.header__nav__item {
+	display: inline-block;
+}

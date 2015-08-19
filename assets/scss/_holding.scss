@@ -24,8 +24,11 @@
 
 
 .has_shape_bkgd {
-	overflow: hidden;
-	position: relative;
+
+	.list__item__content {
+		overflow: hidden;
+		position: relative;
+	}
 
 	.shape {
 		width: 80%;

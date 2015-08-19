@@ -29,6 +29,7 @@ hr {
 }
 
 .site__main--sidebar {
+	// @include grid;
 }
 
 .main__content {
@@ -37,17 +38,15 @@ hr {
 	// border: $border-accent;
 
 	@include bp(md) {
-		float: left;
-		width: 66.6666%;
-		margin-right: 3.33333%;
+		@include cell;
+		padding-right: $size-h4;
 	}
 }
 
 .main__sidebar {
 	@include bp(md) {
 		border-left: $border-accent;
+		@include cell(third);
 		padding-left: $size-h4;
-		float: left;
-		width: 30%;
 	}
 }
