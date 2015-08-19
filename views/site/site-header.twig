@@ -1,31 +1,28 @@
-<header class="site__header" role="banner">
+<header class="site__header contain--lg" role="banner">
 
     <div class="site__logo">
         <a href="{{site.link}}">
             <img src="{{theme.link}}/assets/img/util/tbx-logo1.svg" alt="">
         </a>
-    </div>
+    </div> <!-- .site__logo -->
 
     <nav class="site__nav" role="navigation">
-        <div class="contain--md">
-        
-            <ul class="site__nav__items">
-            {% for item in menu.items %}
-                <li class="site__nav__item">
-                    <a href="{{item.link}}" class="site__nav__item__link">{{item.title}}</a>
-                    {% if item.get_children %}
-                    	<ul class="site__nav__subnav">
-        				{% for child in item.get_children %}
-        					<li class="site__subnav__item">
-        						<a href="{{child.get_link}}">{{child.title}}</a>
-        					</li>
-        				{% endfor %}
-        				</ul>
-                    {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
+        <ul class="site__nav__items">
+        {% for item in menu.items %}
+            <li class="site__nav__item">
+                <a href="{{item.link}}" class="site__nav__item__link">{{item.title}}</a>
+                {% if item.get_children %}
+                	<ul class="site__nav__subnav">
+    				{% for child in item.get_children %}
+    					<li class="site__subnav__item">
+    						<a href="{{child.get_link}}">{{child.title}}</a>
+    					</li>
+    				{% endfor %}
+    				</ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
     </nav><!-- .site__nav -->
 
 </header>

@@ -13,13 +13,13 @@
             {% include 'site/site-header.twig' %}
         {% endblock %}  
         
-        <main class="site__main" role="main">
+        <main class="site__main contain--lg" role="main">
+        
+            {% block before_content %}
+                {% include 'pages/_page_header.twig' %}
+            {% endblock %}
 
-            {{sidebar ? '<div class="contain--lg clearfix">'}}
-            
-                {% block before_content %}
-                    {% include 'pages/_page_header.twig' %}
-                {% endblock %}
+            {{sidebar ? '<div class="grid">'}}
                 
                 {{sidebar ? '<div class="main__content">'}}
 

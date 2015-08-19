@@ -1,9 +1,9 @@
-<nav class="content-nav">
+<nav class="section__nav contain--md">
 
-	<ul>
+	<ul class="section__nav__items">
 		{% for item in post.get_field('sections') %}
-			<li class="content-nav-item">
-				<a href="#{{item.menu_item_title|replace({ (' '): '_' })}}">{{item.menu_item_title}}</a>
+			<li class="section__nav__item">
+				<a class="section__nav__item__link" href="#{{item.section_menu_item_title|replace({ (' '): '_' })|lower}}">{{item.section_menu_item_title}}</a>
 			</li>
 		{% endfor %}
 	</ul>

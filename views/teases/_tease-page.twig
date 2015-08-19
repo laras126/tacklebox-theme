@@ -7,16 +7,28 @@
 	{% set location = post.class_location %}
 	{% set start = post.class_start_date %}
 	
-	<h4><a href="{{post.link}}">{{post.post_title}}</a> <span class="meta--upper meta--success">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</span></h4>
+	<p><strong class="meta--upper meta--success">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong></p>
+	<h3 class="tease__title--page"><a href="{{post.link}}">{{post.post_title}}</a></h3>
+	{% if live and start|date("U") > "now"|date("U") %}
+		{# <p class="meta">{{post.class_time}}, Google Hangouts<br>
+		<time class="meta" datetime="{{post.class_start_date|date("Y-m-d")}}">{{post.class_start_date|date('F j')}}{{ post.class_end_date ? ' - ' ~ post.class_end_date|date('F j')}}</time></p> #}
+		<div class="alert__row">
+			<div class="alert__icon">
+				{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+			</div>
+			<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="alert__main">
+				<h5 class="alert__row__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
+				<p class="meta">{{post.class_time}}</p>
+			</time>
+		</div>
+	{% endif %}
 	
 	{# {% if live %} #}
 		{# <p>{{post.class_start_date|date('F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('F j')}}, {{post.class_day_and_time}}</p> #}
-		{% if live and start|date("U") > "now"|date("U") %}
-			<p class="header__lead">{{post.class_time}}, {{ class_location == in_person ? 'New York, NY' : 'Google Hangout' }}</p>
-			<p class="header__lead">{{post.class_start_date|date('F j')}}{{ post.class_end_date ? ' - ' ~ post.class_end_date|date('F j')}}</p>
-		{% endif %}
+
 	{# {% endif %} #}
 	
+	<p class="header__lead">{{post.header_tagline}}</p>
 	<p>{{post.header_summary}}</p>
 	<div class="clearfix">
 		<a href="{{post.link}}" class="btn btn--readmore">Read more...</a>
