@@ -149,27 +149,54 @@
 	}
 }
 
-// Class Format
 
-// .list--row {
+// Pricing
 
-// 	.list__item__content {
-// 		@include bp(md) {
-// 			@include grid;
-// 		}	
-// 	}
+.list--icons {
+
+	margin-top: $size-h3;
 	
-// 	.list__item__desc {
-// 		@include cell;
-// 		order: 1;
-// 	}
+	> ul {
+		@include bp(md) {
+			@include grid;
+		}
+	}
+	
+	.list__item--free_form {
+		@include bp(md) {
+			@include cell($size: half);
 
-// 	.list__item__img {
-// 		@include bp(md) {
-// 			@include cell(fourth);
-// 		}
-// 	}
-// }
+		}
+		margin-bottom: $size-base;
+	}
+
+
+	.list__item__content {
+		@include grid;
+		align-items: center;
+	}
+
+	.list__item__desc {
+		order: 1;
+		@include cell;
+	}
+
+	.list__item__img {
+		order: 0;
+		@include cell($size: fourth);
+	}
+
+	.list__item__title {
+		@extend .item__title;
+	}
+
+	.list__item__desc__text {
+		margin-bottom: $size-base;
+		font-size: $size-sml;
+	}
+}
+
+
 
 // Widgets
 
