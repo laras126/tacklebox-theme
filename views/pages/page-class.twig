@@ -24,35 +24,45 @@
 			{% if start > now %}
 			<div class="bleed header__compliment">
 
-				<div class="alert__row">
-					<div class="alert__icon">
+				<div class="item__row">
+					<div class="item__icon">
 						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 					</div>
-					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="alert__main">
-						<h5 class="alert__row__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
+					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
+						<h5 class="item__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
 						<p class="meta">{{post.class_time}}</p>
 					</time>
 				</div>
 
-				<div class="alert__row">
-					<div class="alert__icon">
+				<div class="item__row">
+					<div class="item__icon">
 						{% include 'partials/svg.twig' with { file: 'code', prefix: 'icon'} %}
 					</div>
-					<div class="alert__main">
+					<div class="item__main">
 						{% for level in post.get_terms('level') %}
-							<h5 class="alert__row__title">{{level.name}}</h5>
+							<h5 class="item__title">{{level.name}}</h5>
 							<p class="meta">{{level.description}}</p>
 						{% endfor %}
 					</div>
 				</div>
 				
-				<div class="alert__row last">
-					<div class="alert__icon">
-						{% include 'partials/svg.twig' with { file: 'hangouts', prefix: 'icon'} %}
+				<div class="item__row last">
+					<div class="item__icon">
+						{% if post.in_person %}
+							{% include 'partials/svg.twig' with { file: 'office', prefix: 'icon'} %}
+						{% else %}
+							{% include 'partials/svg.twig' with { file: 'hangouts', prefix: 'icon'} %}
+						{% endif %}
 					</div>
-					<div class="alert__main">
-						<h5 class="alert__row__title">Hangouts On Air</h5>
-						<p class="meta">This course will take place live every week using <a href="https://plus.google.com/hangouts/onair" target="blank">Google Hangouts on Air</a>.</p>
+					<div class="item__main">
+						{% if post.in_person %}
+							<h5 class="item__title">New York, NY</h5>
+							<p class="meta">This course will take place in a conference room at my coworking space, <a href="http://cowork.rs">Cowork|rs</a> at 23rd and Park in Manhattan. There will also be a live stream using using <a href="https://plus.google.com/hangouts/onair" target="blank">Google Hangouts on Air</a>.</p>
+						{% else %}
+							<h5 class="item__row__title">Hangouts On Air</h5>
+							<p class="meta">This course will take place live every week using <a href="https://plus.google.com/hangouts/onair" target="blank">Google Hangouts on Air</a>.</p>
+						{% endif %}
+
 					</div>
 				</div>
 
@@ -80,7 +90,7 @@
 	
 	{% include 'partials/section-loop.twig' %}
 	
-	{# <div class="contain--sm">
+{# 	<div class="contain--sm">
 		<h3>Lessons</h3>
 	</div>
 	<div class="contain--lg">
@@ -105,9 +115,8 @@
 					{% endfor %}
 					</p>
 				{% endif %}
-				<div class="btnset--lesson"> #}
-					{# <a href="{{item.link}}" class="btn--readmore">Lesson Details</a> #}
-					{# <a href="{{item.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
+				<div class="btnset--lesson">
+					<a href="{{item.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
 				</div>
 				{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}}
 			</li>

@@ -30,17 +30,17 @@
 				{# {% if start > now %} #}
 				<div class="bleed header__compliment">
 
-					<div class="alert__row">
-						<div class="alert__icon">
+					<div class="item__row">
+						<div class="item__icon">
 							{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 						</div>
-						<time datetime="{{post.lesson_date|date("Y-m-d")}}" class="alert__main">
-							<h5 class="alert__row__title">{{post.lesson_date|date('F j')}}</h5>
+						<time datetime="{{post.lesson_date|date("Y-m-d")}}" class="item__main">
+							<h5 class="item__title">{{post.lesson_date|date('F j')}}</h5>
 							<p class="meta">{{post.lesson_time ? post.lesson_time}}</p>
 						</time>
 					</div>
 
-					<div class="alert__row">
+					<div class="item__row">
 						
 						<form action="" method="post">
 							{% set field = '_lesson_' ~ post.id ~ '_complete' %}

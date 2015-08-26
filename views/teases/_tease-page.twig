@@ -12,12 +12,12 @@
 	{% if live and start|date("U") > "now"|date("U") %}
 		{# <p class="meta">{{post.class_time}}, Google Hangouts<br>
 		<time class="meta" datetime="{{post.class_start_date|date("Y-m-d")}}">{{post.class_start_date|date('F j')}}{{ post.class_end_date ? ' - ' ~ post.class_end_date|date('F j')}}</time></p> #}
-		<div class="alert__row">
-			<div class="alert__icon">
+		<div class="item__row">
+			<div class="item__icon">
 				{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 			</div>
-			<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="alert__main">
-				<h5 class="alert__row__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
+			<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
+				<h5 class="item__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
 				<p class="meta">{{post.class_time}}</p>
 			</time>
 		</div>
