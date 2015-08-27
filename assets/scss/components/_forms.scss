@@ -175,6 +175,11 @@ input[type="submit"] {
 
 }
 
+.mc-field-group label {
+	@extend .meta;
+	@include upperspace;
+	font-weight: $font-weight-base;
+}
 
 // Lesson specific
 

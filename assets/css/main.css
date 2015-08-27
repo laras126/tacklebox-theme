@@ -637,7 +637,7 @@ ul, ol {
   .title-tease--source .icon {
     fill: #86b2c6;
     display: inline-block; }
-  .title-tease--source .meta, .title-tease--source .meta--upper, .title-tease--source .item__title, .title-tease--source .list--icons .list__item__title, .list--icons .title-tease--source .list__item__title, .title-tease--source .tease__meta--source, .title-tease--source .header__meta--class, .title-tease--source .meta--light, .title-tease--source .site__footer__content, .title-tease--source .meta--med, .title-tease--source .meta--success {
+  .title-tease--source .meta, .title-tease--source .mc-field-group label, .mc-field-group .title-tease--source label, .title-tease--source .meta--upper, .title-tease--source .item__title, .title-tease--source .list--icons .list__item__title, .list--icons .title-tease--source .list__item__title, .title-tease--source .tease__meta--source, .title-tease--source .header__meta--class, .title-tease--source .meta--light, .title-tease--source .site__footer__content, .title-tease--source .meta--med, .title-tease--source .meta--success {
     font-weight: 300; }
 
 .title-tease--lesson {
@@ -847,6 +847,11 @@ input[type="submit"] {
       -webkit-flex: 0 0 25%;
           -ms-flex: 0 0 25%;
               flex: 0 0 25%; } }
+
+.mc-field-group label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300; }
 
 .btn, .btn--danger, .btn--warning, .btn--success, input[type="submit"], .btn--cta, .btn--readmore, .btn--hangout {
   padding: 0.66rem 1.1rem;
@@ -1229,7 +1234,7 @@ th {
 .media__caption {
   font-style: italic; }
 
-.meta, .meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .header__meta--class, .meta--light, .site__footer__content, .meta--med, .meta--success {
+.meta, .mc-field-group label, .meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .header__meta--class, .meta--light, .site__footer__content, .meta--med, .meta--success {
   font-size: 0.88rem;
   line-height: 1.5; }
 
