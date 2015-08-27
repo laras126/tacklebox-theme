@@ -52,6 +52,7 @@
 		// align-self: center;
 	}
 }
+
 .header__compliment {
 	// @extend .alert--success;
 	@include bp(md) {
