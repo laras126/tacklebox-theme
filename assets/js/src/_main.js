@@ -61,18 +61,18 @@ $(document).ready(function() {
 	// 	return false;
 	// }); // END click
 
-	// $('.nav--backtop').on( 'click', function() {
-	// 	var hash = $('#pageTop');
-	// 	var $target = $(hash);
+	$('.nav--backtop').on( 'click', function() {
+		var hash = $('#pageTop');
+		var $target = $(hash);
 
-	// 	// Slide to section corresponding to clicked hash
-	// 	$('html,body').animate({
-	// 		scrollTop: $target.offset().top
- //        }, 700);
+		// Slide to section corresponding to clicked hash
+		$('html,body').animate({
+			scrollTop: $target.offset().top
+        }, 700);
 
- //        return false;
+        return false;
 
-	// });
+	});
 
 
 
