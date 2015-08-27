@@ -9,17 +9,10 @@
 }
 
 .site__logo {
-	// padding-left: $size-h3;
 	max-width: 60%;
-	// @include cell();
-	@include bp(sm) {
-		display: block;
-		// background-color: yellow;
-		margin: 0 auto;
-		
-		// @include cell(half);
-	}
-
+	display: block;
+	margin: 0 auto;
+	
 	@include bp(md) {
 		@include cell(fourth, $is_first: false);
 		// background-color: green;
@@ -52,9 +45,8 @@
 
 	.site__nav__items {
 		@include unstyle-list();
-		@include bp(sm) {
 			text-align: center;
-		}
+		
 		@include bp(md) {
 			text-align: right;
 		}
@@ -63,10 +55,10 @@
 
 	.site__nav__item {
 
-		@include bp(sm) {
+		// @include bp(sm) {
 			display: inline-block;
 			padding-right: $size-base;
-		}
+		// }
 
 		a {
 			@include bp(lg) {
