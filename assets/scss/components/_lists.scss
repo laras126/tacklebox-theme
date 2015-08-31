@@ -95,7 +95,7 @@
 .list__item--tuna {
 	
 	@include bp(md) {
-		order: 1;
+		// order: 1;
 	}
 	
 	.list__item__title {
@@ -117,7 +117,7 @@
 
 .list__item--salmon {
 	@include bp(md) {
-		order: 0;
+		// order: 0;
 	}
 	.list__item__content {
 		border: 3px solid rgba($color-salmon, 0.1);

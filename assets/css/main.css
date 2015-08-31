@@ -1074,13 +1074,6 @@ input[type="submit"] {
   color: #f4e37a;
   font-weight: normal; }
 
-@media (min-width: 45em) {
-  .list__item--tuna {
-    -webkit-box-ordinal-group: 2;
-    -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1; } }
-
 .list__item--tuna .list__item__title {
   background-color: #237fa9;
   color: #ffffff; }
@@ -1090,13 +1083,6 @@ input[type="submit"] {
 
 .list__item--tuna .shape {
   fill: rgba(35, 127, 169, 0.1); }
-
-@media (min-width: 45em) {
-  .list__item--salmon {
-    -webkit-box-ordinal-group: 1;
-    -webkit-order: 0;
-        -ms-flex-order: 0;
-            order: 0; } }
 
 .list__item--salmon .list__item__content {
   border: 3px solid rgba(237, 144, 98, 0.1); }
