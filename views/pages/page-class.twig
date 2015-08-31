@@ -29,8 +29,8 @@
 						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 					</div>
 					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
-						<h5 class="item__title">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
-						<p class="meta">{{post.class_time}}</p>
+						<h5 class="item__title">{{post.class_time}}</h5>
+						<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
 					</time>
 				</div>
 
