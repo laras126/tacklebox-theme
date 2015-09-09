@@ -1056,11 +1056,12 @@ input[type="submit"] {
         padding-left: 0.55rem;
         padding-right: 0.55rem;
         -webkit-box-flex: 0;
-        -webkit-flex: 0 0 33.333333%;
-            -ms-flex: 0 0 33.333333%;
-                flex: 0 0 33.333333%; } }
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%; } }
   .list--features .list__item__title {
     margin-top: 0;
+    text-align: center;
     padding: 1.1rem;
     font-size: 1.21rem;
     text-transform: uppercase;

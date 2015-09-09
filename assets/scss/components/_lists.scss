@@ -63,7 +63,7 @@
 	
 	.list__item--free_form {
 		@include bp(md) {
-			@include cell($size: third);
+			@include cell($size: half);
 
 		}
 		margin-bottom: $size-base;
@@ -75,6 +75,7 @@
 
 	.list__item__title {
 		margin-top: 0;
+		text-align: center;
 		padding: $size-base;
 		font-size: $size-h5;
 		@include upperspace;
