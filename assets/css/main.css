@@ -1464,34 +1464,50 @@ th {
   fill: #237fa9; }
 
 .sources__list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  list-style-type: none;
+  padding-left: 0; }
+  @media (min-width: 33em) {
+    .sources__list {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
+      position: relative;
+      margin-left: -0.55rem;
+      margin-right: -0.55rem; } }
+
+.sources__list__item {
   position: relative;
-  margin-left: -0.55rem;
-  margin-right: -0.55rem; }
+  overflow: hidden; }
+  @media (min-width: 33em) {
+    .sources__list__item {
+      position: relative;
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+              flex: 0 0 50%; } }
 
 .tease--source {
   color: #858585;
   font-size: 0.88rem;
-  position: relative;
-  padding-left: 0.55rem;
-  padding-right: 0.55rem;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 50%;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%; }
+  position: relative; }
   .tease--source .shape {
-    width: 80%;
-    bottom: -10%;
-    right: -20%;
-    position: absolute;
-    z-index: 1;
-    fill: #f4f7f9; }
+    fill: #f4f7f9;
+    top: 3.3rem;
+    right: -6.6rem; }
+    @media (min-width: 33em) {
+      .tease--source .shape {
+        top: 30%;
+        right: 30%; } }
+
+.tease__content {
+  position: relative;
+  z-index: 3; }
 
 .tease__content--source {
   position: relative;
@@ -1624,13 +1640,16 @@ th {
   width: 2.53rem;
   height: 2.53rem; }
 
-.has_shape_bkgd .list__item__content {
-  overflow: hidden;
-  position: relative; }
-
-.has_shape_bkgd .shape {
-  width: 80%;
-  bottom: 0;
-  right: -20%;
-  position: absolute;
-  z-index: 1; }
+.has_shape_bkgd {
+  overflow: hidden; }
+  .has_shape_bkgd .list__item__content {
+    overflow: hidden;
+    position: relative; }
+  .has_shape_bkgd .shape {
+    position: absolute;
+    z-index: 1; }
+    @media (min-width: 33em) {
+      .has_shape_bkgd .shape {
+        width: 80%;
+        bottom: 0;
+        right: -20%; } }

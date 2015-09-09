@@ -3,22 +3,40 @@
 /// @description [Styles for source teases, including corner category indicators]
 
 .sources__list {
-	@include grid;
+	@include bp(sm) {
+		@include grid;
+	}
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.sources__list__item {
+	@include bp(sm) {
+		@include cell(half);
+	}
+	position: relative;
+	overflow: hidden;
 }
 
 .tease--source {
 	@include meta($margin: true);
-	@include cell(half);
+	position: relative;
 
 	.shape {
-		width: 80%;
-		bottom: -10%;
-		right: -20%;
-		position: absolute;
-		z-index: $z-base;
 		fill: $color-accent-vlight;
+		top: $size-h1;
+		right: -$size-h1*2;
+		@include bp(sm) {
+			top: 30%;
+			right: 30%;
+		}
 	}
 	
+}
+
+.tease__content {
+	position: relative;
+	z-index: $z-mid;
 }
 
 .tease__meta--source {
