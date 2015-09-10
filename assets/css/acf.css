@@ -1,7 +1,8 @@
 
 /* Advanced Custom Fields */
 
-.wysiwg-short iframe {
+.wysiwg-short iframe,
+.wysiwg-short textarea {
   max-height: 100px !important;
   min-height: 100px !important;
 }
