@@ -120,6 +120,6 @@ $args = array(
 	'show_in_nav_menus'          => true,
 	'show_tagcloud'              => true,
 );
-register_taxonomy( 'class', array( 'lesson' ), $args );
+register_taxonomy( 'class', array( 'lesson', 'screencast' ), $args );
 
  ?>
