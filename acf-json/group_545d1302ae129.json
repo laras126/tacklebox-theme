@@ -194,22 +194,8 @@
         [
             {
                 "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "lesson"
+                "operator": "!=",
+                "value": "source"
             }
         ]
     ],
@@ -230,5 +216,7 @@
         "featured_image",
         "send-trackbacks"
     ],
-    "modified": 1437498915
+    "active": 1,
+    "description": "",
+    "modified": 1441915467
 }
