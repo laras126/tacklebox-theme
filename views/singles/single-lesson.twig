@@ -13,14 +13,16 @@
 			{% endfor %}
 			
 			<h1 class="header__title">{{post.post_title}}</h1>
-
+		</div>
+		
+		<div class="contain--sm">
+			<p class="header__lead text-center">{{post.header_tagline}}</p>
 		</div>
 
 		<div class="contain--md">
 			<div class="grid">
 			
 				<div class="header__main">
-					<p class="header__lead">{{post.header_tagline}}</p>
 					<p class="header__summary">{{post.header_summary|wpautop}}</p>
 					{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}						
 					{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Video</a>{% endif %}
@@ -130,27 +132,33 @@
 		</section> <!-- /#learning-goals -->
 	{% endif %}
 
-	<section class="contain--sm" id="assignments">
-
-		{% if post.assigments %}
-			<h3 class="section__title">Assignments</h3>
-			{{post.assignments_summary|wpautop}}
+	<section class="page__section" id="assignments">
+		
+		<header class="section__header">
+			<div class="contain--sm">
+				<h2 class="section__title">Assignments</h2>
+				{{post.assignments_summary|wpautop}}
+				{# <p class="header__lead">{{section.section_lead}}</p> #}
+			</div>
+		</header>
+		{# {% if post.assigments %} #}
+			{# <h3 class="section__title">Assignments</h3>
+			 #}
+		{% for block in post.get_field('assignment_blocks') %}
+			{% include 'blocks/block-logic.twig' %}
+		{% endfor %}
 			
-			{% for block in post.get_field('assignment_blocks') %}
-				{% include 'blocks/block-logic.twig' %}
-			{% endfor %}
-			
-			<ul class="block_list-list">
+{# 			<ul class="block_list-list">
 			{% for item in post.get_field('assignments') %}
 				<li>
 					<h4>{{item.item_title}}</h4>
 					{{item.item_description|wpautop}}
 				</li>
 			{% endfor %}
-			</ul>
-		{% endif %}
+			</ul> #}
+		{# {% endif %} #}
 	
-		{% if post.tutorials %}
+		{# {% if post.tutorials %}
 			<h4>Tutorials</h3>
 			{{post.tutorials_summary|wpautop}}
 			<div class="list--major bleed">
@@ -170,7 +178,7 @@
 					{% include 'teases/_tease-source.twig' %}
 				{% endfor %}
 			</ul>
-		{% endif %}
+		{% endif %} #}
 
 	</section> <!-- /#assignments -->
 
