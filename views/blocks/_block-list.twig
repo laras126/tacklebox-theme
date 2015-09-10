@@ -35,7 +35,7 @@
 			{% endfor %}
 		{% else %}
 			{% for post in block.list_type_connected_content %}
-				<li>
+				<li class="tease--{{post.post_type}}">
 					{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
 				</li>
 			{% endfor %}
