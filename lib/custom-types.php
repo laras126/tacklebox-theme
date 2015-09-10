@@ -30,7 +30,7 @@ $args = array(
 	'description'         => __( 'Resources attached to posts.', 'tbx' ),
 	'labels'              => $labels,
 	'supports'            => array( 'title' ),
-	'taxonomies'          => array( 'source_type', 'category' ),
+	'taxonomies'          => array( 'source_type', 'category', 'level' ),
 	'hierarchical'        => false,
 	'public'              => true,
 	'show_ui'             => true,
@@ -98,5 +98,55 @@ $args = array(
 );
 register_post_type( 'lesson', $args );
 
+
+
+
+// ----
+// Screencast Custom Type
+// ----
+
+$labels = array(
+	'name'                => _x( 'Screencasts', 'Post Type General Name', 'tbx' ),
+	'singular_name'       => _x( 'Screencast', 'Post Type Singular Name', 'tbx' ),
+	'menu_name'           => __( 'Screencasts', 'tbx' ),
+	'parent_item_colon'   => __( 'Parent Screencast:', 'tbx' ),
+	'all_items'           => __( 'All Screencasts', 'tbx' ),
+	'view_item'           => __( 'View Screencast', 'tbx' ),
+	'add_new_item'        => __( 'Add New Screencast', 'tbx' ),
+	'add_new'             => __( 'Add New', 'tbx' ),
+	'edit_item'           => __( 'Edit Screencast', 'tbx' ),
+	'update_item'         => __( 'Update Screencast', 'tbx' ),
+	'search_items'        => __( 'Search Screencast', 'tbx' ),
+	'not_found'           => __( 'Not found', 'tbx' ),
+	'not_found_in_trash'  => __( 'Not found in Trash', 'tbx' ),
+);
+$rewrite = array(
+	'slug'                => 'screencasts',
+	'with_front'          => true,
+	'pages'               => true,
+	'feeds'               => true,
+);
+$args = array(
+	'label'               => __( 'screencast', 'tbx' ),
+	'description'         => __( 'Screencasts attached to lessons.', 'tbx' ),
+	'labels'              => $labels,
+	'supports'            => array( 'title' ),
+	'taxonomies'          => array( 'category', 'level', 'class', 'post_tag' ),
+	'hierarchical'        => false,
+	'public'              => true,
+	'show_ui'             => true,
+	'show_in_menu'        => true,
+	'show_in_nav_menus'   => true,
+	'show_in_admin_bar'   => true,
+	'menu_position'       => 5,
+	'menu_icon'           => 'dashicons-video-alt3',
+	'can_export'          => true,
+	'has_archive'         => true,
+	'exclude_from_search' => true,
+	'publicly_queryable'  => true,
+	'rewrite'             => $rewrite,
+	'capability_type'     => 'post',
+);
+register_post_type( 'screencast', $args );
 
  ?>
