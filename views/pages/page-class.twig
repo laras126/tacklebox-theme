@@ -21,9 +21,9 @@
 				<a class="btn--success" href="#reserve_a_spot">Reserve a Spot</a>
 			</div> <!-- .header__main -->
 		
-			{% if start > now %}
 			<div class="bleed header__compliment">
 
+				{% if start > now %}
 				<div class="item__row">
 					<div class="item__icon">
 						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
@@ -33,6 +33,7 @@
 						<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
 					</time>
 				</div>
+				{% endif %}
 
 				<div class="item__row">
 					<div class="item__icon">
@@ -51,12 +52,11 @@
 				</div>
 
 			</div>
-			{% endif %}
 		</div> <!-- .grid -->
 
 	</header>
 	
-	{% if start < now %}
+	{# {% if start < now %}
 		<div class="contain--sm">
 			<div class="alert--warning">
 				<h4 class="alert__title">This class is no longer registering.</h4>
@@ -64,49 +64,15 @@
 				<a href="" class="btn btn--cta">Request Class</a>
 			</div>
 		</div>
-	{% endif %}
+	{% endif %} #}
 		
 {% endblock %}
 
 {% block content %}
 	
 	{# {% include 'partials/section-nav.twig' %} #}
-	
 	{% include 'partials/section-loop.twig' %}
 	
-{# 	<div class="contain--sm">
-		<h3>Lessons</h3>
-	</div>
-	<div class="contain--lg">
-		<ol class="list--lessons"> 
-		
-		{% for item in lessons %}
-			{% set item = TimberPost(item) %}
-			<li class="list__item--lesson">
-
-				<h4 class="list__item__title--lesson">{{loop.index}} <span class="special">{{item.title}}</span></h4>
-				{% if item.lesson_date %}
-					<time datetime="{{item.lesson_date|date(
-					"Y-m-d")}}" class="meta--med">{{item.lesson_date|date('F j')}}{{item.lesson_time ? ', ' ~ item.lesson_time}}</time>
-				{% endif %}
-				
-				<p>{{item.header_tagline}}</p>
-				<p class="meta">{{item.header_summary}}</p>
-				{% if item.get_terms('post_tag') %}
-					<p class="meta--med"><span class="meta--upper">Keywords:</span>
-					{% for tag in item.get_terms('post_tag') %}
-					 {{tag.name}}{{loop.last ? '' : ', '}}
-					{% endfor %}
-					</p>
-				{% endif %}
-				<div class="btnset--lesson">
-					<a href="{{item.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
-				</div>
-				{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}}
-			</li>
-		{% endfor %}
-		</ol>
-	</div> #}
 {% endblock %}
 
 {% block after_content %}
