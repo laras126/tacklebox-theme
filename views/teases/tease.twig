@@ -1,9 +1,9 @@
 <article class="tease--{{post.post_type}}" id="tease-{{post.ID}}">
 
 	{% block content %}
-		<h4><a href="{{post.post_link}}">{{post.post_title}}</a></h4>
-		<p>{{post.header_summary}}</p>
-		<a href="{{post.guid}}" class="btn btn-readmore">Read more...</a>
+		{% set post = TimberPost(post) %}
+		<h5><a href="{{post.link}}">{{post.post_title}}</a></h5>
+		<p class="meta">{{post.header_summary}}</p>
 
 		{% if post.thumbnail.src %}
 			<img src="{{post.thumbnail.src}}" />
