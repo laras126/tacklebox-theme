@@ -121,22 +121,28 @@
  
 	{# Blocks for additional Lesson content #}
 	
-	{% for block in post.get_field('blocks') %} 
-		{% include 'blocks/block-logic.twig' %}
-	{% endfor %}
-	
-	{% if post.learning_goals %}
-		<section class="contain--sm" id="learning-goals">
-			<h3 class="section__title">Learning Goals</h3>
-			{{post.learning_goals|wpautop}}
+	{# {% if post.learning_goals %} #}
+		
+		<section class="page__section" id="lesson-outline">
+			
+			<header class="section__header">
+				<div class="contain--sm">
+					<h2 class="section__title">Lesson Outline</h2>
+				</div>
+			</header>
+		{{post.learning_goals}}
+			{% for block in post.get_field('blocks') %} 
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
+			
 		</section> <!-- /#learning-goals -->
-	{% endif %}
+	{# {% endif %} #}
 
 	<section class="page__section" id="assignments">
 		
 		<header class="section__header">
 			<div class="contain--sm">
-				<h2 class="section__title">Assignments</h2>
+				<h2 class="section__title">Homework</h2>
 				{{post.assignments_summary|wpautop}}
 				{# <p class="header__lead">{{section.section_lead}}</p> #}
 			</div>
