@@ -3,7 +3,7 @@
 {% block before_content %}
 	{# {% include 'archives/_archive_header.twig' %} #}
 
-	{# <div class="filter-panel">
+	<div class="filter-panel">
 		
 	<h5>Type:</h5>
 	<ul>
@@ -26,7 +26,7 @@
 	{% endfor %}
 	</ul>
 
-	</div> #}
+	</div>
 
 {% endblock %}
 
@@ -34,7 +34,7 @@
 	{% if access %}
 	<ul class="sources__list">
 		{% for post in posts %}
-			<li class="list-item--major cell">
+			<li class="sources__list__item">
 				{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
 			</li>
 		{% endfor %}
