@@ -181,7 +181,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "wysiwyg-short",
                 "id": ""
             },
             "default_value": "",
@@ -218,5 +218,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1441915467
+    "modified": 1441920049
 }
