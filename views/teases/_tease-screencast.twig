@@ -1,1 +1,18 @@
 {% extends "teases/tease.twig" %}
+
+{% block content %}
+	{% set post = TimberPost(post) %}
+
+	<div class="item__row">
+		<div class="item__icon">
+			{% include 'partials/svg.twig' with { file: 'film', prefix: 'shape' } %}
+		</div>
+		<div class="item__main">
+			<h5><a href="{{post.link}}">{{post.post_title}}</a></h5>
+			<p class="meta">{{post.header_summary}}</p>
+		</div>
+	</div>
+	{# {% if post.thumbnail.src %}
+		<img src="{{post.thumbnail.src}}" />
+	{% endif %} #}
+{% endblock %}
