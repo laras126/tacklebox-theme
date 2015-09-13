@@ -80,13 +80,12 @@ h3 {
 
 h4 { 
 	font-size: $size-h4;
-	margin-top: $size-base;
-	color: $color-text-med;
+	margin-top: $size-h4;
 }
 
 h5 {
 	font-size: $size-h5;
-	margin-top: $size-sml;
+	margin-top: $size-h4;
 	font-family: $font-body;
 }
 
@@ -128,4 +127,10 @@ ul, ol {
 
 .summary {
 
+}
+
+code {
+	background-color: $color-accent-vlight;
+	font-size: $size-sml;
+	padding: 2px;
 }

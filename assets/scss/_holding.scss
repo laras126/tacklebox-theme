@@ -24,6 +24,7 @@
 
 
 .has_shape_bkgd {
+	overflow: hidden;
 
 	.list__item__content {
 		overflow: hidden;
@@ -31,9 +32,11 @@
 	}
 
 	.shape {
-		width: 80%;
-		bottom: 0;
-		right: -20%;
+		@include bp(sm) {
+			width: 80%;
+			bottom: 0;
+			right: -20%;
+		}
 		position: absolute;
 		z-index: $z-base;
 	}
