@@ -1,15 +1,15 @@
 
 <nav class="nav--prevnext">
-	<div class="grid">
-		<div class="cell nav-next">
-			{% if post.next %}
-				<a href="{{post.next.link}}">&larr;{{post.next.title}}</a>	
-			{% endif %}
-		</div>
-		<div class="cell nav-prev">
-			{% if post.prev %}
-				<a href="{{post.prev.link}}">{{post.prev.title}}&rarr;</a>
-			{% endif %}
-		</div>
+	<div class="nav__wrap--prevnext nav--next">
+		{% if post.next %}
+			{% include 'partials/svg.twig' with { file: 'arrow-left', prefix: 'icon' } %}
+			<a class="nav__link--next" href="{{post.next.link}}">{{post.next.title}}</a>	
+		{% endif %}
+	</div>
+	<div class="nav__wrap--prevnext nav--prev">
+		{% if post.prev %}
+			<a class="nav__link--prev" href="{{post.prev.link}}">{{post.prev.title}}</a>
+			{% include 'partials/svg.twig' with { file: 'arrow-right', prefix: 'icon' } %}
+		{% endif %}
 	</div>
 </nav>
