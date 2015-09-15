@@ -1,54 +1,37 @@
 {% extends 'teases/tease.twig' %}
 
 {% block content %}
-	<div class="has_shape_bkgd">
-		<p class="tease__meta">
-			{% for type in post.terms('source_type') %}
-				{{type.name}}{{ loop.last ? '' : ', ' }}
-			{% endfor %}
-			|
-			{% if post.terms('category') %}
-				{% for type in post.terms('category') %}
-					{{type.name}}{{ loop.last ? '' : ', ' }}
-				{% endfor %}
-			{% endif %}
-		</p>
+	{% set post = TimberPost(post) %}
+	
+	<a href="{{post.source_url}}" target="blank">
+		<div class="item__row">
 
-		<div class="tease__content">
+			<div class="item__main">
 
-			<h5 class="tease__title--source">
-				{% include 'partials/svg.twig' with { file: 'link', prefix: 'icon' } %}
-				<a href="{{post.source_url}}" target="blank">{{post.post_title}}</a>
-			</h5>
+				{% spaceless %}
+				<h5 class="item__title">{{post.post_title}}
 
-			{% if post.source_author or post.source_publication %}
-				<p class="tease__meta">
-				{% if post.source_author %}
-					{{post.source_author_link ? 'By <a href="' ~ post.source_author_link ~ '" target="blank">'}}
-						{{post.source_author}}
-					{{post.source_author_link ? '</a>'}}
+				{% if post.source_author or post.source_publication %}
+					<span class="meta--med">
+					{% if post.source_author %}
+						By {{post.source_author}}
+					{% endif %}
+					{% if post.source_publication %}
+						{{post.source_author ? ' on ' }}
+						{{post.source_publication}}
+					{% endif %}
+					</span>
 				{% endif %}
-
-				{% if post.source_publication %}
-					{{post.source_author ? ' | ' }}
-					{{post.source_publication_link ? '<a href="' ~ post.source_publication_link ~ '" target="blank">'}}
-					{{post.source_publication}}
-					{{post.source_publication_link ? '</a>'}}
-				{% endif %}
-				</p>
-			{% endif %}
-			
-
-			{{post.source_blurb ? '<p class="tease__blurb--source">' ~ post.source_blurb ~ '</p>'}}
-
-			{{function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID)}}
+				</h5>
+				{% endspaceless %}
+				
+				{{post.source_blurb ? '<p class="meta">' ~ post.source_blurb ~ '</p>'}}
+			</div>
+			<div class="item__icon">
+				{% include 'partials/svg.twig' with { file: 'new-window', prefix: 'icon' } %}
+			</div>
+			{# {{function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID)}} #}
 		</div>
+	</a>
 
-		{% for t in post.terms('category')|slice(0,1) %}
-			{% set name = t.name|lower|replace({' ': '-'}) %}
-			{% for type in post.terms('source_type') %}
-				{% include 'partials/svg.twig' with { file: name, prefix: 'shape' } %}
-			{% endfor %}
-		{% endfor %}
-	</div>
 {% endblock %}
