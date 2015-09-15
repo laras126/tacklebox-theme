@@ -1,7 +1,15 @@
 {% extends "base.twig" %}
 
+{% block before_content %}
+	{% include 'singles/_header-single.twig' %}
+{% endblock %}
+
 {% block content %}
 	{% for block in post.get_field('blocks') %} 
 		{% include 'blocks/block-logic.twig' %}
 	{% endfor %}
+{% endblock %}
+
+{% block after_content %}
+	{% include 'partials/prevnext.twig' %}
 {% endblock %}
