@@ -1,103 +1,6 @@
 {% extends 'singles/single.twig' %}
 
-{% block before_content %}
-	<header class="header--page">
-		<div class="contain--xl text-center">
-
-			{% for t in post.terms('class') %}
-				<p>{{t.name}}</p>
-			{% endfor %}
-		
-			{% for l in related_lessons %}
-				{% if l.title == post.title %}<p class="header__meta--class">Lesson {{loop.index}}</p>{% endif %}
-			{% endfor %}
-			
-			<h1 class="header__title">{{post.post_title}}</h1>
-		</div>
-		
-		<div class="contain--sm">
-			<p class="header__lead text-center">{{post.header_tagline}}</p>
-		</div>
-
-		<div class="contain--md">
-			<div class="grid">
-			
-				<div class="header__main">
-					<p class="header__summary">{{post.header_summary|wpautop}}</p>
-					{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}						
-					{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Video</a>{% endif %}
-					{% if post.slides_link %}<a class="btn btn--cta" target="blank" href="{{post.slides_link}}">Slides</a>{% endif %}
-				</div> <!-- .header__main -->
-			
-				{# {% if start > now %} #}
-				<div class="bleed header__compliment">
-
-					<div class="item__row">
-						<div class="item__icon">
-							{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
-						</div>
-						<time datetime="{{post.lesson_date|date("Y-m-d")}}" class="item__main">
-							<h5 class="item__title">{{post.lesson_date|date('F j')}}</h5>
-							<p class="meta">{{post.lesson_time ? post.lesson_time}}</p>
-						</time>
-					</div>
-
-					<div class="item__row">
-						
-						<form action="" method="post">
-							{% set field = '_lesson_' ~ post.id ~ '_complete' %}
-							
-							{% if lesson_completed == 'false' %}
-								<h4>Have you completed this lesson?</h4>
-								<label for="1{{field}}">Mark Complete</label>
-								<input id="1{{field}}" type="radio" value="true" name="{{field}}">
-							{% else %}
-								<h4>You completed this lesson!</h4>
-								<label for="2{{field}}">Mark Incomplete</label>
-								<input id="2{{field}}" type="radio" value="false" name="{{field}}">
-							{% endif %}
-
-							<input type="submit" name="submit" value="Go">
-						</form>
-					</div>
-					
-					{# <div class="alert__row last">
-						<div class="alert__icon">
-							{% include 'partials/svg.twig' with { file: 'hangouts', prefix: 'icon'} %}
-						</div>
-						<div class="alert__main">
-							<h5 class="alert__row__title">Hangouts On Air</h5>
-							<p class="meta">This course will take place live every week using <a href="https://plus.google.com/hangouts/onair" target="blank">Google Hangouts on Air</a>.</p>
-						</div>
-					</div> #}
-
-				</div>
-				{# {% endif %} #}
-			</div> <!-- .grid -->
-
-		</div>
-
-	</header>
-{% endblock %}
-
 {% block content %}
-{# 
-	<div class="contain--sm">
-		<aside class="cell cell--sixth" role="complementary">
-			<h4>Lesson Links</h4>
-			<ul class="list list--minor"> #}
-			{# {% for link in post.lesson_links %} 
-				<li><a href="{{post.download_link}}">Download video</a></li>
-				<li><a href="{{post.download_link}}">View transcript</a></li>
-			 {% endfor %} #}
-		{# 	</ul>
-		</aside>
-		<div class="cell">
-			<div class="media-enhanced">
-				{{post.video}}
-			</div>
-		</div>
-	</div> #}
   
 	<div class="contain--lg">
 		<div class="media--enhanced">
@@ -105,88 +8,34 @@
 		</div>
 	</div>
 
- 	{% if post.lesson_segments %}
-	 	<section class="contain--sm" id="lesson-breakdown">
-	 		<h3 class="section__title">Lesson Breakdown</h3>
-			<ol class="list--minor">
-				{% for item in post.get_field('lesson_segments') %}
-					<li>
-						<h4>{{item.title}} <span class="meta--med">{{item.time_in_video}}</span></h4>
-						{{item.description}}
-					</li>
-				{% endfor %}
-			</ol>
-		</section>
-	{% endif %}
- 
 	{# Blocks for additional Lesson content #}
 	
-	{# {% if post.learning_goals %} #}
+	<section class="page__section" id="lesson-outline">
 		
-		<section class="page__section" id="lesson-outline">
-			
-			<header class="section__header">
-				<div class="contain--sm">
-					<h2 class="section__title">Lesson Outline</h2>
-				</div>
-			</header>
-		{{post.learning_goals}}
-			{% for block in post.get_field('blocks') %} 
-				{% include 'blocks/block-logic.twig' %}
-			{% endfor %}
-			
-		</section> <!-- /#learning-goals -->
-	{# {% endif %} #}
+		<header class="section__header contain--sm">
+			<h2 class="section__title">Lesson Outline</h2>
+		</header>
+	
+		{% for block in post.get_field('blocks') %} 
+			{% include 'blocks/block-logic.twig' %}
+		{% endfor %}
+		
+	</section> <!-- /#lesson-outline -->
 
-	<section class="page__section" id="assignments">
+	<section class="page__section" id="homework">
 		
 		<header class="section__header">
 			<div class="contain--sm">
 				<h2 class="section__title">Homework</h2>
 				{{post.assignments_summary|wpautop}}
-				{# <p class="header__lead">{{section.section_lead}}</p> #}
 			</div>
 		</header>
-		{# {% if post.assigments %} #}
-			{# <h3 class="section__title">Assignments</h3>
-			 #}
+		
 		{% for block in post.get_field('assignment_blocks') %}
 			{% include 'blocks/block-logic.twig' %}
 		{% endfor %}
 			
-{# 			<ul class="block_list-list">
-			{% for item in post.get_field('assignments') %}
-				<li>
-					<h4>{{item.item_title}}</h4>
-					{{item.item_description|wpautop}}
-				</li>
-			{% endfor %}
-			</ul> #}
-		{# {% endif %} #}
-	
-		{# {% if post.tutorials %}
-			<h4>Tutorials</h3>
-			{{post.tutorials_summary|wpautop}}
-			<div class="list--major bleed">
-				{% for post in post.get_field('tutorials') %}
-					{% set post = TimberPost(post) %}
-					{% include 'teases/_tease-source.twig' %}
-				{% endfor %}		
-			</div>
-		{% endif %}
-
-		{% if post.readings %}
-			<h4>Resources</h4>
-			{{post.readings_summary|wpautop}}
-			<ul class="list--minor">
-				{% for post in post.readings %}
-					{% set post = TimberPost(post) %}
-					{% include 'teases/_tease-source.twig' %}
-				{% endfor %}
-			</ul>
-		{% endif %} #}
-
-	</section> <!-- /#assignments -->
+	</section> <!-- /#homework -->
 
 {% endblock %}
 
@@ -195,7 +44,7 @@
 		{% include 'partials/prevnext.twig' %}
 	</div>	
 	<div class="contain--sm">
-	<h5>Other lessons in this series:</h5>	
+		<h5>Other lessons in this series:</h5>	
 		<ol>
 			{% for l in related_lessons %}
 				<li><a href="{{l.link}}">{{l.title}}</a></li>
