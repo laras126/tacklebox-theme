@@ -1,3 +1,24 @@
 .tease__title--page {
 	margin-top: 0;
 }
+
+.tease a {
+	
+	.item__row {
+		&:hover {
+			background-color: $color-accent-vlight;
+		}
+		
+		p {
+			color: $color-body-text;
+		}
+	}
+
+	.item__title {
+		margin-top: 0;
+	}
+
+	.meta--med {
+		font-weight: $font-weight-base;
+	}
+}
