@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5592d15291d53",
-            "label": "Lesson Content",
+            "label": "Lesson Outline",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -873,106 +873,8 @@
             ]
         },
         {
-            "key": "field_55a409a5ccdc7",
-            "label": "Lesson Segments",
-            "name": "lesson_segments",
-            "type": "repeater",
-            "instructions": "An outline of lesson segments.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "min": "",
-            "max": "",
-            "layout": "block",
-            "button_label": "Add Link",
-            "sub_fields": [
-                {
-                    "key": "field_55a409a6ccdc8",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": 75,
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_55a409ddccdca",
-                    "label": "Time in Video",
-                    "name": "time_in_video",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": 25,
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_55cd05cead98d",
-                    "label": "Description",
-                    "name": "description",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "text_based",
-                    "media_upload": 1
-                }
-            ]
-        },
-        {
-            "key": "field_5592d06ef726f",
-            "label": "Learning Goals",
-            "name": "learning_goals",
-            "type": "wysiwyg",
-            "instructions": "A bulleted list of learning goals for this lesson.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "text_based",
-            "media_upload": 0
-        },
-        {
             "key": "field_5592d0d0b6471",
-            "label": "To-dos",
+            "label": "Homework",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -1769,5 +1671,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1441919786
+    "modified": 1442258753
 }
