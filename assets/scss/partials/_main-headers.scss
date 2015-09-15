@@ -42,7 +42,18 @@
 .header__meta--class {
 	@extend .meta--upper;
 	font-weight: $font-weight-strong;
-	color: $color-alert-success;
+
+	&.class_open {
+		color: $color-alert-success;
+	}
+
+	&.class_live {
+		color: $color-alert-info;
+	}
+
+	&.class_off {
+		color: $color-text-med;
+	}
 }
 
 .header__main {

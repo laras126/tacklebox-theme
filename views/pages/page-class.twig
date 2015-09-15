@@ -9,7 +9,7 @@
 	<header class="header--page">
 		
 		<div class="header__banner">
-			<p class="header__meta--class{% if start > now %} class_open{% elseif end < now and start > now %} class_live{% else %} class_off{% endif %}">{% if start > now %}Now Registering{% elseif end < now and start > now %}It's live!{% else %}Not Live{% endif %}</p>
+			<p class="header__meta--class{% if start > now %} class_open{% elseif  now >= end and start >= now %} class_live{% else %} class_off{% endif %}">{% if start > now %}Now Registering{% elseif end < now and start > now %}It's live!{% else %}Not Live{% endif %}</p>
 			<h1 class="header__title">{{post.post_title}}</h1>
 		</div>
 		
