@@ -32,12 +32,8 @@ $alert-colors: (
         &--#{$name} {
             // TODO: Need to deal with hover styles for links.
             @extend .alert;
-            @if $lighten == true {
-                border: 3px solid $bgcolor;
-            } @else {
-                border: 3px solid darken($bgcolor, 20%);
-                background-color: $bgcolor;
-            }
+            background-color: lighten($bgcolor, 20%);
+            border: 3px solid darken($bgcolor, 10%);
             color: $fontcolor;
         }
     }
