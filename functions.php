@@ -53,6 +53,7 @@ class StarterSite extends TimberSite {
 		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		$context['user'] = new TimberUser(get_current_user_id());
 
 		// Restrict Content Plugin
 		$context['access'] = rcp_is_active();
@@ -115,6 +116,7 @@ function tsk_mark_complete() {
 
 }
 add_action( 'wp', 'tsk_mark_complete' );
+
 
 
 
