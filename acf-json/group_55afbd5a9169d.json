@@ -774,18 +774,6 @@
     "location": [
         [
             {
-                "param": "post_type",
-                "operator": "!=",
-                "value": "lesson"
-            },
-            {
-                "param": "post_type",
-                "operator": "!=",
-                "value": "source"
-            }
-        ],
-        [
-            {
                 "param": "page_template",
                 "operator": "==",
                 "value": "default"
@@ -800,5 +788,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1441915764
+    "modified": 1442339215
 }
