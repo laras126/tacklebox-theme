@@ -75,7 +75,7 @@ h2 {
 
 h3 {
 	font-size: $size-h3;
-	margin-top: $size-h4;
+	margin-top: $size-h3;
 }
 
 h4 { 
@@ -116,7 +116,7 @@ p {
 }
 
 ul, ol {
-	padding-left: $size-base;
+	padding-left: $size-h4;
 }
 
 /// @group typography-helpers
