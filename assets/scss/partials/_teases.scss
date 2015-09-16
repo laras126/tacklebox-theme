@@ -3,14 +3,26 @@
 }
 
 .tease__wrap--link {
-	
-	.item__row {
-		padding-left: $size-sml; 
-		padding-right: $size-sml;
+	display: block;
 
-		&:hover {
-			background-color: $color-accent-vlight;
+	margin-left: -$size-sml;
+	margin-right: -$size-sml;
+	margin-bottom: $size-sml;
+
+	padding-left: $size-sml; 
+	padding-right: $size-sml;
+
+	&:hover {
+		background-color: $color-accent-vlight;
+
+		.tease--screencast & {
+			.icon {
+				animation: roll .5s;
+			}
 		}
+	}
+
+	.item__row {
 		
 		p {
 			color: $color-body-text;
@@ -27,3 +39,4 @@
 		font-weight: $font-weight-base;
 	}
 }
+
