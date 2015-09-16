@@ -46,16 +46,16 @@
 		
 			<div class="header__compliment">
 
-				{% if start > now %}
-				<div class="item__row">
-					<div class="item__icon">
-						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+				{% if end >= now %}
+					<div class="item__row">
+						<div class="item__icon">
+							{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+						</div>
+						<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
+							<h5 class="item__title">{{post.class_time}}</h5>
+							<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+						</time>
 					</div>
-					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
-						<h5 class="item__title">{{post.class_time}}</h5>
-						<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
-					</time>
-				</div>
 				{% endif %}
 
 				<div class="item__row">
@@ -78,16 +78,6 @@
 		</div> <!-- .grid -->
 
 	</header>
-	
-	{# {% if start < now %}
-		<div class="contain--sm">
-			<div class="alert--warning">
-				<h4 class="alert__title">This class is no longer registering.</h4>
-				<p>Would you like to see it again? We can definitely do that. Head to the contact page and let me know.</p>
-				<a href="" class="btn btn--cta">Request Class</a>
-			</div>
-		</div>
-	{% endif %} #}
 		
 {% endblock %}
 
