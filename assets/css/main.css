@@ -592,12 +592,13 @@ h2 {
   font-size: 2.53rem; }
 
 h3 {
-  font-size: 1.76rem;
-  margin-top: 1.43rem; }
+  font-size: 1.98rem;
+  margin-top: 1.98rem; }
 
 h4 {
   font-size: 1.43rem;
-  margin-top: 1.43rem; }
+  margin-top: 1.43rem;
+  color: #858585; }
 
 h5 {
   font-size: 1.21rem;
@@ -626,7 +627,7 @@ p {
   margin-bottom: 0.66rem; }
 
 ul, ol {
-  padding-left: 1.1rem; }
+  padding-left: 1.43rem; }
 
 .lead {
   font-size: 1.43rem; }
@@ -658,9 +659,9 @@ code {
   margin-top: 1.1rem; }
 
 .title-site {
-  font-size: 1.76rem; }
+  font-size: 1.98rem; }
 
-.icon, .btn--hangout .icon, .item__icon .icon {
+.icon, .btn--hangout .icon, .item__icon .icon, .list--icons .list__item__icon .icon {
   display: block;
   margin: 0 auto; }
 
@@ -758,7 +759,7 @@ fieldset {
   border: 0; }
 
 .gform_footer {
-  margin-top: 1.76rem; }
+  margin-top: 1.98rem; }
   .gform_footer:before,
   .gform_footer:after {
     content: " ";
@@ -990,7 +991,7 @@ input[type="submit"] {
   padding-left: 0; }
 
 .list__item--major {
-  margin-top: 1.76rem;
+  margin-top: 1.98rem;
   border-top: 1px dotted #86b2c6; }
 
 .list__item__desc {
@@ -1028,14 +1029,14 @@ input[type="submit"] {
       -webkit-flex: 0 0 50%;
           -ms-flex: 0 0 50%;
               flex: 0 0 50%;
-      padding: 1.76rem; } }
+      padding: 1.98rem; } }
 
 .list__item__title--lesson {
   margin-top: 0;
   border-bottom: 1px dotted #86b2c6; }
 
 .list--features {
-  margin-top: 1.76rem; }
+  margin-top: 1.98rem; }
   @media (min-width: 40em) {
     .list--features > ul {
       -webkit-box-align: center;
@@ -1117,7 +1118,7 @@ input[type="submit"] {
   fill: rgba(197, 169, 146, 0.3); }
 
 .list--icons {
-  margin-top: 1.76rem; }
+  margin-top: 1.98rem; }
   @media (min-width: 40em) {
     .list--icons > ul {
       display: -webkit-box;
@@ -1141,45 +1142,6 @@ input[type="submit"] {
         -webkit-flex: 0 0 50%;
             -ms-flex: 0 0 50%;
                 flex: 0 0 50%; } }
-  .list--icons .list__item__content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    position: relative;
-    margin-left: -0.55rem;
-    margin-right: -0.55rem;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
-  .list--icons .list__item__desc {
-    -webkit-box-ordinal-group: 2;
-    -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1;
-    position: relative;
-    padding-left: 0.55rem;
-    padding-right: 0.55rem;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
-  .list--icons .list__item__img {
-    -webkit-box-ordinal-group: 1;
-    -webkit-order: 0;
-        -ms-flex-order: 0;
-            order: 0;
-    position: relative;
-    padding-left: 0.55rem;
-    padding-right: 0.55rem;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%; }
   .list--icons .list__item__desc__text {
     margin-bottom: 1.1rem;
     font-size: 0.88rem; }
@@ -1250,67 +1212,63 @@ th {
   color: #858585;
   font-weight: 300; }
 
-@media (min-width: 33em) {
-  .item__icon {
-    position: relative;
-    padding-left: 0.55rem;
-    padding-right: 0.55rem;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 16.66666667%;
-        -ms-flex: 0 0 16.66666667%;
-            flex: 0 0 16.66666667%;
-    margin-right: 1.1rem; } }
+.item__icon, .list--icons .list__item__icon {
+  position: relative;
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 16.66666667%;
+      -ms-flex: 0 0 16.66666667%;
+          flex: 0 0 16.66666667%; }
+  .tease .item__icon, .tease .list--icons .list__item__icon, .list--icons .tease .list__item__icon {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+    @media (min-width: 33em) {
+      .tease .item__icon, .tease .list--icons .list__item__icon, .list--icons .tease .list__item__icon {
+        -webkit-box-ordinal-group: 1;
+        -webkit-order: 0;
+            -ms-flex-order: 0;
+                order: 0; } }
+  .item__icon .icon, .list--icons .list__item__icon .icon {
+    fill: #237fa9;
+    width: 3.036rem;
+    height: 3.036rem; }
+    a .item__icon .icon:hover, a .list--icons .list__item__icon .icon:hover, .list--icons a .list__item__icon .icon:hover {
+      fill: #86b2c6; }
 
-.item__icon .icon {
-  fill: #237fa9;
-  width: 3.036rem;
-  height: 3.036rem; }
-  a .item__icon .icon:hover {
-    fill: #86b2c6; }
+.item__main, .list--icons .list__item__main {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 
-.item__main {
-  padding-left: 1.1rem; }
-  @media (min-width: 33em) {
-    .item__main {
-      padding-left: 0;
-      position: relative;
-      padding-left: 0.55rem;
-      padding-right: 0.55rem;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1; } }
-
-.item__row {
+.item__row, .list--icons .list__item__row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  position: relative;
+  margin-left: -0.55rem;
+  margin-right: -0.55rem;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
   padding-top: 0.88rem;
   padding-bottom: 0.88rem;
   border-bottom: 1px dotted #86b2c6; }
-  @media (min-width: 33em) {
-    .item__row {
-      text-align: left;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-flow: row wrap;
-          -ms-flex-flow: row wrap;
-              flex-flow: row wrap;
-      position: relative;
-      margin-left: -0.55rem;
-      margin-right: -0.55rem; } }
-  .item__row.last {
+  .tease:last-child .item__row, .tease:last-child .list--icons .list__item__row, .list--icons .tease:last-child .list__item__row, .item__row.last, .list--icons .last.list__item__row {
     border-bottom: 0; }
-  .item__row.first {
-    border-top: 0; }
 
 .site__header {
   border-bottom: 1px dotted #86b2c6;
-  margin-bottom: 1.76rem; }
+  margin-bottom: 1.98rem; }
   @media (min-width: 40em) {
     .site__header {
       display: -webkit-box;
@@ -1391,7 +1349,7 @@ th {
 
 .site__header {
   border-bottom: 1px dotted #86b2c6;
-  margin-bottom: 1.76rem; }
+  margin-bottom: 1.98rem; }
   @media (min-width: 40em) {
     .site__header {
       display: -webkit-box;
@@ -1512,8 +1470,6 @@ th {
         top: 30%;
         right: 30%; } }
   .tease--source .icon {
-    display: inline-block;
-    margin-right: 0.66rem;
     fill: #86b2c6; }
 
 .tease__content {
@@ -1594,7 +1550,7 @@ th {
   display: inline-block; }
 
 .section__header {
-  margin-top: 1.76rem; }
+  margin-top: 1.98rem; }
 
 .section__title {
   border-top: 1px dotted #86b2c6;
@@ -1636,14 +1592,17 @@ th {
 .tease__title--page {
   margin-top: 0; }
 
-.tease a .item__row:hover {
-  background-color: #f4f7f9; }
+.tease a .item__row, .tease a .list--icons .list__item__row, .list--icons .tease a .list__item__row {
+  padding-left: 0.88rem;
+  padding-right: 0.88rem; }
+  .tease a .item__row:hover, .tease a .list--icons .list__item__row:hover, .list--icons .tease a .list__item__row:hover {
+    background-color: #f4f7f9; }
+  .tease a .item__row p, .tease a .list--icons .list__item__row p, .list--icons .tease a .list__item__row p {
+    color: #4c4345; }
 
-.tease a .item__row p {
-  color: #4c4345; }
-
-.tease a .item__title, .tease a .list--icons .list__item__title, .list--icons .tease a .list__item__title {
-  margin-top: 0; }
+@media (min-width: 33em) {
+  .tease a .item__title, .tease a .list--icons .list__item__title, .list--icons .tease a .list__item__title {
+    margin-top: 0; } }
 
 .tease a .meta--med {
   font-weight: 300; }
@@ -1702,7 +1661,7 @@ th {
 
 .widget-box {
   min-height: 250px !important;
-  margin-top: 1.76rem !important; }
+  margin-top: 1.98rem !important; }
 
 .eventjoy-widget {
   min-height: 250px !important; }

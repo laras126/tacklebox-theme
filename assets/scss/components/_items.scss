@@ -3,7 +3,7 @@
 .item__icon {
 
     @include cell($size: sixth);
-    
+
     .tease & {
         order: 1;
         @include bp(sm) {
@@ -24,9 +24,11 @@
     @include grid;
     align-items: center;
 
-    padding-top: $size-sml;
-    padding-bottom: $size-sml;
-    border-bottom: $border-accent;
+    .tease & {
+        padding-top: $size-sml;
+        padding-bottom: $size-sml;
+        border-bottom: $border-accent;
+    }
 
     .tease:last-child &, &.last {
         border-bottom: 0;

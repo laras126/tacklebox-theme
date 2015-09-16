@@ -1,4 +1,11 @@
 
+// List items
+
+.list--icons {
+
+	
+
+}
 
 /// @group [lists]
 /// @content [Major and Minor list styles]
@@ -45,15 +52,18 @@
 }
 
 
+
+
+
 // ----
 // Content Specific Lists
 // ----
 
 // Pricing
-// TODO: could be part of a map or theme for each pricing package
 
-.list--features {
+.list--pricing {
 	margin-top: $size-h3;
+
 	> ul {
 		@include bp(md) {
 			align-items: center;
@@ -62,15 +72,14 @@
 	}
 	
 	.list__item--free_form {
+		overflow: hidden;
+		position: relative;
+		
 		@include bp(md) {
 			@include cell($size: half);
 
 		}
 		margin-bottom: $size-base;
-	}
-
-	.list__item__content {
-		// @include bleed;
 	}
 
 	.list__item__title {
@@ -86,12 +95,15 @@
 		margin-bottom: $size-base;
 		font-size: $size-sml;
 	}
+
 }
 
 .price {
 	color: $color-alert-warning;
 	font-weight: normal;
 }
+
+// TODO: these could be part of a map or theme for each pricing package
 
 .list__item--tuna {
 	
@@ -101,26 +113,20 @@
 	
 	.list__item__title {
 		@include rotate($color-tuna, $color-text-vlight);
-		// border-top: 10px solid $color-tuna;
 	}
 
-	.list__item__content {
+	.list__item__main {
 		border: 3px solid rgba($color-tuna, 0.1);
 	}
 
-	.list__item__desc {
-	}
-
-	.shape {
+	.icon {
 		fill: rgba($color-tuna, 0.1);
 	}
 }
 
 .list__item--salmon {
-	@include bp(md) {
-		// order: 0;
-	}
-	.list__item__content {
+
+	.list__item__main {
 		border: 3px solid rgba($color-salmon, 0.1);
 	}
 
@@ -128,12 +134,13 @@
 		@include rotate($color-salmon, $color-text-vlight);
 	}
 	
-	.shape {
+	.icon {
 		fill: rgba($color-salmon, 0.2);
 	}
 }
 
 .list__item--scallop {
+
 	@include bp(md) {
 		order: 2;
 	}
@@ -141,11 +148,11 @@
 		@include rotate($color-scallop, $color-text-vlight);
 	}
 
-	.list__item__content {
+	.list__item__main {
 		border: 3px solid rgba($color-scallop, 0.2);
 	}
 
-	.shape {
+	.icon {
 		fill: rgba($color-scallop, 0.3);
 	}
 }
@@ -164,13 +171,12 @@
 	}
 	
 	.list__item--free_form {
-		@include bp(md) {
+		@extend .item__row;
+		@include bp(lg) {
 			@include cell($size: half);
-
 		}
 		margin-bottom: $size-base;
 	}
-
 
 	.list__item__row {
 		@extend .item__row;
@@ -178,10 +184,14 @@
 
 	.list__item__main {
 		@extend .item__main;
+		margin-left: $size-base;
 	}
 
 	.list__item__icon {
 		@extend .item__icon;
+		@include bp(lg) {
+			margin-left: $size-base;
+		}
 	}
 
 	.list__item__title {
@@ -193,7 +203,6 @@
 		font-size: $size-sml;
 	}
 }
-
 
 
 // Widgets
