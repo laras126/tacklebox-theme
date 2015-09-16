@@ -12,12 +12,12 @@
     }
     
     .icon {
-        @include icon($size: $size-h2*1.2);;
+        @include icon($size: $size-h2);
     }
 }
 
 .item__main {
-    @include cell($guttered: false);
+    @include cell;
 }
 
 .item__row {
