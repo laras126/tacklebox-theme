@@ -59,6 +59,16 @@ $buttons: (
     }
 }
 
+.btnset {
+    @include grid;
+    justify-content: flex-start;
+}
+
+.btnset__btn {
+    text-align: left;
+    @include cell;
+}
+
 .btnset--lesson {
     > a {
     }
