@@ -5,6 +5,9 @@
 .tease a {
 	
 	.item__row {
+		padding-left: $size-sml; 
+		padding-right: $size-sml;
+
 		&:hover {
 			background-color: $color-accent-vlight;
 		}
@@ -15,7 +18,9 @@
 	}
 
 	.item__title {
-		margin-top: 0;
+		@include bp(sm) {
+			margin-top: 0;
+		}
 	}
 
 	.meta--med {
