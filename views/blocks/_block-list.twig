@@ -18,15 +18,15 @@
 		{% if type == 'free_form' %}
 			{% for item in block.list_type_freeform %}
 				<li class="list__item--{{type}}{{ item.item_class ? ' ' ~ item.item_class}}">
-					<div class="list__item__content">
-						<div class="list__item__desc">
+					<div class="list__item__row">
+						<div class="list__item__main">
 							<h4 class="list__item__title">{{item.item_title}}</h4>
 							<div class="list__item__desc__text">
 								{{item.item_description}}
 							</div>
 						</div>
 						{% if display == 'major' %}
-							<div class="list__item__img">
+							<div class="list__item__icon">
 								{% include 'partials/svg.twig' with { file : item.item_svg, prefix : 'shape' } %}
 							</div>
 						{% endif %}

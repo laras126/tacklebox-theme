@@ -172,19 +172,16 @@
 	}
 
 
-	.list__item__content {
-		@include grid;
-		align-items: center;
+	.list__item__row {
+		@extend .item__row;
 	}
 
-	.list__item__desc {
-		order: 1;
-		@include cell;
+	.list__item__main {
+		@extend .item__main;
 	}
 
-	.list__item__img {
-		order: 0;
-		@include cell($size: fourth);
+	.list__item__icon {
+		@extend .item__icon;
 	}
 
 	.list__item__title {

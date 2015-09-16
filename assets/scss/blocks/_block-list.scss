@@ -16,7 +16,9 @@
 /// @group List Displays
 
 .list--minor {
-
+	.item__row {
+		border: 0;
+	}
 }
 
 .list--major {
