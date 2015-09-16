@@ -1,6 +1,6 @@
 
 $screen-sm:     33em;
-$screen-md:     40em;
+$screen-md:     45em;
 $screen-lg:     53em;
 $screen-xl:     75em;
 
@@ -67,8 +67,12 @@ $sizes: (
 
 .contain {
     margin: 0 auto;
-    width: 92%;
     position: relative;
+}
+
+main {
+  width: 90%;
+  @extend .contain;
 }
 
 .contain--lg {
