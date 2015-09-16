@@ -3,14 +3,12 @@
 {% block content %}
 	{% set post = TimberPost(post) %}
 	
-	<a href="{{post.source_url}}" target="blank">
+	<a href="{{post.source_url}}" class="tease__wrap--link" target="blank">
 		<div class="item__row">
 
 			<div class="item__main">
 
-				{% spaceless %}
 				<h5 class="item__title">{{post.post_title}}
-
 				{% if post.source_author or post.source_publication %}
 					<span class="meta--med">
 					{% if post.source_author %}
@@ -23,14 +21,14 @@
 					</span>
 				{% endif %}
 				</h5>
-				{% endspaceless %}
 				
 				{{post.source_blurb ? '<p class="meta">' ~ post.source_blurb ~ '</p>'}}
 			</div>
+			
 			<div class="item__icon">
 				{% include 'partials/svg.twig' with { file: 'new-window', prefix: 'icon' } %}
 			</div>
-			{# {{function('edit_post_link', 'Edit', '<span class="edit-link">', '</span>', post.ID)}} #}
+			
 		</div>
 	</a>
 

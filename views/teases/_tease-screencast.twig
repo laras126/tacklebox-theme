@@ -3,14 +3,14 @@
 {% block content %}
 	{% set post = TimberPost(post) %}
 
-	<a href="{{post.link}}">
+	<a class="tease__wrap--link" href="{{post.link}}">
 		<div class="item__row">
 			<div class="item__main">
 				<h5 class="item__title">{{post.post_title}}</h5>
 				<p class="meta">{{post.header_summary}}</p>
 			</div>
 			<div class="item__icon">
-				{% include 'partials/svg.twig' with { file: 'play', prefix: 'shape' } %}
+				{% include 'partials/svg.twig' with { file: 'play', prefix: 'icon' } %}
 			</div>
 		</div>
 	</a>
