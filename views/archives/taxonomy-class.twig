@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block before_content %}
+	{% include 'archives/_archive-header.twig' %}
+{% endblock %}
+
+{% block content %}
+	<div class="contain--sm">
+	{% for post in lessons %}
+		{% include 'teases/_tease-lesson.twig' %}
+	{% endfor %}
+	{% for post in assignments %}
+		{% include 'teases/_tease-screencast.twig' %}
+	{% endfor %}
+	</div>
+{% endblock %}
