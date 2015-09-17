@@ -1,7 +1,17 @@
-.tease__title--page {
-	margin-top: 0;
+.tease__title {
+	
+	&--page,
+	&--lesson {
+		margin-top: 0;
+	}
+	
+	&--lesson {
+		font-size: $size-h3;
+		margin-top: 0;
+		border-bottom: $border-accent;
+		margin-bottom: $size-sml;
+	}
 }
-
 .tease__wrap--link {
 	display: block;
 

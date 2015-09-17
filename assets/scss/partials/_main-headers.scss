@@ -21,8 +21,11 @@
 	@include bp(xl) {
 		font-size: $size-h1*1.5;
 	}
-}
 
+	&--archive {
+		margin-top: 0;
+	}
+}
 
 .header__meta--class {
 	@extend .meta--upper;
