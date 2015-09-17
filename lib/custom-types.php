@@ -70,7 +70,7 @@ $labels = array(
 	'not_found_in_trash'  => __( 'Not found in Trash', 'tbx' ),
 );
 $rewrite = array(
-	'slug'                => 'lessons',
+	'slug'                => 'lesson',
 	'with_front'          => true,
 	'pages'               => true,
 	'feeds'               => true,
