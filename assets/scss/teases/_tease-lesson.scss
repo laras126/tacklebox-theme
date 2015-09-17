@@ -1,19 +1,19 @@
 
 /// @group tease-lesson
 
-.indicator--lesson {
-	
-	font-size: 3rem;
-	font-weight: 700;
+.tease__meta--lesson {
+	@extend .meta--upper;
+	margin-top: $size-h3;
+	margin-bottom: 0;
+	font-weight: $font-weight-strong;
+}
 
-	@include bp(sm) {
-		font-size: 10rem;
-		line-height: 1;
-	}
+.tease__title--lesson {
+
 }
 
 .tease--lesson {
-
+	
 }
 // .tease--lesson {
 // 	padding-top: $size-base;
