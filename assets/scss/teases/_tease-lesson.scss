@@ -13,8 +13,16 @@
 }
 
 .tease--lesson {
+	&:first-child {
+		@include card($bkgd: lighten($color-alert-warning, 20%));
+		@include bleed;
+		padding-top: 0; 
+	}
 	
 }
+
+
+
 // .tease--lesson {
 // 	padding-top: $size-base;
 // }
