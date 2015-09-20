@@ -12,11 +12,10 @@
 	</div>
 
 	<p>{{post.header_summary}}</p>
+	
+	{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
+	<a href="{{post.link}}" class="btn btn--readmore">Lesson Details</a>
 
-	{# <div class="btnset"> #}
-		{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
-		<a href="{{post.link}}" class="btn btn--readmore">Lesson Details</a>
-	{# </div> #}
 	{% if post.thumbnail.src %}
 		<img src="{{post.thumbnail.src}}" />
 	{% endif %}
