@@ -625,8 +625,7 @@ h3 {
 
 h4 {
   font-size: 1.43rem;
-  margin-top: 1.43rem;
-  color: #858585; }
+  margin-top: 1.43rem; }
 
 h5 {
   font-size: 1.21rem;
@@ -1548,6 +1547,18 @@ th {
   margin-top: 1.98rem;
   margin-bottom: 0;
   font-weight: 700; }
+
+.tease--lesson:first-child {
+  background-color: #fcf7d8;
+  border: 1px dotted #86b2c6;
+  padding: 1.43rem;
+  border: 1px dotted #86b2c6;
+  margin-bottom: 1.43rem;
+  padding-top: 0; }
+  @media (min-width: 45em) {
+    .tease--lesson:first-child {
+      margin-right: -3%;
+      margin-left: -3%; } }
 
 .header__banner {
   text-align: center; }
