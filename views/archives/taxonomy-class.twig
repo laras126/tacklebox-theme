@@ -5,12 +5,30 @@
 {% endblock %}
 
 {% block content %}
+
 	<div class="contain--sm">
-	{% for post in lessons %}
-		{% include 'teases/_tease-lesson.twig' %}
-	{% endfor %}
-	{% for post in assignments %}
-		{% include 'teases/_tease-screencast.twig' %}
-	{% endfor %}
+	{# {% if access %} #}
+
+		{% set now = "now"|date("U") %}
+
+		{# Future lessons #}
+		{% for post in lessons %}
+			{% if post.lesson_date|date("U") > now %}
+				{% include 'teases/_tease-lesson.twig' with { class: 'upcoming' } %}
+			{% endif %}
+		{% endfor %}
+
+		{# Past lessons #}
+		<h2 class="section__title">Past Lessons</h2>
+		{% for post in lessons %}
+			{% if post.lesson_date|date("U") < now %}
+				{% include 'teases/_tease-lesson.twig' with { class: 'past' } %}
+			{% endif %}
+		{% endfor %}
+
+		{% for post in assignments %}
+			{% include 'teases/_tease-screencast.twig' %}
+		{% endfor %}
+	{# {% endif %} #}
 	</div>
 {% endblock %}
