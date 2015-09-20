@@ -15,12 +15,12 @@
  */
 
 
-	// Totally not the best way to do this, I think.
+	// Probably not the best way to do this. Should automatically have the posts based on the template and shouldn't need the query, I think.
 
 	$term = get_queried_object();
 	$slug = $term->taxonomy;
 
-	$tax_args = array(
+	$lessons = array(
 		'post_type' => 'lesson',
 		'tax_query' => array(
 			'relation' => 'AND',
@@ -30,7 +30,7 @@
 			),
 		),
 	);
-
+	
 	$ass_args = array(
 		'post_type' => 'screencast',
 		'tax_query' => array(
@@ -42,11 +42,13 @@
 		),
 	);
 
+
+
 	$templates = array('archives/taxonomy-class.twig', 'index.twig');
 
 	$data = Timber::get_context();
 	$data['term'] = $term;
-	$data['lessons'] = Timber::get_posts($tax_args);
+	$data['lessons'] = Timber::get_posts($lessons);
 	$data['assignments'] = Timber::get_posts($ass_args);
 
 	Timber::render($templates, $data);
