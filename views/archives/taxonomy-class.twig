@@ -9,11 +9,14 @@
 	<div class="contain--sm">
 	{# {% if access %} #}
 
-		{% set now = "now"|date("U") %}
+		{% set now = "now"|date("U", "America/New_York") %}
 
 		{# Future lessons #}
 		{% for post in lessons %}
-			{% if post.lesson_date|date("U") > now %}
+			{% set l_date = post.lesson_date|date("U", "America/New_York") %}
+			{% if l_date > "-1 days"|date("U", "America/New_York") and l_date < "1 days"|date("U", "America/New_York") %}
+				{% include 'teases/_tease-lesson.twig' with { class: 'now' } %}
+			{% elseif l_date > now %}
 				{% include 'teases/_tease-lesson.twig' with { class: 'upcoming' } %}
 			{% endif %}
 		{% endfor %}
@@ -21,7 +24,8 @@
 		{# Past lessons #}
 		<h2 class="section__title">Past Lessons</h2>
 		{% for post in lessons %}
-			{% if post.lesson_date|date("U") < now %}
+			{% set l_date = post.lesson_date|date("U", "America/New_York") %}
+			{% if l_date < "-1 days"|date("U", "America/New_York") %}
 				{% include 'teases/_tease-lesson.twig' with { class: 'past' } %}
 			{% endif %}
 		{% endfor %}
@@ -29,6 +33,7 @@
 		{% for post in assignments %}
 			{% include 'teases/_tease-screencast.twig' %}
 		{% endfor %}
+		
 	{# {% endif %} #}
 	</div>
 {% endblock %}
