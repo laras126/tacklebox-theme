@@ -14,7 +14,7 @@
 	{% endif %}
 
 	<ul class="block_list__list list--{{display}} list--{{type}}">
-		
+
 		{% if type == 'free_form' %}
 			{% for item in block.list_type_freeform %}
 				<li class="list__item--{{type}}{{ item.item_class ? ' ' ~ item.item_class}}">
