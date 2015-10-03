@@ -18,8 +18,8 @@
 		<p class="header__lead text-center">{{post.header_tagline}}</p>
 		<p>{{post.header_summary|wpautop}}</p>
 		{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
-		{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Video</a>{% endif %}
-		{% if post.slides_link %}<a class="btn btn--cta" target="blank" href="{{post.slides_link}}">Slides</a>{% endif %}
+		{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Files</a>{% endif %}
+		{% if post.slides_link %}<a class="btn btn--cta" target="blank" href="{{post.slides_link}}">See Slides</a>{% endif %}
 	</div>
 
 {# 	<div class="item__row">
