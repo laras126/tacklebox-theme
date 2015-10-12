@@ -182,3 +182,43 @@ input[type="submit"] {
 }
 
 // Restrict Content
+.rcp_user_fieldset,
+.rcp_gateways_fieldset {
+
+	& > p {
+		margin-bottom: $size-base;
+		@include bp(sm) {
+			width: 48%;
+			float: left;
+		}
+	}
+
+	& > p:nth-child(2n) {
+		@include bp(sm) {
+			margin-bottom: $size-base;
+			float: right;
+		}
+	}
+
+	// label {
+	// 	@include cell($size: fourth, $guttered: false);
+	// }
+
+	// input {
+	// }
+
+}
+
+.rcp_form label {
+	width: auto !important;
+	@extend .meta;
+	font-weight: $font-weight-base;
+}
+
+.rcp_form fieldset {
+	padding: 0;
+}
+
+#rcp_payment_gateways label {
+
+}
