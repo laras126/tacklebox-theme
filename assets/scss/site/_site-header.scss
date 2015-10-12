@@ -15,11 +15,9 @@
 	
 	@include bp(md) {
 		@include cell(fourth, $is_first: false);
-		// background-color: green;
 	}
 
 	@include bp(lg) {
-		// background-color: blue;
 		@include cell(fourth, $is_first: false);
 	}
 }
@@ -34,16 +32,7 @@
 		@include cell;
 	}
 
-	// @include bp(lg) {
-	// 	@include cell;
-	// }
-	> div {
-		// border-top: $border-accent;
-		// border-bottom: $border-accent;
-	}
-}
-
-	.site__nav__items {
+	&__items {
 		@include unstyle-list();
 			text-align: center;
 		
@@ -53,19 +42,13 @@
 		padding-bottom: $size-base;
 	}
 
-	.site__nav__item {
-
-		// @include bp(sm) {
-			display: inline-block;
-			padding-right: $size-base;
-		// }
-
-		a {
-			@include bp(lg) {
-				// font-size: $size-sml;
-			}
-		}
-
+	&__item {
+		display: inline-block;
+		padding-right: $size-base;
 		padding-bottom: $size-sml;
-		// padding-left: $size-base;
+		&:last-child {
+			padding-right: 0;
+		}
 	}
+
+}
