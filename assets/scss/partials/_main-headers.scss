@@ -19,7 +19,7 @@
 	margin-top: 0;
 	margin-bottom: $size-h4;
 	@include bp(xl) {
-		font-size: $size-h1*1.5;
+		// font-size: $size-h1*1.5;
 	}
 
 	&--archive {
