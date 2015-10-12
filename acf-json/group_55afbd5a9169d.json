@@ -293,27 +293,6 @@
                             "layout": "vertical"
                         },
                         {
-                            "key": "field_55944e338b245",
-                            "label": "Container",
-                            "name": "contain",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "contain--sm",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
-                        },
-                        {
                             "key": "field_558d5b0dc269f",
                             "label": "List Description",
                             "name": "list_description",
@@ -422,27 +401,6 @@
                                     "disabled": 0
                                 },
                                 {
-                                    "key": "field_55ce531d1ba43",
-                                    "label": "Item Class",
-                                    "name": "item_class",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": 50,
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "readonly": 0,
-                                    "disabled": 0
-                                },
-                                {
                                     "key": "field_545a7f76a0bc4",
                                     "label": "Item Title",
                                     "name": "item_title",
@@ -480,6 +438,27 @@
                                     "tabs": "all",
                                     "toolbar": "text_based",
                                     "media_upload": 0
+                                },
+                                {
+                                    "key": "field_55ce531d1ba43",
+                                    "label": "Item Class",
+                                    "name": "item_class",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": 50,
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "readonly": 0,
+                                    "disabled": 0
                                 }
                             ]
                         },
@@ -515,6 +494,27 @@
                             "min": "",
                             "max": "",
                             "return_format": "object"
+                        },
+                        {
+                            "key": "field_55944e338b245",
+                            "label": "Container",
+                            "name": "contain",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "contain--sm",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
                         }
                     ],
                     "min": "",
@@ -788,5 +788,6 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1442339215
+    "modified": 1444661707,
+    "local": "json"
 }
