@@ -5,11 +5,11 @@
 // Used for buttons and alerts
 
 $alert-colors: (
-    danger:     ($color-alert-danger, $color-text-light, true),
-    warning:    ($color-alert-warning, $color-text-dark, false),
-    success:    ($color-alert-success, $color-text-dark, true),
-    cta:        ($color-rotate-bkgd, $color-rotate-text, true),
-    info:       ($color-accent-med, $color-text-light, true)
+    danger:     ($color-alert-danger, $color-text-light),
+    warning:    ($color-alert-warning, $color-text-dark),
+    success:    ($color-alert-success, $color-text-dark),
+    cta:        ($color-rotate-bkgd, $color-rotate-text),
+    info:       (lighten($color-accent-med, 8%), $color-text-dark)
 );
 
 
