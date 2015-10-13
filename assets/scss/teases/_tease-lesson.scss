@@ -8,16 +8,52 @@
 	font-weight: $font-weight-strong;
 }
 
-.tease__title--lesson {
-
-}
-
 .tease--lesson {
-	&:first-child {
-		@include card($bkgd: lighten($color-alert-warning, 20%));
-		@include bleed;
-		padding-top: 0; 
+	
+	&__wrap {
+		@include card($bkgd: $white); 
+		padding-left: $size-h3;
+		padding-right: $size-h3;
 	}
+
+	@include cell($size: full);
+
+	// &:not(.now) {
+		@include bp(md) {
+			@include cell($size: half, $is_first: false);
+		}
+	// }
+	
+	&:nth-child(n) {
+		padding-left: 0;
+	}
+	
+
+	.tease--lesson__wrap {
+		
+		&__status {
+			
+			@include rotate($color-accent-med);
+			padding: 1px $size-h3;
+
+			& > p {
+				margin-top: $size-xsml;
+				margin-bottom: $size-xsml;
+			}
+			
+			&.upcoming {
+				// background-color: ;
+			}
+
+			&.now {
+				background-color: $color-alert-success;
+			}
+			
+		}
+
+		
+	}
+
 	
 }
 
