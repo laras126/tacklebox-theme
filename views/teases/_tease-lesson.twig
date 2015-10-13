@@ -1,23 +1,35 @@
 {% extends "teases/tease.twig" %}
 
 {% block content %}
-	
-	<p class="tease__meta--lesson">Lesson {{loop.index}}</p>
-	<h4 class="tease__title--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
-	
-	<div class="meta">
-		<time class="item__title" datetime="{{post.lesson_date|date("Y-m-d")}}">
-			{{post.lesson_date|date('F j, ')}}{{post.lesson_time}}
-		</time>
-	</div>
 
-	<p>{{post.header_summary}}</p>
-	
-	{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
-	<a href="{{post.link}}" class="btn btn--readmore">Lesson Details</a>
+	{% set date = post.lesson_date|date('F j, ') ~ post.lesson_time %}
 
-	{% if post.thumbnail.src %}
-		<img src="{{post.thumbnail.src}}" />
+	{% if class != 'past' %}
+		<div class="tease--lesson__wrap__status {{class}}">
+			<p class="tease__meta--lesson">{{ class == 'now' ? 'Today! ' ~ post.lesson_time : date }}</p>
+		</div>
 	{% endif %}
 
+	<div class="tease--lesson__wrap">
+
+		<p class="tease__meta--lesson">Lesson {{loop.index}}</p>
+		<h4 class="tease__title--lesson"><a href="{{post.link}}">{{post.title}}</a></h4>
+		
+{# 		{% if class != "past" %}
+			<div class="meta">
+				<time class="item__title" datetime="{{post.lesson_date|date("Y-m-d")}}">
+					{{date}}
+				</time>
+			</div>
+		{% endif %} #}
+		
+		<p class="meta">{{post.header_tagline}}</p>
+
+		{% if class != 'past' %}
+			{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="meta btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
+		{% endif %}
+
+		<a href="{{post.link}}" class="meta btn btn--readmore">Lesson Details</a>
+
+	</div>
 {% endblock %}
