@@ -9,32 +9,30 @@
 	
 	<p><strong class="meta--upper meta--med">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong></p>
 	<h3 class="tease__title--page"><a href="{{post.link}}">{{post.post_title}}</a></h3>
-	{% if live and start|date("U") > "now"|date("U") %}
-		{# <p class="meta">{{post.class_time}}, Google Hangouts<br>
-		<time class="meta" datetime="{{post.class_start_date|date("Y-m-d")}}">{{post.class_start_date|date('F j')}}{{ post.class_end_date ? ' - ' ~ post.class_end_date|date('F j')}}</time></p> #}
+	{# {% if live and start|date("U") > "now"|date("U") %} #}
 		<div class="item__row">
 			<div class="item__icon">
 				{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 			</div>
 			<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
 				<h5 class="item__title">{{post.class_time}}</h5>
-				{# <p class="meta">Scheduled to begin {{post.class_start_date|date('F j')}}</p> #}
 				<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
 			</time>
 		</div>
-	{% endif %}
-	<div class="item__row last">
-		{% include 'partials/class-location.twig' %}
-	</div>
-	
-	{# {% if live %} #}
-		{# <p>{{post.class_start_date|date('F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('F j')}}, {{post.class_day_and_time}}</p> #}
 	{# {% endif %} #}
 	
-	<p class="header__lead">{{post.header_tagline}}</p>
-	<p>{{post.header_summary}}</p>
-	<div class="clearfix">
-		<a href="{{post.link}}" class="btn btn--readmore">Read more...</a>
+{# 	{% if live %}
+		<p>{{post.class_start_date|date('F j')}}{{ post.class_end_date ? '-' ~ post.class_end_date|date('F j')}}, {{post.class_day_and_time}}</p>
+	{% endif %}
+	 #}
+	{# <p class="header__lead">{{post.header_tagline}}</p> #}
+	<p>{{post.header_tagline}}</p>
+	<div class="nav--readmore">
+		<a href="{{post.link}}" class="btn btn--readmore">Read More</a>
+		{% if access %}
+			{% set class = TimberTerm(post.class_taxonomy) %}
+			<a href="{{class.link}}" class="btn btn--success">View Lessons</a>
+		{% endif %}
 	</div>
 
 	{% if post.thumbnail.src %}
