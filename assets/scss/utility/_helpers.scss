@@ -45,6 +45,9 @@
 	color: $color-alert-danger;
 }
 
+.rotate {
+	@include rotate;
+}
 
 
 
