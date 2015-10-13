@@ -31,9 +31,11 @@
 @mixin card($bkgd: $color-accent-light, $border: $border-accent) {
     background-color: $bkgd;
     border: $border;
-    padding: $size-h4;
+    padding-left: $size-sml;
+    padding-right: $size-sml;
+    padding-bottom: $size-sml;
     border: $border-accent;
-    margin-bottom: $size-h4;
+    margin-bottom: $size-sml;
 }
 
 
