@@ -1,21 +1,20 @@
 <header class="header--single">
-	<div class="contain--xl text-center">
+	<div class="contain--md ">
 
 		{% if post.post_type == 'lesson' %}
 			{% for t in post.terms('class') %}
-				<p>{{t.name}}</p>
+				<p class="header__meta--class"><a href="{{t.link}}">{{t.name}}</a>
 			{% endfor %}
 		
 			{% for l in related_lessons %}
-				{% if l.title == post.title %}<p class="header__meta--class">Lesson {{loop.index}}</p>{% endif %}
+				{% if l.title == post.title %}&rarr; Lesson {{loop.index}}</p>{% endif %}
 			{% endfor %}
+			</p>
 		{% endif %}
-		
+
 		<h1 class="header__title">{{post.post_title}}</h1>
-	</div>
-	
-	<div class="contain--sm">
-		<p class="header__lead text-center">{{post.header_tagline}}</p>
+
+		<p class="header__lead">{{post.header_tagline}}</p>
 		<p>{{post.header_summary|wpautop}}</p>
 		{% if post.event_page %}<a href="{{post.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>{% endif %}
 		{% if post.download_link %}<a class="btn btn--cta" target="blank" href="{{post.download_link}}">Download Files</a>{% endif %}
