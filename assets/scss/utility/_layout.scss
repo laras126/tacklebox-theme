@@ -45,7 +45,7 @@ $sizes: (
 
 }
 
-@mixin grid($guttered: true, $align: false, $bp: md) {
+@mixin grid($guttered: true, $align: false, $bp: sm) {
 
     display: flex;
     flex-flow: row wrap;
@@ -70,7 +70,8 @@ $sizes: (
     position: relative;
 }
 
-main {
+main,
+.site__header {
   width: 90%;
   @extend .contain;
 }
@@ -102,7 +103,7 @@ main {
 
 @mixin bleed($size: $size-base) {
 	@include bp(md) {
-		margin-right: -3%;
+		  margin-right: -3%;
 	    margin-left: -3%;
 	}
 }
@@ -115,15 +116,29 @@ main {
 // Prototyping classes
 
 .grid {
-  @include bp(sm) {
     @include grid;
-  }
 }
+
+
+// .rcp_user_fieldset {
+//   display: flex !important;
+//   & > p {
+//     flex: 0 0 50% !important; 
+//   }
+// }
 
 .cell {
     @include cell;
 }
 
-.cell__half {
-    @include cell($size: half);
+.cell--half {
+    @include bp(md) {
+      @include cell($size: half);
+    }
+}
+
+.cell--fourth {
+    @include bp(md) {
+      @include cell($size: fourth);
+    }
 }
