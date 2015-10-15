@@ -8,7 +8,7 @@
 
 	<div class="contain--xl">
 	
-	{% if access %}
+	{# {% if access %} #}
 		<p class="header__meta--class">Lesson Archive</p>
 		<h1 class="header__title--archive">{{term.name}}</h1>
 		
@@ -56,9 +56,9 @@
 			{% endfor %}
 		</div>
 		
-	{% else %}
+	{# {% else %}
 		{% include 'partials/no-access.twig' %}
-	{% endif %}
+	{% endif %} #}
 
 	</div>
 {% endblock %}
