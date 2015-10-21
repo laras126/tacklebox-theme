@@ -219,6 +219,29 @@ input[type="submit"] {
 	padding: 0;
 }
 
-#rcp_payment_gateways label {
+.rcp_subscription_fieldset {
+	ul {
+		padding-left: 0;
+		@include grid;
+	}
+}
 
+.rcp_subscription_level {
+	@include cell($size: half);
+	list-style-type: none;
+	padding-bottom: $size-base;
+}
+
+.rcp_subscription_level_name,
+.rcp_price,
+.rcp_level_duration {
+
+}
+
+.rcp_level_description {
+	@include meta;
+}
+
+.rcp_gateways_fieldset > p {
+	width: 100%;
 }
