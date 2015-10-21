@@ -5,7 +5,7 @@
 // Used for buttons and alerts
 
 $alert-colors: (
-    danger:     ($color-alert-danger, $color-text-light),
+    danger:     ($color-alert-danger, $color-text-vlight),
     warning:    ($color-alert-warning, $color-text-dark),
     success:    ($color-alert-success, $color-text-dark),
     cta:        ($color-rotate-bkgd, $color-rotate-text),
@@ -17,7 +17,6 @@ $alert-colors: (
     padding: $size-base;
     margin-top: $size-base;
     margin-bottom: $size-base;
-    border-radius: 5px;
     @include bleed;
 }
 
@@ -32,8 +31,8 @@ $alert-colors: (
         &--#{$name} {
             // TODO: Need to deal with hover styles for links.
             @extend .alert;
-            background-color: lighten($bgcolor, 20%);
-            border: 3px solid darken($bgcolor, 10%);
+            background-color: lighten($bgcolor, 24%);
+            border: 3px solid $bgcolor;
             color: $fontcolor;
         }
     }
