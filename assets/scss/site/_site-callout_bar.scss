@@ -1,0 +1,9 @@
+.bar--callout {
+	padding: $size-xsml 0;
+	@include rotate;
+
+	.bar--callout__text {
+		@include meta($color-text-vlight);
+		text-align: right;
+	}
+}
