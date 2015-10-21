@@ -222,26 +222,62 @@ input[type="submit"] {
 .rcp_subscription_fieldset {
 	ul {
 		padding-left: 0;
-		@include grid;
+		@include bp(sm) {
+			@include grid;
+		}
 	}
 }
 
 .rcp_subscription_level {
-	@include cell($size: half);
+	@include bp(sm) {
+		@include cell($size: half);
+	}
 	list-style-type: none;
 	padding-bottom: $size-base;
+}
+
+.rcp_level_duration {
 }
 
 .rcp_subscription_level_name,
 .rcp_price,
 .rcp_level_duration {
-
+	@include meta($color-text-dark);
+	@include upperspace;
+	font-weight: $font-weight-strong;
 }
+
+input[type="radio"].rcp_level {
+	margin: $size-xsml;
+}
+
+	.rcp_subscription_level {
+		padding: $size-sml;
+		border: 5px solid white;
+	}
+
+	#rcp_subscription_level_5 {
+		background-color: lighten($color-scallop, 25%);
+	}
+
+	#rcp_subscription_level_6 {
+		background-color: lighten($color-salmon, 25%);
+	}
 
 .rcp_level_description {
 	@include meta;
+	display: block;
 }
 
 .rcp_gateways_fieldset > p {
 	width: 100%;
+}
+
+.rcp_message.error {
+	@extend .alert--danger;
+}
+
+.rcp_error {
+	// color: $color-text-light;
+	font-style: italic;
 }
