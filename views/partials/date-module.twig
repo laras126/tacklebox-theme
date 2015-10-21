@@ -1,0 +1,7 @@
+{% if date %}
+	{% if date|date("U") > "now"|date("U") %}
+		<p>Now registering!</p>
+	{% elseif date|date("U") < "now"|date("U") %}
+		<p>Registration Closed</p>
+	{% endif %}
+{% endif %}

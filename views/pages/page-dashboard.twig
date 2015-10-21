@@ -1,0 +1,133 @@
+{% extends 'pages/page.twig' %}
+
+{% block before_content %}	
+	
+	{% set display = post.header_display %}
+	{% set start = post.class_start_date|date("U") %}
+	{% set now = "now"|date("U") %}
+
+	<header class="header--page">
+		
+		<div class="header__banner">
+			<p class="header__meta--class{% if start > now %} class_open{% elseif end < now and start > now %} class_live{% else %} class_off{% endif %}">{% if start > now %}Now Registering{% elseif end < now and start > now %}It's live!{% else %}Not Live{% endif %}</p>
+			<h1 class="header__title">{{post.post_title}}</h1>
+		</div>
+		
+		<div class="grid">
+		
+			<div class="header__main">
+				<p class="header__lead">{{post.header_tagline}}</p>
+				<p class="header__summary">{{post.header_summary|wpautop}}</p>
+				<a class="btn--success" href="#reserve_a_spot">Reserve a Spot</a>
+			</div> <!-- .header__main -->
+		
+			{% if start > now %}
+			<div class="bleed header__compliment">
+
+				<div class="item__row">
+					<div class="item__icon">
+						{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
+					</div>
+					<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
+						<h5 class="item__title">{{post.class_time}}</h5>
+						<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+					</time>
+				</div>
+
+				<div class="item__row">
+					<div class="item__icon">
+						{% include 'partials/svg.twig' with { file: 'code', prefix: 'icon'} %}
+					</div>
+					<div class="item__main">
+						{% for level in post.get_terms('level') %}
+							<h5 class="item__title">{{level.name}}</h5>
+							<p class="meta">{{level.description}}</p>
+						{% endfor %}
+					</div>
+				</div>
+				
+				<div class="item__row last">
+					{% include 'partials/class-location.twig' %}
+				</div>
+
+			</div>
+			{% endif %}
+		</div> <!-- .grid -->
+
+	</header>
+	
+	{% if start < now %}
+		<div class="contain--sm">
+			<div class="alert--warning">
+				<h4 class="alert__title">This class is no longer registering.</h4>
+				<p>Would you like to see it again? We can definitely do that. Head to the contact page and let me know.</p>
+				<a href="" class="btn btn--cta">Request Class</a>
+			</div>
+		</div>
+	{% endif %}
+		
+{% endblock %}
+
+{% block content %}
+	
+	{# {% include 'partials/section-nav.twig' %} #}
+	
+	{% include 'partials/section-loop.twig' %}
+	
+	<header class="section__header">
+		<div class="contain--sm">
+			<h2 class="section__title">Lessons</h2>
+		</div>
+	</header>
+
+	<div class="contain--lg">
+		<ol class="list--lessons"> 
+		
+		{% for item in lessons %}
+			{% set item = TimberPost(item) %}
+			<li class="list__item--lesson">
+
+				<h4 class="list__item__title--lesson">{{loop.index}} <span class="special">{{item.title}}</span></h4>
+				{% if item.lesson_date %}
+					<time datetime="{{item.lesson_date|date(
+					"Y-m-d")}}" class="meta--med">{{item.lesson_date|date('F j')}}{{item.lesson_time ? ', ' ~ item.lesson_time}}</time>
+				{% endif %}
+				
+				<p>{{item.header_tagline}}</p>
+				<p class="meta">{{item.header_summary}}</p>
+				{% if item.get_terms('post_tag') %}
+					<p class="meta--med"><span class="meta--upper">Keywords:</span>
+					{% for tag in item.get_terms('post_tag') %}
+					 {{tag.name}}{{loop.last ? '' : ', '}}
+					{% endfor %}
+					</p>
+				{% endif %}
+				<div class="btnset--lesson">
+					<a href="{{item.event_page}}" target="blank" class="btn--hangout">{% include 'partials/svg.twig' with { file: 'quotes-left', prefix: 'icon'} %}Hangout Page</a>
+				</div>
+				{{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', item.ID)}}
+			</li>
+		{% endfor %}
+		</ol>
+	</div>
+{% endblock %}
+
+{% block after_content %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
