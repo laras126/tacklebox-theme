@@ -1,5 +1,4 @@
 
-
 <header class="site__header contain--lg" role="banner">
 
     <div class="site__logo">
@@ -25,10 +24,11 @@
                 {% endif %}
             </li>
         {% endfor %}
-{# 
+
         {% if access %}
-            <li class="site__nav__item"><strong>View Lessons</strong></li>
-        {% endif %} #}
+            {# So totally bad to hardcode this. #}
+            <li class="site__nav__item"><a href="{{site.link}}/class/build-a-responsive-wordpress-website/"><strong>View Lessons</strong></a></li>
+        {% endif %}
 
         </ul>
     </nav><!-- .site__nav -->
