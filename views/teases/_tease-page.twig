@@ -7,18 +7,18 @@
 	{% set location = post.class_location %}
 	{% set start = post.class_start_date %}
 	
-	<p><strong class="meta--upper meta--med">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong></p>
+	<p><strong class="meta--upper special">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong></p>
 	<h3 class="tease__title--page"><a href="{{post.link}}">{{post.post_title}}</a></h3>
 	{# {% if live and start|date("U") > "now"|date("U") %} #}
-		<div class="item__row">
+		{# <div class="item__row">
 			<div class="item__icon">
 				{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
-			</div>
-			<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
-				<h5 class="item__title">{{post.class_time}}</h5>
-				<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+			</div> #}
+			<time datetime="{{post.class_start_date|date("Y-m-d")}}">
+				<h5 class="item__title">{{post.class_time}}, {{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</h5>
+				{# <p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p> #}
 			</time>
-		</div>
+		{# </div> #}
 	{# {% endif %} #}
 	
 {# 	{% if live %}

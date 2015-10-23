@@ -1,0 +1,20 @@
+
+.list__item--page {
+	padding-bottom: $size-h3;
+	margin-bottom: $size-h3;
+	border-bottom: $border-accent;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	.item__title {
+		margin-top: $size-base;
+	}
+}
+
+.tease__title--page {
+	font-size: $size-h4;
+	// @include upperspace;
+	margin-bottom: 0;
+}
