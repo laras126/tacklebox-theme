@@ -16,7 +16,7 @@
                 {% if item.get_children %}
                     <ul class="site__nav__subnav">
                     {% for child in item.get_children %}
-                        <li class="site__subnav__item">
+                        <li class="site__nav__subnav__item">
                             <a href="{{child.get_link}}">{{child.title}}</a>
                         </li>
                     {% endfor %}
