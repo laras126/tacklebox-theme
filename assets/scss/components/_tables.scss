@@ -4,7 +4,8 @@
 table {
     width: 100%;
     font-family: $font-form;
-    margin-bottom: 1.5em;
+    margin-top: $size-h5;
+    margin-bottom: $size-h5;
 
     caption {
         margin: 0 0 7px;
@@ -14,14 +15,15 @@ table {
 }
 
 tr {
+    font-size: $size-sml;
     &:nth-child(even) {
         background-color: $color-accent-vlight;
     }
 }
 
 td {
-    padding: 7px;
-    border-right: 1px solid $color-accent-light;
+    padding: $size-xsml;
+    border-right: 1px dotted $color-accent-med;
 
     &:last-child {
         border-right: 0;
@@ -30,8 +32,10 @@ td {
 
 th {
     background-color: $color-accent-light;
-    border-bottom: 1px solid $color-accent-light;
-    border-right: 1px solid $color-accent-light;
+    border-bottom: 1px dotted $color-accent-med;
+    border-right: 1px dotted $color-accent-med;
+    padding: $size-xsml;
+    text-align: left;
 
     &:last-child {
         border-right: 0;
