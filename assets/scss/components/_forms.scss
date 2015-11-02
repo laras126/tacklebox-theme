@@ -21,6 +21,12 @@ label {
 
 }
 
+legend {
+	margin-top: $size-h2;
+	font-size: $size-h4;
+	font-weight: $font-weight-strong;
+}
+
 input[type="search"] {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
@@ -232,6 +238,7 @@ input[type="submit"] {
 	@include bp(sm) {
 		@include cell($size: half);
 	}
+	
 	list-style-type: none;
 	padding-bottom: $size-base;
 }
@@ -277,7 +284,8 @@ input[type="radio"].rcp_level {
 	@extend .alert--danger;
 }
 
-.rcp_error {
-	// color: $color-text-light;
+.rcp_error,
+.rcp_password_change_notice {
 	font-style: italic;
+	font-size: $size-sml;
 }
