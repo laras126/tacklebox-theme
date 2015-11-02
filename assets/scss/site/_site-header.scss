@@ -50,6 +50,11 @@
 		&:last-child {
 			padding-right: 0;
 		}
+
+		&.-access {
+			border-left: $border-accent;
+			padding-left: $size-sml;
+		}
 	}
 
 }
