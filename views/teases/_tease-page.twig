@@ -28,10 +28,10 @@
 	{# <p class="header__lead">{{post.header_tagline}}</p> #}
 	<p>{{post.header_tagline}}</p>
 	<div class="nav--readmore">
-		<a href="{{post.link}}" class="btn btn--readmore">Read More</a>
+		<a href="{{post.link}}" class="btn--info">Read More</a>
 		{% if access %}
 			{% set class = TimberTerm(post.class_taxonomy) %}
-			<a href="{{class.link}}" class="btn btn--success">View Lessons</a>
+			<a href="{{class.link}}" class="btn--success">View Lessons</a>
 		{% endif %}
 	</div>
 	
