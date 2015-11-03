@@ -263,13 +263,6 @@ input[type="radio"].rcp_level {
 		border: 5px solid white;
 	}
 
-	#rcp_subscription_level_5 {
-		background-color: lighten($color-scallop, 25%);
-	}
-
-	#rcp_subscription_level_6 {
-		background-color: lighten($color-salmon, 25%);
-	}
 
 .rcp_level_description {
 	@include meta;
