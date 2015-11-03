@@ -1814,6 +1814,8 @@ th {
     .section__title {
       margin-right: -3%;
       margin-left: -3%; } }
+  .section__title.-tabbed {
+    border-top: 0; }
 
 .section__nav__items {
   margin: 0;
@@ -1864,8 +1866,47 @@ th {
   .tease__wrap--link .meta--med {
     font-weight: 300; }
 
-.closed {
-  display: none; }
+.page__section.-tabbed {
+  max-height: 0;
+  -webkit-transition: 0.5s ease all;
+       -o-transition: 0.5s ease all;
+          transition: 0.5s ease all;
+  overflow: hidden; }
+
+.page__section.open {
+  max-height: none;
+  -webkit-transition: 0.5s ease all;
+       -o-transition: 0.5s ease all;
+          transition: 0.5s ease all; }
+
+.tab-nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  border-bottom: 1px dotted #86b2c6; }
+
+.tab {
+  display: inline-block;
+  position: relative; }
+
+.tab-link {
+  border-top: 1px dotted #86b2c6;
+  border-right: 1px dotted #86b2c6;
+  border-left: 1px dotted #86b2c6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  padding: 0.88rem;
+  font-weight: 700;
+  background-color: #dde9ef;
+  color: #4c4345; }
+  .tab-link:hover {
+    color: #4c4345;
+    background-color: #86b2c6; }
+  .tab-link.open {
+    background-color: #ffffff;
+    border-bottom: 0; }
 
 .nav--prevnext {
   margin-top: 2.53rem;

@@ -79,6 +79,22 @@ $(document).ready(function() {
 	});
 
 
+	// Tabbed Content
+
+	$('.tab').on('click', function() {
+		var href = $(this).find('.tab-link').attr('href');
+		$('.-tabbed').removeClass('open');
+		$('.tab-link').removeClass('open');
+
+		$('.-tabbed' + href).addClass('open');
+		$('.tab-link[href='+href+']').addClass('open');
+	});
+
+	$('.tab-link').on('click', function(e) {
+        e.preventDefault();
+	});
+
+
 
 
 	// // Highlight the current item according to position on the screen
