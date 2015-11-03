@@ -1,7 +1,7 @@
 {% extends 'singles/single.twig' %}
 
 {% block content %}
-  
+{% if access %}
 	<div class="contain--lg">
 		<div class="media--enhanced">
 			{{post.video}}
@@ -36,10 +36,13 @@
 		{% endfor %}
 			
 	</section> <!-- /#homework -->
-
+	{% else %}
+		{% include 'partials/no-access.twig' %}	
+	{% endif %}  
 {% endblock %}
 
 {% block after_content %}
+	{% if access %}
 	<div class="contain--md">
 		{% include 'partials/prevnext.twig' %}
 	</div>	
@@ -51,4 +54,5 @@
 			{% endfor %}
 		</ol>
 	</div>
+	{% endif %}
 {% endblock %}
