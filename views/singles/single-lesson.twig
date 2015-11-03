@@ -54,7 +54,7 @@
 				</div>
 			</header>
 			
-			{% for block in post.get_field('resource_blocks') %}
+			{% for block in post.get_field('resources_blocks') %}
 				{% include 'blocks/block-logic.twig' %}
 			{% endfor %}
 				
