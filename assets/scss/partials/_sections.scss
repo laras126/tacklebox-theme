@@ -14,6 +14,10 @@
 	
 	padding-top: $size-base;
 	margin-top: $size-base;
+
+	&.-tabbed {
+		border-top: 0;
+	}
 }
 
 .section__nav {
