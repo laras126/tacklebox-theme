@@ -973,12 +973,6 @@ input[type="radio"].rcp_level {
   padding: 0.88rem;
   border: 5px solid white; }
 
-#rcp_subscription_level_5 {
-  background-color: #f1ebe5; }
-
-#rcp_subscription_level_6 {
-  background-color: #fae1d4; }
-
 .rcp_level_description {
   color: #858585;
   font-size: 0.88rem;
