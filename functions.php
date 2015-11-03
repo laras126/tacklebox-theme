@@ -55,6 +55,7 @@ class StarterSite extends TimberSite {
 		$context['site'] = $this;
 		$context['user'] = new TimberUser(get_current_user_id());
 
+		$context['logout_url'] =  wp_logout_url(home_url());
 		$context['classes'] = Timber::get_terms('class');
 
 		// Restrict Content Plugin
