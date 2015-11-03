@@ -1,9 +1,47 @@
+
+
 .page__section {
-	// &--lesson {
-	// 	display: none;
-	// }
+	&.-tabbed {
+		max-height: 0;
+		transition: 0.5s ease all;
+		overflow: hidden;
+	}
+
+	&.open {
+		max-height: none;
+		transition: 0.5s ease all;
+	}
 }
 
-.closed {
-	display: none;
+.tab-nav {
+	@include unstyle-list;
+	text-align: center;
+	border-bottom: $border-accent;
+}
+
+.tab {
+	display: inline-block;
+	position: relative;
+}
+
+.tab-link  {
+	border-top: $border-accent;
+	border-right: $border-accent;
+	border-left: $border-accent;
+	@include upperspace;
+	display: block;
+	padding: $size-sml;
+	font-weight: $font-weight-strong;
+	background-color: $color-accent-light;
+	color: $color-text-dark;
+	
+	&:hover {
+		color: $color-text-dark;
+		background-color: $color-accent-med;
+	}
+
+	&.open {
+		background-color: $color-body-bkgd;
+		border-bottom: 0;
+	}
 }
