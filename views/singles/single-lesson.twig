@@ -10,35 +10,61 @@
 
 	{# Blocks for additional Lesson content #}
 	
-	<section class="page__section" id="lesson-outline">
-		
-		<header class="section__header contain--sm">
-			<h2 class="section__title">Lesson Outline</h2>
-		</header>
-	
-		{% for block in post.get_field('blocks') %} 
-			{% include 'blocks/block-logic.twig' %}
-		{% endfor %}
-		
-	</section> <!-- /#lesson-outline -->
-
-	<section class="page__section" id="homework">
-		
-		<header class="section__header">
-			<div class="contain--sm">
-				<h2 class="section__title">Homework</h2>
-				{{post.assignments_summary|wpautop}}
-			</div>
-		</header>
-		
-		{% for block in post.get_field('assignment_blocks') %}
-			{% include 'blocks/block-logic.twig' %}
-		{% endfor %}
+	<nav class="contain--sm">
+		<ul class="tab-nav">
+			<li class="tab"><a class="tab-link open" href="#notes">Lesson Notes</a></li>
+			<li class="tab"><a class="tab-link" href="#homework">Homework</a></li>
+			<li class="tab"><a class="tab-link" href="#resources">Resources</a></li>
+		</ul>
+	</nav>
+	<div class="page__content">
+		<section class="page__section -tabbed open" id="notes">
+				
+			<header class="section__header contain--sm">
+				<h2 class="section__title -tabbed">Lesson Notes</h2>
+			</header>
+			<div class="tab-content">
+			{% for block in post.get_field('blocks') %} 
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
 			
-	</section> <!-- /#homework -->
+		</section> <!-- /#notes -->
+
+		<section class="page__section -tabbed" id="homework">
+			
+			<header class="section__header">
+				<div class="contain--sm">
+					<h2 class="section__title -tabbed">Homework</h2>
+					{{post.assignments_summary|wpautop}}
+				</div>
+			</header>
+			
+			{% for block in post.get_field('assignment_blocks') %}
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
+				
+		</section> <!-- /#homework -->
+
+		<section class="page__section -tabbed" id="resources">
+			
+			<header class="section__header">
+				<div class="contain--sm">
+					<h2 class="section__title -tabbed">Resources</h2>
+					{# {{post.assignments_summary|wpautop}} #}
+				</div>
+			</header>
+			
+			{% for block in post.get_field('resource_blocks') %}
+				{% include 'blocks/block-logic.twig' %}
+			{% endfor %}
+				
+		</section> <!-- /#resources -->
+	</div>
+
 	{% else %}
 		{% include 'partials/no-access.twig' %}	
-	{% endif %}  
+	{% endif %}
+
 {% endblock %}
 
 {% block after_content %}
