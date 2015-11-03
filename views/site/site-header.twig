@@ -24,14 +24,14 @@
             </li>
         {% endfor %}
         {% if access %}
-            {# <li class="site__nav__item -access">
-                <a href="{{site.link}}/class">Courses</a>
-            </li> #}
             <li class="site__nav__item -access">
+                <a href="{{site.link}}/classes">Classes</a>
+            </li>
+            <li class="site__nav__item">
                 <a href="{{site.link}}/account">Account</a>
             </li>
             <li class="site__nav__item">
-                <a href="{{site.link}}/log-out">Log Out</a>
+                <a href="{{logout_url}}">Log Out</a>
             </li>
         {% else %}
             <li class="site__nav__item">
