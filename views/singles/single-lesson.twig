@@ -24,9 +24,15 @@
 				<h2 class="section__title -tabbed">Lesson Notes</h2>
 			</header>
 			<div class="tab-content">
-			{% for block in post.get_field('blocks') %} 
-				{% include 'blocks/block-logic.twig' %}
-			{% endfor %}
+				{% if post.get_field('blocks') %}
+					{% for block in post.get_field('blocks') %} 
+						{% include 'blocks/block-logic.twig' %}
+					{% endfor %}
+				{% else %}
+					<div class="contain--sm">
+						<p>Coming soon!</p>
+					</div>
+				{% endif %}
 			
 		</section> <!-- /#notes -->
 
@@ -38,10 +44,16 @@
 					{{post.assignments_summary|wpautop}}
 				</div>
 			</header>
-			
-			{% for block in post.get_field('assignment_blocks') %}
-				{% include 'blocks/block-logic.twig' %}
-			{% endfor %}
+
+			{% if post.get_field('assignment_blocks') %}
+				{% for block in post.get_field('assignment_blocks') %}
+					{% include 'blocks/block-logic.twig' %}
+				{% endfor %}
+			{% else %}
+				<div class="contain--sm">
+					<p>Coming soon!</p>
+				</div>
+			{% endif %}
 				
 		</section> <!-- /#homework -->
 
@@ -53,11 +65,15 @@
 					{# {{post.assignments_summary|wpautop}} #}
 				</div>
 			</header>
-			
-			{% for block in post.get_field('resources_blocks') %}
-				{% include 'blocks/block-logic.twig' %}
-			{% endfor %}
-				
+			{% if post.get_field('resources_blocks') %}
+				{% for block in post.get_field('resources_blocks') %}
+					{% include 'blocks/block-logic.twig' %}
+				{% endfor %}
+			{% else %}
+				<div class="contain--sm">
+					<p>Coming soon!</p>
+				</div>
+			{% endif %}
 		</section> <!-- /#resources -->
 	</div>
 
