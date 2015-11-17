@@ -3,13 +3,18 @@
 
 		{% if post.post_type == 'lesson' %}
 			{% for t in post.terms('class') %}
-				<p class="header__meta--class"><a href="{{t.link}}">{{t.name}}</a>
+				<p class="header__meta"><a href="{{t.link}}">{{t.name}}</a>
 			{% endfor %}
 		
 			{% for l in related_lessons %}
 				{% if l.title == post.title %}&rarr; Lesson {{loop.index}}</p>{% endif %}
 			{% endfor %}
 			</p>
+		{% elseif post.post_type == 'screencast' %}
+			{% for t in post.terms('class') %}
+				<p class="header__meta"><a href="{{t.link}}">{{t.name}}</a> &rarr; Screencasts &rarr; {{post.name}}</p>
+			{% endfor %}
+
 		{% endif %}
 
 		<h1 class="header__title">{{post.post_title}}</h1>
