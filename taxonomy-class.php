@@ -31,7 +31,7 @@
 		),
 	);
 	
-	$ass_args = array(
+	$screen_args = array(
 		'post_type' => 'screencast',
 		'tax_query' => array(
 			'relation' => 'AND',
@@ -49,6 +49,6 @@
 	$data = Timber::get_context();
 	$data['term'] = $term;
 	$data['lessons'] = Timber::get_posts($lessons);
-	$data['assignments'] = Timber::get_posts($ass_args);
+	$data['screencasts'] = Timber::get_posts($screen_args);
 
 	Timber::render($templates, $data);

@@ -685,7 +685,7 @@ code {
   .title-tease--source .icon {
     fill: #86b2c6;
     display: inline-block; }
-  .title-tease--source .meta, .title-tease--source .mc-field-group label, .mc-field-group .title-tease--source label, .title-tease--source .rcp_form label, .rcp_form .title-tease--source label, .title-tease--source .meta--upper, .title-tease--source .item__title, .title-tease--source .list--icons .list__item__title, .list--icons .title-tease--source .list__item__title, .title-tease--source .tease__meta--source, .title-tease--source .tease__meta--lesson, .title-tease--source .header__meta--class, .title-tease--source .meta--light, .title-tease--source .site__footer__content, .title-tease--source .meta--med, .title-tease--source .meta--success {
+  .title-tease--source .meta, .title-tease--source .mc-field-group label, .mc-field-group .title-tease--source label, .title-tease--source .rcp_form label, .rcp_form .title-tease--source label, .title-tease--source .meta--upper, .title-tease--source .item__title, .title-tease--source .list--icons .list__item__title, .list--icons .title-tease--source .list__item__title, .title-tease--source .tease__meta--source, .title-tease--source .tease__meta--lesson, .title-tease--source .header__meta, .title-tease--source .meta--light, .title-tease--source .site__footer__content, .title-tease--source .meta--med, .title-tease--source .meta--success {
     font-weight: 300; }
 
 .title-tease--lesson {
@@ -1359,11 +1359,11 @@ th {
 .media__caption {
   font-style: italic; }
 
-.meta, .mc-field-group label, .rcp_form label, .meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .tease__meta--lesson, .header__meta--class, .meta--light, .site__footer__content, .meta--med, .meta--success {
+.meta, .mc-field-group label, .rcp_form label, .meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .tease__meta--lesson, .header__meta, .meta--light, .site__footer__content, .meta--med, .meta--success {
   font-size: 0.88rem;
   line-height: 1.5; }
 
-.meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .tease__meta--lesson, .header__meta--class {
+.meta--upper, .item__title, .list--icons .list__item__title, .tease__meta--source, .tease__meta--lesson, .header__meta {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
@@ -1753,13 +1753,13 @@ th {
   .header__title--archive {
     margin-top: 0; }
 
-.header__meta--class {
+.header__meta {
   font-weight: 700; }
-  .header__meta--class.class_open {
+  .header__meta.class_open {
     color: #72CA8A; }
-  .header__meta--class.class_live {
+  .header__meta.class_live {
     color: #eed433; }
-  .header__meta--class.class_off {
+  .header__meta.class_off {
     color: #858585; }
 
 .header__main {

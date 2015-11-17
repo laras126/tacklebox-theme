@@ -27,7 +27,7 @@
 	}
 }
 
-.header__meta--class {
+.header__meta {
 	@extend .meta--upper;
 	font-weight: $font-weight-strong;
 
@@ -48,12 +48,10 @@
 	text-align: left;
 	@include bp(md) {
 		@include cell;
-		// align-self: center;
 	}
 }
 
 .header__compliment {
-	// @extend .alert--success;
 	@include bp(md) {
 		@include cell(half);
 		margin-left: $size-base;

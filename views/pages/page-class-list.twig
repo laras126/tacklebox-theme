@@ -10,7 +10,7 @@
 	<header class="header--page">
 		
 		<div class="header__banner">
-			<p class="header__meta--class{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+			<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 				{% if start >= now %}
 					Now Registering
 				{% elseif start < now and end >= now %}
