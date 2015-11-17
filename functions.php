@@ -221,6 +221,16 @@ add_action( 'wp_enqueue_scripts', 'tbx_scripts' );
  */
 
 
+// Hide admin bar for non-admin users
+
+add_action('after_setup_theme', 'tbx_remove_admin_bar');
+
+function tbx_remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+}
+
 // Change Title field placeholders for Custom Post Types
 // (You'll need to register the types, of course)
 
