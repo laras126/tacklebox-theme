@@ -778,6 +778,13 @@
                 "operator": "==",
                 "value": "default"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "screencast"
+            }
         ]
     ],
     "menu_order": 0,
@@ -799,5 +806,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1445611677
+    "modified": 1447703216
 }

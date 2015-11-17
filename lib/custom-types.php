@@ -106,29 +106,29 @@ register_post_type( 'lesson', $args );
 // ----
 
 $labels = array(
-	'name'                => _x( 'Assignments', 'Post Type General Name', 'tbx' ),
-	'singular_name'       => _x( 'Assignment', 'Post Type Singular Name', 'tbx' ),
-	'menu_name'           => __( 'Assignments', 'tbx' ),
-	'parent_item_colon'   => __( 'Parent Assignment:', 'tbx' ),
-	'all_items'           => __( 'All Assignments', 'tbx' ),
-	'view_item'           => __( 'View Assignment', 'tbx' ),
-	'add_new_item'        => __( 'Add New Assignment', 'tbx' ),
+	'name'                => _x( 'Screencasts', 'Post Type General Name', 'tbx' ),
+	'singular_name'       => _x( 'Screencast', 'Post Type Singular Name', 'tbx' ),
+	'menu_name'           => __( 'Screencasts', 'tbx' ),
+	'parent_item_colon'   => __( 'Parent Screencast:', 'tbx' ),
+	'all_items'           => __( 'All Screencasts', 'tbx' ),
+	'view_item'           => __( 'View Screencast', 'tbx' ),
+	'add_new_item'        => __( 'Add New Screencast', 'tbx' ),
 	'add_new'             => __( 'Add New', 'tbx' ),
-	'edit_item'           => __( 'Edit Assignment', 'tbx' ),
-	'update_item'         => __( 'Update Assignment', 'tbx' ),
-	'search_items'        => __( 'Search Assignment', 'tbx' ),
+	'edit_item'           => __( 'Edit Screencast', 'tbx' ),
+	'update_item'         => __( 'Update Screencast', 'tbx' ),
+	'search_items'        => __( 'Search Screencast', 'tbx' ),
 	'not_found'           => __( 'Not found', 'tbx' ),
 	'not_found_in_trash'  => __( 'Not found in Trash', 'tbx' ),
 );
 $rewrite = array(
-	'slug'                => 'assignments',
+	'slug'                => 'screencasts',
 	'with_front'          => true,
 	'pages'               => true,
 	'feeds'               => true,
 );
 $args = array(
 	'label'               => __( 'screencast', 'tbx' ),
-	'description'         => __( 'Assignments attached to lessons.', 'tbx' ),
+	'description'         => __( 'Screencasts attached to lessons.', 'tbx' ),
 	'labels'              => $labels,
 	'supports'            => array( 'title' ),
 	'taxonomies'          => array( 'category', 'level', 'class', 'post_tag' ),
