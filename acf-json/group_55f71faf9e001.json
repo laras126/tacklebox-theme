@@ -1,65 +1,63 @@
 {
     "key": "group_55f71faf9e001",
-    "title": "Assignments",
+    "title": "Screencast Details",
     "fields": [
         {
-            "key": "field_55f71fafb04a1",
-            "label": "Download Link",
-            "name": "download_link",
-            "type": "url",
+            "key": "field_564a31dfe45f3",
+            "label": "Download Links",
+            "name": "download_links",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": 50,
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_55f71fafb04ad",
-            "label": "Slides\/Demo File Link",
-            "name": "slides_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 50,
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_55f860828c43a",
-            "label": "Connected Lessons",
-            "name": "connected_lessons",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 100,
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "lesson"
-            ],
-            "taxonomy": [],
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "layout": "table",
+            "button_label": "Add Row",
+            "sub_fields": [
+                {
+                    "key": "field_564a31f4e45f4",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 50,
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_564a3219e45f5",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 50,
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -79,5 +77,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1442344514
+    "modified": 1447703195
 }
