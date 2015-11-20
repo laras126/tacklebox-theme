@@ -32,11 +32,16 @@
     animation-name: fadeInDown; 
 }
 
-@keyframes roll {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes nudge {
+    0% {
+        transform: translateX(0);
+    }
+    
+    75% {
+        transform: translateX($size-xsml/2);
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
 }
