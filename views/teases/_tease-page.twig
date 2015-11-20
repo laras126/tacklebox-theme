@@ -7,7 +7,16 @@
 	{% set location = post.class_location %}
 	{% set start = post.class_start_date %}
 	
-	<p><strong class="meta--upper special">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong></p>
+	<p class="meta--upper">
+		<strong class="special">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong>
+		<strong class="{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+				{% if start >= now %}
+					Now Registering
+				{% elseif start < now and end >= now %}
+					Class in session
+				{% else %}Not Live{% endif %}
+		</strong>
+	</p>
 	<h3 class="tease__title--page"><a href="{{post.link}}">{{post.post_title}}</a></h3>
 	{# {% if live and start|date("U") > "now"|date("U") %} #}
 		{# <div class="item__row">
