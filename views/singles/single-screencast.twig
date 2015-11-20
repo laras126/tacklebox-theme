@@ -1,12 +1,23 @@
 {% extends 'singles/single.twig' %}
 
-{# {% block content %} #}
+{% block content %}
 
-	{# {% include 'partials/section-nav.twig' %} #}
-	{# {% include 'partials/section-loop.twig' %} #}
+	{% for block in post.get_field('blocks') %} 
+		{% include 'blocks/block-logic.twig' %}
+	{% endfor %}
 	
+	{% if post.get_field('download_links') %}
+		<div class="contain--sm">
+			<h3>Relevant Links</h3>
+			<ul>
+			{% for link in post.get_field('download_links') %}
+				<li><a href="{{link.url}}">{{link.title}}</a></li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
 
-{# {% endblock %} #}
+{% endblock %}
 
 {# {% block after_content %}
 	{% include 'partials/prevnext.twig' %}

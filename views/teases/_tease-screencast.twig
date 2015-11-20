@@ -2,17 +2,17 @@
 
 {% block content %}
 	{% set post = TimberPost(post) %}
-
-	<a class="tease__wrap--link" href="{{post.link}}">
-		<div class="item__row">
-			<div class="item__main">
-				<h5 class="item__title">{{post.post_title}}</h5>
-				<p class="meta">{{post.header_summary}}</p>
+	<div class="contain--sm">
+		<a class="tease__wrap--link" href="{{post.link}}">
+			<div class="item__row">
+				<div class="item__main">
+					<h5 class="tease__title--screencast meta--upper">{{post.post_title}}</h5>
+					<p class="meta">{{post.header_summary}}</p>
+				</div>
+				<div class="item__icon">
+					{% include 'partials/svg.twig' with { file: 'arrow-right', prefix: 'icon' } %}
+				</div>
 			</div>
-			<div class="item__icon">
-				{% include 'partials/svg.twig' with { file: 'arrow-right', prefix: 'icon' } %}
-			</div>
-		</div>
-	</a>
-	
+		</a>
+	</div>
 {% endblock %}
