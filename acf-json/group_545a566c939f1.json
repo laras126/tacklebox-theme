@@ -877,6 +877,13 @@
                 "operator": "==",
                 "value": "page-long_form.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "screencast"
+            }
         ]
     ],
     "menu_order": 2,
@@ -897,5 +904,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1447703231
+    "modified": 1447795788
 }
