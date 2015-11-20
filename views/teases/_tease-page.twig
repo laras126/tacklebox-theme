@@ -6,6 +6,7 @@
 	{% set live = post.class_is_live %}
 	{% set location = post.class_location %}
 	{% set start = post.class_start_date %}
+	{% set now = "now"|date("U") %}
 	
 	<p class="meta--upper">
 		<strong class="special">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong>
