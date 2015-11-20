@@ -3,8 +3,7 @@
 {% block content %}
 	
 	{% set post = TimberPost(post) %}
-	{% set live = post.class_is_live %}
-	{% set location = post.class_location %}
+	{% set end = post.class_end_date|date("U") %}
 	{% set start = post.class_start_date %}
 	{% set now = "now"|date("U") %}
 	
