@@ -889,10 +889,12 @@ fieldset {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-input[type="submit"] {
+input[type="submit"],
+.rcp_button {
   width: 100%; }
   @media (min-width: 33em) {
-    input[type="submit"] {
+    input[type="submit"],
+    .rcp_button {
       width: auto; } }
 
 .form__submit {
@@ -997,7 +999,8 @@ input[type="radio"].rcp_level {
   font-style: italic;
   font-size: 0.88rem; }
 
-.btn, .btn--danger, .btn--warning, .btn--success, input[type="submit"], .btn--cta, .btn--info, .btn--hangout {
+.btn, .btn--danger, .btn--warning, .btn--success, input[type="submit"],
+.rcp_button, .btn--cta, .btn--info, .btn--hangout {
   padding: 0.66rem 1.1rem;
   margin-top: 0.88rem;
   margin-bottom: 0.88rem;
@@ -1027,19 +1030,25 @@ input[type="radio"].rcp_level {
     .btn--warning:active,
     .btn--warning:focus {
       color: #ffffff; }
-  .btn--success, input[type="submit"] {
+  .btn--success, input[type="submit"],
+  .rcp_button {
     background-color: #72CA8A;
     color: #ffffff;
     display: inline-block; }
-    .btn--success:hover, input[type="submit"]:hover {
+    .btn--success:hover, input[type="submit"]:hover,
+    .rcp_button:hover {
       background-color: #4dbc6b; }
-    .btn--success:active, input[type="submit"]:active {
+    .btn--success:active, input[type="submit"]:active,
+    .rcp_button:active {
       background-color: #266437; }
     .btn--success:hover,
     input[type="submit"]:hover,
+    .rcp_button:hover,
     .btn--success:active,
     input[type="submit"]:active,
-    .btn--success:focus, input[type="submit"]:focus {
+    .rcp_button:active,
+    .btn--success:focus, input[type="submit"]:focus,
+    .rcp_button:focus {
       color: #ffffff; }
   .btn--cta {
     background-color: #237fa9;
@@ -1113,7 +1122,7 @@ input[type="radio"].rcp_level {
       -ms-flex: 1;
           flex: 1; }
 
-.site__nav__item .btn, .site__nav__item .btn--danger, .site__nav__item .btn--warning, .site__nav__item .btn--success, .site__nav__item input[type="submit"], .site__nav__item .btn--cta, .site__nav__item .btn--info, .site__nav__item .btn--hangout {
+.site__nav__item .btn, .site__nav__item .btn--danger, .site__nav__item .btn--warning, .site__nav__item .btn--success, .site__nav__item input[type="submit"], .site__nav__item .rcp_button, .site__nav__item .btn--cta, .site__nav__item .btn--info, .site__nav__item .btn--hangout {
   margin-bottom: 0;
   text-transform: uppercase;
   letter-spacing: 1px;

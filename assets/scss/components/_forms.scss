@@ -162,7 +162,8 @@ fieldset {
 	@include cell(full);
 }
 
-input[type="submit"] {
+input[type="submit"],
+.rcp_button {
 	@extend .btn--success;
 	width: 100%;
 	@include bp(sm) {
@@ -205,13 +206,6 @@ input[type="submit"] {
 			float: right;
 		}
 	}
-
-	// label {
-	// 	@include cell($size: fourth, $guttered: false);
-	// }
-
-	// input {
-	// }
 
 }
 
