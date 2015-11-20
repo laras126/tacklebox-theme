@@ -518,31 +518,41 @@ main,
   -o-animation-name: fadeInDown;
      animation-name: fadeInDown; }
 
-@-webkit-keyframes roll {
+@-webkit-keyframes nudge {
   0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); }
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  75% {
+    -webkit-transform: translateX(0.33rem);
+            transform: translateX(0.33rem); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
 
-@-o-keyframes roll {
+@-o-keyframes nudge {
   0% {
-    -o-transform: rotate(0);
-       transform: rotate(0); }
+    -o-transform: translateX(0);
+       transform: translateX(0); }
+  75% {
+    -o-transform: translateX(0.33rem);
+       transform: translateX(0.33rem); }
   100% {
-    -o-transform: rotate(360deg);
-       transform: rotate(360deg); } }
+    -o-transform: translateX(0);
+       transform: translateX(0); } }
 
-@keyframes roll {
+@keyframes nudge {
   0% {
-    -webkit-transform: rotate(0);
-         -o-transform: rotate(0);
-            transform: rotate(0); }
+    -webkit-transform: translateX(0);
+         -o-transform: translateX(0);
+            transform: translateX(0); }
+  75% {
+    -webkit-transform: translateX(0.33rem);
+         -o-transform: translateX(0.33rem);
+            transform: translateX(0.33rem); }
   100% {
-    -webkit-transform: rotate(360deg);
-         -o-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    -webkit-transform: translateX(0);
+         -o-transform: translateX(0);
+            transform: translateX(0); } }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1842,7 +1852,8 @@ th {
           flex: 1; }
 
 .tease__title--page,
-.tease__title--lesson {
+.tease__title--lesson,
+.tease__title--screencast {
   margin-top: 0; }
 
 .tease__wrap--link {
@@ -1855,9 +1866,9 @@ th {
   .tease__wrap--link:hover {
     background-color: #f4f7f9; }
     .tease--screencast .tease__wrap--link:hover .icon {
-      -webkit-animation: roll 0.5s;
-           -o-animation: roll 0.5s;
-              animation: roll 0.5s; }
+      -webkit-animation: nudge 0.75s ease infinite;
+           -o-animation: nudge 0.75s ease infinite;
+              animation: nudge 0.75s ease infinite; }
   .tease__wrap--link .item__row p, .tease__wrap--link .list--icons .list__item--free_form p, .list--icons .tease__wrap--link .list__item--free_form p, .tease__wrap--link .list--icons .list__item__row p, .list--icons .tease__wrap--link .list__item__row p {
     color: #4c4345; }
   @media (min-width: 33em) {
