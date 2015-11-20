@@ -10,7 +10,7 @@
 	
 	<p class="meta--upper">
 		<strong class="special">{% for level in post.get_terms('level') %}{{level.name}}{% endfor %}</strong>
-		<strong class="{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+		<strong class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 				{% if start >= now %}
 					Now Registering
 				{% elseif start < now and end >= now %}
