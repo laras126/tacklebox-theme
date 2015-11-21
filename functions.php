@@ -300,7 +300,7 @@ add_filter( 'gform_cdata_close', 'nl_wrap_gform_cdata_close' );
 // https://imperativeideas.com/making-custom-fields-work-yoast-wordpress-seo/
 
 if ( is_admin() ) { // check to make sure we aren't on the front end
-	add_filter('wpseo_pre_analysis_post_content', 'tbx_add_custom_to_yoast');
+	// add_filter('wpseo_pre_analysis_post_content', 'tbx_add_custom_to_yoast');
 
 	function nl_add_custom_to_yoast( $content ) {
 		global $post;
