@@ -14,13 +14,13 @@
 		<header class="grid">
 			<div class="cell--half">
 				{# TODO: term info needs to be part of class taxonomy #}
-				<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+				{# <p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 					{% if start >= now %}
 						Now Registering
 					{% elseif start < now and end >= now %}
 						Class in session
 					{% else %}Not Live{% endif %}
-				</p>
+				</p> #}
 				<p>{{term.description}}</p>
 			
 			</div>
