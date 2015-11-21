@@ -8,7 +8,7 @@
 	{% set now = "now"|date("U") %}
 
 	<header class="header--page">
-		
+
 		<div class="header__banner">
 			<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 				{% if start >= now %}

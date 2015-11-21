@@ -8,6 +8,6 @@
  */
 
 $context = array();
-$context['main_sideber'] = Timber::get_widgets('main_sidebar');
+$context['main_sidebar'] = Timber::get_widgets('main_sidebar');
 
 Timber::render(array('sidebars/sidebar.twig'), $data);
