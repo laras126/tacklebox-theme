@@ -8,20 +8,19 @@
 
 	<div class="contain--xl">
 	
-	{% if access %}
 		<p class="header__meta">Lesson Archive</p>
 		<h1 class="header__title--archive">{{term.name}}</h1>
 		
 		<header class="grid">
 			<div class="cell--half">
 				{# TODO: term info needs to be part of class taxonomy #}
-				{# <p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+				<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 					{% if start >= now %}
 						Now Registering
 					{% elseif start < now and end >= now %}
 						Class in session
 					{% else %}Not Live{% endif %}
-				</p> #}
+				</p>
 				<p>{{term.description}}</p>
 			
 			</div>
@@ -64,10 +63,6 @@
 				{% include 'teases/_tease-screencast.twig' with { class: 'past' } %}
 			{% endfor %}
 		</div> #}
-
-	{% else %}
-		{% include 'partials/no-access.twig' %}
-	{% endif %}
 
 	</div>
 {% endblock %}
