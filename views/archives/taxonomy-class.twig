@@ -24,17 +24,15 @@
 				<p>{{term.description}}</p>
 			
 			</div>
-		{# </header> #}
 
-		{# <div class="grid upcoming-lessons"> #}
-			{% set now = "now"|date("U", "America/New_York") %}
+			{% set now = "now"|date("Y-m-d", "America/New_York") %}
 		
 			{# Future lessons #}
 			{% for post in lessons %}
 			
-				{% set l_date = post.lesson_date|date("U", "America/New_York") %}
+				{% set l_date = post.lesson_date|date("Y-m-d", "America/New_York") %}
 
-				{% if l_date > "-1 days"|date("U", "America/New_York") and l_date < "1 days"|date("U", "America/New_York") %}
+				{% if l_date == now %}
 					{% include 'teases/_tease-lesson.twig' with { class: 'now' } %}
 				{% elseif l_date > now %}
 					{% include 'teases/_tease-lesson.twig' with { class: 'upcoming' } %}
@@ -48,21 +46,12 @@
 		
 		<div class="grid">
 			{% for post in lessons %}
-				{% set l_date = post.lesson_date|date("U", "America/New_York") %}
-				{% if l_date < "-1 days"|date("U", "America/New_York") %}
+				{% set l_date = post.lesson_date|date("Y-m-d", "America/New_York") %}
+				{% if l_date < now %}
 					{% include 'teases/_tease-lesson.twig' with { class: 'past' } %}
 				{% endif %}
 			{% endfor %}
 		</div>
 		
-		{# Screencasts lessons
-		<h2 class="section__title text-center">Screencasts</h2>
-		
-		<div class="grid">
-			{% for post in screencasts %}
-				{% include 'teases/_tease-screencast.twig' with { class: 'past' } %}
-			{% endfor %}
-		</div> #}
-
 	</div>
 {% endblock %}
