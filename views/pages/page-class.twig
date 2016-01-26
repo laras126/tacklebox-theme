@@ -7,16 +7,16 @@
 	{% set end = post.class_end_date|date("U") %}
 	{% set now = "now"|date("U") %}
 
-	<header class="header--page">
+	<header class="header--page contain--lg">
 
 		<div class="header__banner">
-			<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+			{# <p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 				{% if start >= now %}
 					Now Registering
 				{% elseif start < now and end >= now %}
 					Class in session
 				{% else %}Not Live{% endif %}
-			</p>
+			</p> #}
 			<h1 class="header__title">{{post.post_title}}</h1>
 		</div>
 		
@@ -40,7 +40,7 @@
 		
 			<div class="header__compliment">
 
-				{% if end >= now %}
+				{# {% if end >= now %}
 					<div class="item__row">
 						<div class="item__icon">
 							{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
@@ -50,7 +50,7 @@
 							<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
 						</time>
 					</div>
-				{% endif %}
+				{% endif %} #}
 
 				<div class="item__row">
 					<div class="item__icon">
