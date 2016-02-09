@@ -15,55 +15,79 @@ $(document).ready(function() {
 	// TODO: better fallback for non-JS - adding a .js class but it causes the nav to blink
 	// Look into Modernizr for that
 
-	// var $menu = $('#menu'),
-	//     $menulink = $('.menu-link'),
-	//     $menuTrigger = $('.has-subnav > a');
+	var $menu = $('#menu'),
+	    $menulink = $('.menu-link'),
+	    $menuTrigger = $('.has-subnav > a');
 
-	// $menulink.on('click', function(e) {
-	// 	e.preventDefault();
-	// 	$menulink.toggleClass('open');
-	// 	$menu.toggleClass('open');
-	// 	return false;
-	// });
+	$menulink.on('click', function(e) {
+		e.preventDefault();
+		$menulink.toggleClass('open');
+		$menu.toggleClass('open');
+		return false;
+	});
 
-	// $menuTrigger.click(function(e) {
-	// 	e.preventDefault();
-	// 	var $this = $(this);
-	// 	$this.toggleClass('open').next('ul').toggleClass('open');
-	// });
+	$menuTrigger.click(function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		$this.toggleClass('open').next('ul').toggleClass('open');
+	});
 		
-
-	// $.get("/taxonomies", function(data){
-	// 	console.log(data);
-	// });
-
-
-
-	// ----
-	// Submenu
-	// ----
-
-	//  var scroll_class = 'stuck',
-	// 	$nav = $('.section__nav'),
-	// 	nav_ht = $nav.outerHeight(),
-	// 	header_ht = $('.header--page').outerHeight() + $('.site__header').outerHeight(),
-	// 	total_ht = header_ht;
   	
+  	// Load Sources based on category with REST API
 
-	// // 1. Highlight current item
-	// // 2. Slide to current section on click
-	// $('.section__nav__item__link').on('click', function() {
+    $('.load').each( function() {
+		$(this).on('click', function() {
 
-	// 	var hash = $(this).attr('href');
-	// 	var $target = $(hash + ' .page__section');
+	    	var cat_id = $(this).attr('data-id');
+	    	var cat_name = $('.cat-list').find('a[data-id='+cat_id+']').html();
+			var cpt = $(this).attr('data-cpt');
 
-	// 	// Slide to section corresponding to clicked hash
-	// 	$('html,body').animate({
-	// 		scrollTop: $target.offset().top - nav_ht*1.5
- //        }, 700);
+	    	$('#results').animate({
+	    		'opacity': 0, 
+	    		'max-height': '0'
+	    	}, 200);
+	    	
+	    	// $('.spinner').animate({'opacity': 1}, 200);
 
-	// 	return false;
-	// }); // END click
+	        $.ajax({
+				url: 'http://tsk.local/wp-json/wp/v2/'+cpt,
+				data: {
+		        	filter: {
+		        		'posts_per_page': -1,
+		        		'cat': cat_id
+		        	}
+		    	},
+		    	dataType: 'json',
+		    	type: 'GET',
+
+	        })
+			.done(function(data) {
+				$('#results').html('');
+				$('#results').animate({
+					'opacity': 1, 
+					'max-height': 'none'
+				}, 200);
+		    	// $('.spinner').animate({'opacity': 0}, 200);
+
+	           	for (var i = 0; i < data.length; i++) {
+	           		console.log(data[i].title.rendered);
+					$('#results').append('<div class="item__row"><h5 class="meta--upper"><a href="'+data[i].link+'">'+data[i].title.rendered+'</a><span class="meta--light"> '+data[i].source_author+'</span></h5><p class="meta">'+data[i].source_blurb+'</p></div>');
+	           	};
+	           	// $('#current-cat').html(cat_name);
+	        })
+	        .fail( function(xhr, textStatus, errorThrown) {
+		        // $('#results').html('');
+		        console.log(xhr.responseText);
+		    });
+
+	    });
+
+    });
+    
+
+
+
+	// Back to top arrow
 
 	$('.nav--backtop').on( 'click', function() {
 		var hash = $('#pageTop');
@@ -97,81 +121,6 @@ $(document).ready(function() {
 
 
 
-	// // Highlight the current item according to position on the screen
-	// // http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll
-	// // (continued below)
-	
-	// // Cache selectors
-	// var topMenu = $(".content-nav"),
- //    topMenuHeight = topMenu.outerHeight()+40,
-    
- //    // All list items
- //    menuItems = topMenu.find("a"),
-    
- //    // Anchors corresponding to menu items
- //    scrollItems = menuItems.map(function(){
-	// 	var item = $($(this).attr("href"));
- //      	if (item.length) { return item; }
- //    });
-
-
-
-	// $(window).scroll( function() {
-
-	// 	// Add the class to make the nav stick
-	// 	if( $(this).scrollTop() > total_ht ) {
-
-	// 		$nav.addClass(scroll_class);
-	// 		$('.section-header').addClass('nav-stuck');
-	// 		$('.top-link-bottom').fadeIn(300);
-	// 		$('.content-nav-arrow').fadeOut(300);
-
-	// 		$('.top-link-top').css({
-	// 			'width': '50px',
-	// 			'opacity': '1'
-	// 		});
-			
-	// 	} else if( $(this).scrollTop() < total_ht ) {
-
-	// 		$nav.removeClass(scroll_class);
-	// 		$('.section-header').removeClass('nav-stuck');
-	// 		$('.top-link-bottom').fadeOut(300);
-	// 		$('.content-nav-arrow').fadeIn(300);
-			
-	// 		$('.top-link-top').css({
-	// 			'width': '0',
-	// 			'opacity': '0'
-	// 		});
-	// 	}
-
-
-	// 	// Highlight the current item according to position on the screen
-	// 	// http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll
-	
-	// 	// Get container scroll position
-   		
- //   		var fromTop = $(this).scrollTop()+topMenuHeight;
-
- //   		// Get id of current scroll item
- //   		var cur = scrollItems.map(function(){
- //     		if ($(this).offset().top < fromTop)
- //       			return this;
- //   		});
-   
- //   		// Get the id of the current element
- //   		cur = cur[cur.length-1];
- //   		var id = cur && cur.length ? cur[0].id : "";
-   		
- //   		// Set/remove active class
- //   		menuItems
- //     		.parent().removeClass("content-nav-active")
- //     		.end().filter("[href=#"+id+"]").parent().addClass("content-nav-active");
-	
-	// }); // END scroll
-
-
-
-
 	// ----
 	// Plugins
 	// ----
@@ -179,21 +128,6 @@ $(document).ready(function() {
 	$('.site__main').fitVids();
 
 
-	// ----
-	// Misc
-	// ----
-
-	// Hack to keep out widows
-	// http://css-tricks.com/preventing-widows-in-post-titles/
-   
-	// $('.item-title, .section-title, .main p, .lead').each( function() {
-	// 	var wordArray = $(this).text().split(" ");
-	// 	if (wordArray.length > 3) {
-	// 		wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
-	// 		wordArray.pop();
-	//     	$(this).html(wordArray.join(" "));
-	//   	}
-	// });
 
 
 });
