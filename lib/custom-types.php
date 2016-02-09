@@ -19,12 +19,7 @@ $labels = array(
 	'not_found'           => __( 'Not found', 'tbx' ),
 	'not_found_in_trash'  => __( 'Not found in Trash', 'tbx' ),
 );
-$rewrite = array(
-	'slug'                => 'resources',
-	'with_front'          => true,
-	'pages'               => true,
-	'feeds'               => true,
-);
+
 $args = array(
 	'label'               => __( 'source', 'tbx' ),
 	'description'         => __( 'Resources attached to posts.', 'tbx' ),
@@ -36,6 +31,7 @@ $args = array(
 	'show_ui'             => true,
 	'show_in_menu'        => true,
 	'show_in_nav_menus'   => true,
+	'show_in_rest' 		  => true,
 	'show_in_admin_bar'   => true,
 	'menu_position'       => 5,
 	'menu_icon'           => 'dashicons-admin-links',
@@ -43,7 +39,7 @@ $args = array(
 	'has_archive'         => true,
 	'exclude_from_search' => true,
 	'publicly_queryable'  => true,
-	'rewrite'             => $rewrite,
+	'rewrite'             => false,
 	'capability_type'     => 'page',
 );
 register_post_type( 'source', $args );
