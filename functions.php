@@ -20,6 +20,9 @@ class StarterSite extends TimberSite {
 		add_action('init', array($this, 'register_taxonomies'));
 		add_action('init', array($this, 'tbx_acf_utils'));
 		add_action('widgets_init', array($this, 'tbx_widgets'));
+		
+		require('lib/rest.php');
+		
 		parent::__construct();
 	}
 
@@ -46,6 +49,7 @@ class StarterSite extends TimberSite {
 	function tbx_widgets() {
 		require('lib/widgets.php');
 	}
+
 
 
 
