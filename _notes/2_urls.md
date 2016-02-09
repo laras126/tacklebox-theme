@@ -1,18 +1,15 @@
 
-Begin by listing all of your URLs. Examples:
-
-/
-	Purchase
-
 /about/
 /login/
-/purchase/
+/register/
 
-/home/
+/blog
+
+/
 - upcoming classes
 - featured lesson
 - featured sources
-- buy office
+- buy tutoring
 
 /classes/
 - list of taxonomy terms and descriptions
