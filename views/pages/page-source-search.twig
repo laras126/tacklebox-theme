@@ -1,0 +1,23 @@
+{% extends "pages/page.twig" %}
+
+{% block content %}
+	
+
+	<div class="grid">
+		<ul class="list-cats cell--fourth">
+
+		{% for cat in cats %}
+			<li class="cat-item">
+				<a class="load" data-cpt="source" data-id="{{cat.term_id}}"><strong class="cat-btn">{{cat.name}}</strong></a>
+			</li>
+		{% endfor %}
+
+		</ul>
+		
+		<div class="results-container cell">
+			{# {% include 'partials/micro/spinner.twig' %} #}
+			<div id="results"></div>
+		</div>
+	</div>
+
+{% endblock %}
