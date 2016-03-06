@@ -2,31 +2,34 @@
 
 {% block content %}
 
-	{% for block in post.get_field('blocks') %} 
-		{% include 'blocks/block-logic.twig' %}
-	{% endfor %}
-	
-	{% if post.get_field('download_links') %}
-		<div class="contain--sm">
-			<h3>Relevant Links</h3>
-			<ul>
-			{% for link in post.get_field('download_links') %}
-				<li><a href="{{link.url}}">{{link.title}}</a></li>
-			{% endfor %}
-			</ul>
-		</div>
+	<p>Screencast type</p>
+	<p>Level</p>
+	<p>Category</p>
+
+	{{post.video_embed}}
+
+	{{post.content}}
+
+	{% if post.get_field('links') %}
+		<h3>Relevant Links</h3>
+		<ul>
+		{% for link in post.get_field('links') %}
+			<li><a href="{{link.url}}">{{link.title}}</a></li>
+		{% endfor %}
+		</ul>
 	{% endif %}
 
 {% endblock %}
 
-{# {% block after_content %}
-	{% include 'partials/prevnext.twig' %}
-	<div class="contain--sm">
-		<h5>Related Lessons:</h5>	
-		<ol>
-			{% for l in related_lessons %}
-				<li><a href="{{l.link}}">{{l.title}}</a></li>
-			{% endfor %}
-		</ol>
-	</div>
-{% endblock %} #}
+{% block after_content %}
+
+	<p>TODO</p>
+	{# <ol>
+		{% for l in related_lessons %}
+			<li><a href="{{l.link}}">{{l.title}}</a></li>
+		{% endfor %}
+	</ol> #}
+	<p>Related lesson from class</p>
+	<p>Similar screencasts</p>
+	<p>Tags</p>
+{% endblock %}

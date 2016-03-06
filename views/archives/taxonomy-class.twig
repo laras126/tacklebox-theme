@@ -1,57 +1,13 @@
 {% extends 'base.twig' %}
 
-{% block before_content %}
-	{% include 'archives/_tax-header.twig' %}
-{% endblock %}
-
 {% block content %}
 
-	<div class="contain--xl">
+	<h1>{{term.name}}</h1>
 	
-		<p class="header__meta">Lesson Archive</p>
-		<h1 class="header__title--archive">{{term.name}}</h1>
+	<p>{{term.description}}</p>
 		
-		<header class="grid">
-			<div class="cell--half">
-				{# TODO: term info needs to be part of class taxonomy #}
-				{# <p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
-					{% if start >= now %}
-						Now Registering
-					{% elseif start < now and end >= now %}
-						Class in session
-					{% else %}Not Live{% endif %}
-				</p> #}
-				<p>{{term.description}}</p>
-			
-			</div>
-
-			{% set now = "now"|date("Y-m-d", "America/New_York") %}
-		
-			{# Future lessons #}
-			{% for post in lessons %}
-			
-				{% set l_date = post.lesson_date|date("Y-m-d", "America/New_York") %}
-
-				{% if l_date == now %}
-					{% include 'teases/_tease-lesson.twig' with { class: 'now' } %}
-				{% elseif l_date > now %}
-					{% include 'teases/_tease-lesson.twig' with { class: 'upcoming' } %}
-				{% endif %}
-
-			{% endfor %}
-		</div>
-		
-		{# Past lessons #}
-		<h2 class="section__title text-center">Archived Lessons</h2>
-		
-		<div class="grid">
-			{% for post in lessons %}
-				{% set l_date = post.lesson_date|date("Y-m-d", "America/New_York") %}
-				{% if l_date < now %}
-					{% include 'teases/_tease-lesson.twig' with { class: 'past' } %}
-				{% endif %}
-			{% endfor %}
-		</div>
-		
-	</div>
+	{% for post in lessons %}
+		{% include 'teases/tease-lesson.twig' %}
+	{% endfor %}
+	
 {% endblock %}

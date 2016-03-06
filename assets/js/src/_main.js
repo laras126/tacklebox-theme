@@ -103,10 +103,10 @@ $(document).ready(function() {
 
 	$('.tab').on('click', function() {
 		var href = $(this).find('.tab-link').attr('href');
-		$('.-tabbed').removeClass('open');
+		$('.tab-content').removeClass('open');
 		$('.tab-link').removeClass('open');
 
-		$('.-tabbed' + href).addClass('open');
+		$('.tab-content' + href).addClass('open');
 		$('.tab-link[href='+href+']').addClass('open');
 	});
 

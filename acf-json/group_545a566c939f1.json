@@ -567,7 +567,8 @@
                                                     "toolbar": "text_based",
                                                     "media_upload": 0
                                                 }
-                                            ]
+                                            ],
+                                            "collapsed": ""
                                         },
                                         {
                                             "key": "field_55d21939f5e74",
@@ -868,21 +869,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-class.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
                 "value": "page-long_form.php"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "screencast"
             }
         ]
     ],
@@ -893,16 +880,12 @@
     "instruction_placement": "label",
     "hide_on_screen": [
         "the_content",
-        "excerpt",
         "custom_fields",
         "discussion",
         "comments",
-        "author",
-        "format",
-        "featured_image",
-        "send-trackbacks"
+        "format"
     ],
     "active": 1,
     "description": "",
-    "modified": 1447795788
+    "modified": 1457291176
 }

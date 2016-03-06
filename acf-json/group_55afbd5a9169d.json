@@ -460,7 +460,8 @@
                                     "readonly": 0,
                                     "disabled": 0
                                 }
-                            ]
+                            ],
+                            "collapsed": ""
                         },
                         {
                             "key": "field_545fae2b2e782",
@@ -778,13 +779,6 @@
                 "operator": "==",
                 "value": "default"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "screencast"
-            }
         ]
     ],
     "menu_order": 0,
@@ -806,5 +800,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1447703216
+    "modified": 1457290792
 }

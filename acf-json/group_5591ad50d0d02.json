@@ -3,9 +3,35 @@
     "title": "Lessons",
     "fields": [
         {
+            "key": "field_56dc7eb81dab3",
+            "label": "Screencasts",
+            "name": "screencasts",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "screencast"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "id"
+        },
+        {
             "key": "field_5592d15291d53",
-            "label": "Lesson Outline",
-            "name": "",
+            "label": "Learning Goals",
+            "name": "learning_goals",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -19,115 +45,8 @@
             "endpoint": 0
         },
         {
-            "key": "field_55ce0257382af",
-            "label": "Date",
-            "name": "lesson_date",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 25,
-                "class": "",
-                "id": ""
-            },
-            "display_format": "d\/m\/Y",
-            "return_format": "d\/m\/Y",
-            "first_day": 1
-        },
-        {
-            "key": "field_55ce3d720b6c3",
-            "label": "Time",
-            "name": "lesson_time",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 25,
-                "class": "",
-                "id": ""
-            },
-            "default_value": "6:30pm- 8:30pm EST",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
-            "key": "field_55cd0d56b3d43",
-            "label": "Event Page",
-            "name": "event_page",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 50,
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_55cd0d48b3d42",
-            "label": "Download Link",
-            "name": "download_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 50,
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_55cd0d8b732de",
-            "label": "Slides Link",
-            "name": "slides_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": 50,
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5591ae879bd86",
-            "label": "Video",
-            "name": "video",
-            "type": "textarea",
-            "instructions": "Paste the video embed code here. Make sure to remove any tags besides the iframe.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 2,
-            "new_lines": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
             "key": "field_55c8bc3c495fa",
-            "label": "Blocks",
+            "label": "Goals Blocks",
             "name": "blocks",
             "type": "flexible_content",
             "instructions": "Blocks provide a structure for your content.",
@@ -562,7 +481,8 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ]
+                            ],
+                            "collapsed": ""
                         },
                         {
                             "key": "field_55c8bc3c4960c",
@@ -889,26 +809,8 @@
             "endpoint": 0
         },
         {
-            "key": "field_5592d9ba2dc02",
-            "label": "Assignments Summary",
-            "name": "assignments_summary",
-            "type": "wysiwyg",
-            "instructions": "A brief summary for the assignments content.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "wysiwg-short",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "text_based",
-            "media_upload": 0
-        },
-        {
             "key": "field_55c8bc61ccdf3",
-            "label": "Assignment Blocks",
+            "label": "Homework Blocks",
             "name": "assignment_blocks",
             "type": "flexible_content",
             "instructions": "Blocks provide a structure for your content.",
@@ -1343,7 +1245,8 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ]
+                            ],
+                            "collapsed": ""
                         },
                         {
                             "key": "field_55c8bc61cce05",
@@ -2106,7 +2009,8 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ]
+                            ],
+                            "collapsed": ""
                         },
                         {
                             "key": "field_5638f55201bf8",
@@ -2431,8 +2335,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1446573416
+    "modified": 1457291867
 }

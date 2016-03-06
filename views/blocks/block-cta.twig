@@ -1,0 +1,11 @@
+{% extends "blocks/block.twig" %}
+
+{% block content %}
+
+	<div class="cta">
+		<h4 class="cta-title">{{block.cta_heading}}</h4>
+		<p class="cta-content">{{block.cta_text}}</p>
+		<a href="{{block.cta_btn_url}}" class="cta-btn">{{block.cta_btn_text}}</a>
+	</div>
+
+{% endblock %}

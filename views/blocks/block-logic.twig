@@ -2,18 +2,17 @@
 {% set block_class = block.acf_fc_layout %}
 
 {% if block.acf_fc_layout == 'block_text' %}
-    {% include 'blocks/_block-text.twig' %}   
+    {% include 'blocks/block-text.twig' %}   
 {% elseif block.acf_fc_layout == 'block_textimage' %}
-    {% include 'blocks/_block-textimage.twig' %}
-{# {% elseif block.acf_fc_layout == 'block_related_page' %} #}
-    {# <h2>block_related</h2> #}
-    {# {% include 'blocks/_block-related.twig' %} #}
+    {% include 'blocks/block-textimage.twig' %}
 {% elseif block.acf_fc_layout == 'block_html' %}
-    {% include 'blocks/_block-html.twig' %}
+    {% include 'blocks/block-html.twig' %}
+{% elseif block.acf_fc_layout == 'block_code' %}
+    {% include 'blocks/block-code.twig' %}
 {% elseif block.acf_fc_layout == 'block_list' %}
-    {% include 'blocks/_block-list.twig' %}
+    {% include 'blocks/block-list.twig' %}
 {% elseif block.acf_fc_layout == 'block_cta' %}
-    {% include 'blocks/_block-cta.twig' %}
+    {% include 'blocks/block-cta.twig' %}
 {% elseif block.acf_fc_layout == 'block_quote' %}
-    {% include 'blocks/_block-quote.twig' %}
+    {% include 'blocks/block-quote.twig' %}
 {% endif %}

@@ -1,0 +1,9 @@
+{% extends 'pages/page.twig' %}
+
+{% block content %}
+	{% for course in courses %}
+		<h3>{{loop.index}}. {{course.name}}</h3>
+		<p>{{course.description}}</p>
+		<a href="{{course.link}}">View Lessons</a>
+	{% endfor %}
+{% endblock %}

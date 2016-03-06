@@ -1,11 +1,32 @@
 {
     "key": "group_55f71faf9e001",
-    "title": "Screencast Details",
+    "title": "Screencasts",
     "fields": [
         {
+            "key": "field_56dc7cfbcfe97",
+            "label": "Video Embed",
+            "name": "video_embed",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_564a31dfe45f3",
-            "label": "Download Links",
-            "name": "download_links",
+            "label": "Links",
+            "name": "links",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -15,6 +36,7 @@
                 "class": "",
                 "id": ""
             },
+            "collapsed": "",
             "min": "",
             "max": "",
             "layout": "table",
@@ -77,5 +99,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1447703195
+    "modified": 1457292021
 }

@@ -1,81 +1,85 @@
 {% extends 'singles/single.twig' %}
 
-{% block content %}
-{% if access %}
-	<div class="contain--lg">
-		<div class="media--enhanced">
-			{{post.video}}
-		</div>
-	</div>
 
-	{# Blocks for additional Lesson content #}
-	
-	<nav class="contain--sm">
-		<ul class="tab-nav">
+{% block content %}
+	{% for t in post.get_terms('class')|slice(0,1) %}
+		{{t.name}}
+	{% endfor %}
+
+{% if access %}
+	<div class="lesson-screencasts">
+		{% for id in post.get_field('screencasts') %}
+		<section class="sc-section{{loop.first ? ' open'}}">
+			{% set vid = TimberPost(id) %}
+			<header class="sc-header">
+				<h3>{{vid.title}}</h3>
+				<p>{{vid.header_tagline}}</p>
+			</header>
+			{{vid.video_embed}}
+			{{vid.content}}
+			<footer class="sc-footer">
+				<h5>Relevant Links</h5>
+				<ul>
+					{% for link in vid.get_field('links') %}
+						<a href="{{link.url}}" target="blank">{{link.title}}</a>
+					{% endfor %}
+				</ul>
+			</footer>
+		</section>
+		{% endfor %}
+	</div> <!-- /.lesson-screencasts -->
+
+	<nav class="lesson-nav">
+		<ul class="tabs">
 			<li class="tab"><a class="tab-link open" href="#notes">Lesson Notes</a></li>
 			<li class="tab"><a class="tab-link" href="#homework">Homework</a></li>
 			<li class="tab"><a class="tab-link" href="#resources">Resources</a></li>
 		</ul>
-	</nav>
-	<div class="page__content">
-		<section class="page__section -tabbed open" id="notes">
-				
-			<header class="section__header contain--sm">
-				<h2 class="section__title -tabbed">Lesson Notes</h2>
+	</nav> <!-- /.lesson-nav -->
+	
+	<div class="tab-content-container">
+		<section class="tab-content open" id="notes">
+			<header class="tab-header">
+				<h2 class="tab-title">Learning Goals</h2>
+				<p>Make sure you understand these concepts before moving to the next lesson.</p>
 			</header>
-			<div class="tab-content">
-				{% if post.get_field('blocks') %}
-					{% for block in post.get_field('blocks') %} 
-						{% include 'blocks/block-logic.twig' %}
-					{% endfor %}
-				{% else %}
-					<div class="contain--sm">
-						<p>Coming soon!</p>
-					</div>
-				{% endif %}
-			
+			{% if post.get_field('blocks') %}
+				{% for block in post.get_field('blocks') %} 
+					{% include 'blocks/block-logic.twig' %}
+				{% endfor %}
+			{% else %}
+				{% include 'partials/content-coming.twig' %}
+			{% endif %}
 		</section> <!-- /#notes -->
 
-		<section class="page__section -tabbed" id="homework">
-			
-			<header class="section__header">
-				<div class="contain--sm">
-					<h2 class="section__title -tabbed">Homework</h2>
-					{{post.assignments_summary|wpautop}}
-				</div>
+		<section class="tab-content" id="homework">
+			<header class="tab-header">
+				<h2 class="tab-title">Homework</h2>
+				<p>Complete these parts of your project.</p>
 			</header>
-
 			{% if post.get_field('assignment_blocks') %}
 				{% for block in post.get_field('assignment_blocks') %}
 					{% include 'blocks/block-logic.twig' %}
 				{% endfor %}
 			{% else %}
-				<div class="contain--sm">
-					<p>Coming soon!</p>
-				</div>
+				{% include 'partials/content-coming.twig' %}
 			{% endif %}
-				
 		</section> <!-- /#homework -->
 
-		<section class="page__section -tabbed" id="resources">
-			
-			<header class="section__header">
-				<div class="contain--sm">
-					<h2 class="section__title -tabbed">Resources</h2>
-					{# {{post.assignments_summary|wpautop}} #}
-				</div>
+		<section class="tab-content" id="resources">
+			<header class="tab-header">
+				<h2 class="tab-title">Resources</h2>
+				<p>Helpful resources related to this lesson.</p>
 			</header>
 			{% if post.get_field('resources_blocks') %}
 				{% for block in post.get_field('resources_blocks') %}
 					{% include 'blocks/block-logic.twig' %}
 				{% endfor %}
 			{% else %}
-				<div class="contain--sm">
-					<p>Coming soon!</p>
-				</div>
+				{% include 'partials/content-coming.twig' %}
 			{% endif %}
 		</section> <!-- /#resources -->
-	</div>
+	</div> <!-- /.tab-content-container -->
 
 	{% else %}
 		{% include 'partials/no-access.twig' %}	
@@ -85,16 +89,8 @@
 
 {% block after_content %}
 
-	<div class="contain--md">
+	<footer class="lesson-footer">
 		{% include 'partials/prevnext.twig' %}
-	</div>	
-	<div class="contain--sm">
-		<h5>Other lessons in this series:</h5>	
-		<ol>
-			{% for l in related_lessons %}
-				<li><a href="{{l.link}}">{{l.title}}</a></li>
-			{% endfor %}
-		</ol>
-	</div>
+	</footer>
 	
 {% endblock %}
