@@ -114,12 +114,51 @@ $labels = array(
 $args = array(
 	'labels'                     => $labels,
 	'hierarchical'               => true,
+	'rewrite'           => array( 'slug' => 'lessons' ),
 	'public'                     => true,
 	'show_ui'                    => true,
 	'show_admin_column'          => true,
 	'show_in_nav_menus'          => true,
 	'show_tagcloud'              => true,
 );
-register_taxonomy( 'class', array( 'lesson', 'screencast' ), $args );
+register_taxonomy( 'class', array( 'lesson', 'screencast', 'source' ), $args );
+
+
+
+
+// ----
+// Screencast Types
+// ----
+
+$labels = array(
+	'name'                       => _x( 'Screencast Types', 'Taxonomy General Name', 'tbx' ),
+	'singular_name'              => _x( 'Screencast Type', 'Taxonomy Singular Name', 'tbx' ),
+	'menu_name'                  => __( 'Screencast Types', 'tbx' ),
+	'all_items'                  => __( 'All Screencast Types', 'tbx' ),
+	'parent_item'                => __( 'Parent Screencast Type', 'tbx' ),
+	'parent_item_colon'          => __( 'Parent Screencast Type:', 'tbx' ),
+	'new_item_name'              => __( 'New Screencast Type Name', 'tbx' ),
+	'add_new_item'               => __( 'Add New Screencast Type', 'tbx' ),
+	'edit_item'                  => __( 'Edit Screencast Type', 'tbx' ),
+	'update_item'                => __( 'Update Screencast Type', 'tbx' ),
+	'view_item'                  => __( 'View Screencast Type', 'tbx' ),
+	'separate_items_with_commas' => __( 'Separate Screencast Typees with commas', 'tbx' ),
+	'add_or_remove_items'        => __( 'Add or remove Screencast Typees', 'tbx' ),
+	'choose_from_most_used'      => __( 'Choose from the most used', 'tbx' ),
+	'popular_items'              => __( 'Popular Screencast Typees', 'tbx' ),
+	'search_items'               => __( 'Search Screencast Types', 'tbx' ),
+	'not_found'                  => __( 'Not Found', 'tbx' ),
+);
+$args = array(
+	'labels'                     => $labels,
+	'hierarchical'               => true,
+	'public'                     => true,
+	'show_ui'                    => true,
+	'show_admin_column'          => true,
+	'show_in_nav_menus'          => true,
+	'show_tagcloud'              => true,
+);
+register_taxonomy( 'screencast_type', array( 'screencast' ), $args );
+
 
  ?>
