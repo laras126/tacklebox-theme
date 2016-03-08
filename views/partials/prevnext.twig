@@ -1,14 +1,13 @@
-
-<nav class="nav--prevnext">
-	<div class="nav__wrap--prevnext nav--next">
+<nav class="nav-prevnext">
+	<div class="next">
 		{% if post.next %}
 			{% include 'partials/svg.twig' with { file: 'arrow-left', prefix: 'icon' } %}
-			<a class="nav__link--next" href="{{post.next.link}}">{{post.next.title}}</a>	
+			<a class="next-link" href="{{post.next.link}}">{{post.next.title}}</a>	
 		{% endif %}
 	</div>
-	<div class="nav__wrap--prevnext nav--prev">
+	<div class="prev">
 		{% if post.prev %}
-			<a class="nav__link--prev" href="{{post.prev.link}}">{{post.prev.title}}</a>
+			<a class="prev-link" href="{{post.prev.link}}">{{post.prev.title}}</a>
 			{% include 'partials/svg.twig' with { file: 'arrow-right', prefix: 'icon' } %}
 		{% endif %}
 	</div>
