@@ -13,7 +13,7 @@
             {% include 'site/site-header.twig' %}
         {% endblock %}  
         
-        <main class="site__main contain--lg" role="main">
+        <main class="site-main" role="main">
         
             {% block before_content %}
                 {% include 'partials/header.twig' %}
@@ -43,7 +43,7 @@
         </main>
 
         {% block footer %}
-            {% include 'site/site-footer.twig' %}   
+            {% include 'site/site-footer.twig' %}
             {{ function('wp_footer') }}
         {% endblock %}
 
