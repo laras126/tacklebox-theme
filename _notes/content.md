@@ -1,16 +1,13 @@
 
-/about/
-/login/
-/register/
-
-/blog
-
-:::::TODO:::::
 /
 - upcoming classes
-- featured lesson
-- featured sources
-- buy tutoring
+- featured sources 
+
+logged out:
+- register for tbx
+- sign up for updates
+
+TODO::::logged in stuff on homepage
 
 /courses/
 - page-courses.twig
@@ -70,6 +67,22 @@
 - taxonomy archive organized by term
 /sources/source-type
 - archive filtered by term - possibly with REST
+
+/about/
+/login/
+- [login_form]
+
+/register/
+- [register_form]
+
+/account/
+- Page, long form template
+- [subscription_details]
+- [register_form]
+- [rcp_profile_editor]
+- [password_form]
+
+/blog
 
 /shortcuts
 
