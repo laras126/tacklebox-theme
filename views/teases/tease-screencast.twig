@@ -2,17 +2,14 @@
 
 {% block content %}
 	{% set post = TimberPost(post) %}
-	<div class="contain--sm">
-		<a class="tease__wrap--link" href="{{post.link}}">
-			<div class="item__row">
-				<div class="item__main">
-					<h5 class="tease__title--screencast meta--upper">{{post.post_title}}</h5>
-					<p class="meta">{{post.header_summary}}</p>
-				</div>
-				<div class="item__icon">
-					{% include 'partials/svg.twig' with { file: 'arrow-right', prefix: 'icon' } %}
-				</div>
-			</div>
-		</a>
-	</div>
+	<a class="tease-link" href="{{post.link}}">
+		<h5 class="tease-title">{{post.post_title}}</h5>
+		<p class="tease-content">{{post.excerpt ? post.excerpt : post.header_summary}}</p>
+
+		{# Don't show associated class on lesson page (already on that class) #}
+		{% for t in post.get_terms('screencast_type') %}
+			<a href="{{t.link}}">{{t.name}}</a>{{ loop.last ? '' : ', ' }}
+		{% endfor %}
+	</a>
+	{% include 'partials/edit-link.twig' %}
 {% endblock %}
