@@ -1,4 +1,6 @@
 
+(function($) {
+
 $(document).ready(function() {
 	
 	console.log('Check it: https://github.com/laras126/content-blocks-starter');
@@ -31,61 +33,61 @@ $(document).ready(function() {
   	
   	// Load Sources based on category with REST API
 
-    $('.load').each( function() {
-		$(this).on('click', function() {
+  //   $('.load').each( function() {
+		// $(this).on('click', function() {
 
-	    	var cat_id = $(this).attr('data-id');
-	    	var cat_name = $('.cat-list').find('a[data-id='+cat_id+']').html();
-			var cpt = $(this).attr('data-cpt');
+	 //    	var cat_id = $(this).attr('data-id');
+	 //    	var cat_name = $('.cat-list').find('a[data-id='+cat_id+']').html();
+		// 	var cpt = $(this).attr('data-cpt');
 
-	    	$('#results').animate({
-	    		'opacity': 0, 
-	    		'max-height': '0'
-	    	}, 200);
+	 //    	$('#results').animate({
+	 //    		'opacity': 0, 
+	 //    		'max-height': '0'
+	 //    	}, 200);
 	    	
-	    	// $('.spinner').animate({'opacity': 1}, 200);
+	 //    	// $('.spinner').animate({'opacity': 1}, 200);
 
-	        $.ajax({
-				url: 'http://tsk.local/wp-json/wp/v2/'+cpt,
-				data: {
-		        	filter: {
-		        		'posts_per_page': -1,
-		        		'cat': cat_id
-		        	}
-		    	},
-		    	dataType: 'json',
-		    	type: 'GET',
+	 //        $.ajax({
+		// 		url: 'http://tsk.local/wp-json/wp/v2/'+cpt,
+		// 		data: {
+		//         	filter: {
+		//         		'posts_per_page': -1,
+		//         		'cat': cat_id
+		//         	}
+		//     	},
+		//     	dataType: 'json',
+		//     	type: 'GET',
 
-	        })
-			.done(function(data) {
-				$('#results').html('');
-				$('#results').animate({
-					'opacity': 1, 
-					'max-height': 'none'
-				}, 200);
-		    	// $('.spinner').animate({'opacity': 0}, 200);
+	 //        })
+		// 	.done(function(data) {
+		// 		$('#results').html('');
+		// 		$('#results').animate({
+		// 			'opacity': 1, 
+		// 			'max-height': 'none'
+		// 		}, 200);
+		//     	// $('.spinner').animate({'opacity': 0}, 200);
 
-	           	for (var i = 0; i < data.length; i++) {
-	           		console.log(data[i].title.rendered);
-					$('#results').append('<div class="item__row"><h5 class="meta--upper"><a href="'+data[i].link+'">'+data[i].title.rendered+'</a><span class="meta--light"> '+data[i].source_author+'</span></h5><p class="meta">'+data[i].source_blurb+'</p></div>');
-	           	};
-	           	// $('#current-cat').html(cat_name);
-	        })
-	        .fail( function(xhr, textStatus, errorThrown) {
-		        // $('#results').html('');
-		        console.log(xhr.responseText);
-		    });
+	 //           	for (var i = 0; i < data.length; i++) {
+	 //           		console.log(data[i].title.rendered);
+		// 			$('#results').append('<div class="item__row"><h5 class="meta--upper"><a href="'+data[i].link+'">'+data[i].title.rendered+'</a><span class="meta--light"> '+data[i].source_author+'</span></h5><p class="meta">'+data[i].source_blurb+'</p></div>');
+	 //           	};
+	 //           	// $('#current-cat').html(cat_name);
+	 //        })
+	 //        .fail( function(xhr, textStatus, errorThrown) {
+		//         // $('#results').html('');
+		//         console.log(xhr.responseText);
+		//     });
 
-	    });
+	 //    });
 
-    });
+  //   });
     
 
 
 
 	// Back to top arrow
 
-	$('.nav--backtop').on( 'click', function() {
+	$('.nav-backtop').on( 'click', function() {
 		var hash = $('#pageTop');
 		var $target = $(hash);
 
@@ -114,6 +116,16 @@ $(document).ready(function() {
         e.preventDefault();
 	});
 
+	$('.acc-header').each( function() {
+		var $panel = $(this).next();
+		$(this).on('click', function() {
+			if ($panel.hasClass('open')) {
+				$panel.removeClass('open')
+			} else {
+				$panel.addClass('open');
+			}
+		});
+	});
 
 
 
@@ -128,3 +140,4 @@ $(document).ready(function() {
 
 });
 
+}(jQuery));
