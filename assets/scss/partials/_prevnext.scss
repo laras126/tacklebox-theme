@@ -1,26 +1,26 @@
 
-.nav--prevnext {
+.prevnext {
 	margin-top: $size-h2;
 	margin-bottom: $size-h2;
-	font-weight: $font-weight-strong;
 	@include grid;
 }
 
-.nav__wrap--prevnext {
-	@include cell;
-	@include grid;
-	align-items: center;
+.prev,
+.next {
+	@include cell($size: half);
 
-	a {
+	& > .icon {
 		@include cell;
 	}
-
-	.icon {
-		height: $size-h2;
-		width: $size-h2;
-	}
 }
 
-.nav--prev {
+.next {
 	text-align: right;
+	justify-content: flex-end;
+}
+
+.prevnext-label {
+	@include meta;
+	@include upperspace;
+	display: block;
 }

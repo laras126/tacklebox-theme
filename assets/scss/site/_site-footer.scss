@@ -1,24 +1,24 @@
-.site__footer {
-	background-color: $color-accent-dark;
+.site-footer {
 	padding-top: $size-h2;
 }
 
-.site__footer__content {
-	border-top: $border-accent;
+.site-footer-signup {
+	@include contain(md);
+	// border-top: $border-accent;
+	// padding-bottom: $size-base;
+}
+
+.site-footer-colophon {
 	text-align: center;
-	@extend .meta--light;
-	// @include grid(false);
-	padding-bottom: $size-base;
+	// background-color: $color-accent-dark;
+	@include meta($color-text-light);
+
+	.inner {
+		@include contain(lg);
+	}
 }
 
-.site__footer__credits {
-	// @include cell(full);
-	// @include bp(md) {
-	// 	@include cell(half, $is_first: false);
-	// }
-}
-
-.site__footer__art img {
+.site-footer-art img {
 	width: 104%;
 	height: auto;
 	display: block;

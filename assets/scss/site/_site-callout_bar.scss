@@ -1,9 +1,34 @@
-.bar--callout {
-	padding: $size-xsml 0;
+.bar-logged-in {
 	@include rotate;
+	@include meta($color-text-vlight);
+	text-align: right;
 
-	.bar--callout__text {
-		@include meta($color-text-vlight);
-		text-align: right;
+	a {
+		color: $color-text-vlight;
 	}
+}
+
+.bar-nav {
+	@include contain(lg);
+	ul {
+		@include unstyle-list;
+	}
+}
+
+.bar-nav-inner {
+	@include grid($guttered: false);
+}
+
+.bar-nav-items,
+.bar-nav-user {
+	@include cell;
+}
+
+.bar-nav-item {
+	display: inline-block;
+	padding: $size-xsml;
+}
+
+.bar-nav-user {
+	text-align: left;
 }

@@ -1,11 +1,9 @@
 
 
-.page__section {
-	&.-tabbed {
-		max-height: 0;
-		transition: 0.5s ease all;
-		overflow: hidden;
-	}
+.tab-content {
+	max-height: 0;
+	transition: 0.5s ease all;
+	overflow: hidden;
 
 	&.open {
 		max-height: none;

@@ -28,22 +28,15 @@ hr {
 	border-bottom: $border-accent;
 }
 
-.site__main--sidebar {
-	// @include grid;
-}
-
-.main__content {
+.site-main {
 	// background-color: $color-body-contain;
 	// padding: $size-h4;
 	// border: $border-accent;
-
-	@include bp(md) {
-		@include cell;
-		padding-right: $size-h4;
-	}
+	
+	@include contain(md);
 }
 
-.main__sidebar {
+.site-sidebar {
 	@include bp(md) {
 		border-left: $border-accent;
 		@include cell(third);

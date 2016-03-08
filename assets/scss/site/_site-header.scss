@@ -1,5 +1,6 @@
 
-.site__header {
+.site-header {
+	@include contain(lg);
 	border-bottom: $border-accent;
 	margin-bottom: $size-h3;
 	@include bp(md) {
@@ -8,7 +9,7 @@
 	}
 }
 
-.site__logo {
+.site-logo {
 	max-width: 60%;
 	display: block;
 	margin: 0 auto;
@@ -22,17 +23,13 @@
 	}
 }
 
-	.site__logo--welcome {
-
-	}
-
-.site__nav {
+.site-nav {
 
 	@include bp(sm) {
 		@include cell;
 	}
 
-	&__items {
+	&-items {
 		@include unstyle-list();
 			text-align: center;
 		
@@ -42,7 +39,7 @@
 		padding-bottom: $size-base;
 	}
 
-	&__item {
+	&-item {
 		display: inline-block;
 		padding-right: $size-base;
 		padding-bottom: $size-sml;
