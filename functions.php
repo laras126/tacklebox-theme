@@ -17,6 +17,7 @@ class StarterSite extends TimberSite {
 		add_filter('timber_context', array($this, 'add_to_context'));
 		add_filter('get_twig', array($this, 'add_to_twig'));
 		add_action('init', array($this, 'register_post_types'));
+		add_action('init', array($this, 'register_menus'));
 		add_action('init', array($this, 'register_taxonomies'));
 		add_action('init', array($this, 'tbx_acf_utils'));
 		add_action('widgets_init', array($this, 'tbx_widgets'));
@@ -54,8 +55,8 @@ class StarterSite extends TimberSite {
 
 
 	function add_to_context($context){
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['main_menu'] = new TimberMenu('main');
+		$context['user_menu'] = new TimberMenu('logged-in');
 		$context['site'] = $this;
 		$context['user'] = new TimberUser(get_current_user_id());
 
@@ -196,11 +197,23 @@ function tsk_save_lesson_state_in_admin( $user_id ) {
 function tbx_scripts() {
 
 	// Use jQuery from CDN, enqueue in footer
-	if (!is_admin()) {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
-		wp_enqueue_script('jquery');
-	}
+	// if (!is_admin()) {
+	// 	wp_deregister_script('jquery');
+	// 	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
+	// 	wp_enqueue_script('jquery');
+	// }
+	if (!is_admin())
+    {  
+        wp_deregister_script('jquery');  
+  
+        // Load the copy of jQuery that comes with WordPress  
+        // The last parameter set to TRUE states that it should be loaded  
+        // in the footer.  
+        wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', '', '', true);  
+  
+        wp_enqueue_script('jquery');
+    }  
+	// wp_enqueue_script( 'jquery', '', '', '', true );
 
 	// Enqueue stylesheet and scripts. Use minified for production.
 	// NOTE: will need to change this to get_stylesheet_directory_uri() to allow for child themes later.
@@ -360,11 +373,15 @@ if (GOOGLE_ANALYTICS_ID && (WP_ENV !== 'production' || !current_user_can('manage
 function tbx_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
     $query->set( 'post_type', array(
-     'post', 'lesson', 'source'
+     'post', 'lesson', 'source', 'screencast'
 		));
 	  return $query;
 	}
 }
 add_filter( 'pre_get_posts', 'tbx_add_custom_types' );
 
-?>
+
+add_action('init', 'my_custom_init');
+function my_custom_init() {
+    add_post_type_support( 'screencast', 'wpcom-markdown' );
+}
