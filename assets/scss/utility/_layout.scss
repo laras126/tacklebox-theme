@@ -1,10 +1,4 @@
-
-$screen-sm:     33em;
-$screen-md:     45em;
-$screen-lg:     53em;
-$screen-xl:     75em;
-
-$gutter:        $size-base;
+$gutter: $size-base;
 
 $directions: (
     top: flex-start,
@@ -19,8 +13,6 @@ $sizes: (
   fourth: 25%,
   sixth:  16.66666667%
 );
-
-// Spaghetti for dinner?
 
 @mixin cell($size: false, $direction: false, $guttered: true, $is_first: true) {
 
@@ -39,16 +31,17 @@ $sizes: (
 
     @if $size != false {
         flex: 0 0 map-get($sizes, $size);
+        max-width: map-get($sizes, $size); // Fix for Firefox
     } @else {
         flex: 1;    
     }
 
 }
 
-@mixin grid($guttered: true, $align: false, $bp: sm) {
+@mixin grid($guttered: true, $align: false, $wrap: row wrap) {
 
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: $wrap;
     position: relative;
         
     @if $align != false {
@@ -62,18 +55,28 @@ $sizes: (
 }
 
 
+@mixin contain($size: md) {
+    margin: 0 auto;
+    width: 90%;
+    position: relative;
+
+    @if $size == sm  {
+        max-width: $screen-sm;    
+    } @else if $size == md  {
+        max-width: $screen-md;    
+    } @else if $size == lg  {
+        max-width: $screen-lg;    
+    } 
+}
+
+
 /// @group containers
 // TODO: this could be a map
 
 .contain {
     margin: 0 auto;
+    width: 90%;
     position: relative;
-}
-
-main,
-.site__header {
-  width: 90%;
-  @extend .contain;
 }
 
 .contain--lg {
@@ -98,47 +101,84 @@ main,
 
 
 
-/// @group bleeds
-/// @description [Bleed an element slightly out of its container.]
-
-@mixin bleed($size: $size-base) {
-	@include bp(md) {
-		  margin-right: -3%;
-	    margin-left: -3%;
-	}
+// Bleeds
+@mixin bleed($size: -3%) {
+  @include bp(md) {
+    margin-right: $size;
+    margin-left: $size;
+  }
 }
 
-.bleed {
-	@include bleed;
+.bleed--baby {
+  @include bleed;
 }
+
+.bleed--big {
+  @include bleed(-10%);
+}
+
 
 
 // Prototyping classes
 
 .grid {
-    @include grid;
+    @include bp(sm) {
+        @include grid;
+    }
 }
 
+.grid--center {
+    @include bp(sm) {
+        align-items: center;
+    }
+}
 
-// .rcp_user_fieldset {
-//   display: flex !important;
-//   & > p {
-//     flex: 0 0 50% !important; 
-//   }
-// }
+.grid--right {
+    @include bp(sm) {
+        align-items: right;
+    }   
+}
 
 .cell {
     @include cell;
 }
 
-.cell--half {
-    @include bp(md) {
-      @include cell($size: half);
+.cell--right {
+    @include bp(sm) {
+        align-self: right;
+    }   
+}
+
+.cell--sixth {
+    @include bp(sm) {
+        @include cell($size: sixth);
     }
 }
 
 .cell--fourth {
-    @include bp(md) {
-      @include cell($size: fourth);
+    @include bp(sm) {
+        @include cell($size: fourth);
     }
+}
+
+.cell--third {
+    @include bp(sm) {
+        @include cell($size: third);
+    }
+}
+
+.cell--half {
+    @include bp(sm) {
+        @include cell($size: half);
+    }
+}
+
+.cell--full {
+    @include bp(sm) {
+        @include cell($size: full);
+    }
+}
+
+.clearfix {
+    @include clearfix;
 }
