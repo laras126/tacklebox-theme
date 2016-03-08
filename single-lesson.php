@@ -28,10 +28,12 @@ $user_id = get_current_user_id();
 
 $context = Timber::get_context();
 $post = Timber::query_post();
+
 // $context['lesson_completed'] = get_user_meta( $user_id, '_lesson_'.$post->ID.'_complete' )[0];
+
 $context['post'] = $post;
 $context['user'] = $user_id;
-$context['comment_form'] = TimberHelper::get_comment_form();
+
 $context['related_lessons'] = Timber::get_posts($lesson_args);
 
 if (post_password_required($post->ID)){
