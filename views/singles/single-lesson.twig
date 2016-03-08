@@ -1,30 +1,41 @@
 {% extends 'singles/single.twig' %}
 
-
 {% block content %}
-	{% for t in post.get_terms('class')|slice(0,1) %}
-		{{t.name}}
-	{% endfor %}
+	
+	{# Not sure why these are switched e.g. prev is next and vice versa. Also may be a better way to have this function in the PHP file rather than inline here. #}
+	<nav class="prevnext">
+		<div class="prev">
+			{{function('next_post_link', '%link', '<span class="prevnext-label">Previous Lesson</span> %title', TRUE, ' ', 'class' )}}
+		</div>
+		<div class="next">
+			{{function('previous_post_link', '%link', '			<span class="prevnext-label">Next Lesson</span> %title', TRUE, ' ', 'class' )}}
+		</div>
+	</nav>
 
-{% if access %}
+{# {% if access %} #}
 	<div class="lesson-screencasts">
 		{% for id in post.get_field('screencasts') %}
-		<section class="sc-section{{loop.first ? ' open'}}">
+		<section class="acc-section{{loop.first ? ' open'}}">
 			{% set vid = TimberPost(id) %}
-			<header class="sc-header">
+			<header class="acc-header">
 				<h3>{{vid.title}}</h3>
 				<p>{{vid.header_tagline}}</p>
 			</header>
-			{{vid.video_embed}}
-			{{vid.content}}
-			<footer class="sc-footer">
-				<h5>Relevant Links</h5>
-				<ul>
+			<div class="acc-content">
+				{{vid.video_embed}}
+				{{vid.content}}
+				{% if vid.links %}
+					<h5>Relevant Links</h5>
+					<ul>
 					{% for link in vid.get_field('links') %}
-						<a href="{{link.url}}" target="blank">{{link.title}}</a>
+						<li>
+							<a href="{{link.url}}" target="blank">{{link.title}}</a>
+						</li>
 					{% endfor %}
-				</ul>
-			</footer>
+					</ul>
+				{% endif %}
+			</div>
+			{% include 'partials/edit-link.twig' with { post: vid } %}
 		</section>
 		{% endfor %}
 	</div> <!-- /.lesson-screencasts -->
@@ -80,17 +91,16 @@
 			{% endif %}
 		</section> <!-- /#resources -->
 	</div> <!-- /.tab-content-container -->
-
+{# 
 	{% else %}
 		{% include 'partials/no-access.twig' %}	
-	{% endif %}
+	{% endif %} #}
 
 {% endblock %}
 
 {% block after_content %}
 
 	<footer class="lesson-footer">
-		{% include 'partials/prevnext.twig' %}
 	</footer>
 	
 {% endblock %}

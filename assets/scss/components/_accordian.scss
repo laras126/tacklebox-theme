@@ -1,0 +1,14 @@
+
+
+.acc-content {
+	max-height: 0;
+	overflow: hidden;
+	
+	&.open {
+		max-height: none;
+	}
+}
+
+.acc-header {
+	border-top: $border-accent;
+}
