@@ -1,11 +1,7 @@
 {% extends 'base.twig' %}
 
-{% block before_content %}
-	{% include 'archives/_archive-header.twig' %}
-{% endblock %}
-
 {% block content %}
 	{% for post in posts %}
-		{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
+		{% include 'teases/tease-' ~ post.post_type ~ '.twig' %}
 	{% endfor %}
 {% endblock %}
