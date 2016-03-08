@@ -1,13 +1,11 @@
 {% if post.get_field('sections') %}
 
 	{% for section in post.get_field('sections') %}
-		<section class="page__section" id="{{section.section_menu_item_title|lower|replace({ (' '): '_' })}}">
+		<section class="page-section" id="{{section.section_menu_item_title|lower|replace({ (' '): '_' })}}">
 			
-			<header class="section__header">
-				<div class="contain--sm">
-					<h2 class="section__title">{{section.section_title}}</h2>
-					<p class="header__lead">{{section.section_lead}}</p>
-				</div>
+			<header class="section-header">
+				<h2 class="section-title">{{section.section_title}}</h2>
+				<p class="section-lead">{{section.section_lead}}</p>
 			</header>
 
 			{% for block in section.blocks %} 
@@ -17,7 +15,5 @@
 		</section>
 	{% endfor %}
 {% else %}
-	<div class="contain--sm">
-		<h3 class="text-center section__title">Content on it's way!</h3>
-	</div>
+	<h3 class="section-title">Content on it's way!</h3>
 {% endif %}
