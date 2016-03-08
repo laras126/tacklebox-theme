@@ -1,7 +1,5 @@
 <section class="block-{{block_class}}">
-	{# {{ block.contain ? '<div class="' ~ block.contain ~ '">' }} #}
-		{% block content %}
-			<p>Nothing in this Block</p>
-		{% endblock %}
-	{# {{ block.contain ? '</div>' }} #}
+	{% block content %}
+		<p>Nothing in this Block</p>
+	{% endblock %}
 </section> <!-- /.{{block_class}} -->
