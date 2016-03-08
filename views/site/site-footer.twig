@@ -1,32 +1,33 @@
 
-<nav class="nav--backtop">
-	<a href="#pageTop">
-		{% include 'partials/svg.twig' with { file : 'arrow-up', prefix : 'icon' }%}
-	</a>
-</nav>
+<footer class="site-footer">
 
-<div class="site__footer__art">
-	<img src="{{site.theme.link}}/assets/img/svg-min/water.min.svg" alt="Fishy in water">
-</div>
+	<div class="site-footer-signup">
+		<h3>Stay in the Loop</h3>
+		<p>Sign up for emails announcing new courses, resources, and other cool stuff.</p>
+		{% include 'partials/mailchimp.twig' %}
+	</div>
 
-<footer class="site__footer">
-	{# <div class="contain--md rotate">
-		<p>Also on the Tackle Box</p>
-		{% for class in classes %}
-			<p><a href="{{class.link}}">{{class.name}}</a></p>
-		{% endfor %}
-	</div> #}
-	<div class="contain--xl">
-		<div class="site__footer__content">
+	<nav class="nav-backtop">
+		<a href="#pageTop">
+			{% include 'partials/svg.twig' with { file : 'arrow-up', prefix : 'icon' }%}
+		</a>
+	</nav>
+
+	<div class="site-footer-art">
+		<img src="{{site.theme.link}}/assets/img/svg-min/water.min.svg" alt="Fishy in water">
+	</div>
+
+	<div class="site-footer-colophon">
+		<div class="inner">
 			{% if site_footer_copyright %}
-				<div class="site__footer__copy">
+				{# <div class="site-footer-chunk"> #}
 					<p>{{site_footer_copy}}</p>
-				</div>
+				{# </div> #}
 			{% endif %}
 			{% if site_footer_credits %}
-				<div class="site__footer__colophon">
+				{# <div class="site-footer-chunk"> #}
 					<p>{{site_footer_credits}}</p>
-				</div>
+				{# </div> #}
 			{% endif %}
 		</div>
 	</div>

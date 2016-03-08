@@ -1,44 +1,38 @@
-<header class="site__header contain--lg" role="banner">
+{% if access %}
+    {% include 'site/site-callout_bar.twig' %}
+{% endif %}
+<header class="site-header" role="banner">
 
-    <div class="site__logo">
+    <div class="site-logo">
         <a href="{{site.link}}">
             <img src="{{theme.link}}/assets/img/util/tbx-logo1.svg" alt="">
         </a>
-    </div> <!-- .site__logo -->
+    </div> <!-- /.site-logo -->
+    
+    <nav class="site-nav" role="navigation">
+        <ul class="site-nav-items">
 
-    <nav class="site__nav" role="navigation">
-        <ul class="site__nav__items">
-
-        {% for item in menu.items %}
-            <li class="site__nav__item">
-                <a href="{{item.link}}" class="site__nav__item__link">{{item.title}}</a>
+        {% for item in main_menu.items %}
+            <li class="site-nav-item">
+                <a href="{{item.link}}" class="site-nav-item-link">{{item.title}}</a>
                 {% if item.get_children %}
-                    <ul class="site__nav__subnav">
+                    <ul class="site-subnav">
                     {% for child in item.get_children %}
-                        <li class="site__nav__subnav__item">
-                            <a href="{{child.get_link}}">{{child.title}}</a>
+                        <li class="site-subnav-item">
+                            <a class="site-subnav-item-link" href="{{child.get_link}}">{{child.title}}</a>
                         </li>
                     {% endfor %}
                     </ul>
                 {% endif %}
             </li>
         {% endfor %}
-        {% if access %}
-            <li class="site__nav__item -access">
-                <a href="{{site.link}}/classes">Classes</a>
-            </li>
-            <li class="site__nav__item">
-                <a href="{{site.link}}/account">Account</a>
-            </li>
-            <li class="site__nav__item">
-                <a href="{{logout_url}}">Log Out</a>
-            </li>
-        {% else %}
-            <li class="site__nav__item">
-                <a class="btn btn--info" href="{{site.link}}/log-in">Log In</a> or <a class="btn btn--success" href="{{site.link}}/register">Sign Up</a>
+
+        {% if not access %}
+            <li class="site-nav-item">
+                <a class="btn-info" href="{{site.link}}/log-in">Log In</a> or <a class="btn-success" href="{{site.link}}/register">Sign Up</a>
             </li>
         {% endif %}
         </ul>
-    </nav><!-- .site__nav -->
+    </nav><!-- /.site-nav -->
 
-</header>
+</header> <!-- /.site-header -->
