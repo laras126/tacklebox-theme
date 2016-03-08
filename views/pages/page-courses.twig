@@ -4,6 +4,6 @@
 	{% for course in courses %}
 		<h3>{{loop.index}}. {{course.name}}</h3>
 		<p>{{course.description}}</p>
-		<a href="{{course.link}}">View Lessons</a>
+		<a href="{{course.link}}" class="btn-info">View Lessons</a>
 	{% endfor %}
 {% endblock %}
