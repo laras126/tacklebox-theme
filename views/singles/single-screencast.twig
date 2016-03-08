@@ -1,10 +1,47 @@
 {% extends 'singles/single.twig' %}
 
 {% block content %}
+	
+	{% if post.get_terms('screencast_type') %}
+		<p>Type:
+		{% for t in post.get_terms('screencast_type') %}
+			<a href="{{t.link}}">{{t.name}}</a>
+		{% endfor %}
+		</p>
+	{% endif %}
+	
+	{% if post.get_terms('level') %}
+		<p>Level:
+		{% for t in post.get_terms('level') %}
+			<a href="{{t.link}}">{{t.name}}</a>
+		{% endfor %}
+		</p>
+	{% endif %}
 
-	<p>Screencast type</p>
-	<p>Level</p>
-	<p>Category</p>
+	{% if post.get_terms('category') %}
+		<p>Filed Under:
+		{% for t in post.get_terms('category') %}
+			<a href="{{t.link}}">{{t.name}}</a>{{ not loop.last ? ', ' }}
+		{% endfor %}
+		</p>
+	{% endif %}
+
+	{# TODO: there may be a more efficient way to do this with posts to posts, or a solution for bidirectional relationships. #}
+	{% if post.get_terms('class') %}
+		{% set lesson = TimberPost(post.related_lesson) %}
+		<p>Class:
+		{% for t in post.get_terms('class') %}
+			{{t.name}}: <a href="{{lesson.link}}">{{lesson.title}}</a>
+		{% endfor %}
+	{% endif %}
+
+	{% if post.get_terms('post_tag') %}
+		<p>Tagged:
+		{% for t in post.get_terms('post_tag') %}
+			<a href="{{t.link}}">{{t.name}}</a>
+		{% endfor %}
+		</p>
+	{% endif %}
 
 	{{post.video_embed}}
 
@@ -23,13 +60,14 @@
 
 {% block after_content %}
 
-	<p>TODO</p>
+	{# <p>TODO</p> #}
 	{# <ol>
 		{% for l in related_lessons %}
 			<li><a href="{{l.link}}">{{l.title}}</a></li>
 		{% endfor %}
 	</ol> #}
+	{# 
 	<p>Related lesson from class</p>
-	<p>Similar screencasts</p>
-	<p>Tags</p>
+	TODO
+	<p>Similar screencasts</p> #}
 {% endblock %}
