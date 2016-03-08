@@ -2,12 +2,8 @@
 
 {% block content %}
 	{% if block.textimage_format == 'caption'%}
-	<div class="contain--md">
 		<img class="media--captioned" src="{{block.textimage_image}}" alt="{{post.title}}">
-	</div>
-	<div class="contain--sm">
 		<p class="media__caption">{{block.textimage_caption}}</p>
-	</div>
 	{% elseif block.textimage_format == 'paragraph'%}
 		<img src="{{block.textimage_image}}" alt="{{post.title}}">
 		{{block.textimage_paragraph}}
