@@ -150,14 +150,14 @@ fieldset {
 	margin-bottom: $size-xsml;
 }
 
-.form__half {
+.form-half {
 	@include cell(full);
 	@include bp(sm) {
 		@include cell(half, $is_first: falses);
 	}
 }
 
-.form__full {
+.form-full {
 	margin-top: $size-base;
 	@include cell(full);
 }
@@ -171,9 +171,8 @@ input[type="submit"],
 	}
 }
 
-.form__submit {
+.form-submit {
 	
-	float: right;
 	@include cell(full);
 	
 	@include bp(sm) {
