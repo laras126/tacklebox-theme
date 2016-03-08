@@ -80,6 +80,28 @@
                     "placeholder": ""
                 }
             ]
+        },
+        {
+            "key": "field_56dddaecb02be",
+            "label": "Related Lesson",
+            "name": "related_lesson",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "lesson"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -99,5 +121,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1457292021
+    "modified": 1457380108
 }
