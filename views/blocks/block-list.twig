@@ -13,21 +13,21 @@
 		<p class="list-description">{{block.list_description}}</p>
 	{% endif %}
 
-	<ul class="block_list__list list--{{display}} list--{{type}}">
+	<ul class="list list-{{display}} list-{{type}}">
 
 		{% if type == 'free_form' %}
 			{% for item in block.list_type_freeform %}
-				<li class="list__item--{{type}}{{ item.item_class ? ' ' ~ item.item_class}}">
-					{% if display == 'major' %}
+				<li class="list-item -{{display}}{{ item.item_class ? ' ' ~ item.item_class}}">
+					{% if display == 'icons' %}
 						{% if item.item_svg %}
-							<div class="list__item__icon">
+							<div class="list-item-icon">
 								{% include 'partials/svg.twig' with { file : item.item_svg, prefix : 'icon' } %}
 							</div>
 						{% endif %}
 					{% endif %}
-					<div class="list__item__main">
-						<h4 class="list__item__title">{{item.item_title}}</h4>
-						<div class="list__item__desc__text">
+					<div class="list-item-main -{{display}}">
+						<h4 class="list-item-title -{{display}}">{{item.item_title}}</h4>
+						<div class="list-item-desc -{{display}}">
 							{{item.item_description}}
 						</div>
 					</div>
@@ -35,7 +35,7 @@
 			{% endfor %}
 		{% else %}
 			{% for post in block.list_type_connected_content %}
-				<li class="list__item--{{post.post_type}}">
+				<li class="list-item-{{post.post_type}}">
 					{% include 'teases/tease-' ~ post.post_type ~ '.twig' %}
 				</li>
 			{% endfor %}
