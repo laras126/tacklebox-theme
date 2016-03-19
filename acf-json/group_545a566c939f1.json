@@ -370,8 +370,8 @@
                                                 "id": ""
                                             },
                                             "choices": {
-                                                "major": "Major",
-                                                "minor": "Minor"
+                                                "icons": "Icons",
+                                                "text": "Text"
                                             },
                                             "other_choice": 0,
                                             "save_other_choice": 0,
@@ -441,6 +441,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
+                                            "collapsed": "",
                                             "min": "",
                                             "max": "",
                                             "layout": "block",
@@ -458,7 +459,7 @@
                                                             {
                                                                 "field": "field_55d21939f5e6c",
                                                                 "operator": "==",
-                                                                "value": "major"
+                                                                "value": "icons"
                                                             }
                                                         ]
                                                     ],
@@ -490,33 +491,12 @@
                                                             {
                                                                 "field": "field_55d21939f5e6c",
                                                                 "operator": "==",
-                                                                "value": "major"
+                                                                "value": "icons"
                                                             }
                                                         ]
                                                     ],
                                                     "wrapper": {
                                                         "width": 33,
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "default_value": "",
-                                                    "placeholder": "",
-                                                    "prepend": "",
-                                                    "append": "",
-                                                    "maxlength": "",
-                                                    "readonly": 0,
-                                                    "disabled": 0
-                                                },
-                                                {
-                                                    "key": "field_55d21939f5e73",
-                                                    "label": "Item Class",
-                                                    "name": "item_class",
-                                                    "type": "text",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
                                                         "class": "",
                                                         "id": ""
                                                     },
@@ -537,7 +517,28 @@
                                                     "required": 0,
                                                     "conditional_logic": 0,
                                                     "wrapper": {
-                                                        "width": "",
+                                                        "width": 66,
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": "",
+                                                    "maxlength": "",
+                                                    "readonly": 0,
+                                                    "disabled": 0
+                                                },
+                                                {
+                                                    "key": "field_55d21939f5e73",
+                                                    "label": "Item Class",
+                                                    "name": "item_class",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": 33,
                                                         "class": "",
                                                         "id": ""
                                                     },
@@ -567,8 +568,7 @@
                                                     "toolbar": "text_based",
                                                     "media_upload": 0
                                                 }
-                                            ],
-                                            "collapsed": ""
+                                            ]
                                         },
                                         {
                                             "key": "field_55d21939f5e74",
@@ -871,6 +871,13 @@
                 "operator": "==",
                 "value": "page-long_form.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-class.php"
+            }
         ]
     ],
     "menu_order": 2,
@@ -887,5 +894,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1457291176
+    "modified": 1458405668
 }
