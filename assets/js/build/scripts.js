@@ -117,15 +117,17 @@ $(document).ready(function() {
 	});
 
 	$('.tab-link').on('click', function(e) {
-        e.preventDefault();
+		e.preventDefault();
 	});
 
 	$('.acc-header').each( function() {
-		var $panel = $(this).next();
+		var $panel = $(this).next('.acc-content');
 		$(this).on('click', function() {
 			if ($panel.hasClass('open')) {
 				$panel.removeClass('open')
+				$(this).removeClass('open');
 			} else {
+				$(this).addClass('open');
 				$panel.addClass('open');
 			}
 		});
