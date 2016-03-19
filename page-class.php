@@ -2,6 +2,7 @@
 
 /*
  * Template Name: Class Page
+ * Template Name: Class Sales Page
  * Description: A Page Template for classes that shows associated lessons.
  */
 
