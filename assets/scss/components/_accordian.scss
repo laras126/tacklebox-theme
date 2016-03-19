@@ -1,8 +1,11 @@
-
+.acc-section {
+	position: relative;
+}
 
 .acc-content {
 	max-height: 0;
 	overflow: hidden;
+	transition: all 0.6s ease;
 	
 	&.open {
 		max-height: none;
@@ -11,4 +14,17 @@
 
 .acc-header {
 	border-top: $border-accent;
+	position: relative;
+	
+	&:after {
+		font-size: $size-h3;
+		content: '\02193';
+		position: absolute;
+		right: 0;
+		top: 40%;
+	}
+
+	&.open:after {
+		content: '\02191';
+	}
 }
