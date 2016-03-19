@@ -1,6 +1,7 @@
 .bar-logged-in {
-	@include rotate;
+	@include rotate($bkgd: $color-alert-success);
 	@include meta($color-text-vlight);
+	border-bottom: $border-accent;
 	text-align: right;
 
 	a {
