@@ -1,56 +1,53 @@
 
-// List items
+// List block styles
 
-.list--icons {
-
-	
-
-}
-
-/// @group [lists]
-/// @content [Major and Minor list styles]
-
-.list--major {
+.list-icons {
 	list-style-type: none;
 	padding-left: 0;
+	@include grid($guttered: false);
 }
 
-.list__item--major {
-	margin-top: $size-h3;
-	border-top: $border-accent;
+.list-item {
+
+	&.-icons {
+		@include grid;
+		@include bp(md) {
+			@include cell($size: half);
+		}
+	}
 }
 
-.list__item__desc {
+.list-item-desc {
 	position: relative;
 	z-index: $z-mid;
-}
 
-.list--minor {
-	list-style-type: none;
-	padding-left: 0;
-}
-
-.list--lessons {
-	list-style-type: none;
-	padding-left: 0;
-	@include bp(md) {
-		@include grid;
+	&.-icons {
+		@include meta;
 	}
 }
 
-.list__item--lesson {
+
+// Icons
+.list-item-icon {
+    justify-content: center;
+    @include cell(sixth);
 	@include bp(md) {
-		@include cell(half);
-		padding: $size-h3;
+	    @include cell(fourth);
 	}
-	margin-bottom: $size-base;
+
+    .icon {
+        @include icon($size: $size-h2);
+    }
 }
 
-.list__item__title--lesson {
-	margin-top: 0;
-	border-bottom: $border-accent;
+.list-item-main {
+    @include cell;
 }
 
+.list-item-title {
+    @include upperspace;
+    @include meta;
+}
 
 
 
@@ -160,7 +157,7 @@
 
 // Pricing
 
-.list--icons {
+.list-icons {
 
 	margin-top: $size-h3;
 	
