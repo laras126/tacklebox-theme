@@ -12,36 +12,36 @@
         {% block header %}
             {% include 'site/site-header.twig' %}
         {% endblock %}  
-        
-        <main class="site-main" role="main">
-        
-            {% block before_content %}
-                {% include 'partials/header.twig' %}
-            {% endblock %}
+        <div class="site-wrap">
+            <main class="site-main" role="main">
+                <div class="site-content">
+                    {% block before_content %}
+                        {% include 'partials/header.twig' %}
+                    {% endblock %}
 
-            {{sidebar ? '<div class="grid">'}}
-                
-                {{sidebar ? '<div class="main__content">'}}
+                {# {{sidebar ? '<div class="grid">'}} #}
+                    
+                    {# {{sidebar ? '<div class="main__content">'}} #}
 
                     {% block content %}
                         Sorry, no content
                     {% endblock %}
 
                     {% block after_content %}{% endblock %}
-                {{sidebar ? '</div>'}}
+                    {# {{sidebar ? '</div>'}} #}
+                </div>
+            {# {% if sidebar %} #}
+                <aside class="site-sidebar">
+                    <ul class="list--widgets">
+                        {{sidebar}}
+                    </ul>
+                </aside>
+            {# {% endif %} #}
 
-                {% if sidebar %}
-                    <aside class="main__sidebar">
-                        <ul class="list--widgets">
-                            {{sidebar}}
-                        </ul>
-                    </aside>
-                {% endif %}
+                {# {{sidebar ? '</div>'}} #}
 
-            {{sidebar ? '</div>'}}
-
-        </main>
-
+            </main>
+        </div>
         {% block footer %}
             {% include 'site/site-footer.twig' %}
             {{ function('wp_footer') }}
