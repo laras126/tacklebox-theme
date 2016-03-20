@@ -12,16 +12,22 @@
 		</div>
 	</nav>
 
-{# {% if access %} #}
+{% if access %}
 	<div class="lesson-screencasts">
-		{% for id in post.get_field('screencasts') %}
-		<section class="acc-section{{loop.first ? ' open'}}">
+		{# <pre>
+			{{dump(screencasts)}}
+		</pre> #}
+		{% for id in screencasts %}
+		<section class="acc-section">
 			{% set vid = TimberPost(id) %}
-			<header class="acc-header">
-				<h3>{{vid.title}}</h3>
+			<header class="acc-header{{loop.first ? ' open'}}">
+				<h4 class="acc-title">{% for l in related_lessons %}{% if l.title == post.title %}{{loop.index}}{% endif %}{% endfor %}.{{loop.index}} {{vid.title}}</h4>
+				<div class="acc-arrow-wrap">
+					{% include 'partials/svg.twig' with { file: 'arrow-down', prefix: 'acc-arrow' } %}
+				</div>
 				<p>{{vid.header_tagline}}</p>
 			</header>
-			<div class="acc-content">
+			<div class="acc-content{{loop.first ? ' open'}}">
 				{{vid.video_embed}}
 				{{vid.content}}
 				{% if vid.links %}
@@ -35,7 +41,7 @@
 					</ul>
 				{% endif %}
 			</div>
-			{% include 'partials/edit-link.twig' with { post: vid } %}
+			{# {% include 'partials/edit-link.twig' with { post: vid } %} #}
 		</section>
 		{% endfor %}
 	</div> <!-- /.lesson-screencasts -->
@@ -91,10 +97,10 @@
 			{% endif %}
 		</section> <!-- /#resources -->
 	</div> <!-- /.tab-content-container -->
-{# 
-	{% else %}
-		{% include 'partials/no-access.twig' %}	
-	{% endif %} #}
+
+{% else %}
+	{% include 'partials/no-access.twig' %}	
+{% endif %}
 
 {% endblock %}
 
