@@ -1,17 +1,17 @@
-<aside class="bar-logged-in">
-	<nav class="bar-nav">
-        <div class="bar-nav-inner">
-    		<span class="bar-user bar-nav-item">Hey, {{user.first_name}}!</span>
-            <ul class="bar-nav-items">
-    		 {% for item in user_menu.items %}
-                <li class="bar-nav-item">
-                    <a class="bar-nav-item-link" href="{{item.link}}">{{item.title}}</a>
-                </li>
-                {% endfor %}
-                <li class="bar-nav-item">
-                    <a href="{{logout_url}}">Log Out</a>
-                </li>		
-    		</ul>
-        </div>
-	</nav>
-</aside>
+<div class="bar-wrap">
+<nav class="bar-nav">
+    <div class="bar-nav-inner">
+		<span class="bar-user bar-nav-item"></span>
+        <ul class="bar-nav-items">
+		 {% for item in user_menu.items %}
+            <li class="bar-nav-item">
+                <a class="bar-nav-item-link" href="{{item.link}}">{{item.title}}</a>
+            </li>
+            {% endfor %}
+            <li class="bar-nav-item">
+                {{user.first_name}} | <a href="{{logout_url}}">Log Out</a>
+            </li>		
+		</ul>
+    </div>
+</nav>
+</div>
