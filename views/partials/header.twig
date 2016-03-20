@@ -1,11 +1,27 @@
 <header class="page-header">
 	
+	{% if post.post_type == 'lesson' %}
+	    <nav class="crumbs">
+		    {% for t in post.terms('class') %}
+		        <a href="{{t.link}}">{{t.name}}</a>
+		    {% endfor %}
+		 
+		    {% for l in related_lessons %}
+		        {% if l.title == post.title %}
+		        	&rarr; Lesson {{loop.index}}</p>
+		        {% endif %}
+		    {% endfor %}
+		</nav>
+	{% endif %}
+
 	<h1>{{post.post_title}}</h1>
+	
 	{% if post.header_tagline %}
 		<p class="lead">{{post.header_tagline}}</p>
 	{% endif %}
 	{% if post.header_summary %}
 		<p class="summary">{{post.header_summary|wpautop}}</p>
 	{% endif %}
+
 	
 </header>
