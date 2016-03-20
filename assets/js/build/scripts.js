@@ -139,7 +139,7 @@ $(document).ready(function() {
 	// Plugins
 	// ----
 
-	$('.site__main').fitVids();
+	$('.site-main').fitVids();
 
 
 
