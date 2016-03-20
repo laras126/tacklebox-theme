@@ -1,9 +1,9 @@
 
-$screen-xs:     420px;
-$screen-sm:     560px;
-$screen-md:     768px;
-$screen-lg:   	960px;
-$screen-xl:     1152px;
+$screen-xs:     26em;
+$screen-sm:     35em;
+$screen-md:     43em;
+$screen-lg:   	50em;
+$screen-xl:     58em;
 
 // ----
 // ---- Colors
@@ -92,7 +92,7 @@ $size-base:  		1.1rem;
 $size-xsml: 		$size-base*0.6;
 $size-sml:  		$size-base*0.8;
 
-$size-h1:  			$size-base*3;
+$size-h1:  			$size-base*2.8;
 $size-h2:  			$size-base*2.3;
 $size-h3:  			$size-base*1.8;
 $size-h4:  			$size-base*1.3;
@@ -130,13 +130,13 @@ $font-weight-strong: 	700;
 
 
 
-
 // ----
 // ---- Utilities 
 // ----
 
 $border-accent: 	1px dotted $color-accent-med;
 $border-thick: 		5px solid $color-accent-dark;
+$border-thick-light:5px solid $color-accent-light;
 $border-form:	 	1px solid $color-accent-med;
 $border-alert: 		3px solid $color-alert-success;
 
