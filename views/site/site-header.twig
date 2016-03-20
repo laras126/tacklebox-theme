@@ -2,37 +2,37 @@
     {% include 'site/site-callout_bar.twig' %}
 {% endif %}
 <header class="site-header" role="banner">
+    <div class="site-header-inner">
+        <div class="site-logo">
+            <a href="{{site.link}}">
+                <img src="{{theme.link}}/assets/img/util/tbx-logo1.svg" alt="Logo">
+            </a>
+        </div> <!-- /.site-logo -->
+        
+        <nav class="site-nav" role="navigation">
+            <ul class="site-nav-items">
 
-    <div class="site-logo">
-        <a href="{{site.link}}">
-            <img src="{{theme.link}}/assets/img/util/tbx-logo1.svg" alt="Logo">
-        </a>
-    </div> <!-- /.site-logo -->
-    
-    <nav class="site-nav" role="navigation">
-        <ul class="site-nav-items">
+            {% for item in main_menu.items %}
+                <li class="site-nav-item">
+                    <a href="{{item.link}}" class="site-nav-item-link">{{item.title}}</a>
+                    {% if item.get_children %}
+                        <ul class="site-subnav">
+                        {% for child in item.get_children %}
+                            <li class="site-subnav-item">
+                                <a class="site-subnav-item-link" href="{{child.get_link}}">{{child.title}}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
 
-        {% for item in main_menu.items %}
-            <li class="site-nav-item">
-                <a href="{{item.link}}" class="site-nav-item-link">{{item.title}}</a>
-                {% if item.get_children %}
-                    <ul class="site-subnav">
-                    {% for child in item.get_children %}
-                        <li class="site-subnav-item">
-                            <a class="site-subnav-item-link" href="{{child.get_link}}">{{child.title}}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-            </li>
-        {% endfor %}
-
-        {% if not access %}
-            <li class="site-nav-item">
-                <a class="btn-info" href="{{site.link}}/log-in">Log In</a> or <a class="btn-success" href="{{site.link}}/register">Sign Up</a>
-            </li>
-        {% endif %}
-        </ul>
-    </nav><!-- /.site-nav -->
-
+            {% if not access %}
+                <li class="site-nav-item">
+                    <a class="btn-info" href="{{site.link}}/log-in">Log In</a> or <a class="btn-success" href="{{site.link}}/register">Sign Up</a>
+                </li>
+            {% endif %}
+            </ul>
+        </nav><!-- /.site-nav -->
+    </div>
 </header> <!-- /.site-header -->
