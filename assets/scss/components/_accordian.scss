@@ -1,10 +1,12 @@
 .acc-section {
 	position: relative;
+	padding-bottom: $size-h3;
 }
 
 .acc-content {
 	max-height: 0;
 	overflow: hidden;
+	padding-top: $size-base;
 	transition: all 0.6s ease;
 	
 	&.open {
@@ -13,18 +15,40 @@
 }
 
 .acc-header {
-	border-top: $border-accent;
+	border-top: $border-thick-light;
 	position: relative;
-	
-	&:after {
-		font-size: $size-h3;
-		content: '\02193';
-		position: absolute;
-		right: 0;
-		top: 40%;
-	}
+	padding: $size-sml;
+	@include grid;
+	align-items: center;
 
-	&.open:after {
-		content: '\02191';
+	&:hover,
+	&.open {
+		cursor: pointer;
+		border-color: $color-accent-dark;
+	}
+}
+
+.acc-title {
+	@include cell();
+	margin-top: 0;
+	padding: 0;
+}
+
+.acc-arrow-wrap {
+	@include cell(sixth);
+	display: flex;
+	justify-content: flex-end;
+}
+
+.acc-arrow {
+	@include icon($block: false, $size: $size-h3);
+	transition: 0.25s ease all;
+	transform: rotate(0deg);
+	transform-origin: center;
+	
+	.open & {
+		// transition: 0.25s ease all;
+		transform: rotate(-180deg);
+		// transform-origin: center;
 	}
 }
