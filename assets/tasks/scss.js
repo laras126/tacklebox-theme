@@ -41,12 +41,7 @@ module.exports = function(grunt, config) {
 		    css: {
 		        src: config.cssDir + 'main.css',
 		        dest: config.cssDir + 'main.min.css'
-		    },
-
-		    critical: {
-		    	src: config.cssDir + 'critical.css',
-				dest: config.cssDir + 'critical.min.css'
-			}
+		    }
 		},
 
 		watch: {
