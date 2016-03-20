@@ -10,6 +10,7 @@
 body {
 	word-wrap: break-word;
 	background-color: $color-body-bkgd;
+	// background-color: $color-accent-vlight;
 	border-top: $border-thick;
 
 	@include bp(small) {
@@ -28,18 +29,22 @@ hr {
 	border-bottom: $border-accent;
 }
 
+.site-wrap {
+	@include contain(lg)
+}
+
 .site-main {
-	// background-color: $color-body-contain;
-	// padding: $size-h4;
-	// border: $border-accent;
-	
-	@include contain(md);
+	@include grid;
+}
+
+.site-content {
+	float: left;
+	@include cell;
 }
 
 .site-sidebar {
 	@include bp(md) {
-		border-left: $border-accent;
-		@include cell(third);
-		padding-left: $size-h4;
+		float: left;
+		@include cell(fourth);
 	}
 }
