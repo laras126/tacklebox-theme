@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: $size-h2;
+	line-height: 1;
 	
 	@include bp(sm) {
 		font-size: $size-h1;
