@@ -1,10 +1,9 @@
-%icon-base {
-	display: block;
-	margin: 0 auto;
-}
 
-@mixin icon($fill: $color-accent-dark, $hover: $color-accent-med, $size: $size-base) {
-	@extend %icon-base;
+@mixin icon($fill: $color-accent-dark, $hover: $color-accent-med, $size: $size-base, $block: true) {
+	@if $block == true {
+		display: block;
+		margin: 0 auto;
+	}
 	fill: $fill;
 	width: $size;
 	height: $size;
@@ -20,5 +19,9 @@
 }
 
 .icon {
-	@include icon($color-accent-dark);
+	@include icon;
+}
+
+.icon-inline {
+	// @include icon($block: false);
 }
