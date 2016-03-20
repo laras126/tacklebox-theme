@@ -3,8 +3,11 @@
 	@include contain(lg);
 	border-bottom: $border-accent;
 	margin-bottom: $size-h3;
+}
+
+.site-header-inner {
 	@include bp(md) {
-		@include grid(false, center);
+		@include grid;
 		align-items: flex-end;
 	}
 }
@@ -14,12 +17,16 @@
 	display: block;
 	margin: 0 auto;
 	
+	// @include bp(md) {
+	// 	@include cell(fourth);
+	// }
+
 	@include bp(md) {
-		@include cell(fourth, $is_first: false);
+		@include cell(fourth);
 	}
 
-	@include bp(lg) {
-		@include cell(fourth, $is_first: false);
+	@include bp(xl) {
+		@include cell(sixth);
 	}
 }
 
@@ -27,6 +34,7 @@
 
 	@include bp(sm) {
 		@include cell;
+		align-items: center;
 	}
 
 	&-items {
