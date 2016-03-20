@@ -1,8 +1,9 @@
-.bar-logged-in {
-	@include rotate($bkgd: $color-alert-success);
+.bar-wrap {
+	background-color: $color-alert-success;
 	@include meta($color-text-vlight);
 	border-bottom: $border-accent;
 	text-align: right;
+	color: $color-text-vlight;
 
 	a {
 		color: $color-text-vlight;
@@ -10,7 +11,7 @@
 }
 
 .bar-nav {
-	@include contain(lg);
+	@include contain(xl);
 	ul {
 		@include unstyle-list;
 	}
