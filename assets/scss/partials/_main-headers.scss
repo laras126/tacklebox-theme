@@ -1,0 +1,10 @@
+.crumbs {
+	// background-color: $color-accent-med;
+	// padding-left: $size-h1;
+	// margin-left: -$size-h1;	
+	// margin-top: -$size-h3;	
+	border-bottom: $border-accent;
+	@include upperspace;
+	font-weight: $font-weight-strong;
+	font-size: $size-sml;
+}
