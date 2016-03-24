@@ -1,7 +1,7 @@
 {% extends 'pages/page.twig' %}
 
-{% block before_content %}	
-	
+{% block before_content %}
+
 	{% set display = post.header_display %}
 	{% set start = post.class_start_date|date("U") %}
 	{% set end = post.class_end_date|date("U") %}
@@ -10,18 +10,18 @@
 	<header class="header--page contain--lg">
 
 		<div class="header__banner">
-			{# <p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
+			<p class="header__meta{% if start >= now %} class_open{% elseif start < now and end >= now %} class_live{% else %} class_off{% endif %}">
 				{% if start >= now %}
 					Now Registering
 				{% elseif start < now and end >= now %}
 					Class in session
 				{% else %}Not Live{% endif %}
-			</p> #}
+			</p>
 			<h1 class="header__title">{{post.post_title}}</h1>
 		</div>
-		
+
 		<div class="grid">
-		
+
 			<div class="header__main">
 				<p class="header__lead">{{post.header_tagline}}</p>
 				<p class="header__summary">{{post.header_summary|wpautop}}</p>
@@ -37,20 +37,20 @@
 					{% endif %}
 				</div>
 			</div> <!-- .header__main -->
-		
+
 			<div class="header__compliment">
 
-				{# {% if end >= now %}
+				{% if end >= now %}
 					<div class="item__row">
 						<div class="item__icon">
 							{% include 'partials/svg.twig' with { file: 'calendar', prefix: 'icon'} %}
 						</div>
 						<time datetime="{{post.class_start_date|date("Y-m-d")}}" class="item__main">
 							<h5 class="item__title">{{post.class_time}}</h5>
-							<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}</p>
+							<p class="meta">{{post.class_start_date|date('F j')}} - {{post.class_end_date|date('F j')}}, {{post.date|date("Y")}}</p>
 						</time>
 					</div>
-				{% endif %} #}
+				{% endif %}
 
 				<div class="item__row">
 					<div class="item__icon">
@@ -63,16 +63,16 @@
 						{% endfor %}
 					</div>
 				</div>
-				
+
 				<div class="item__row last">
 					{% include 'partials/class-location.twig' %}
 				</div>
 
 			</div>
 		</div>
-		
+
 	</header>
-		
+
 {% endblock %}
 
 {% block content %}
