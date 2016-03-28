@@ -3,32 +3,6 @@
     "title": "Lessons",
     "fields": [
         {
-            "key": "field_56dc7eb81dab3",
-            "label": "Screencasts",
-            "name": "screencasts",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "screencast"
-            ],
-            "taxonomy": [],
-            "filters": [
-                "search",
-                "taxonomy"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "id"
-        },
-        {
             "key": "field_5592d15291d53",
             "label": "Learning Goals",
             "name": "learning_goals",
@@ -380,6 +354,7 @@
                             "max": "",
                             "layout": "block",
                             "button_label": "Add Item",
+                            "collapsed": "",
                             "sub_fields": [
                                 {
                                     "key": "field_55c8bc3c49608",
@@ -481,8 +456,7 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ],
-                            "collapsed": ""
+                            ]
                         },
                         {
                             "key": "field_55c8bc3c4960c",
@@ -1144,6 +1118,7 @@
                             "max": "",
                             "layout": "block",
                             "button_label": "Add Item",
+                            "collapsed": "",
                             "sub_fields": [
                                 {
                                     "key": "field_55c8bc61cce01",
@@ -1245,8 +1220,7 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ],
-                            "collapsed": ""
+                            ]
                         },
                         {
                             "key": "field_55c8bc61cce05",
@@ -1908,6 +1882,7 @@
                             "max": "",
                             "layout": "block",
                             "button_label": "Add Item",
+                            "collapsed": "",
                             "sub_fields": [
                                 {
                                     "key": "field_5638f55201bf4",
@@ -2009,8 +1984,7 @@
                                     "toolbar": "text_based",
                                     "media_upload": 0
                                 }
-                            ],
-                            "collapsed": ""
+                            ]
                         },
                         {
                             "key": "field_5638f55201bf8",
@@ -2340,5 +2314,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1457291867
+    "modified": 1459169505
 }
